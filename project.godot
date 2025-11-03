@@ -23,6 +23,11 @@ GInit="*res://scripts/global/init.gd"
 GSong="*res://scripts/global/songs.gd"
 GStat="*res://scripts/global/stats.gd"
 
+[global_group]
+
+Minigame=""
+Character=""
+
 [input]
 
 movement={

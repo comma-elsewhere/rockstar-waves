@@ -2,10 +2,11 @@ extends State
 
 @onready var can_jump_check: ShapeCast3D = $CanJumpCheck
 
-@export var camera: Node3D
+@export var camera: CamControl
 @export_subgroup("States")
 @export var fall: State
 @export var idle: State
+@export var walk: State
 
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
@@ -17,6 +18,8 @@ func process_physics(_delta: float) -> State:
 		parent.velocity.y += parent.jump_height
 		parent.move_and_slide()
 		
+	elif Input.is_action_pressed("movement") and parent.is_on_floor():
+		return walk
 	elif parent.is_on_floor():
 		return idle
 	elif !parent.is_on_floor():

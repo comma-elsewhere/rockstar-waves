@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqjpsirba3vey"]
+[gd_scene load_steps=18 format=3 uid="uid://bqjpsirba3vey"]
 
 [ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_fm80t"]
@@ -17,6 +17,9 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
+radius = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
 
@@ -38,15 +41,21 @@ shape = SubResource("CapsuleShape3D_x7p2l")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CamOrigin" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.17364818, 0, 0.17364818, 0.9848077, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("2_gx1jg")
 
 [node name="CamArm" type="SpringArm3D" parent="CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.4901161e-08, 0, 1.4901161e-08, 1, 0, 0, 0)
 spring_length = 3.0
 margin = 0.5
 
 [node name="Camera" type="Camera3D" parent="CamOrigin/CamArm"]
-transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.1736482, 0, -0.1736482, 0.9848078, 0, 0, 0)
+
+[node name="DetectionZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+shape = SubResource("CylinderShape3D_gx1jg")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("1_8afob")
@@ -87,11 +96,12 @@ idle = NodePath("../Idle")
 parent = NodePath("../../..")
 animation_name = "run"
 
-[node name="Jump" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "fall", "idle", "parent")]
+[node name="Jump" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "fall", "idle", "walk", "parent")]
 script = ExtResource("5_ugbui")
 camera = NodePath("../../../CamOrigin")
 fall = NodePath("../Fall")
 idle = NodePath("../Idle")
+walk = NodePath("../Walk")
 parent = NodePath("../../..")
 animation_name = "jump"
 
@@ -100,10 +110,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_fm80t")
 collision_mask = 2
 
-[node name="Fall" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "idle", "parent")]
+[node name="Fall" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "idle", "walk", "parent")]
 script = ExtResource("6_fcs02")
 camera = NodePath("../../../CamOrigin")
 idle = NodePath("../Idle")
+walk = NodePath("../Walk")
 parent = NodePath("../../..")
 animation_name = "fall"
 
@@ -113,16 +124,22 @@ animation_name = "fall"
 script = ExtResource("7_myrg7")
 parent = NodePath("../../..")
 
-[node name="MakeMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+[node name="MakeMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
 script = ExtResource("8_kvlxm")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
 script = ExtResource("9_uf5tr")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
 script = ExtResource("10_lgqa7")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
 [node name="Other" type="Node" parent="StateMachine"]
@@ -130,3 +147,6 @@ parent = NodePath("../../..")
 [node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("parent")]
 script = ExtResource("11_8ydkj")
 parent = NodePath("../../..")
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_game_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_game_zone_area_exited"]

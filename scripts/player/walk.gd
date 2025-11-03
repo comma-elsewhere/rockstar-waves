@@ -1,6 +1,6 @@
 extends State
 
-@export var camera: Node3D
+@export var camera: CamControl
 @export_subgroup("States")
 @export var run: State
 @export var jump: State
@@ -10,6 +10,7 @@ extends State
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
 
+#State Machine
 	if event.is_action_released("movement"):
 		return idle
 	elif event.is_action_pressed("jump"):
@@ -18,14 +19,17 @@ func process_input(event: InputEvent) -> State:
 		return run
 	return null
 
-
 func process_physics(_delta: float) -> State:
+	process_movement()
+	
+#State Machine
+	if !parent.is_on_floor():
+		return fall
+	return null
+
+func process_movement() -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
 	var direction = (camera.transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)).normalized()
 	parent.velocity.x = direction.x * parent.walk_speed 
 	parent.velocity.z = direction.z * parent.walk_speed 
 	parent.move_and_slide()
-	
-	if !parent.is_on_floor():
-		return fall
-	return null
