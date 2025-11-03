@@ -1,0 +1,132 @@
+[gd_scene load_steps=17 format=3 uid="uid://bqjpsirba3vey"]
+
+[ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_fm80t"]
+[ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_gx1jg"]
+[ext_resource type="Script" uid="uid://d0x5g8fgttdd6" path="res://scripts/player/idle.gd" id="2_je7p5"]
+[ext_resource type="Script" uid="uid://cvi54vwevo6fq" path="res://scripts/player/walk.gd" id="3_fm80t"]
+[ext_resource type="Script" uid="uid://bbp7gjo6lut1r" path="res://scripts/player/run.gd" id="4_gx1jg"]
+[ext_resource type="Script" uid="uid://da84qt7sqbupn" path="res://scripts/player/jump.gd" id="5_ugbui"]
+[ext_resource type="Script" uid="uid://e4dfpbwccrdy" path="res://scripts/player/fall.gd" id="6_fcs02"]
+[ext_resource type="Script" uid="uid://dj40jj8f88lg7" path="res://scripts/player/write_song.gd" id="7_myrg7"]
+[ext_resource type="Script" uid="uid://b8s0yx3n4j70b" path="res://scripts/player/make_merch.gd" id="8_kvlxm"]
+[ext_resource type="Script" uid="uid://bbkgrulgv7bxs" path="res://scripts/player/sell_merch.gd" id="9_uf5tr"]
+[ext_resource type="Script" uid="uid://7wqaxa4syfvt" path="res://scripts/player/perform_music.gd" id="10_lgqa7"]
+[ext_resource type="Script" uid="uid://dh0bw0ixcjwqv" path="res://scripts/player/talk.gd" id="11_8ydkj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation")]
+script = ExtResource("1_fm80t")
+walk_speed = 10
+run_speed = 30
+jump_height = 5
+animation = NodePath("AnimationPlayer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_x7p2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_x7p2l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CamOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.17364818, 0, 0.17364818, 0.9848077, 0, 1.5, 0)
+script = ExtResource("2_gx1jg")
+
+[node name="CamArm" type="SpringArm3D" parent="CamOrigin"]
+spring_length = 3.0
+margin = 0.5
+
+[node name="Camera" type="Camera3D" parent="CamOrigin/CamArm"]
+transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.1736482, 0, -0.1736482, 0.9848078, 0, 0, 0)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_8afob")
+starting_state = NodePath("Movement/Idle")
+
+[node name="Movement" type="Node" parent="StateMachine"]
+
+[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "write_song", "make_merch", "sell_merch", "perform", "talk", "parent")]
+script = ExtResource("2_je7p5")
+camera = NodePath("../../../CamOrigin")
+walk = NodePath("../Walk")
+run = NodePath("../Run")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+write_song = NodePath("../../Minigames/WriteSong")
+make_merch = NodePath("../../Minigames/MakeMerch")
+sell_merch = NodePath("../../Minigames/SellMerch")
+perform = NodePath("../../Minigames/Perform")
+talk = NodePath("../../Other/Talk")
+parent = NodePath("../../..")
+
+[node name="Walk" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "run", "jump", "fall", "idle", "parent")]
+script = ExtResource("3_fm80t")
+camera = NodePath("../../../CamOrigin")
+run = NodePath("../Run")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "walk"
+
+[node name="Run" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "fall", "idle", "parent")]
+script = ExtResource("4_gx1jg")
+camera = NodePath("../../../CamOrigin")
+walk = NodePath("../Walk")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "run"
+
+[node name="Jump" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "fall", "idle", "parent")]
+script = ExtResource("5_ugbui")
+camera = NodePath("../../../CamOrigin")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "jump"
+
+[node name="CanJumpCheck" type="ShapeCast3D" parent="StateMachine/Movement/Jump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_fm80t")
+collision_mask = 2
+
+[node name="Fall" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "idle", "parent")]
+script = ExtResource("6_fcs02")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "fall"
+
+[node name="Minigames" type="Node" parent="StateMachine"]
+
+[node name="WriteSong" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+script = ExtResource("7_myrg7")
+parent = NodePath("../../..")
+
+[node name="MakeMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+script = ExtResource("8_kvlxm")
+parent = NodePath("../../..")
+
+[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+script = ExtResource("9_uf5tr")
+parent = NodePath("../../..")
+
+[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+script = ExtResource("10_lgqa7")
+parent = NodePath("../../..")
+
+[node name="Other" type="Node" parent="StateMachine"]
+
+[node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("parent")]
+script = ExtResource("11_8ydkj")
+parent = NodePath("../../..")
