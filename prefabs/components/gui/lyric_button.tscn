@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://blj1o658rcq87"]
+
+[ext_resource type="Script" uid="uid://bwd5sid7j43cb" path="res://scripts/gui/lyric_button.gd" id="1_bq8su"]
+
+[node name="LyricButton" type="Button"]
+size_flags_horizontal = 3
+toggle_mode = true
+text = "LYRIC"
+script = ExtResource("1_bq8su")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

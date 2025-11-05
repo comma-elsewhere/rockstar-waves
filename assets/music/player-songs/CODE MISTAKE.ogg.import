@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkes603j5vk42"
+path="res://.godot/imported/CODE MISTAKE.ogg-fb0695007dbffbe5977dfa0dbf89c763.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/player-songs/CODE MISTAKE.ogg"
+dest_files=["res://.godot/imported/CODE MISTAKE.ogg-fb0695007dbffbe5977dfa0dbf89c763.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

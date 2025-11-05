@@ -6,7 +6,7 @@ class_name State extends Node
 
 func enter() -> void:
 	#parent.animation.play(animation_name)
-	print(animation_name)
+	pass
 
 func exit() -> void:
 	pass

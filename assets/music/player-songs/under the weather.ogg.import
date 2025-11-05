@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ses4caojf30e"
+path="res://.godot/imported/under the weather.ogg-e703b25f99f45184b2403c98411969a2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/player-songs/under the weather.ogg"
+dest_files=["res://.godot/imported/under the weather.ogg-e703b25f99f45184b2403c98411969a2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

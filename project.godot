@@ -20,8 +20,15 @@ config/icon="res://icon.svg"
 GDialog="*res://scripts/global/dialog.gd"
 GFunc="*res://scripts/global/functions.gd"
 GInit="*res://scripts/global/init.gd"
-GSong="*res://scripts/global/songs.gd"
+Lyric="*res://scripts/global/lyrics.gd"
 GStat="*res://scripts/global/stats.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 

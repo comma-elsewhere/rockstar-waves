@@ -1,8 +1,8 @@
 extends Character
 
-@export var walk_speed: int = 300
-@export var run_speed: int = 500
-@export var jump_height: int = 900
+@export var walk_speed: int = 10
+@export var run_speed: int = 30
+@export var jump_height: int = 5
 
 signal entered_game(game_name:String)
 signal exited_game()

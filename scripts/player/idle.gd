@@ -59,6 +59,7 @@ func process_input(event: InputEvent) -> State:
 		return perform
 	return null
 
+
 func process_physics(delta: float) -> State:
 	process_movement(delta)
 

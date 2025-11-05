@@ -1,6 +1,10 @@
 extends Node
 
+#bool for if mouse is captured or visible
 var mouse_free: bool = false
+
+#initiate and access storage for player-made songs
+var songbook: Array[Dictionary] = []
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

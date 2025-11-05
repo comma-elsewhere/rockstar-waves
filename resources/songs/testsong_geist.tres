@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://bh4vcnjv6b5us"]
+
+[ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_qp7f5"]
+[ext_resource type="AudioStream" uid="uid://liwtrm3kc5je" path="res://assets/music/player-songs/POLTERGEIST! Ft. OmenXIII.ogg" id="1_v226n"]
+
+[resource]
+script = ExtResource("1_qp7f5")
+audio_stream = ExtResource("1_v226n")
+metadata/_custom_type_script = "uid://bo0ar7ttuumu"

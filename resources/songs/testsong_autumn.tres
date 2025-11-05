@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://bm1cw4oq2xiw"]
+
+[ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_71hof"]
+[ext_resource type="AudioStream" uid="uid://ntycqo42pm0w" path="res://assets/music/player-songs/LIKE YXU WXULD KNXW (AUTUMN TREES).ogg" id="1_e5chc"]
+
+[resource]
+script = ExtResource("1_71hof")
+audio_stream = ExtResource("1_e5chc")
+metadata/_custom_type_script = "uid://bo0ar7ttuumu"

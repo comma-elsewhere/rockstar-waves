@@ -25,9 +25,6 @@ radius = 1.5
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_fm80t")
-walk_speed = 10
-run_speed = 30
-jump_height = 5
 animation = NodePath("AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -87,15 +84,6 @@ idle = NodePath("../Idle")
 parent = NodePath("../../..")
 animation_name = "walk"
 
-[node name="Run" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "fall", "idle", "parent")]
-script = ExtResource("4_gx1jg")
-camera = NodePath("../../../CamOrigin")
-walk = NodePath("../Walk")
-fall = NodePath("../Fall")
-idle = NodePath("../Idle")
-parent = NodePath("../../..")
-animation_name = "run"
-
 [node name="Jump" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "fall", "idle", "walk", "parent")]
 script = ExtResource("5_ugbui")
 camera = NodePath("../../../CamOrigin")
@@ -110,6 +98,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_fm80t")
 collision_mask = 2
 
+[node name="Run" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "fall", "idle", "parent")]
+script = ExtResource("4_gx1jg")
+camera = NodePath("../../../CamOrigin")
+walk = NodePath("../Walk")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "run"
+
 [node name="Fall" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "idle", "walk", "parent")]
 script = ExtResource("6_fcs02")
 camera = NodePath("../../../CamOrigin")
@@ -120,8 +117,10 @@ animation_name = "fall"
 
 [node name="Minigames" type="Node" parent="StateMachine"]
 
-[node name="WriteSong" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("parent")]
+[node name="WriteSong" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
 script = ExtResource("7_myrg7")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
 [node name="MakeMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ntycqo42pm0w"
+path="res://.godot/imported/LIKE YXU WXULD KNXW (AUTUMN TREES).ogg-421f958165e295043c59b14bd8141716.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/player-songs/LIKE YXU WXULD KNXW (AUTUMN TREES).ogg"
+dest_files=["res://.godot/imported/LIKE YXU WXULD KNXW (AUTUMN TREES).ogg-421f958165e295043c59b14bd8141716.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

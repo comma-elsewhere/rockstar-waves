@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongRecipe" load_steps=3 format=3 uid="uid://b7sscufge56aa"]
+
+[ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="1_5x1pn"]
+[ext_resource type="Resource" uid="uid://c2rpr8rf3fu0x" path="res://resources/songs/testsong_misa.tres" id="2_5olgc"]
+
+[resource]
+script = ExtResource("1_5x1pn")
+song = ExtResource("2_5olgc")
+upbeat = 2
+quirky = 1
+metadata/_custom_type_script = "uid://4bff03urv7gp"
