@@ -2,7 +2,7 @@ extends Node
 
 const UPBEAT: Array[Dictionary] = [
 	{
-		"name": "Glitter",
+		"name": "Upbeat",
 		"upbeat": 1,
 		"joyful": 0,
 		"quirky": 0,
@@ -13,7 +13,7 @@ const UPBEAT: Array[Dictionary] = [
 
 const JOYFUL: Array[Dictionary] = [
 	{
-		"name": "Sun",
+		"name": "Joyful",
 		"upbeat": 0,
 		"joyful": 1,
 		"quirky": 0,
@@ -24,7 +24,7 @@ const JOYFUL: Array[Dictionary] = [
 
 const QUIRKY: Array[Dictionary] = [
 	{
-		"name": "Bubbles",
+		"name": "Quirky",
 		"upbeat": 0,
 		"joyful": 0,
 		"quirky": 1,
@@ -35,7 +35,7 @@ const QUIRKY: Array[Dictionary] = [
 
 const ANXIOUS: Array[Dictionary] = [
 	{
-		"name": "Thunder",
+		"name": "Anxious",
 		"upbeat": 0,
 		"joyful": 0,
 		"quirky": 0,
@@ -46,7 +46,7 @@ const ANXIOUS: Array[Dictionary] = [
 
 const MELACHOLY: Array[Dictionary] = [
 	{
-		"name": "Rain",
+		"name": "Melancholy",
 		"upbeat": 0,
 		"joyful": 0,
 		"quirky": 0,
@@ -57,11 +57,11 @@ const MELACHOLY: Array[Dictionary] = [
 
 const MIXED: Array[Dictionary] = [
 	{
-		"name": "Snow",
+		"name": "Mixed",
 		"upbeat": 0,
-		"joyful": 0,
+		"joyful": 1,
 		"quirky": 0,
-		"anxious": 1,
+		"anxious": 0,
 		"melancholy": 1
 	}
 ]

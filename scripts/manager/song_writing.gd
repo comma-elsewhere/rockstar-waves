@@ -27,7 +27,6 @@ func _proceed_to_tuning() -> void:
 			$HBoxContainer/WorkPanel/TuningContainer.visible = true
 			song_player.stream = current_song.audio_stream
 
-
 func _add_bottom_lyric_list() -> void:
 	var new_label = Label.new()
 	new_label.text = str(current_lyrics.back().name)
@@ -55,26 +54,34 @@ func _process_lyrics() -> bool:
 		melancholy += lyric.melancholy
 		
 	var metrics: Array[int] = [upbeat, joyful, quirky, anxious, melancholy]
+	current_song = _measure_distance(metrics)
 	
+	if current_song and _add_to_songbook(current_title):
+		return true
+	else:
+		return false
+
+func _add_to_songbook(song_name: String) -> bool:
+	var song_dict: Dictionary = {song_name: current_song}
+	if GInit.songbook.has(song_dict):
+		return false
+	else:
+		GInit.songbook.append(song_dict)
+		return true
+	
+func _measure_distance(metrics: Array) -> SongResource:
+	var metric_distance = 0
+	var shortest_distance = 10000
+	var closest_song = null
 	for recipe in lyric_recipes:
-		if metrics == recipe.get_recipe():
-			if recipe.add_to_songbook(current_title):
-				current_song = recipe.song
-				return true
-	return false
-	
-	#var metric_distance = 0
-	#var lowest_metric_distance = 10000
-	#var closest_song = null
-	#for song in songs:
-		#for i in range(5):
-			#metric_distance += (metrics[i] - song.metrics[i])**2
-		#metric_distance = sqrt(metric_distance)
-		#if metric_distance < lowest_metric_distance:
-			#lowest_metric_distance = metric_distance
-			#closest_song = song
-	#
-	#closest_song
+		var recipe_metrics: Array = recipe.get_recipe()
+		for i in range(metrics.size()):
+			metric_distance += (metrics[i] - recipe_metrics[i])**2
+		metric_distance = sqrt(metric_distance)
+		if metric_distance < shortest_distance:
+			shortest_distance = metric_distance
+			closest_song = recipe.song
+	return closest_song
 
 func _on_new_lyric_from_button(dict: Dictionary, toggle: bool) -> void:
 	if toggle:

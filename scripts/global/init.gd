@@ -7,7 +7,8 @@ var mouse_free: bool = false
 var songbook: Array[Dictionary] = []
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pass
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):

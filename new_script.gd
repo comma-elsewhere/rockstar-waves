@@ -26,11 +26,11 @@ var wave_functions = {
 	"triangle" : triangle,
 }
 
-func generate_wave(segments, A, funcs, w):
-	for i in range(len(segments)):
-		var t = i / len(segments)
-		var y = 0
-		for j in range(num_waves):
-			y += A[j] * wave_functions[funcs[j]].call(w[j] * t)
-		segments[i].y = y * x_scale
-		segments[i].x = t * y_scale
+#func generate_wave(segments, A, funcs, w):
+	#for i in range(len(segments)):
+		#var t = i / len(segments)
+		#var y = 0
+		#for j in range(num_waves):
+			#y += A[j] * wave_functions[funcs[j]].call(w[j] * t)
+		#segments[i].y = y * x_scale
+		#segments[i].x = t * y_scale

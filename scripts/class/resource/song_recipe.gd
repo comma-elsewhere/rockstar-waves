@@ -13,11 +13,3 @@ func get_recipe() -> Array[int]:
 	recipe = [upbeat, joyful, quirky, anxious, melancholy]
 
 	return recipe
-
-func add_to_songbook(song_name: String) -> bool:
-	var song_dict: Dictionary = {song_name: song}
-	if GInit.songbook.has(song_dict):
-		return false
-	else:
-		GInit.songbook.append(song_dict)
-		return true

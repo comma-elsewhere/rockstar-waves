@@ -127,7 +127,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "CONTINUE"
 
-[node name="TuningContainer" type="MarginContainer" parent="HBoxContainer/WorkPanel" node_paths=PackedStringArray("current_song", "real_line", "imaginary_line", "slider_one", "slider_two", "slider_three", "slider_four", "button_one", "button_two", "button_three", "button_four")]
+[node name="TuningContainer" type="MarginContainer" parent="HBoxContainer/WorkPanel" node_paths=PackedStringArray("current_song", "real_line", "imaginary_line", "play_button", "slider_one", "slider_two", "slider_three", "slider_four", "button_one", "button_two", "button_three", "button_four")]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -137,6 +137,7 @@ script = ExtResource("13_wxru4")
 current_song = NodePath("VBoxContainer/VisualContainer/PlayButton/CurrentSong")
 real_line = NodePath("VBoxContainer/VisualContainer/Visualiser/RealLine")
 imaginary_line = NodePath("VBoxContainer/VisualContainer/Visualiser/FakeLine")
+play_button = NodePath("VBoxContainer/VisualContainer/PlayButton")
 slider_one = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider1")
 slider_two = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider2")
 slider_three = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider3")
@@ -179,11 +180,9 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
 [node name="RealLine" type="Line2D" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/Visualiser"]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 default_color = Color(0, 0, 0, 1)
 
 [node name="FakeLine" type="Line2D" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/Visualiser"]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 5.0
 default_color = Color(0, 0, 0, 0.8117647)
 
