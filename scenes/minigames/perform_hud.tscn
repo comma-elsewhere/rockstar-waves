@@ -1,0 +1,203 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmwiu48ina32u"]
+
+[ext_resource type="PackedScene" uid="uid://v48n4fq4n1bh" path="res://scenes/minigames/stage_manager.tscn" id="1_r71ss"]
+[ext_resource type="Script" uid="uid://dmxyfxpn64i2o" path="res://scripts/manager/perform_score_hud.gd" id="2_3pm3p"]
+[ext_resource type="Resource" uid="uid://7n31tdsvihiu" path="res://resources/songs/testsong_lol.tres" id="2_uibgv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="ScoreHUD" type="Control" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("active_score_box", "final_score_box", "done_button", "active_score", "active_combo", "final_score", "final_combo", "final_perfect", "final_good", "final_okay", "final_missed")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3pm3p")
+active_score_box = NodePath("ActiveScoreBox")
+final_score_box = NodePath("FinalScorePanel")
+done_button = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/DoneButton")
+active_score = NodePath("ActiveScoreBox/VBoxContainer/Score")
+active_combo = NodePath("ActiveScoreBox/VBoxContainer/Combo")
+final_score = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/FinalScore/Dyanmic")
+final_combo = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/MaxCombo/Dyanmic")
+final_perfect = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Perfect/Dyanmic")
+final_good = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Good/Dyanmic")
+final_okay = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Okay/Dyanmic")
+final_missed = NodePath("FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Missed/Dyanmic")
+
+[node name="ActiveScoreBox" type="MarginContainer" parent="SubViewportContainer/SubViewport/ScoreHUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/ActiveScoreBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Score" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/ActiveScoreBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "CURRENTSCORE"
+
+[node name="Combo" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/ActiveScoreBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "X MAX COMBO"
+
+[node name="FinalScorePanel" type="PanelContainer" parent="SubViewportContainer/SubViewport/ScoreHUD"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -192.0
+offset_bottom = 192.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="FinalScoreLabel" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Final Score!"
+
+[node name="ScoreContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FinalScore" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/FinalScore"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Final Score:"
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/FinalScore"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="MaxCombo" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/MaxCombo"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Max Combo: "
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/MaxCombo"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="Perfect" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Perfect"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Perfect:"
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Perfect"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="Good" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Good"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Good:"
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Good"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="Okay" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Okay"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "OK:"
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Okay"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="Missed" type="HBoxContainer" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Missed"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Missed:"
+
+[node name="Dyanmic" type="Label" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Missed"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="DoneButton" type="Button" parent="SubViewportContainer/SubViewport/ScoreHUD/FinalScorePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "DONE"
+
+[node name="StageManager" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("HUD") instance=ExtResource("1_r71ss")]
+HUD = NodePath("../ScoreHUD")
+current_song = ExtResource("2_uibgv")
+
+[connection signal="song_ended" from="SubViewportContainer/SubViewport/StageManager" to="SubViewportContainer/SubViewport/ScoreHUD" method="_on_stage_manager_song_ended"]

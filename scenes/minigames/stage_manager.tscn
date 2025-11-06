@@ -5,30 +5,29 @@
 [ext_resource type="Texture2D" uid="uid://61wclb42sylg" path="res://assets/icons/road.png" id="3_4jj5u"]
 [ext_resource type="PackedScene" uid="uid://d2eccamwlt6yo" path="res://prefabs/components/rhythm_arrow.tscn" id="3_q8k2m"]
 
-[node name="StageManager" type="Node2D"]
+[node name="StageManager" type="Node2D" node_paths=PackedStringArray("conductor_node")]
 script = ExtResource("1_muvpd")
+conductor_node = NodePath("Conductor")
 
-[node name="Conductor" type="AudioStreamPlayer" parent="."]
+[node name="Conductor" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("manager", "start_timer")]
 script = ExtResource("2_hdvqj")
-bpm = null
-measures = null
+manager = NodePath("..")
+start_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Conductor"]
 
 [node name="Lanes" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(2, 4)
 texture = ExtResource("3_4jj5u")
+offset = Vector2(320, 90)
 
 [node name="Arrow" parent="." instance=ExtResource("3_q8k2m")]
+position = Vector2(565, 683)
 
 [node name="Arrow2" parent="." instance=ExtResource("3_q8k2m")]
+position = Vector2(722, 683)
 arrow_direction = "Left"
 
 [node name="Arrow3" parent="." instance=ExtResource("3_q8k2m")]
+position = Vector2(641, 681)
 arrow_direction = "Up"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PerformanceHUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0

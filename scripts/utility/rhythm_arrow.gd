@@ -7,9 +7,9 @@ extends Node2D
 @export var good_zone: Area2D
 @export var perfect_zone: Area2D
 
-const RIGHT_POS := Vector2(80,320)
-const LEFT_POS := Vector2(-80,320)
-const UP_POS := Vector2(0, 320)
+const RIGHT_POS := Vector2(720,650)
+const LEFT_POS := Vector2(560,650)
+const UP_POS := Vector2(640, 650)
 
 enum Score {NONE = 0, OKAY = 1, GOOD = 2, PERFECT = 3}
 
@@ -31,15 +31,15 @@ func _ready() -> void:
 	okay_zone.area_exited.connect(_note_missed)
 	
 	if arrow_direction == "Left":
-		expected_input = "rhythm_left"
+		expected_input = "music_left"
 		sprite.rotation_degrees = 180.0
 		global_position = LEFT_POS
 	elif arrow_direction == "Up":
-		expected_input = "rhythm_up"
+		expected_input = "music_up"
 		sprite.rotation_degrees = -90.0
 		global_position = UP_POS
 	else:
-		expected_input = "rhythm_right"
+		expected_input = "music_right"
 		global_position = RIGHT_POS
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,11 +1,16 @@
 class_name Conductor extends AudioStreamPlayer
 
-@export var manager: StageManager
+@onready var manager = self.get_parent()
+@export var start_timer: Timer
+
+var bpm 
+var measures 
+var offset 
 
 # Tracking the beat and song position
 var song_position:float = 0.0
 var song_position_in_beats:int = 1
-var sec_per_beat:float = 60.0 / bpm
+var sec_per_beat:float = 60.0 
 var last_reported_beat:int = 0
 var beats_before_start:int = 0
 var measure:int = 1
@@ -20,9 +25,13 @@ signal _on_measure(position:int)
 
 
 func _ready():
+	bpm = manager.current_song.actual_bpm
+	measures = manager.current_song.time_sig
+	offset = manager.current_song.sec_offset
+	stream = manager.current_song.audio_stream
+	sec_per_beat /= bpm
 	song_length = stream.get_length()
 	start_timer.one_shot = true
-	sec_per_beat = 60.0 / bpm
 	start_timer.timeout.connect(_on_StartTimer_timeout)
 
 func _physics_process(_delta):
@@ -55,10 +64,10 @@ func closest_beat(nth):
 	return Vector2(closest, time_off_beat)
 
 
-func play_from_beat(beat, offset):
+func play_from_beat(beat, start_offset):
 	play()
 	seek(beat * sec_per_beat)
-	beats_before_start = offset
+	beats_before_start = start_offset
 	measure = beat % measures
 
 
@@ -70,6 +79,6 @@ func _on_StartTimer_timeout():
 		start_timer.wait_time = start_timer.wait_time - (AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency())
 		start_timer.start()
 	else:
-		play()
+		play(offset)
 		start_timer.stop()
 	_report_beat()
