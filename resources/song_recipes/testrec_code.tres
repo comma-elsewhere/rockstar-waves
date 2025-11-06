@@ -8,5 +8,5 @@ script = ExtResource("1_lsvud")
 song = ExtResource("2_8njjb")
 upbeat = 1
 melancholy = 1
-anxious = 1
+anxious = 3
 metadata/_custom_type_script = "uid://4bff03urv7gp"

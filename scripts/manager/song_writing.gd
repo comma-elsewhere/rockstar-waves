@@ -47,13 +47,19 @@ func _process_lyrics() -> bool:
 	var melancholy: int = 0
 	
 	for lyric in current_lyrics:
-		upbeat += lyric.upbeat
+		upbeat += lyric.political
 		joyful += lyric.joyful
-		quirky += lyric.quirky
+		quirky += lyric.ironic
 		anxious += lyric.anxious
 		melancholy += lyric.melancholy
 		
-	var metrics: Array[int] = [upbeat, joyful, quirky, anxious, melancholy]
+	var metrics: Array = [upbeat, joyful, quirky, anxious, melancholy]
+	
+	for amount in metrics:
+		amount /= current_lyrics.size()
+	
+	print(metrics)
+	
 	current_song = _measure_distance(metrics)
 	
 	if current_song and _add_to_songbook(current_title):

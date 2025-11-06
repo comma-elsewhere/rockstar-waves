@@ -10,7 +10,7 @@ func _ready() -> void:
 	randomize()
 	for i in range(BUTTON_COUNT):
 		var new_lyric = lyric_button.instantiate()
-		new_lyric.set_lyric(randi_range(1,7))
+		new_lyric.set_lyric()
 		add_child(new_lyric)
 	
 	for child in get_children():

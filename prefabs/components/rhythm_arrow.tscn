@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2eccamwlt6yo"]
+
+[ext_resource type="Script" uid="uid://c0ueqiqdfllk8" path="res://scripts/utility/rhythm_arrow.gd" id="1_7s0vg"]
+[ext_resource type="Texture2D" uid="uid://t6t2o70enpn1" path="res://assets/icons/arrow_button_1.png" id="2_hhxxw"]
+[ext_resource type="Texture2D" uid="uid://bgwc7cp0m087n" path="res://assets/icons/arrow_button_2.png" id="3_5llbi"]
+[ext_resource type="Texture2D" uid="uid://bh3pryrkipgqu" path="res://assets/icons/star.png" id="4_vi4df"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53lyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hhxxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5llbi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhxxw"]
+size = Vector2(11, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5llbi"]
+size = Vector2(11, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi4df"]
+size = Vector2(11, 7)
+
+[node name="Arrow" type="Node2D" node_paths=PackedStringArray("sprite", "particles", "okay_zone", "good_zone", "perfect_zone")]
+scale = Vector2(2, 2)
+script = ExtResource("1_7s0vg")
+sprite = NodePath("AnimatedSprite2D")
+particles = NodePath("CPUParticles2D")
+okay_zone = NodePath("OkayZone")
+good_zone = NodePath("GoodZone")
+perfect_zone = NodePath("PerfectZone")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_53lyh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+texture = ExtResource("4_vi4df")
+one_shot = true
+preprocess = 0.1
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.75
+emission_shape = 1
+emission_sphere_radius = 3.95
+gravity = Vector2(0, -80)
+initial_velocity_min = 5.0
+initial_velocity_max = 71.54
+
+[node name="OkayZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayZone"]
+shape = SubResource("RectangleShape2D_hhxxw")
+
+[node name="GoodZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodZone"]
+shape = SubResource("RectangleShape2D_5llbi")
+
+[node name="PerfectZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectZone"]
+shape = SubResource("RectangleShape2D_vi4df")
