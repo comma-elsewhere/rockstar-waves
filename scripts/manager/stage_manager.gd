@@ -33,7 +33,7 @@ var beat_spawner: Array[int] = [1,0,0,0,1,0,0,0]
 
 var lane: int = 0
 var rand: int = 0
-var note := preload("res://prefabs/components/rhythm_note.tscn")
+var note := Preload.COMP.Note
 
 
 func _ready():
@@ -76,14 +76,14 @@ func _spawn_notes(to_spawn):
 	if to_spawn > 0:
 		lane = randi() % 3
 		var instance = note.instantiate()
-		instance._start(lane, conductor_node.bpm)
+		instance._start(lane, current_song.actual_bpm)
 		add_child(instance)
 	if to_spawn > 1:
 		while rand == lane:
 			rand = randi() % 3
 		lane = rand
 		var instance = note.instantiate()
-		instance._start(lane, conductor_node.bpm)
+		instance._start(lane, current_song.actual_bpm)
 		add_child(instance)
 
 func increment_score(by):

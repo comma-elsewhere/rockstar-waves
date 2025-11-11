@@ -22,6 +22,7 @@ GFunc="*res://scripts/global/functions.gd"
 GInit="*res://scripts/global/init.gd"
 Lyric="*res://scripts/global/lyrics.gd"
 GStat="*res://scripts/global/stats.gd"
+Preload="*res://scripts/global/preload.gd"
 
 [display]
 

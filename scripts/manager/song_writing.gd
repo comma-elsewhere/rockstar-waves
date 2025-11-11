@@ -57,7 +57,7 @@ func _process_lyrics() -> bool:
 	var metrics: Array = [upbeat, joyful, quirky, anxious, melancholy]
 	
 	for amount in metrics:
-		amount /= current_lyrics.size()
+		amount /= 3
 	
 	print(metrics)
 	

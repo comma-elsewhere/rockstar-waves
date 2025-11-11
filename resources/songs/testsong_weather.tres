@@ -6,4 +6,6 @@
 [resource]
 script = ExtResource("1_kl0r0")
 audio_stream = ExtResource("1_smwyr")
+actual_bpm = 72
+song_end = 2.5
 metadata/_custom_type_script = "uid://bo0ar7ttuumu"

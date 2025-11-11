@@ -6,4 +6,7 @@
 [resource]
 script = ExtResource("1_bsgk5")
 audio_stream = ExtResource("1_xxhd0")
+time_sig = 3
+actual_bpm = 97
+beat_offset = 5
 metadata/_custom_type_script = "uid://bo0ar7ttuumu"

@@ -62,7 +62,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	var distance_accuracy: float = 0
-	var target_accuracy: float = 150
+	var target_accuracy: float = 200
 	if !puzzle_solved:
 		for i in range(line_segments):
 			distance_accuracy += (imaginary_line.points[i].y - real_line.points[i].y)**2

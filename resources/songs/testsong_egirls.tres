@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="SongResource" load_steps=2 format=3 uid="uid://bxekqf3gcprxt"]
+[gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://bxekqf3gcprxt"]
 
+[ext_resource type="AudioStream" uid="uid://clai5e0n804ci" path="res://assets/music/player-songs/E-GIRLS ARE RUINING MY LIFE! ft. Savage Gap.ogg" id="1_h02fe"]
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_irdnr"]
 
 [resource]
 script = ExtResource("1_irdnr")
+audio_stream = ExtResource("1_h02fe")
+actual_bpm = 158
+beat_offset = 4
 metadata/_custom_type_script = "uid://bo0ar7ttuumu"

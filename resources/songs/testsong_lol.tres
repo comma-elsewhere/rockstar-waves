@@ -7,6 +7,5 @@
 script = ExtResource("1_g2s2v")
 audio_stream = ExtResource("1_fp1tk")
 actual_bpm = 127
-beat_offset = 2
-song_end = 2.0
+song_end = 2.5
 metadata/_custom_type_script = "uid://bo0ar7ttuumu"

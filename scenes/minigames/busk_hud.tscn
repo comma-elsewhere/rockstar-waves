@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd33thakc8ula"]
+
+[ext_resource type="Script" uid="uid://bpe7jyjdpvcx8" path="res://scripts/manager/perform_hud.gd" id="1_gbl7q"]
+[ext_resource type="PackedScene" uid="uid://v48n4fq4n1bh" path="res://scenes/minigames/stage_manager.tscn" id="2_3wmbm"]
+[ext_resource type="PackedScene" uid="uid://dwu16dxuvpsrq" path="res://scenes/minigames/score_display.tscn" id="3_w75rc"]
+[ext_resource type="Script" uid="uid://76qk6tw0efx7" path="res://scripts/gui/song_button_box.gd" id="4_4m3uk"]
+
+[node name="BuskHUD" type="CanvasLayer" node_paths=PackedStringArray("stage_manager", "song_button_box", "panel", "money_label", "fame_label", "inspo_label")]
+script = ExtResource("1_gbl7q")
+type = "Busk"
+stage_manager = NodePath("SubViewportContainer/SubViewport/StageManager")
+song_button_box = NodePath("SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/SongButtonBox")
+panel = NodePath("SubViewportContainer/SubViewport/FinalPanel")
+money_label = NodePath("SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Money/Dyanamic")
+fame_label = NodePath("SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Fame/Dyanamic")
+inspo_label = NodePath("SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Inspiration/Dyanamic")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="StageManager" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("HUD") instance=ExtResource("2_3wmbm")]
+visible = false
+HUD = NodePath("../ScoreDisplay")
+
+[node name="ScoreDisplay" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_w75rc")]
+visible = false
+
+[node name="SongSelect" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport/SongSelect"]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SongBookTitle" type="Label" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Songbook"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SongButtonBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" node_paths=PackedStringArray("parent")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_4m3uk")
+parent = NodePath("../../../../../..")
+
+[node name="FinalPanel" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/FinalPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Money" type="HBoxContainer" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Money"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+text = "Money"
+
+[node name="Dyanamic" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Money"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Fame" type="HBoxContainer" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Fame"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+text = "Fame"
+
+[node name="Dyanamic" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Fame"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Inspiration" type="HBoxContainer" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Inspiration"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+text = "Inspiration"
+
+[node name="Dyanamic" type="Label" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer/VBoxContainer/Inspiration"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[connection signal="song_ended" from="SubViewportContainer/SubViewport/StageManager" to="SubViewportContainer/SubViewport/ScoreDisplay" method="_on_stage_manager_song_ended"]
+[connection signal="end_game" from="SubViewportContainer/SubViewport/ScoreDisplay" to="." method="_on_score_display_end_game"]
+[connection signal="song_selected" from="SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/SongButtonBox" to="." method="_on_song_button_box_song_selected"]

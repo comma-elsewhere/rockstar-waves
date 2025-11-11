@@ -4,7 +4,7 @@ extends State
 @export var camera: Camera3D
 @export var idle: State
 
-var daw_hud := preload("res://scenes/minigames/song_hud.tscn")
+var daw_hud := Preload.HUD.Song
 
 func enter() -> void:
 	var new_hud = daw_hud.instantiate()

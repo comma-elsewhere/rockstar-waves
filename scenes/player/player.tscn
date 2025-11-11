@@ -173,6 +173,7 @@ camera_control = NodePath("../../../CamOrigin")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
+animation_name = null
 
 [node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "reticle", "idle", "parent")]
 script = ExtResource("9_uf5tr")
