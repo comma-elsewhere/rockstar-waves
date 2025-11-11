@@ -1,5 +1,7 @@
 extends Control
 
+signal end_game(score: int)
+
 @export var active_score_box: MarginContainer
 @export var final_score_box: PanelContainer
 @export var done_button: Button
@@ -28,7 +30,7 @@ func update_score(score: int, combo: int) -> void:
 		active_combo.text = ""
 	
 func _finish_minigame():
-	pass
+	end_game.emit(final_score)
 
 func _on_stage_manager_song_ended(score: int, combo: int, perfect: int, good: int, okay: int, missed: int) -> void:
 	final_score.text = str(score)

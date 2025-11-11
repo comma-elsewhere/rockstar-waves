@@ -1,6 +1,3 @@
 extends Area3D
 
-@export_enum("WriteSong", "MakeMerch", "SellMerch", "Perform") var game_name: String
-
-func _ready() -> void:
-	add_to_group("Minigame")
+@export_enum("Workspace", "SellMerch", "Perform", "Busk", "Advertise", "DAW") var game_name: String

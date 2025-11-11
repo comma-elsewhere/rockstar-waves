@@ -2,9 +2,9 @@ extends Node
 
 @onready var activated: Array[Dictionary] = []
 
-const PEOPLE: Dictionary = {
+const FLIRT: Dictionary = {
 	"friends_1" = {
-		"name": "Buddies",
+		"name": "Cutie",
 		"joyful": 5,
 		"ironic": 0,
 		"anxious": 0,
@@ -99,6 +99,9 @@ const PEOPLE: Dictionary = {
 		"political": 0,
 		"melancholy": 0
 	},
+}
+
+const FAMILY: Dictionary = {
 	"enemy_1"= {
 		"name": "Hate",
 		"joyful": 0,
@@ -165,7 +168,7 @@ const PEOPLE: Dictionary = {
 	},
 }
 
-const WRITTEN: Dictionary = {
+const NEWS: Dictionary = {
 	"news_1" = {
 		"name": "Pigeon",
 		"joyful": 0,
@@ -230,6 +233,9 @@ const WRITTEN: Dictionary = {
 		"political": 3,
 		"melancholy": 0
 	},
+}
+
+const BOOK: Dictionary = {
 	"book_1" = {
 		"name": "Death",
 		"joyful": 0,
@@ -328,167 +334,7 @@ const WRITTEN: Dictionary = {
 	},
 }
 
-const EXPLORE: Dictionary = {
-	"city_1" = {
-		"name": "Concrete",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 3,
-		"political": 0,
-		"melancholy": 2
-	},
-	"city_2" = {
-		"name": "Steel",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 1,
-		"political": 3,
-		"melancholy": 1
-	},
-	"city_3" = {
-		"name": "Picket Fence",
-		"joyful": 0,
-		"ironic": 2,
-		"anxious": 3,
-		"political": 0,
-		"melancholy": 0
-	},
-	"city_4" = {
-		"name": "Suburbia",
-		"joyful": 3,
-		"ironic": 2,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"city_5" = {
-		"name": "Trash",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 3,
-		"melancholy": 2
-	},
-	"city_6" = {
-		"name": "Gutters",
-		"joyful": 0,
-		"ironic": 1,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 4
-	},
-	"city_7" = {
-		"name": "Empty Windows",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 5
-	},
-	"city_8" = {
-		"name": "Rats",
-		"joyful": 0,
-		"ironic": 2,
-		"anxious": 0,
-		"political": 3,
-		"melancholy": 0
-	},
-	"city_9" = {
-		"name": "Neighborhood",
-		"joyful": 3,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 2,
-		"melancholy": 0
-	},
-	"city_10" = {
-		"name": "Cityscape",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_1" = {
-		"name": "Mother Nature",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_2" = {
-		"name": "Endless",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_3" = {
-		"name": "Autumn Leaves",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_4" = {
-		"name": "Spring Flowers",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_5" = {
-		"name": "Summer Heat",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_6" = {
-		"name": "Jack Frost",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_7" = {
-		"name": "Fresh Snow",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_8" = {
-		"name": "Rainstorm",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_9" = {
-		"name": "Thunder",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
-	"nature_10" = {
-		"name": "Sunshine",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0
-	},
+const PARK: Dictionary = {
 }
 
 const DREAM: Dictionary = {

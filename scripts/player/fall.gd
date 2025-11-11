@@ -21,7 +21,7 @@ func process_physics(delta: float) -> State:
 
 #momentum + gravity
 func process_movement(delta:float):
-	parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 3.0)
-	parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 3.0)
+	parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 0.5)
+	parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 0.5)
 	parent.velocity.y += parent.GRAVITY * delta
 	parent.move_and_slide()

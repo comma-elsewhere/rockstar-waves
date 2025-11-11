@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciyiq51yb8rg"]
+
+[ext_resource type="PackedScene" uid="uid://m43x74wyn2f7" path="res://prefabs/components/success_stars.tscn" id="1_krji7"]
+[ext_resource type="Script" uid="uid://ctsklne44xfq1" path="res://scripts/manager/idea_catcher.gd" id="1_ln5rk"]
+
+[sub_resource type="Curve2D" id="Curve2D_l8cum"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 380, 360, 0, 0, 0, 0, 900, 360)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_l8cum"]
+resource_name = "LoopingMovement"
+script/source = "extends PathFollow2D
+
+var target = 0.98
+
+@export var speed: float = 0.7
+
+func _process(delta: float) -> void:
+	if speed > 0:
+		_loop_movement(delta)
+
+func _loop_movement(delta:float) -> void:
+	if progress_ratio < target:
+		progress_ratio += delta * (speed)
+		target = 0.98
+	elif progress_ratio > target:
+		progress_ratio += delta * (-speed)
+		target = 0.02
+
+func set_speed(new_speed: float) -> void:
+	if speed > 0.2:
+		speed -= new_speed
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krji7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8cum"]
+size = Vector2(23, 97)
+
+[node name="IdeaCatcher" type="Node2D" node_paths=PackedStringArray("target", "goal", "path_follower", "timer", "win_particles", "progress", "label")]
+script = ExtResource("1_ln5rk")
+target = NodePath("TargetPath/PathFollow2D/TargetArea")
+goal = NodePath("GoalArea")
+path_follower = NodePath("TargetPath/PathFollow2D")
+timer = NodePath("Timer")
+win_particles = NodePath("GoalArea/SuccessStars")
+progress = NodePath("FillBarAnchor/ProgressBar")
+label = NodePath("TargetPath/PathFollow2D/TargetArea/Node2D/Label")
+
+[node name="TargetPath" type="Path2D" parent="."]
+z_index = -1
+curve = SubResource("Curve2D_l8cum")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TargetPath"]
+position = Vector2(380, 360)
+script = SubResource("GDScript_l8cum")
+
+[node name="TargetArea" type="Area2D" parent="TargetPath/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetPath/PathFollow2D/TargetArea"]
+shape = SubResource("RectangleShape2D_krji7")
+
+[node name="Polygon2D" type="Polygon2D" parent="TargetPath/PathFollow2D/TargetArea"]
+color = Color(0, 1, 0.6901961, 1)
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="Node2D" type="Node2D" parent="TargetPath/PathFollow2D/TargetArea"]
+position = Vector2(0, -25)
+
+[node name="Label" type="Label" parent="TargetPath/PathFollow2D/TargetArea/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8627451, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "LYRICWORD"
+
+[node name="GoalArea" type="Area2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+shape = SubResource("RectangleShape2D_l8cum")
+
+[node name="SuccessStars" parent="GoalArea" instance=ExtResource("1_krji7")]
+
+[node name="Polygon2D" type="Polygon2D" parent="GoalArea"]
+position = Vector2(-640, -360)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(625, 409, 640, 348, 656, 409)
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -2
+points = PackedVector2Array(380, 360, 900, 360)
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="FillBarAnchor" type="Node2D" parent="."]
+position = Vector2(640, 450)
+
+[node name="ProgressBar" type="ProgressBar" parent="FillBarAnchor"]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 21.0
+step = 1.0
+value = 21.0
+show_percentage = false

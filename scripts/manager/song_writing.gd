@@ -12,6 +12,7 @@ var current_lyrics: Array[Dictionary] = []
 var current_song: SongResource
 
 func _ready() -> void:
+	GInit.mouse_free = true
 	lyrics_done_button.button_up.connect(_proceed_to_tuning)
 	$HBoxContainer/WorkPanel/LyricContainer.visible = true
 	$HBoxContainer/WorkPanel/TuningContainer.visible = false
@@ -62,7 +63,7 @@ func _process_lyrics() -> bool:
 	
 	current_song = _measure_distance(metrics)
 	
-	if current_song and _add_to_songbook(current_title):
+	if current_song:
 		return true
 	else:
 		return false
@@ -100,3 +101,7 @@ func _on_new_lyric_from_button(dict: Dictionary, toggle: bool) -> void:
 func _on_song_title_text_changed(new_text: String) -> void:
 	current_title = new_text
 	song_title_label.text = current_title
+
+
+func _on_tuning_container_puzzle_is_solved() -> void:
+	_add_to_songbook(current_title)

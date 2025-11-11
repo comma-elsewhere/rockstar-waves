@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c267oc7e0ni6"]
+
+[ext_resource type="Texture2D" uid="uid://dhv6yu85wrh8j" path="res://assets/textures/driveway/textures/granular_concrete_diff_4k.jpg" id="1_wwpfx"]
+[ext_resource type="Texture2D" uid="uid://cux8sx60xm4iq" path="res://assets/textures/driveway/textures/granular_concrete_nor_gl_4k.jpg" id="2_mpgfn"]
+[ext_resource type="Texture2D" uid="uid://8hjyd3itrnrt" path="res://assets/textures/driveway/textures/granular_concrete_rough_4k.jpg" id="3_1aifp"]
+
+[resource]
+albedo_texture = ExtResource("1_wwpfx")
+roughness_texture = ExtResource("3_1aifp")
+normal_enabled = true
+normal_texture = ExtResource("2_mpgfn")
+uv1_triplanar = true
+uv2_triplanar = true

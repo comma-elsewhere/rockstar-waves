@@ -3,9 +3,9 @@ class_name StageManager extends Node2D
 signal song_ended(score: int, combo: int, perfect: int, good: int, okay: int, missed: int)
 
 @export var HUD: Control
-@export var conductor_node: Conductor
 
-@export var current_song: SongResource
+var current_song: SongResource
+var conductor_node: Conductor
 
 var current_score: int = 0
 var current_combo: int = 0
@@ -37,11 +37,9 @@ var note := preload("res://prefabs/components/rhythm_note.tscn")
 
 
 func _ready():
+	visible = false
+	HUD.visible = false
 	randomize()
-	conductor_node.play_with_beat_offset(current_song.beat_offset)
-	conductor_node._on_measure.connect(_on_Conductor_measure)
-	conductor_node._on_beat.connect(_on_Conductor_beat)
-	_set_values()
 
 func _set_values() -> void:
 	sec_per_beat /= current_song.actual_bpm
@@ -116,4 +114,12 @@ func reset_combo():
 	HUD.update_score(current_score, current_combo)
 
 func set_song(new_song: SongResource):
+	visible = true
+	HUD.visible = true
 	current_song = new_song
+	conductor_node = Conductor.new()
+	conductor_node._on_measure.connect(_on_Conductor_measure)
+	conductor_node._on_beat.connect(_on_Conductor_beat)
+	add_child(conductor_node)
+	conductor_node.play_with_beat_offset(current_song.beat_offset)
+	_set_values()

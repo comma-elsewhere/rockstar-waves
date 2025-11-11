@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmj5lxo3nwyae"]
+
+[ext_resource type="Script" uid="uid://idn2gch5uciw" path="res://scripts/utility/game_zone.gd" id="1_86qh4"]
+
+[node name="EnterZone" type="Area3D" groups=["Minigame"]]
+collision_layer = 2
+input_ray_pickable = false
+script = ExtResource("1_86qh4")

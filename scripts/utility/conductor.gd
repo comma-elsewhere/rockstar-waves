@@ -1,7 +1,8 @@
 class_name Conductor extends AudioStreamPlayer
 
 @onready var manager = self.get_parent()
-@export var start_timer: Timer
+
+var start_timer: Timer
 
 var bpm 
 var measures 
@@ -31,6 +32,8 @@ func _ready():
 	stream = manager.current_song.audio_stream
 	sec_per_beat /= bpm
 	song_length = stream.get_length()
+	start_timer = Timer.new()
+	add_child(start_timer)
 	start_timer.one_shot = true
 	start_timer.timeout.connect(_on_StartTimer_timeout)
 

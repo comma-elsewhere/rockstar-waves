@@ -4,7 +4,7 @@ class_name Character extends CharacterBody3D
 @onready var state_machine = $StateMachine
 @export var animation: AnimationPlayer
 
-const GRAVITY = -9.8
+const GRAVITY: float = -14
 
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,

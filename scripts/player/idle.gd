@@ -9,35 +9,40 @@ extends State
 @export var fall: State
 
 @export_subgroup("Minigames")
-@export var write_song: State
-@export var make_merch: State
+@export var workspace: State
 @export var sell_merch: State
 @export var perform: State
+@export var busk: State
+@export var advertise: State
 
 @export_subgroup("Other")
 @export var talk: State
 
-enum Minigames {NONE, WRITE, MAKE, SELL, PERFORM}
+enum Minigames {NONE, WORK, SELL, PERFORM, BUSK, ADVERTISE}
 var current_minigame
 
 func _ready() -> void:
 	current_minigame = Minigames.NONE
 	parent.entered_game.connect(_change_minigame)
+	camera.look_trigger.connect(_change_minigame)
 	parent.exited_game.connect(_revert_minigame)
+	#camera.look_untrigger.connect(_revert_minigame)
 
 func _revert_minigame() -> void:
 	current_minigame = Minigames.NONE
 
-func _change_minigame(game: String) -> void:
-	match game:
-		"WriteSong":
-			current_minigame = Minigames.WRITE
-		"MakeMerch":
-			current_minigame = Minigames.MAKE
+func _change_minigame(game_name: String) -> void:
+	match game_name:
+		"Workspace":
+			current_minigame = Minigames.WORK
 		"SellMerch":
 			current_minigame = Minigames.SELL
 		"Perform":
 			current_minigame = Minigames.PERFORM
+		"Busk":
+			current_minigame = Minigames.BUSK
+		"Advertise":
+			current_minigame = Minigames.ADVERTISE
 
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
@@ -49,14 +54,16 @@ func process_input(event: InputEvent) -> State:
 		return run
 	elif event.is_action_pressed("movement"):
 		return walk
-	elif event.is_action_pressed("interact") and current_minigame == Minigames.WRITE:
-		return write_song
-	elif event.is_action_pressed("interact") and current_minigame == Minigames.MAKE:
-		return make_merch
+	elif event.is_action_pressed("interact") and current_minigame == Minigames.WORK:
+		return workspace
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.SELL:
 		return sell_merch
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.PERFORM:
 		return perform
+	elif event.is_action_pressed("interact") and current_minigame == Minigames.BUSK:
+		return busk 
+	elif event.is_action_pressed("interact") and current_minigame == Minigames.ADVERTISE:
+		return advertise
 	return null
 
 
@@ -69,6 +76,6 @@ func process_physics(delta: float) -> State:
 	return null
 		
 func process_movement(delta: float) -> void:
-	parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 8.0)
-	parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 8.0)
+	parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 20.0)
+	parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 20.0)
 	parent.move_and_slide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqjpsirba3vey"]
+[gd_scene load_steps=21 format=3 uid="uid://bqjpsirba3vey"]
 
 [ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_fm80t"]
@@ -13,17 +13,25 @@
 [ext_resource type="Script" uid="uid://bbkgrulgv7bxs" path="res://scripts/player/sell_merch.gd" id="9_uf5tr"]
 [ext_resource type="Script" uid="uid://7wqaxa4syfvt" path="res://scripts/player/perform_music.gd" id="10_lgqa7"]
 [ext_resource type="Script" uid="uid://dh0bw0ixcjwqv" path="res://scripts/player/talk.gd" id="11_8ydkj"]
+[ext_resource type="Script" uid="uid://btgjjkixurf4u" path="res://scripts/player/busk.gd" id="13_fcs02"]
+[ext_resource type="Script" uid="uid://cbvacn7ehy53y" path="res://scripts/player/advertise.gd" id="14_myrg7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_gx1jg"]
+radius = 0.1
+height = 0.2
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
+height = 2.3808594
 radius = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation")]
+collision_mask = 3
 script = ExtResource("1_fm80t")
 animation = NodePath("AnimationPlayer")
 
@@ -37,9 +45,10 @@ shape = SubResource("CapsuleShape3D_x7p2l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="CamOrigin" type="Node3D" parent="."]
+[node name="CamOrigin" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("2_gx1jg")
+parent = NodePath("..")
 
 [node name="CamArm" type="SpringArm3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.4901161e-08, 0, 1.4901161e-08, 1, 0, 0, 0)
@@ -48,10 +57,41 @@ margin = 0.5
 
 [node name="Camera" type="Camera3D" parent="CamOrigin/CamArm"]
 
+[node name="RayCast3D" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
+target_position = Vector3(0, 0, -5)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Reticle" type="ColorRect" parent="CamOrigin/CamArm/Camera"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -6.0
+offset_right = 5.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Hand" type="Node3D" parent="CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42292333, -0.14188695, -1.1337702)
+metadata/_edit_group_ = true
+
+[node name="HandMesh" type="MeshInstance3D" parent="CamOrigin/Hand"]
+visible = false
+mesh = SubResource("SphereMesh_gx1jg")
+
 [node name="DetectionZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19042969, 0)
 shape = SubResource("CylinderShape3D_gx1jg")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
@@ -60,17 +100,18 @@ starting_state = NodePath("Movement/Idle")
 
 [node name="Movement" type="Node" parent="StateMachine"]
 
-[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "write_song", "make_merch", "sell_merch", "perform", "talk", "parent")]
+[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "perform", "busk", "advertise", "talk", "parent")]
 script = ExtResource("2_je7p5")
 camera = NodePath("../../../CamOrigin")
 walk = NodePath("../Walk")
 run = NodePath("../Run")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
-write_song = NodePath("../../Minigames/WriteSong")
-make_merch = NodePath("../../Minigames/MakeMerch")
+workspace = NodePath("../../Minigames/Workspace")
 sell_merch = NodePath("../../Minigames/SellMerch")
 perform = NodePath("../../Minigames/Perform")
+busk = NodePath("../../Minigames/Busk")
+advertise = NodePath("../../Minigames/Advertise")
 talk = NodePath("../../Other/Talk")
 parent = NodePath("../../..")
 
@@ -117,27 +158,47 @@ animation_name = "fall"
 
 [node name="Minigames" type="Node" parent="StateMachine"]
 
-[node name="WriteSong" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
+[node name="Workspace" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "reticle", "idle", "daw_hud", "parent")]
 script = ExtResource("7_myrg7")
-camera = NodePath("../../../CamOrigin")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
+daw_hud = NodePath("../DAW")
 parent = NodePath("../../..")
 
-[node name="MakeMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
+[node name="DAW" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
 script = ExtResource("8_kvlxm")
-camera = NodePath("../../../CamOrigin")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
+[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "reticle", "idle", "parent")]
 script = ExtResource("9_uf5tr")
-camera = NodePath("../../../CamOrigin")
+camera_control = NodePath("../../../CamOrigin")
+reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera", "idle", "parent")]
+[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
 script = ExtResource("10_lgqa7")
-camera = NodePath("../../../CamOrigin")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Busk" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
+script = ExtResource("13_fcs02")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Advertise" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "reticle", "idle", "parent")]
+script = ExtResource("14_myrg7")
+camera_control = NodePath("../../../CamOrigin")
+reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
@@ -147,5 +208,5 @@ parent = NodePath("../../..")
 script = ExtResource("11_8ydkj")
 parent = NodePath("../../..")
 
-[connection signal="area_entered" from="DetectionZone" to="." method="_on_game_zone_area_entered"]
-[connection signal="area_exited" from="DetectionZone" to="." method="_on_game_zone_area_exited"]
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]

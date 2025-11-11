@@ -1,5 +1,7 @@
 extends MarginContainer
 
+signal puzzle_is_solved
+
 @export var current_song: AudioStreamPlayer
 @export var real_line: Line2D
 @export var imaginary_line: Line2D
@@ -67,6 +69,7 @@ func _process(_delta: float) -> void:
 		if distance_accuracy < target_accuracy:
 			puzzle_solved = true
 	else:
+		puzzle_is_solved.emit()
 		_disable_enable_buttons()
 		
 	
@@ -157,7 +160,7 @@ func _disable_enable_buttons() -> void:
 	
 		
 func my_sin(x : float):
-	return sin(x/2*PI)
+	return sin(x*2*PI)
 
 func square(x : float):
 	if fmod(x, 1.0) < 0.5:

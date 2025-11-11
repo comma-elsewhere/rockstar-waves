@@ -1,17 +1,21 @@
 extends State
 
-@export var camera: CamControl
+@export var camera_control: CamControl
+@export var camera: Camera3D
 @export var idle: State
 
+var daw_hud := preload("res://scenes/minigames/song_hud.tscn")
+
 func enter() -> void:
-	camera.over_shoulder()
+	var new_hud = daw_hud.instantiate()
+	camera.add_child(new_hud)
 	
 func exit() -> void:
-	camera.reset_camera()
+	GInit.mouse_free = false
+	camera_control.reset_camera()
+	camera.get_child(2).queue_free()
 
 func process_input(event: InputEvent) -> State:
-	camera.rotate_camera(event)
-	
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("backout"):
 		return idle
 	return null

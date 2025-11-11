@@ -1,20 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://v48n4fq4n1bh"]
+[gd_scene load_steps=4 format=3 uid="uid://v48n4fq4n1bh"]
 
 [ext_resource type="Script" uid="uid://okkagbkeh3dv" path="res://scripts/manager/stage_manager.gd" id="1_muvpd"]
-[ext_resource type="Script" uid="uid://bn66v3p8dfsgc" path="res://scripts/utility/conductor.gd" id="2_hdvqj"]
 [ext_resource type="Texture2D" uid="uid://61wclb42sylg" path="res://assets/icons/road.png" id="3_4jj5u"]
 [ext_resource type="PackedScene" uid="uid://d2eccamwlt6yo" path="res://prefabs/components/rhythm_arrow.tscn" id="3_q8k2m"]
 
-[node name="StageManager" type="Node2D" node_paths=PackedStringArray("conductor_node")]
+[node name="StageManager" type="Node2D"]
 script = ExtResource("1_muvpd")
-conductor_node = NodePath("Conductor")
-
-[node name="Conductor" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("manager", "start_timer")]
-script = ExtResource("2_hdvqj")
-manager = NodePath("..")
-start_timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="Conductor"]
 
 [node name="Lanes" type="Sprite2D" parent="."]
 scale = Vector2(2, 4)
