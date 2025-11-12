@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_3mssh")
+inspo_cost = 20
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

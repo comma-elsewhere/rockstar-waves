@@ -19,18 +19,21 @@ func _unset_looking():
 	looking_at_daw = false
 
 func enter() -> void:
+	GInit.minigame_open = true
 	camera_control.over_shoulder()
 	player_hud.show_reticle(true)
 	
 func exit() -> void:
+	GInit.minigame_open = false
 	camera_control.reset_camera()
 	player_hud.show_reticle(false)
 
 func process_input(event: InputEvent) -> State:
 	camera_control.rotate_camera(event)
 	
-	if event.is_action_pressed("interact") and looking_at_daw:
-		return daw_hud
+	if event.is_action_pressed("interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if looking_at_daw:
+			return daw_hud
 	
 	if event.is_action_pressed("backout"):
 		return idle

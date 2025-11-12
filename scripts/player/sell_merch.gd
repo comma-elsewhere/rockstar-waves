@@ -5,10 +5,12 @@ extends State
 @export var idle: State
 
 func enter() -> void:
+	GInit.minigame_open = true
 	camera_control.over_shoulder()
 	player_hud.show_reticle(true)
 	
 func exit() -> void:
+	GInit.minigame_open = false
 	camera_control.reset_camera()
 	player_hud.show_reticle(false)
 

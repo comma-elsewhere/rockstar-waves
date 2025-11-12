@@ -2,7 +2,7 @@ extends Node
 
 #bool for if mouse is captured or visible
 var mouse_free: bool = false
-
+var minigame_open: bool = false
 
 #initiate and access storage for player-made songs
 #dictionary is formatted as -- {song_title:String = song:SongResource}

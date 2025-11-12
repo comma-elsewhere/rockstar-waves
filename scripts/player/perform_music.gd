@@ -9,6 +9,7 @@ var perform_hud := Preload.HUD.Perform
 var minigame_over: bool = false
 
 func enter() -> void:
+	GInit.minigame_open = true
 	camera_control.over_shoulder()
 	var new_hud = perform_hud.instantiate()
 	new_hud.startup()
@@ -16,6 +17,7 @@ func enter() -> void:
 	camera.add_child(new_hud)
 	
 func exit() -> void:
+	GInit.minigame_open = false
 	GInit.mouse_free = false
 	camera_control.reset_camera()
 	camera.get_child(2).queue_free()
