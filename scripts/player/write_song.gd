@@ -1,8 +1,7 @@
 extends State
 
 @export var camera_control: CamControl
-@export var camera: Camera3D
-@export var reticle: ColorRect
+@export var player_hud: Control
 @export var idle: State
 @export var daw_hud: State
 
@@ -21,11 +20,11 @@ func _unset_looking():
 
 func enter() -> void:
 	camera_control.over_shoulder()
-	reticle.visible = true
+	player_hud.show_reticle(true)
 	
 func exit() -> void:
 	camera_control.reset_camera()
-	reticle.visible = false
+	player_hud.show_reticle(false)
 
 func process_input(event: InputEvent) -> State:
 	camera_control.rotate_camera(event)

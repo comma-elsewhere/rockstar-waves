@@ -21,7 +21,13 @@ func process_physics(delta: float) -> State:
 
 #momentum + gravity
 func process_movement(delta:float):
-	parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 0.5)
-	parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 0.5)
+	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
+	var direction = (parent.transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)).normalized()
+	if direction:
+		parent.velocity.x = lerp(parent.velocity.x, direction.x * parent.walk_speed * 0.75, 1.0)
+		parent.velocity.z = lerp(parent.velocity.z, direction.z * parent.walk_speed * 0.75, 1.0)
+	else:
+		parent.velocity.x = lerp(parent.velocity.x, 0.0, delta * 0.5)
+		parent.velocity.z = lerp(parent.velocity.z, 0.0, delta * 0.5)
 	parent.velocity.y += parent.GRAVITY * delta
 	parent.move_and_slide()

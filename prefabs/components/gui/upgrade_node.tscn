@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://faqqdll2isvo"]
+
+[ext_resource type="Script" uid="uid://d01kitwbsj10w" path="res://scripts/gui/upgrade_node.gd" id="1_503on"]
+[ext_resource type="Texture2D" uid="uid://gellu4dx4mei" path="res://assets/icons/skill-icons/skill_frames/Frame_05.png" id="2_ht3cu"]
+[ext_resource type="Texture2D" uid="uid://bqv5hfp38r1ag" path="res://assets/icons/skill-icons/skill_frames/Frame_02.png" id="3_2b3ar"]
+[ext_resource type="Texture2D" uid="uid://dbdc6y8qxca4s" path="res://assets/icons/skill-icons/skill_frames/Frame_01.png" id="4_0hpcb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0br8r"]
+texture = ExtResource("2_ht3cu")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(1, 1, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xc4tq"]
+texture = ExtResource("3_2b3ar")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(1, 1, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oyur"]
+texture = ExtResource("4_0hpcb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(1, 1, 30, 30)
+
+[node name="UpgradeNode" type="Control"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_503on")
+locked_line = Color(0.3180198, 0.31801978, 0.31801975, 1)
+unlocked_line = Color(0.9999996, 0.7902926, 0.24232134, 1)
+
+[node name="DisabledPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0br8r")
+
+[node name="LockedPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xc4tq")
+
+[node name="UnlockedPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3oyur")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -32.5
+offset_right = 32.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="TextureButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "COST"
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginSpacer" type="MarginContainer" parent="Spacer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="Spacer/MarginSpacer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Upgrade X/X"
+horizontal_alignment = 1

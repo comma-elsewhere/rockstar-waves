@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=2 format=3 uid="uid://d3ksb57ldfdmb"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_wltjc"]
+
+[resource]
+script = ExtResource("1_wltjc")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

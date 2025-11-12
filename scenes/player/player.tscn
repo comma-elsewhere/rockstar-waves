@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqjpsirba3vey"]
+[gd_scene load_steps=22 format=3 uid="uid://bqjpsirba3vey"]
 
 [ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_fm80t"]
 [ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_gx1jg"]
 [ext_resource type="Script" uid="uid://d0x5g8fgttdd6" path="res://scripts/player/idle.gd" id="2_je7p5"]
 [ext_resource type="Script" uid="uid://cvi54vwevo6fq" path="res://scripts/player/walk.gd" id="3_fm80t"]
+[ext_resource type="PackedScene" uid="uid://b2b2afy1a5c6c" path="res://scenes/player/player_hud.tscn" id="3_myrg7"]
 [ext_resource type="Script" uid="uid://bbp7gjo6lut1r" path="res://scripts/player/run.gd" id="4_gx1jg"]
 [ext_resource type="Script" uid="uid://da84qt7sqbupn" path="res://scripts/player/jump.gd" id="5_ugbui"]
 [ext_resource type="Script" uid="uid://e4dfpbwccrdy" path="res://scripts/player/fall.gd" id="6_fcs02"]
@@ -62,20 +63,10 @@ target_position = Vector3(0, 0, -5)
 collision_mask = 4
 collide_with_areas = true
 
-[node name="Reticle" type="ColorRect" parent="CamOrigin/CamArm/Camera"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.5
-offset_top = -6.0
-offset_right = 5.5
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="CamOrigin/CamArm/Camera"]
+process_mode = 3
+
+[node name="PlayerHUD" parent="CamOrigin/CamArm/Camera/CanvasLayer" instance=ExtResource("3_myrg7")]
 
 [node name="Hand" type="Node3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42292333, -0.14188695, -1.1337702)
@@ -158,11 +149,9 @@ animation_name = "fall"
 
 [node name="Minigames" type="Node" parent="StateMachine"]
 
-[node name="Workspace" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "reticle", "idle", "daw_hud", "parent")]
+[node name="Workspace" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "idle", "daw_hud", "parent")]
 script = ExtResource("7_myrg7")
 camera_control = NodePath("../../../CamOrigin")
-camera = NodePath("../../../CamOrigin/CamArm/Camera")
-reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
 daw_hud = NodePath("../DAW")
 parent = NodePath("../../..")
@@ -175,10 +164,9 @@ idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 animation_name = null
 
-[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "reticle", "idle", "parent")]
+[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "idle", "parent")]
 script = ExtResource("9_uf5tr")
 camera_control = NodePath("../../../CamOrigin")
-reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
@@ -196,10 +184,9 @@ camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="Advertise" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "reticle", "idle", "parent")]
+[node name="Advertise" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "idle", "parent")]
 script = ExtResource("14_myrg7")
 camera_control = NodePath("../../../CamOrigin")
-reticle = NodePath("../../../CamOrigin/CamArm/Camera/Reticle")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 

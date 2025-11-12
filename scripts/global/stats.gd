@@ -2,7 +2,7 @@ extends Node
 
 var mouse_sensitivity: float = 0.3
 
-var money: int = 0
+var money: float = 0
 var fame: int = 0
 var inspo_points: int = 0
 var gear: Dictionary = {

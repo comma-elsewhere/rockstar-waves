@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=3 uid="uid://b2b2afy1a5c6c"]
+
+[ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
+[ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
+[ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
+[ext_resource type="Resource" uid="uid://c4acy4fq4n58" path="res://resources/lyrics/tier_zero.tres" id="3_rf42r"]
+[ext_resource type="Resource" uid="uid://usw7v81tqmog" path="res://resources/lyrics/tier_one_1.tres" id="4_xh6vs"]
+[ext_resource type="Resource" uid="uid://d3ksb57ldfdmb" path="res://resources/lyrics/tier_one_2.tres" id="5_acmsv"]
+[ext_resource type="Resource" uid="uid://bmiake7ltbile" path="res://resources/lyrics/tier_one_3.tres" id="6_qn0kj"]
+[ext_resource type="Resource" uid="uid://wc5s1h8yb7uo" path="res://resources/lyrics/tier_two_1.tres" id="7_hgp2u"]
+[ext_resource type="Resource" uid="uid://dmc7onsadpbho" path="res://resources/lyrics/tier_two_2.tres" id="8_d0l4n"]
+[ext_resource type="Resource" uid="uid://oure7yh72djh" path="res://resources/lyrics/tier_two_3.tres" id="9_c2ljv"]
+[ext_resource type="Resource" uid="uid://b1vbecwes1e1m" path="res://resources/lyrics/tier_three_1.tres" id="10_h6f0n"]
+[ext_resource type="Resource" uid="uid://ckre6tpvku3vg" path="res://resources/lyrics/tier_three_2.tres" id="11_tdeaa"]
+[ext_resource type="Resource" uid="uid://de7530mmdpdu6" path="res://resources/lyrics/tier_three_3.tres" id="12_h6xkt"]
+[ext_resource type="Resource" uid="uid://y7aqycv6ptg" path="res://resources/lyrics/tier_four_1_1.tres" id="13_n5etk"]
+[ext_resource type="Resource" uid="uid://bakv0pqyjc2i1" path="res://resources/lyrics/tier_four_1_2.tres" id="14_5fjqn"]
+[ext_resource type="Resource" uid="uid://8e1pgo1je4c3" path="res://resources/lyrics/tier_four_2_1.tres" id="15_sbd4t"]
+[ext_resource type="Resource" uid="uid://cfpc5pv15dto" path="res://resources/lyrics/tier_four_3_1.tres" id="16_bqesq"]
+[ext_resource type="Resource" uid="uid://b1behv1assm5f" path="res://resources/lyrics/tier_four_3_2.tres" id="17_ubmuv"]
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_v4fpl")
+
+[node name="Reticle" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -6.0
+offset_right = 5.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.80784315)
+
+[node name="JournalBG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Journal" type="PanelContainer" parent="JournalBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpgradeCenter" type="MarginContainer" parent="JournalBG/Journal"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/Journal/UpgradeCenter"]
+layout_mode = 2
+
+[node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades"]
+layout_mode = 2
+theme_override_constants/h_separation = 75
+theme_override_constants/v_separation = 60
+columns = 5
+
+[node name="Spacer1" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TierZero" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("3_rf42r")
+
+[node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer4" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer5" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TierOne1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("4_xh6vs")
+parent_upgrade = NodePath("../TierZero")
+
+[node name="TierOne2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("5_acmsv")
+parent_upgrade = NodePath("../TierZero")
+
+[node name="TierOne3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("6_qn0kj")
+parent_upgrade = NodePath("../TierZero")
+
+[node name="Spacer6" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer7" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TierTwo1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("7_hgp2u")
+parent_upgrade = NodePath("../TierOne1")
+
+[node name="TierTwo2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("8_d0l4n")
+parent_upgrade = NodePath("../TierOne2")
+
+[node name="TierTwo3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("9_c2ljv")
+parent_upgrade = NodePath("../TierOne3")
+
+[node name="Spacer8" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer9" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TierThree1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("10_h6f0n")
+parent_upgrade = NodePath("../TierTwo1")
+
+[node name="TierThree2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("11_tdeaa")
+parent_upgrade = NodePath("../TierTwo2")
+
+[node name="TierThree3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("12_h6xkt")
+parent_upgrade = NodePath("../TierTwo3")
+
+[node name="Spacer10" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TierFour1_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("13_n5etk")
+parent_upgrade = NodePath("../TierThree1")
+
+[node name="TierFour1_2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("14_5fjqn")
+parent_upgrade = NodePath("../TierThree1")
+
+[node name="TierFour2_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("15_sbd4t")
+parent_upgrade = NodePath("../TierThree2")
+
+[node name="TierFour3_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("16_bqesq")
+parent_upgrade = NodePath("../TierThree3")
+
+[node name="TierFour3_2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("17_ubmuv")
+parent_upgrade = NodePath("../TierThree3")
+
+[node name="Stats" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="StatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats" instance=ExtResource("2_0cgte")]
+layout_mode = 2
