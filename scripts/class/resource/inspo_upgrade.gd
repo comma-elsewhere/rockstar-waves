@@ -1,19 +1,14 @@
 class_name LyricUpgrade extends Resource
 
-@export var inspo_cost: int
+@export var inspo_cost: int = 5
 @export_range(1,5) var upgrade_max: int = 3
-@export var upgrade_name: String
-@export_enum("Emo", "Punk", "Metal") var upgrade_branch: String
-@export var upgrade_texture: Texture2D
-@export_subgroup("Lyrics")
-@export var lyric_1: String
-@export var lyric_2: String
-@export var lyric_3: String
-@export var lyric_4: String
-@export var lyric_5: String
-@export_subgroup("Metrics")
-@export_range(0,5) var joyful: int = 0
-@export_range(0,5) var ironic: int = 0
-@export_range(0,5) var anxious: int = 0
-@export_range(0,5) var political: int = 0
-@export_range(0,5) var melancholy: int = 0
+@export var upgrade_name: String = "Daydream"
+@export_enum("NONE", "EMO", "PUNK", "METAL") var upgrade_branch: int
+@export var upgrade_texture: Texture2D = load("res://assets/icons/skill-icons/skill_icons1/1/Skill-icons_01.png")
+
+func upgrade(level: int):
+	var upgrade_access: String = upgrade_name + str(level)
+	match upgrade_branch:
+		0:
+			Lyric.activated.append_array(Lyric.NONE.get(upgrade_access))
+		

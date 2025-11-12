@@ -55,6 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Journal" type="PanelContainer" parent="JournalBG"]
+custom_minimum_size = Vector2(1000, 675)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,9 +97,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="TierZero" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" instance=ExtResource("2_muj54")]
+[node name="TierZero" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("3_rf42r")
+children = [NodePath("../TierOne1"), NodePath("../TierOne2"), NodePath("../TierOne3")]
 
 [node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -112,20 +114,23 @@ layout_mode = 2
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="TierOne1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierOne1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("4_xh6vs")
 parent_upgrade = NodePath("../TierZero")
+children = [NodePath("../TierTwo1")]
 
-[node name="TierOne2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierOne2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("5_acmsv")
 parent_upgrade = NodePath("../TierZero")
+children = [NodePath("../TierTwo2")]
 
-[node name="TierOne3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierOne3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("6_qn0kj")
 parent_upgrade = NodePath("../TierZero")
+children = [NodePath("../TierTwo3")]
 
 [node name="Spacer6" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -135,20 +140,23 @@ layout_mode = 2
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="TierTwo1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierTwo1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("7_hgp2u")
 parent_upgrade = NodePath("../TierOne1")
+children = [NodePath("../TierThree1")]
 
-[node name="TierTwo2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierTwo2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("8_d0l4n")
 parent_upgrade = NodePath("../TierOne2")
+children = [NodePath("../TierThree2")]
 
-[node name="TierTwo3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierTwo3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("9_c2ljv")
 parent_upgrade = NodePath("../TierOne3")
+children = [NodePath("../TierThree3")]
 
 [node name="Spacer8" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -158,20 +166,23 @@ layout_mode = 2
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="TierThree1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierThree1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("10_h6f0n")
 parent_upgrade = NodePath("../TierTwo1")
+children = [NodePath("../TierFour1_1"), NodePath("../TierFour1_2")]
 
-[node name="TierThree2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierThree2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("11_tdeaa")
 parent_upgrade = NodePath("../TierTwo2")
+children = [NodePath("../TierFour2_1")]
 
-[node name="TierThree3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TierThree3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("12_h6xkt")
 parent_upgrade = NodePath("../TierTwo3")
+children = [NodePath("../TierFour3_1"), NodePath("../TierFour3_2")]
 
 [node name="Spacer10" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)

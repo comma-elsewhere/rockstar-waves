@@ -30,13 +30,13 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(1, 1, 30, 30)
 
 [node name="UpgradeNode" type="Control"]
+z_index = 1
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_503on")
-locked_line = Color(0.3180198, 0.31801978, 0.31801975, 1)
 unlocked_line = Color(0.9999996, 0.7902926, 0.24232134, 1)
 
 [node name="DisabledPanel" type="PanelContainer" parent="."]

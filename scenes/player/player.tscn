@@ -67,6 +67,7 @@ collide_with_areas = true
 process_mode = 3
 
 [node name="PlayerHUD" parent="CamOrigin/CamArm/Camera/CanvasLayer" instance=ExtResource("3_myrg7")]
+process_mode = 3
 
 [node name="Hand" type="Node3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42292333, -0.14188695, -1.1337702)
