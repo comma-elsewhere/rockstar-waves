@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://5rr06gb4nx2a"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_7by7n"]
+[ext_resource type="Texture2D" uid="uid://b46f413dq3avo" path="res://assets/icons/skill-icons/skill_icons3/12/Skill-icons_05.png" id="2_8uapb"]
+
+[resource]
+script = ExtResource("1_7by7n")
+upgrade_name = "MoshPit"
+upgrade_texture = ExtResource("2_8uapb")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

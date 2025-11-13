@@ -2,117 +2,28 @@ extends Node
 
 @onready var activated: Array[Dictionary] = []
 
-const NONE: Dictionary = {
-	Daydream1 = [
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		],
-	Daydream2 = [
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		],
-	Daydream3 = [
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		]
-}
-
+#PUNK:
+	#Pro-Protest
+	#MoshPit
+	#FightTheMan
+	#BurnItDown
+	#RageEtc
+	#BrainSick
+	#TheOutsider
+	#Headbangers
+	#RadioRebel
+	#Decay
+#EMO:
+	#HeartThrob
+	#TeenAngst
+	#AlmostPop
+	#DanceDance
+	#DoomedYaoi
+	#NaNaNaNonsense
+	#DaddyIssues
+	#HurtNoComfort
+	#RedFlags
+	#DarkAndEdgy
 const EMO: Dictionary = {
 	Daydream1 = [
 		{"name": "",
@@ -151,45 +62,8 @@ const EMO: Dictionary = {
 		"melancholy": 0},
 		],
 }
+
 const PUNK: Dictionary = {
-	Daydream1 = [
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		
-		{"name": "",
-		"joyful": 0,
-		"ironic": 0,
-		"anxious": 0,
-		"political": 0,
-		"melancholy": 0},
-		],
-}
-const METAL: Dictionary = {
 	Daydream1 = [
 		{"name": "",
 		"joyful": 0,

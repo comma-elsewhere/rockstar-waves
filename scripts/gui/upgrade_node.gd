@@ -40,7 +40,7 @@ func _on_button_pressed():
 		current_level += 1
 		current_cost *= COST_MULTIPLIER
 		_update_label()
-		res.upgrade(current_level)
+		#res.upgrade(current_level)
 
 func _update_label() -> void:
 	upgrade_label.text = res.upgrade_name + " " + str(current_level) + "/" + str(res.upgrade_max)

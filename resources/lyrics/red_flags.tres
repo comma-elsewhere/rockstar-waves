@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://dv8c6dq3185av"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_oag0m"]
+[ext_resource type="Texture2D" uid="uid://c4kpk1oket17i" path="res://assets/icons/skill-icons/skill_icons2/13/Skillicon13_30.png" id="2_bw2tp"]
+
+[resource]
+script = ExtResource("1_oag0m")
+upgrade_name = "RedFlags"
+upgrade_branch = 0
+upgrade_texture = ExtResource("2_bw2tp")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

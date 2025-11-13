@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://b54k6xbfd71wh"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_c6dkc"]
+[ext_resource type="Texture2D" uid="uid://bkumqa3isnbda" path="res://assets/icons/skill-icons/skill_icons1/13/Skill-icons_15.png" id="2_pqa37"]
+
+[resource]
+script = ExtResource("1_c6dkc")
+upgrade_name = "Emo"
+upgrade_branch = 0
+upgrade_texture = ExtResource("2_pqa37")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

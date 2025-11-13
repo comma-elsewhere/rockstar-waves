@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://byupmvqpjdpnj"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_2qs8f"]
+[ext_resource type="Texture2D" uid="uid://eyclhudib771" path="res://assets/icons/skill-icons/skill_icons3/13/Skill-icons_32.png" id="2_s7q3c"]
+
+[resource]
+script = ExtResource("1_2qs8f")
+upgrade_name = "HurtNoComfort"
+upgrade_branch = 0
+upgrade_texture = ExtResource("2_s7q3c")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

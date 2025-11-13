@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://r0bdwhyvi4er"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_e28d5"]
+[ext_resource type="Texture2D" uid="uid://bfmbauea0lkbh" path="res://assets/icons/skill-icons/skill_icons2/12/Skillicon12_31.png" id="2_g44bb"]
+
+[resource]
+script = ExtResource("1_e28d5")
+upgrade_name = "Headbangers"
+upgrade_texture = ExtResource("2_g44bb")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

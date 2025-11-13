@@ -1,23 +1,30 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=26 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
 [ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
-[ext_resource type="Resource" uid="uid://c4acy4fq4n58" path="res://resources/lyrics/tier_zero.tres" id="3_rf42r"]
-[ext_resource type="Resource" uid="uid://usw7v81tqmog" path="res://resources/lyrics/tier_one_1.tres" id="4_xh6vs"]
-[ext_resource type="Resource" uid="uid://d3ksb57ldfdmb" path="res://resources/lyrics/tier_one_2.tres" id="5_acmsv"]
-[ext_resource type="Resource" uid="uid://bmiake7ltbile" path="res://resources/lyrics/tier_one_3.tres" id="6_qn0kj"]
-[ext_resource type="Resource" uid="uid://wc5s1h8yb7uo" path="res://resources/lyrics/tier_two_1.tres" id="7_hgp2u"]
-[ext_resource type="Resource" uid="uid://dmc7onsadpbho" path="res://resources/lyrics/tier_two_2.tres" id="8_d0l4n"]
-[ext_resource type="Resource" uid="uid://oure7yh72djh" path="res://resources/lyrics/tier_two_3.tres" id="9_c2ljv"]
-[ext_resource type="Resource" uid="uid://b1vbecwes1e1m" path="res://resources/lyrics/tier_three_1.tres" id="10_h6f0n"]
-[ext_resource type="Resource" uid="uid://ckre6tpvku3vg" path="res://resources/lyrics/tier_three_2.tres" id="11_tdeaa"]
-[ext_resource type="Resource" uid="uid://de7530mmdpdu6" path="res://resources/lyrics/tier_three_3.tres" id="12_h6xkt"]
-[ext_resource type="Resource" uid="uid://y7aqycv6ptg" path="res://resources/lyrics/tier_four_1_1.tres" id="13_n5etk"]
-[ext_resource type="Resource" uid="uid://bakv0pqyjc2i1" path="res://resources/lyrics/tier_four_1_2.tres" id="14_5fjqn"]
-[ext_resource type="Resource" uid="uid://8e1pgo1je4c3" path="res://resources/lyrics/tier_four_2_1.tres" id="15_sbd4t"]
-[ext_resource type="Resource" uid="uid://cfpc5pv15dto" path="res://resources/lyrics/tier_four_3_1.tres" id="16_bqesq"]
-[ext_resource type="Resource" uid="uid://b1behv1assm5f" path="res://resources/lyrics/tier_four_3_2.tres" id="17_ubmuv"]
+[ext_resource type="Resource" uid="uid://b54k6xbfd71wh" path="res://resources/lyrics/emo.tres" id="3_h6f0n"]
+[ext_resource type="Resource" uid="uid://cfljx5msglg5g" path="res://resources/lyrics/punk.tres" id="4_tdeaa"]
+[ext_resource type="Resource" uid="uid://d0erjo5548ulm" path="res://resources/lyrics/dark_edgy.tres" id="5_h6xkt"]
+[ext_resource type="Resource" uid="uid://ba6ivtk3cb1wq" path="res://resources/lyrics/angst.tres" id="6_n5etk"]
+[ext_resource type="Resource" uid="uid://cbs8s0hl2opy6" path="res://resources/lyrics/heartthrob.tres" id="7_5fjqn"]
+[ext_resource type="Resource" uid="uid://ct4w37qhl3e4s" path="res://resources/lyrics/protest.tres" id="8_sbd4t"]
+[ext_resource type="Resource" uid="uid://toh48x7ibrkf" path="res://resources/lyrics/outsider.tres" id="9_bqesq"]
+[ext_resource type="Resource" uid="uid://dv8c6dq3185av" path="res://resources/lyrics/red_flags.tres" id="10_ubmuv"]
+[ext_resource type="Resource" uid="uid://hhpn7xtsx0cs" path="res://resources/lyrics/issues.tres" id="11_0wxmx"]
+[ext_resource type="Resource" uid="uid://blnidno4tqfe1" path="res://resources/lyrics/doomed.tres" id="12_5v5fv"]
+[ext_resource type="Resource" uid="uid://clp3te8gjmgah" path="res://resources/lyrics/fight.tres" id="13_wr1ot"]
+[ext_resource type="Resource" uid="uid://b5srovsbu2a3j" path="res://resources/lyrics/rebel.tres" id="14_33gb1"]
+[ext_resource type="Resource" uid="uid://divsf7eminjvy" path="res://resources/lyrics/dance.tres" id="15_kgntx"]
+[ext_resource type="Resource" uid="uid://bf87dldpkqfp5" path="res://resources/lyrics/pop.tres" id="16_y01uw"]
+[ext_resource type="Resource" uid="uid://byupmvqpjdpnj" path="res://resources/lyrics/hurt.tres" id="17_o6bsm"]
+[ext_resource type="Resource" uid="uid://c1i8xkh8x6qu2" path="res://resources/lyrics/rage.tres" id="18_bt8ax"]
+[ext_resource type="Resource" uid="uid://cr1eglx7wil40" path="res://resources/lyrics/brain_sick.tres" id="19_k5ifb"]
+[ext_resource type="Resource" uid="uid://brxivhmkt17w7" path="res://resources/lyrics/nonsense.tres" id="20_reiff"]
+[ext_resource type="Resource" uid="uid://r0bdwhyvi4er" path="res://resources/lyrics/headbang.tres" id="21_t4a4f"]
+[ext_resource type="Resource" uid="uid://5rr06gb4nx2a" path="res://resources/lyrics/moshpit.tres" id="22_ym6co"]
+[ext_resource type="Resource" uid="uid://dvvcm1rcouv58" path="res://resources/lyrics/burn.tres" id="23_je2au"]
+[ext_resource type="Resource" uid="uid://dtsgmumyivuo" path="res://resources/lyrics/decay.tres" id="24_nxgj4"]
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -47,7 +54,6 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0.80784315)
 
 [node name="JournalBG" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +81,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/Journal/UpgradeCenter"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2
@@ -94,125 +101,133 @@ columns = 5
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
+[node name="Emo" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("children") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("3_h6f0n")
+children = [NodePath("../TeenAngst"), NodePath("../Heartthrob")]
+
 [node name="Spacer2" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="TierZero" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("children") instance=ExtResource("2_muj54")]
+[node name="Punk" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("3_rf42r")
-children = [NodePath("../TierOne1"), NodePath("../TierOne2"), NodePath("../TierOne3")]
+res = ExtResource("4_tdeaa")
+children = [NodePath("../ProProtest"), NodePath("../TheOutsider")]
 
 [node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="Spacer4" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="DarkAndEdgy" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("5_h6xkt")
+parent_upgrade = NodePath("../TeenAngst")
 
-[node name="Spacer5" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="TeenAngst" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("6_n5etk")
+parent_upgrade = NodePath("../Emo")
+children = [NodePath("../DarkAndEdgy"), NodePath("../DaddyIssues")]
 
-[node name="TierOne1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="Heartthrob" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("4_xh6vs")
-parent_upgrade = NodePath("../TierZero")
-children = [NodePath("../TierTwo1")]
+res = ExtResource("7_5fjqn")
+parent_upgrade = NodePath("../Emo")
+children = [NodePath("../DoomedLove"), NodePath("../AlmostPop")]
 
-[node name="TierOne2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="ProProtest" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("5_acmsv")
-parent_upgrade = NodePath("../TierZero")
-children = [NodePath("../TierTwo2")]
+res = ExtResource("8_sbd4t")
+parent_upgrade = NodePath("../Punk")
+children = [NodePath("../FightTheMan")]
 
-[node name="TierOne3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="TheOutsider" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("6_qn0kj")
-parent_upgrade = NodePath("../TierZero")
-children = [NodePath("../TierTwo3")]
+res = ExtResource("9_bqesq")
+parent_upgrade = NodePath("../Punk")
 
-[node name="Spacer6" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="RedFlags" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("10_ubmuv")
+parent_upgrade = NodePath("../DaddyIssues")
 
-[node name="Spacer7" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="DaddyIssues" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("11_0wxmx")
+parent_upgrade = NodePath("../TeenAngst")
+children = [NodePath("../RedFlags")]
 
-[node name="TierTwo1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="DoomedLove" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("7_hgp2u")
-parent_upgrade = NodePath("../TierOne1")
-children = [NodePath("../TierThree1")]
+res = ExtResource("12_5v5fv")
+parent_upgrade = NodePath("../Heartthrob")
+children = [NodePath("../HurtNoComfort")]
 
-[node name="TierTwo2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="FightTheMan" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("8_d0l4n")
-parent_upgrade = NodePath("../TierOne2")
-children = [NodePath("../TierThree2")]
+res = ExtResource("13_wr1ot")
+parent_upgrade = NodePath("../ProProtest")
+children = [NodePath("../RadioRebel"), NodePath("../RageEtc")]
 
-[node name="TierTwo3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="RadioRebel" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("9_c2ljv")
-parent_upgrade = NodePath("../TierOne3")
-children = [NodePath("../TierThree3")]
+res = ExtResource("14_33gb1")
+parent_upgrade = NodePath("../FightTheMan")
 
-[node name="Spacer8" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="DanceDance" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("15_kgntx")
+parent_upgrade = NodePath("../AlmostPop")
 
-[node name="Spacer9" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="AlmostPop" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("16_y01uw")
+parent_upgrade = NodePath("../Heartthrob")
+children = [NodePath("../DanceDance"), NodePath("../NaNaNonsense")]
 
-[node name="TierThree1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="HurtNoComfort" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("10_h6f0n")
-parent_upgrade = NodePath("../TierTwo1")
-children = [NodePath("../TierFour1_1"), NodePath("../TierFour1_2")]
+res = ExtResource("17_o6bsm")
+parent_upgrade = NodePath("../DoomedLove")
 
-[node name="TierThree2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="RageEtc" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("11_tdeaa")
-parent_upgrade = NodePath("../TierTwo2")
-children = [NodePath("../TierFour2_1")]
+res = ExtResource("18_bt8ax")
+parent_upgrade = NodePath("../FightTheMan")
+children = [NodePath("../MoshPit"), NodePath("../BurnItDown"), NodePath("../BrainSick")]
 
-[node name="TierThree3" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="BrainSick" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("12_h6xkt")
-parent_upgrade = NodePath("../TierTwo3")
-children = [NodePath("../TierFour3_1"), NodePath("../TierFour3_2")]
+res = ExtResource("19_k5ifb")
+parent_upgrade = NodePath("../RageEtc")
 
-[node name="Spacer10" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
-custom_minimum_size = Vector2(75, 75)
+[node name="NaNaNonsense" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
+res = ExtResource("20_reiff")
+parent_upgrade = NodePath("../AlmostPop")
 
-[node name="TierFour1_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="Headbangers" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("13_n5etk")
-parent_upgrade = NodePath("../TierThree1")
+res = ExtResource("21_t4a4f")
+parent_upgrade = NodePath("../MoshPit")
 
-[node name="TierFour1_2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="MoshPit" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("14_5fjqn")
-parent_upgrade = NodePath("../TierThree1")
+res = ExtResource("22_ym6co")
+parent_upgrade = NodePath("../RageEtc")
+children = [NodePath("../Headbangers")]
 
-[node name="TierFour2_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="BurnItDown" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("15_sbd4t")
-parent_upgrade = NodePath("../TierThree2")
+res = ExtResource("23_je2au")
+parent_upgrade = NodePath("../RageEtc")
+children = [NodePath("../Decay")]
 
-[node name="TierFour3_1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="Decay" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("16_bqesq")
-parent_upgrade = NodePath("../TierThree3")
-
-[node name="TierFour3_2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
-layout_mode = 2
-res = ExtResource("17_ubmuv")
-parent_upgrade = NodePath("../TierThree3")
+res = ExtResource("24_nxgj4")
+parent_upgrade = NodePath("../BurnItDown")
 
 [node name="Stats" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2

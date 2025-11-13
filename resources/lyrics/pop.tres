@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://bf87dldpkqfp5"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_nx2k7"]
+[ext_resource type="Texture2D" uid="uid://bqt3uyvajrm6g" path="res://assets/icons/skill-icons/skill_icons2/13/Skillicon13_40.png" id="2_6kmse"]
+
+[resource]
+script = ExtResource("1_nx2k7")
+upgrade_name = "AlmostPop"
+upgrade_branch = 0
+upgrade_texture = ExtResource("2_6kmse")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

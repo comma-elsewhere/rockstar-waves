@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://b5srovsbu2a3j"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_t4vvl"]
+[ext_resource type="Texture2D" uid="uid://m4mtddnl875l" path="res://assets/icons/skill-icons/skill_icons2/12/Skillicon12_39.png" id="2_wwc10"]
+
+[resource]
+script = ExtResource("1_t4vvl")
+upgrade_name = "RadioRebel"
+upgrade_texture = ExtResource("2_wwc10")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

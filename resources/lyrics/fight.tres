@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://clp3te8gjmgah"]
+
+[ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_hdewu"]
+[ext_resource type="Texture2D" uid="uid://cghrujavix7s6" path="res://assets/icons/skill-icons/skill_icons3/12/Skill-icons_28.png" id="2_h14y1"]
+
+[resource]
+script = ExtResource("1_hdewu")
+upgrade_name = "FightTheMan"
+upgrade_texture = ExtResource("2_h14y1")
+metadata/_custom_type_script = "uid://dxqvffm3vhsxk"
