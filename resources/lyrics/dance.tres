@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_cqe47")
+upgrade_max = 2
 upgrade_name = "DanceDance"
 upgrade_branch = 0
 upgrade_texture = ExtResource("2_j4cxq")

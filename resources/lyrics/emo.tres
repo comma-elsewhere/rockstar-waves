@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_c6dkc")
+inspo_cost = 25
+upgrade_max = 1
 upgrade_name = "Emo"
 upgrade_branch = 0
 upgrade_texture = ExtResource("2_pqa37")

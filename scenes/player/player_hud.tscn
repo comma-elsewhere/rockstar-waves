@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=27 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
@@ -25,6 +25,22 @@
 [ext_resource type="Resource" uid="uid://5rr06gb4nx2a" path="res://resources/lyrics/moshpit.tres" id="22_ym6co"]
 [ext_resource type="Resource" uid="uid://dvvcm1rcouv58" path="res://resources/lyrics/burn.tres" id="23_je2au"]
 [ext_resource type="Resource" uid="uid://dtsgmumyivuo" path="res://resources/lyrics/decay.tres" id="24_nxgj4"]
+
+[sub_resource type="GDScript" id="GDScript_h6f0n"]
+resource_name = "SkillTreeStartup"
+script/source = "extends GridContainer
+
+@onready var children = get_children()
+
+var has_started: bool = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"journal\") and !has_started:
+		has_started = true
+		for child in children:
+			if child.has_method(\"startup\"):
+				child.startup()
+"
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -54,6 +70,7 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0.80784315)
 
 [node name="JournalBG" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,6 +113,7 @@ layout_mode = 2
 theme_override_constants/h_separation = 75
 theme_override_constants/v_separation = 60
 columns = 5
+script = SubResource("GDScript_h6f0n")
 
 [node name="Spacer1" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
