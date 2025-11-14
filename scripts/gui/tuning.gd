@@ -22,6 +22,8 @@ signal puzzle_is_solved
 @export var button_color_three: Color
 @export var button_color_four: Color
 
+const ERROR_MARGIN = 250
+
 const LINE_LENGTH:float = 560
 const X_SCALE: float = 560
 const Y_SCALE: float = 10
@@ -62,7 +64,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	var distance_accuracy: float = 0
-	var target_accuracy: float = 200
+	var target_accuracy: float = ERROR_MARGIN
 	if !puzzle_solved:
 		for i in range(line_segments):
 			distance_accuracy += (imaginary_line.points[i].y - real_line.points[i].y)**2
@@ -80,10 +82,10 @@ func _set_values() -> void:
 	slider_two.value = randf_range(0, 100)
 	slider_three.value = randf_range(0, 100)
 	slider_four.value = randf_range(0, 100)
-	omega_1 = randf_range(1,5)
-	omega_2 = randf_range(1,5)
-	omega_3 = randf_range(1,5)
-	omega_4 = randf_range(1,5)
+	omega_1 = randf_range(2,6)
+	omega_2 = randf_range(2,6)
+	omega_3 = randf_range(2,6)
+	omega_4 = randf_range(2,6)
 	
 func _modulate_colors() -> void:
 	button_one.modulate = button_color_one

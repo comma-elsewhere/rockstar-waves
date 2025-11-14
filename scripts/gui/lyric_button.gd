@@ -6,11 +6,14 @@ var lyric_dict: Dictionary
 
 
 func set_lyric() -> void:
-	if !Lyric.activated.is_empty():
-		lyric_dict = Lyric.activated.pick_random()
-	
+	if !GInit.active_lyrics.is_empty():
+		lyric_dict = GInit.active_lyrics.pick_random()
+		
+	print(lyric_dict)
+		
 	if lyric_dict:
-		text = lyric_dict.name
+		for key in lyric_dict.keys():
+			text = key
 	else:
 		text = ". . ."
 

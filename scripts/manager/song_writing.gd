@@ -27,37 +27,17 @@ func _proceed_to_tuning() -> void:
 			$HBoxContainer/WorkPanel/LyricContainer.visible = false
 			$HBoxContainer/WorkPanel/TuningContainer.visible = true
 			song_player.stream = current_song.audio_stream
-
-func _add_bottom_lyric_list() -> void:
-	var new_label = Label.new()
-	new_label.text = str(current_lyrics.back().name)
-	lyric_list.add_child(new_label)
-	
-func _remove_at_lyric_list(index: int) -> void:
-	lyric_list.remove_child(lyric_list.get_child(index))
-	
-func refresh_lyric_list() -> void:
-	for child in lyric_list.get_children():
-		child.queue_free()
 		
 func _process_lyrics() -> bool:
-	var upbeat: int = 0
-	var joyful: int = 0
-	var quirky: int = 0
-	var anxious: int = 0
-	var melancholy: int = 0
+	var metrics: Array = [0,0,0,0,0]
 	
 	for lyric in current_lyrics:
-		upbeat += lyric.political
-		joyful += lyric.joyful
-		quirky += lyric.ironic
-		anxious += lyric.anxious
-		melancholy += lyric.melancholy
-		
-	var metrics: Array = [upbeat, joyful, quirky, anxious, melancholy]
+		for value in lyric.values():
+			for i in range(len(value)):
+				metrics[i] += value[i]
 	
-	for amount in metrics:
-		amount /= 3
+	for i in range(len(metrics)):
+		metrics[i] /= 3
 	
 	print(metrics)
 	
@@ -93,9 +73,7 @@ func _measure_distance(metrics: Array) -> SongResource:
 func _on_new_lyric_from_button(dict: Dictionary, toggle: bool) -> void:
 	if toggle:
 		current_lyrics.append(dict)
-		_add_bottom_lyric_list()
 	else:
-		_remove_at_lyric_list(current_lyrics.find(dict))
 		current_lyrics.remove_at(current_lyrics.find(dict))
 
 func _on_song_title_text_changed(new_text: String) -> void:

@@ -10,4 +10,7 @@ upgrade_max = 1
 upgrade_name = "Emo"
 upgrade_branch = 0
 upgrade_texture = ExtResource("2_pqa37")
+lyrics = Array[String](["Baby", "I love you", "Die for me", "Dream", "Scary", "Zombies", "My life", "Teenage", "Sad", "Nothing"])
+grouping = Array[int]([10, 0, 0])
+metric_one = Array[int]([0, 0, 1, 1, 1])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

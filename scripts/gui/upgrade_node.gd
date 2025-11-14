@@ -18,7 +18,7 @@ var line: Line2D
 var current_level: int = 0
 var current_cost: int
 
-func startup():
+func _ready() -> void:
 	button.texture_normal = res.upgrade_texture
 	button.tooltip_text = res.upgrade_name
 	current_cost = res.inspo_cost
@@ -58,7 +58,8 @@ func _set_line() -> void:
 	if parent_upgrade:
 		line = Line2D.new()
 		add_child(line)
-		line.add_point(Vector2.ZERO - parent_upgrade.get_local_position(self.get_global_transform().origin) + size/2)
+		line.add_point(Vector2.ZERO - parent_upgrade.get_local_position(self.global_position) + size/2)
+		#line.add_point(parent_upgrade.global_position)
 		line.add_point(Vector2.ZERO + size/2)
 		line.default_color = locked_line
 		line.z_index = -1
@@ -72,8 +73,8 @@ func _set_line() -> void:
 	unlocked_panel.visible = false
 
 func get_local_position(child_position: Vector2) -> Vector2:
-	var omega = get_global_transform().origin.angle_to_point(child_position)
-	var dist = get_global_transform().origin.distance_to(child_position)
+	var omega = global_position.angle_to_point(child_position)
+	var dist = global_position.distance_to(child_position)
 	var opp = sin(omega) * dist
 	var adj = cos(omega) * dist
 	var my_position: Vector2 = Vector2(adj, opp)
