@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://c2rpr8rf3fu0x"]
 
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_bsgk5"]
-[ext_resource type="AudioStream" uid="uid://02ropb0orsyo" path="res://assets/music/player-songs/MISA MISA!.ogg" id="1_xxhd0"]
+[ext_resource type="AudioStream" uid="uid://02ropb0orsyo" path="res://assets/music/temp-songs/MISA MISA!.ogg" id="1_xxhd0"]
 
 [resource]
 script = ExtResource("1_bsgk5")

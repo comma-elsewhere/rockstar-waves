@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://b4xp68ip0aohi"]
 
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_ld68g"]
-[ext_resource type="AudioStream" uid="uid://82c773orpn0e" path="res://assets/music/player-songs/DISDAIN.ogg" id="1_vypd6"]
+[ext_resource type="AudioStream" uid="uid://82c773orpn0e" path="res://assets/music/temp-songs/DISDAIN.ogg" id="1_vypd6"]
 
 [resource]
 script = ExtResource("1_ld68g")

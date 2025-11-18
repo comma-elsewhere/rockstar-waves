@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://bxekqf3gcprxt"]
 
-[ext_resource type="AudioStream" uid="uid://clai5e0n804ci" path="res://assets/music/player-songs/E-GIRLS ARE RUINING MY LIFE! ft. Savage Gap.ogg" id="1_h02fe"]
+[ext_resource type="AudioStream" uid="uid://clai5e0n804ci" path="res://assets/music/temp-songs/E-GIRLS ARE RUINING MY LIFE! ft. Savage Gap.ogg" id="1_h02fe"]
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_irdnr"]
 
 [resource]

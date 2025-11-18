@@ -8,6 +8,9 @@ extends State
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
 	return null
+	
+func process_frame(_delta: float) -> State:
+	return null
 
 func process_physics(delta: float) -> State:
 	process_movement(delta)

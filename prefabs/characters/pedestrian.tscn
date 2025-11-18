@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://d203wojvfrmrt"]
+
+[ext_resource type="Script" uid="uid://bpx04gsmpqf18" path="res://scripts/class/npc/pedestrian.gd" id="1_fdb35"]
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="2_gfyc5"]
+
+[sub_resource type="Resource" id="Resource_kjbjd"]
+script = ExtResource("2_gfyc5")
+type = "PEDESTRIAN: 
+"
+personality = 0
+metadata/_custom_type_script = "uid://ovrp7erx3wye"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fdb35"]
+radius = 1.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjbjd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4bkme"]
+
+[node name="Pedestrian" type="RigidBody3D" node_paths=PackedStringArray("navigation", "area") groups=["Character", "Pedestrians"]]
+lock_rotation = true
+script = ExtResource("1_fdb35")
+navigation = NodePath("NavigationAgent3D")
+dialogue = SubResource("Resource_kjbjd")
+area = NodePath("BumpArea")
+
+[node name="BumpArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumpArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_fdb35")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_kjbjd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9999999, 0)
+mesh = SubResource("CapsuleMesh_4bkme")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 6.0
+avoidance_enabled = true
+
+[node name="DodgeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]

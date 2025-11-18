@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://dy3hvoqw57ijj"]
 
-[ext_resource type="AudioStream" uid="uid://bkes603j5vk42" path="res://assets/music/player-songs/CODE MISTAKE.ogg" id="1_bmnj0"]
+[ext_resource type="AudioStream" uid="uid://bkes603j5vk42" path="res://assets/music/temp-songs/CODE MISTAKE.ogg" id="1_bmnj0"]
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_wvhqv"]
 
 [resource]

@@ -2,6 +2,7 @@ class_name UpgradeNode extends Control
 
 @export var res: LyricUpgrade
 @export var parent_upgrade: UpgradeNode
+@export var parent_pos: Vector2
 @export var children: Array[UpgradeNode]
 @export var locked_line: Color
 @export var unlocked_line: Color
@@ -58,7 +59,7 @@ func _set_line() -> void:
 	if parent_upgrade:
 		line = Line2D.new()
 		add_child(line)
-		line.add_point(Vector2.ZERO - parent_upgrade.get_local_position(self.global_position) + size/2)
+		line.add_point(parent_pos + size/2)
 		#line.add_point(parent_upgrade.global_position)
 		line.add_point(Vector2.ZERO + size/2)
 		line.default_color = locked_line

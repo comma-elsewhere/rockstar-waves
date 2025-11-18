@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://7n31tdsvihiu"]
 
-[ext_resource type="AudioStream" uid="uid://2qnubjbwoau0" path="res://assets/music/player-songs/f u lol.ogg" id="1_fp1tk"]
+[ext_resource type="AudioStream" uid="uid://2qnubjbwoau0" path="res://assets/music/temp-songs/f u lol.ogg" id="1_fp1tk"]
 [ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_g2s2v"]
 
 [resource]

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_5x1pn")
 song = ExtResource("2_5olgc")
-upbeat = 3
-quirky = 2
+upbeat = 4
+quirky = 3
 metadata/_custom_type_script = "uid://4bff03urv7gp"

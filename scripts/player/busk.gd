@@ -9,6 +9,7 @@ var perform_hud := Preload.HUD.Busk
 var minigame_over: bool = false
 
 func enter() -> void:
+	minigame_over = false
 	GInit.minigame_open = true
 	camera_control.over_shoulder()
 	var new_hud = perform_hud.instantiate()
@@ -32,6 +33,10 @@ func process_frame(_delta: float) -> State:
 		return idle
 	else:
 		return null
+	
+func process_physics(_delta: float) -> State:
+	return null
+
 
 func _gameover():
 	minigame_over = true

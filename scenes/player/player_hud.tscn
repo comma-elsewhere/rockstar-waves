@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=28 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://5rr06gb4nx2a" path="res://resources/lyrics/moshpit.tres" id="22_ym6co"]
 [ext_resource type="Resource" uid="uid://dvvcm1rcouv58" path="res://resources/lyrics/burn.tres" id="23_je2au"]
 [ext_resource type="Resource" uid="uid://dtsgmumyivuo" path="res://resources/lyrics/decay.tres" id="24_nxgj4"]
+[ext_resource type="Script" uid="uid://dycoac2s4xttm" path="res://scripts/gui/dialogue_container.gd" id="26_tdeaa"]
 
 [sub_resource type="GDScript" id="GDScript_h6f0n"]
 resource_name = "SkillTreeStartup"
@@ -68,6 +69,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.80784315)
+
+[node name="DialogueContainer" type="MarginContainer" parent="."]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 30
+script = ExtResource("26_tdeaa")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueContainer/PanelContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "PERSON:
+This is sample dialogue."
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="JournalBG" type="Panel" parent="."]
 visible = false
@@ -133,6 +161,8 @@ layout_mode = 2
 res = ExtResource("4_tdeaa")
 children = [NodePath("../ProProtest"), NodePath("../TheOutsider")]
 
+[node name="Marker2D" type="Marker2D" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer/Punk"]
+
 [node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -141,17 +171,20 @@ layout_mode = 2
 layout_mode = 2
 res = ExtResource("5_h6xkt")
 parent_upgrade = NodePath("../TeenAngst")
+parent_pos = Vector2(150, 0)
 
 [node name="TeenAngst" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("6_n5etk")
 parent_upgrade = NodePath("../Emo")
+parent_pos = Vector2(0, -135)
 children = [NodePath("../DarkAndEdgy"), NodePath("../DaddyIssues")]
 
 [node name="Heartthrob" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("7_5fjqn")
 parent_upgrade = NodePath("../Emo")
+parent_pos = Vector2(-150, -135)
 children = [NodePath("../DoomedLove"), NodePath("../AlmostPop")]
 
 [node name="ProProtest" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
@@ -169,17 +202,20 @@ parent_upgrade = NodePath("../Punk")
 layout_mode = 2
 res = ExtResource("10_ubmuv")
 parent_upgrade = NodePath("../DaddyIssues")
+parent_pos = Vector2(150, 0)
 
 [node name="DaddyIssues" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("11_0wxmx")
 parent_upgrade = NodePath("../TeenAngst")
+parent_pos = Vector2(0, -135)
 children = [NodePath("../RedFlags")]
 
 [node name="DoomedLove" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("12_5v5fv")
 parent_upgrade = NodePath("../Heartthrob")
+parent_pos = Vector2(0, -135)
 children = [NodePath("../HurtNoComfort")]
 
 [node name="FightTheMan" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
@@ -197,17 +233,20 @@ parent_upgrade = NodePath("../FightTheMan")
 layout_mode = 2
 res = ExtResource("15_kgntx")
 parent_upgrade = NodePath("../AlmostPop")
+parent_pos = Vector2(150, 0)
 
 [node name="AlmostPop" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("16_y01uw")
 parent_upgrade = NodePath("../Heartthrob")
+parent_pos = Vector2(150, -270)
 children = [NodePath("../DanceDance"), NodePath("../NaNaNonsense")]
 
 [node name="HurtNoComfort" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("17_o6bsm")
 parent_upgrade = NodePath("../DoomedLove")
+parent_pos = Vector2(0, -135)
 
 [node name="RageEtc" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
@@ -224,6 +263,7 @@ parent_upgrade = NodePath("../RageEtc")
 layout_mode = 2
 res = ExtResource("20_reiff")
 parent_upgrade = NodePath("../AlmostPop")
+parent_pos = Vector2(150, -135)
 
 [node name="Headbangers" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2

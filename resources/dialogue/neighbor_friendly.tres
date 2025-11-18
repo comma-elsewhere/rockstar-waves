@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://bk8nif5o53lhl"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_ntrfv"]
+
+[resource]
+script = ExtResource("1_ntrfv")
+type = "NEIGHBOR: 
+"
+personality = 0
+greeting = Array[String](["Hello!", "Howdy, kiddo!", "Good morning!", "How's it going?"])
+bump_into = Array[String](["Excuse me!", "Didn't see you there, sorry!", "I'm sorry!", "Gosh, if I had a nickel..."])
+pass_by = Array[String](["Nice weather, huh?", "How's it hanging, kiddo?", "Man, I remember being young...", "Hum dee dum...", "You should get a jacket, it might get cold!", "Wow, you've grown!"])
+metadata/_custom_type_script = "uid://ovrp7erx3wye"

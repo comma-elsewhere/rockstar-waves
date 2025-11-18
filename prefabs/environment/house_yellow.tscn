@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://b28jppqldnqwo"]
+
+[ext_resource type="Material" uid="uid://c267oc7e0ni6" path="res://resources/materials/driveway.tres" id="2_2oo62"]
+[ext_resource type="PackedScene" uid="uid://ct8xr23qxts6n" path="res://assets/models/houses/yellowhouse.glb" id="2_ap00j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rw63v"]
+size = Vector3(15.7, 7.7000003, 9.8)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rw63v"]
+height = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5vee"]
+size = Vector3(1.7, 0.4, 1.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfddc"]
+size = Vector3(1.7, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s21am"]
+size = Vector3(5.5, 5.5, 4.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d086g"]
+size = Vector3(19, 1.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oclsx"]
+size = Vector3(18.9, 1.7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sc7gq"]
+size = Vector3(20, 1.7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8jkb1"]
+size = Vector3(9, 1.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ocnmk"]
+size = Vector3(1.2, 1.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6wjo"]
+size = Vector3(5, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpgwj"]
+material = ExtResource("2_2oo62")
+size = Vector3(5, 1, 10)
+
+[node name="House_Yellow" type="Node3D"]
+
+[node name="HouseCollider" type="StaticBody3D" parent="."]
+
+[node name="MainHouse" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4500003, 3.8500001, -2.1)
+shape = SubResource("BoxShape3D_rw63v")
+
+[node name="LightPost" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45, 5, 15.4)
+shape = SubResource("CylinderShape3D_rw63v")
+
+[node name="Porch" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 0.2, 3.3500001)
+shape = SubResource("BoxShape3D_v5vee")
+
+[node name="Porch2" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 0.1, 4.200001)
+shape = SubResource("BoxShape3D_hfddc")
+
+[node name="Garage" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6000013, 2.7000003, 2.1500003)
+shape = SubResource("BoxShape3D_s21am")
+
+[node name="Fence" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0499988, 0.8000002, -10.25)
+shape = SubResource("BoxShape3D_d086g")
+
+[node name="Fence2" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.100001, 0.8000002, -1.0999994)
+shape = SubResource("BoxShape3D_oclsx")
+
+[node name="Fence3" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.899999, 0.8000002, -0.54999924)
+shape = SubResource("BoxShape3D_sc7gq")
+
+[node name="Fence4" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9500012, 0.8000002, 8.050001)
+shape = SubResource("BoxShape3D_8jkb1")
+
+[node name="Fence5" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.449999, 0.8000002, 9.050001)
+shape = SubResource("BoxShape3D_ocnmk")
+
+[node name="Driveway" type="CollisionShape3D" parent="HouseCollider"]
+transform = Transform3D(-0.9999999, 0, 8.742277e-08, 0, 0.9999999, 0, -8.742277e-08, 0, -1, 6.6, -0.28792414, 9.6)
+shape = SubResource("BoxShape3D_n6wjo")
+
+[node name="DrivewayMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9999999, 0, 8.742277e-08, 0, 0.9999999, 0, -8.742277e-08, 0, -1, 6.6, -0.28792414, 9.6)
+mesh = SubResource("BoxMesh_gpgwj")
+metadata/_edit_group_ = true
+
+[node name="yellowhouse" parent="." instance=ExtResource("2_ap00j")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.2, 0)

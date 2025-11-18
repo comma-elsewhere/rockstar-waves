@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_y6iic")
+inspo_cost = 1000
+upgrade_max = 1
 upgrade_name = "Punk"
 upgrade_texture = ExtResource("2_3cklb")
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://5t8pp8yi2adi"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_4cq7f"]
+
+[resource]
+script = ExtResource("1_4cq7f")
+type = "NEIGHBOR: 
+"
+personality = 1
+greeting = Array[String](["Hey.", "*Yawn* Morning.", "Haven't had coffee yet, sorry.", "What's up, kid?", "I'm kinda busy right now..."])
+bump_into = Array[String](["Careful, kid.", "Oh, sorry.", "Watch where you're going, okay?", "In a hurry, huh?"])
+pass_by = Array[String](["Looks like rain...", "Yeesh, these weeds.", "Oh, how's your mother doing?", "Say hi to your dad for me.", "Tie your shoes."])
+metadata/_custom_type_script = "uid://ovrp7erx3wye"

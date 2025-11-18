@@ -34,8 +34,8 @@ func _calculate_busking(score_info: Array) -> bool:
 	floored_money = snapped(floored_money, 0.01)
 	
 	GStat.money += floored_money
-	GStat.fame += score_info[3] * score_info[0] / 10
-	GStat.inspo_points += score_info[2] * score_info[0] / 3
+	GStat.fame += score_info[3] * score_info[0] / 100
+	GStat.inspo_points += score_info[2] * score_info[0] / 2
 	
 	final_panel.visible = true
 	await get_tree().create_timer(PANEL_WAIT).timeout

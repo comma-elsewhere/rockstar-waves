@@ -25,3 +25,6 @@ func process_frame(_delta: float) -> State:
 	camera_control.object_pickup()
 	
 	return null
+	
+func process_physics(_delta: float) -> State:
+	return null

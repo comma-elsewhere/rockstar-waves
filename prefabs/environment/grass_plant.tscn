@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmt7rmqagfluw"]
+
+[ext_resource type="PackedScene" uid="uid://bce6qyyqlgurh" path="res://assets/models/plants/plant-style1.glb" id="1_inynt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ewu8t"]
+radius = 1.4421982
+
+[node name="GrassPlant" type="Node3D"]
+
+[node name="plant-style1" parent="." instance=ExtResource("1_inynt")]
+
+[node name="BaseCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010727763, 0.5334847, -0.11087096)
+shape = SubResource("SphereShape3D_ewu8t")

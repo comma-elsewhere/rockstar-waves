@@ -21,3 +21,9 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("backout"):
 		return idle
 	return null
+
+func process_frame(_delta: float) -> State:
+	return null
+	
+func process_physics(_delta: float) -> State:
+	return null

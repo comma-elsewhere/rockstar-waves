@@ -14,6 +14,9 @@ func process_input(event: InputEvent) -> State:
 		return walk
 	return null
 
+func process_frame(_delta: float) -> State:
+	return null
+
 func process_physics(_delta: float) -> State:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
 	var direction = (parent.transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)).normalized()

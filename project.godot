@@ -37,6 +37,8 @@ Minigame=""
 Character=""
 RhythmNote=""
 LookInteract=""
+Player=""
+Pedestrians=""
 
 [input]
 

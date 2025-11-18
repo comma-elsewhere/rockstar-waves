@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2qnubjbwoau0"
+path="res://.godot/imported/f u lol.ogg-4ce824b1b3e809d03ef0dda51e1b7008.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/temp-songs/f u lol.ogg"
+dest_files=["res://.godot/imported/f u lol.ogg-4ce824b1b3e809d03ef0dda51e1b7008.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://cyjiuw6limcna"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_ei5ae"]
+
+[resource]
+script = ExtResource("1_ei5ae")
+type = "NEIGHBOR: 
+"
+personality = 2
+greeting = Array[String](["What do you want?", "Can I help you?", "What?", "What is it?"])
+bump_into = Array[String](["Excuse you.", "Do you mind?", "Watch where you're going!", "Were you raised in a barn?", "Get off my lawn!"])
+pass_by = Array[String](["Kids these days...", "My back hurts.", "Ugh.", "*Sigh*"])
+metadata/_custom_type_script = "uid://ovrp7erx3wye"

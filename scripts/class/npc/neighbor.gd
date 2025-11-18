@@ -1,0 +1,33 @@
+extends NPC_Class
+
+signal talking(words: String)
+
+const MOVE_AWAY := 5.0
+const SPEECH_DIST := 7.0
+
+@onready var talking_timer: Timer = $TalkingTimer
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and global_position.distance_to(player.global_position) <= SPEECH_DIST / 1.5:
+		if !GInit.minigame_open:
+			talking.emit(dialogue.hello())
+
+func _move_away(direction: Vector3) -> void:
+	talking.emit(dialogue.bump())
+	apply_impulse(direction * MOVE_AWAY)
+
+func _on_body_entered(body: Node3D) -> void:
+	if body == player:
+		var dir = global_position.direction_to(player.global_position)
+		_move_away(-dir)
+		
+func _on_body_exited(body: Node3D) -> void:
+	if body == player:
+		linear_velocity = lerp(linear_velocity, Vector3.ZERO, 5* get_physics_process_delta_time())
+		
+
+func _on_talking_timer_timeout() -> void:
+	talking_timer.start(randf_range(15.0, 30.0))
+	if global_position.distance_to(player.global_position) <= SPEECH_DIST:
+		talking.emit(dialogue.passing())
+	
