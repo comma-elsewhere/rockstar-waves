@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bce6qyyqlgurh" path="res://assets/models/plants/plant-style1.glb" id="1_inynt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ewu8t"]
-radius = 1.4421982
+radius = 0.65129054
 
 [node name="GrassPlant" type="Node3D"]
 

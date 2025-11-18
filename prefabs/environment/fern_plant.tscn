@@ -3,12 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ddb1oj88saegv" path="res://assets/models/plants/plant-style2.glb" id="1_nl2by"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tojj2"]
-radius = 2.0
 
 [node name="FernPlant" type="Node3D"]
 
 [node name="plant-style2" parent="." instance=ExtResource("1_nl2by")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032882094, -0.3439083, -0.047154665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032882094, -0.1439083, -0.047154665)
 
 [node name="BaseCollision" type="StaticBody3D" parent="."]
 
