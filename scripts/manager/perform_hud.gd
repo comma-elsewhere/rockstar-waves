@@ -27,15 +27,14 @@ func _on_score_display_end_game(score_array: Array) -> void:
 	game_over.emit()
 
 func _calculate_busking(score_info: Array) -> bool:
-	var fame = GStat.fame / 10
+	var fame = GStat.fame / 100
 	fame = clampi(fame, 1, 10)
 	var floored_money = 0
 	floored_money += float(fame) * randf_range(0.1, 5) * score_info[0]
 	floored_money = snapped(floored_money, 0.01)
 	
 	GStat.money += floored_money
-	GStat.fame += score_info[3] * score_info[0] / 100
-	GStat.inspo_points += score_info[2] * score_info[0] / 2
+	GStat.fame += score_info[3] * score_info[0] / 10
 	
 	final_panel.visible = true
 	await get_tree().create_timer(PANEL_WAIT).timeout

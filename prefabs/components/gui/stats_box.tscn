@@ -21,22 +21,6 @@ size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="Fame" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Static" type="Label" parent="Fame"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
-text = "Fame"
-horizontal_alignment = 1
-
-[node name="Dynamic" type="Label" parent="Fame"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
-
 [node name="Inspiration" type="HBoxContainer" parent="."]
 layout_mode = 2
 

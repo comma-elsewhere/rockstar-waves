@@ -4,7 +4,7 @@ class_name LyricUpgrade extends Resource
 @export_range(1,3) var upgrade_max: int = 3
 @export var upgrade_name: String
 @export_enum("EMO", "PUNK") var upgrade_branch: int = 1
-@export var upgrade_texture: Texture2D = load("res://assets/icons/skill-icons/skill_icons1/1/Skill-icons_01.png")
+@export var upgrade_texture: Texture2D
 @export_subgroup("Lyrics")
 @export var lyrics: Array[String] = ["", "", "", "", "","", "", "", "", ""]
 @export var grouping: Array[int] = [0,0,0]

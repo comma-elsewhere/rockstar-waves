@@ -1,0 +1,178 @@
+[gd_scene load_steps=22 format=3 uid="uid://2urcsdcgaktl"]
+
+[ext_resource type="Texture2D" uid="uid://b1hctj45d8qjy" path="res://assets/icons/skill-icons/rank_stuff/10.png" id="1_7bjae"]
+[ext_resource type="Script" uid="uid://cfrbdiqel8myv" path="res://scripts/gui/fame_rank_box.gd" id="1_8e7n0"]
+[ext_resource type="Texture2D" uid="uid://b4pme37ersqop" path="res://assets/icons/skill-icons/rank_stuff/13.png" id="2_8e7n0"]
+[ext_resource type="Texture2D" uid="uid://b4yorb7vc7l6u" path="res://assets/icons/skill-icons/rank_stuff/14.png" id="3_ibqfg"]
+[ext_resource type="Texture2D" uid="uid://ijedebwe30mv" path="res://assets/icons/skill-icons/rank_stuff/11.png" id="4_jqoyb"]
+[ext_resource type="Texture2D" uid="uid://bb7h8s3vtvsoo" path="res://assets/icons/skill-icons/rank_stuff/Rank-icons_01.png" id="5_r0h6s"]
+[ext_resource type="Texture2D" uid="uid://cfsj6kvrwckud" path="res://assets/icons/skill-icons/rank_stuff/9.png" id="6_ibqfg"]
+[ext_resource type="Texture2D" uid="uid://4qjc7muy76a" path="res://assets/icons/skill-icons/rank_stuff/Rank-icons_02.png" id="6_iqxv1"]
+[ext_resource type="Texture2D" uid="uid://76wyrq8hado0" path="res://assets/icons/skill-icons/rank_stuff/Rank-icons_03.png" id="7_hgxvg"]
+[ext_resource type="Texture2D" uid="uid://krhqkq4jvb3i" path="res://assets/icons/skill-icons/rank_stuff/Rank-icons_04.png" id="8_qaldu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4a4f"]
+texture = ExtResource("1_7bjae")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym6co"]
+texture = ExtResource("2_8e7n0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_je2au"]
+texture = ExtResource("3_ibqfg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxgj4"]
+texture = ExtResource("4_jqoyb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jqoyb"]
+texture = ExtResource("6_ibqfg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbmq3"]
+texture = ExtResource("5_r0h6s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7kq6d"]
+texture = ExtResource("6_iqxv1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4p6jw"]
+texture = ExtResource("7_hgxvg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p67x"]
+texture = ExtResource("8_qaldu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibqfg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqoyb"]
+bg_color = Color(1, 0.8392157, 0, 1)
+
+[node name="FameRankBox" type="Control" node_paths=PackedStringArray("rank_1", "rank_2", "rank_3", "rank_4", "rank_5", "subrank_1", "subrank_2", "subrank_3", "subrank_4", "rank_label", "level_bar")]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8e7n0")
+rank_1 = NodePath("RankFrame1")
+rank_2 = NodePath("RankFrame2")
+rank_3 = NodePath("RankFrame3")
+rank_4 = NodePath("RankFrame4")
+rank_5 = NodePath("RankFrame5")
+subrank_1 = NodePath("SubRankContainer/SubRank1")
+subrank_2 = NodePath("SubRankContainer/SubRank2")
+subrank_3 = NodePath("SubRankContainer/SubRank3")
+subrank_4 = NodePath("SubRankContainer/SubRank4")
+rank_label = NodePath("PushDownContainer/RankAndLevel/RankLabel")
+level_bar = NodePath("PushDownContainer/RankAndLevel/LevelUpBar")
+
+[node name="RankFrame1" type="PanelContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_right = 1.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t4a4f")
+
+[node name="RankFrame2" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ym6co")
+
+[node name="RankFrame3" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_je2au")
+
+[node name="RankFrame4" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nxgj4")
+
+[node name="RankFrame5" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqoyb")
+
+[node name="SubRankContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SubRank1" type="PanelContainer" parent="SubRankContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tbmq3")
+
+[node name="SubRank2" type="PanelContainer" parent="SubRankContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kq6d")
+
+[node name="SubRank3" type="PanelContainer" parent="SubRankContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4p6jw")
+
+[node name="SubRank4" type="PanelContainer" parent="SubRankContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7p67x")
+
+[node name="PushDownContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = -100
+
+[node name="RankAndLevel" type="VBoxContainer" parent="PushDownContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RankLabel" type="Label" parent="PushDownContainer/RankAndLevel"]
+layout_mode = 2
+text = "RankName 
+Level 0"
+horizontal_alignment = 1
+
+[node name="LevelUpBar" type="ProgressBar" parent="PushDownContainer/RankAndLevel"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ibqfg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jqoyb")
+allow_greater = true
+show_percentage = false

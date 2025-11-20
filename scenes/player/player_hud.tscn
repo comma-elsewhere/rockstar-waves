@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=30 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
+[ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
 [ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
 [ext_resource type="Resource" uid="uid://b54k6xbfd71wh" path="res://resources/lyrics/emo.tres" id="3_h6f0n"]
 [ext_resource type="Resource" uid="uid://cfljx5msglg5g" path="res://resources/lyrics/punk.tres" id="4_tdeaa"]
@@ -26,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://dvvcm1rcouv58" path="res://resources/lyrics/burn.tres" id="23_je2au"]
 [ext_resource type="Resource" uid="uid://dtsgmumyivuo" path="res://resources/lyrics/decay.tres" id="24_nxgj4"]
 [ext_resource type="Script" uid="uid://dycoac2s4xttm" path="res://scripts/gui/dialogue_container.gd" id="26_tdeaa"]
+[ext_resource type="PackedScene" uid="uid://2urcsdcgaktl" path="res://prefabs/components/gui/fame_rank_box.tscn" id="28_n5etk"]
 
 [sub_resource type="GDScript" id="GDScript_h6f0n"]
 resource_name = "SkillTreeStartup"
@@ -68,7 +70,36 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0.80784315)
+color = Color(1, 0, 0, 0.80784315)
+
+[node name="HUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="DateTime" type="VBoxContainer" parent="HUD"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("2_h6xkt")
+
+[node name="Day" type="Label" parent="HUD/DateTime"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "DayName"
+
+[node name="Time" type="Label" parent="HUD/DateTime"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "00:00PM"
+horizontal_alignment = 1
 
 [node name="DialogueContainer" type="MarginContainer" parent="."]
 process_mode = 1
@@ -348,6 +379,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 4
 
+[node name="Spacer2" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="FameRankBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("28_n5etk")]
+layout_mode = 2
+
 [node name="QuitMenu" type="MarginContainer" parent="JournalBG"]
 visible = false
 layout_mode = 1
@@ -382,12 +420,12 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="QuitGame" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Yes"
 
-[node name="Button2" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ToggleQuit" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "No"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=46 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="PackedScene" uid="uid://bqjpsirba3vey" path="res://scenes/player/player.tscn" id="1_48w6d"]
@@ -110,7 +110,7 @@ tracks/0/path = NodePath("TimeAndLight/DirectionalLight3D:light_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.03333333, 0.23333333, 0.40526026, 1.2333333, 1.433552, 1.5336614, 1.7317038),
+"times": PackedFloat32Array(0.23333333, 0.53333336, 0.7052603, 1.5333333, 1.733552, 1.8336613, 2.0317037),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0.21568628, 1), Color(1, 0.7294118, 0.27450982, 1), Color(1, 1, 1, 1), Color(1, 1, 0.7882353, 1), Color(1, 0.42352942, 0.50980395, 1), Color(0.13725491, 0.3137255, 0.60784316, 1), Color(0, 0, 0.21568628, 1)]
@@ -122,7 +122,7 @@ tracks/1/path = NodePath("TimeAndLight/DirectionalLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.23333333, 0.40308404, 1.2333333, 1.433552, 1.5336614, 1.7317038),
+"times": PackedFloat32Array(0.53333336, 0.70308405, 1.5333333, 1.733552, 1.8336613, 2.0317037),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.8498645, 0.8, 0.5, 0.0]
@@ -134,7 +134,7 @@ tracks/2/path = NodePath("TimeAndLight/DirectionalLight3D:light_indirect_energy"
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.23333333, 0.40308404, 1.2333333, 1.433552, 1.5336614, 1.7317038),
+"times": PackedFloat32Array(0.53333336, 0.70308405, 1.5333333, 1.733552, 1.8336613, 2.0317037),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 1.1501355, 1.2, 0.5, 0.2]
@@ -146,7 +146,7 @@ tracks/3/path = NodePath("TimeAndLight/WorldEnvironment:environment:ambient_ligh
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3421479, 1.3654635, 1.8321302),
+"times": PackedFloat32Array(0, 0.6666667, 1.6899823, 2.156649),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 0.8627451, 0.78431374, 1), Color(1, 0.8627451, 0.78431374, 1), Color(0, 0, 0, 1)]
@@ -158,7 +158,7 @@ tracks/4/path = NodePath("TimeAndLight/WorldEnvironment:environment:ambient_ligh
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.37043965, 1.3654635, 1.8321302),
+"times": PackedFloat32Array(0, 0.69495845, 1.6899823, 2.156649),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -170,7 +170,7 @@ tracks/5/path = NodePath("TimeAndLight/WorldEnvironment:environment:volumetric_f
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.18110235, 1.53213),
+"times": PackedFloat32Array(0, 0.53333336, 1.8566488),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
@@ -186,6 +186,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TimeAndLight/DirectionalLight3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.34906584, 0.017453292, 0), Vector3(-1.5707964, 3.1415927, 0), Vector3(-0.34906584, 6.2831855, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_yu2dq"]
@@ -274,6 +286,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TimeAndLight/DirectionalLight3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.52359885, 1.3089969, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vn873"]
 _data = {
@@ -295,14 +319,28 @@ sky = SubResource("Sky_vn873")
 ambient_light_source = 2
 ambient_light_color = Color(1, 0.8627451, 0.78431374, 1)
 ambient_light_energy = 0.0
-reflected_light_source = 1
+tonemap_mode = 2
 glow_enabled = true
 glow_normalized = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.03
+volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_anisotropy = 0.5
 volumetric_fog_ambient_inject = 1.0
+
+[sub_resource type="VoxelGIData" id="VoxelGIData_4x4x5"]
+_data = {
+"bounds": AABB(-250, -10, -250, 500, 20, 500),
+"level_counts": PackedInt32Array(1, 0, 0, 0, 0, 0, 0, 0),
+"octree_cells": PackedByteArray("//////////////////////////////////////////8="),
+"octree_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAA=="),
+"octree_df_png": PackedByteArray("iVBORw0KGgoAAAANSUhEUgAABAAAAACACAAAAACwiUSUAAAAAXNSR0IArs4c6QAAAZxJREFUeJzt1DEBACAMwDDAv+chY0cTBb165wBVbzsA2GMAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEGYAEPYB7AEB/2Zn1LoAAAAASUVORK5CYII="),
+"octree_size": Vector3(128, 8, 128),
+"to_cell_xform": Transform3D(0.25599998, 0, 0, 0, 0.25599998, 0, 0, 0, 0.25599998, 63.999996, 2.56, 63.999996)
+}
+dynamic_range = 1.0
+bias = 0.0
+normal_bias = 1.0
 
 [node name="Neighborhood" type="Node3D"]
 
@@ -1997,10 +2035,6 @@ shape = SubResource("BoxShape3D_iqklg")
 
 [node name="NPCs" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("1_48w6d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 0.25, 208)
-jump_height = 5
-
 [node name="TimeAndLight" type="Node" parent="."]
 
 [node name="WorldClock" type="AnimationPlayer" parent="TimeAndLight"]
@@ -2011,13 +2045,22 @@ libraries = {
 }
 autoplay = "DayNight"
 script = ExtResource("20_yu2dq")
-INGAME_SPEED = 20.0
+INITIAL_HOUR = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="TimeAndLight"]
 environment = SubResource("Environment_qlkh5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="TimeAndLight"]
-transform = Transform3D(0.25881907, -0.4829629, 0.83651614, 0, 0.8660254, 0.49999994, -0.9659258, -0.12940954, 0.22414386, 0, 50, 0)
+transform = Transform3D(0.25881898, -0.48296303, 0.83651644, 0, 0.8660255, 0.5000002, -0.9659255, -0.12940957, 0.22414395, 0, 50, 0)
 shadow_enabled = true
 directional_shadow_mode = 1
 directional_shadow_blend_splits = true
+
+[node name="VoxelGI" type="VoxelGI" parent="TimeAndLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+size = Vector3(500, 20, 500)
+data = SubResource("VoxelGIData_4x4x5")
+
+[node name="Player" parent="." instance=ExtResource("1_48w6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 0.25, 208)
+jump_height = 5
