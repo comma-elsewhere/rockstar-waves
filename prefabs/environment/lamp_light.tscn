@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://8jwtg1ckeuu"]
+
+[ext_resource type="Script" uid="uid://14gygt07tq6x" path="res://scripts/utility/lamp_light.gd" id="1_rncop"]
+
+[node name="LampLight" type="OmniLight3D"]
+process_priority = 5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4522614, 8.8, 15.383621)
+light_color = Color(1, 1, 0.7176471, 1)
+light_energy = 4.0
+light_indirect_energy = 2.0
+omni_range = 20.0
+script = ExtResource("1_rncop")

@@ -72,6 +72,7 @@ color = Color(1, 1, 1, 0.80784315)
 
 [node name="DialogueContainer" type="MarginContainer" parent="."]
 process_mode = 1
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -127,6 +128,11 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/Journal/UpgradeCenter"]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="Calendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2
@@ -287,14 +293,101 @@ layout_mode = 2
 res = ExtResource("24_nxgj4")
 parent_upgrade = NodePath("../BurnItDown")
 
+[node name="GearLoadout" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionsMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Stats" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="StatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats" instance=ExtResource("2_0cgte")]
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats"]
 layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ToggleCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CALENDAR"
+
+[node name="ToggleUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "LYRICS"
+
+[node name="ToggleGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "GEAR"
+
+[node name="ToggleOptions" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "OPTIONS"
+
+[node name="ToggleQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[node name="Spacer" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="StatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("2_0cgte")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="QuitMenu" type="MarginContainer" parent="JournalBG"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitPanel" type="PanelContainer" parent="JournalBG/QuitMenu"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="JournalBG/QuitMenu/QuitPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Do you want to quit?
+All progress since previous save will be lost."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="Button2" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"

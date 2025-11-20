@@ -4,6 +4,10 @@ extends Node
 var mouse_free: bool = false
 var minigame_open: bool = false
 
+#array for world time: day, hour, minute
+var world_time: Array[int] = [0,0,0]
+var week_days: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 #initiate and access storage for player-made songs
 #dictionary is formatted as -- {song_title:String = song:SongResource}
 var songbook: Array[Dictionary] = []
