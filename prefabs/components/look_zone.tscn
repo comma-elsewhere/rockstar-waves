@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di5nfgk6by77c"]
 
-[ext_resource type="Script" uid="uid://idn2gch5uciw" path="res://scripts/utility/game_zone.gd" id="1_uhfvl"]
+[ext_resource type="Script" uid="uid://b7jnipunr57s5" path="res://scripts/utility/look_zone.gd" id="1_uhfvl"]
 
 [node name="LookZone" type="Area3D" groups=["LookInteract"]]
 collision_layer = 4

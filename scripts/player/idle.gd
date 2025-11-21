@@ -17,8 +17,9 @@ extends State
 
 @export_subgroup("Other")
 @export var talk: State
+@export var inspire: State
 
-enum Minigames {NONE, WORK, SELL, PERFORM, BUSK, ADVERTISE}
+enum Minigames {NONE, WORK, SELL, PERFORM, BUSK, ADVERTISE, INSPIRE}
 var current_minigame
 
 func _ready() -> void:
@@ -43,6 +44,8 @@ func _change_minigame(game_name: String) -> void:
 			current_minigame = Minigames.BUSK
 		"Advertise":
 			current_minigame = Minigames.ADVERTISE
+		"Inspire":
+			current_minigame = Minigames.INSPIRE
 
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
@@ -64,6 +67,8 @@ func process_input(event: InputEvent) -> State:
 		return busk 
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.ADVERTISE:
 		return advertise
+	elif event.is_action_pressed("interact") and current_minigame == Minigames.INSPIRE:
+		return inspire
 	return null
 
 func process_frame(_delta: float) -> State:

@@ -13,16 +13,16 @@ func _init() -> void:
 	randomize()
 
 func hello() -> String:
-	var rand: String
-	greeting.pick_random()
+	var rand: String = greeting.pick_random()
+	GStat.inspo_points += 1
 	return type+rand
 	
 func bump() -> String:
-	var rand: String
-	bump_into.pick_random()
+	var rand: String = bump_into.pick_random()
+	GStat.inspo_points += 1
 	return type+rand
 	
 func passing() -> String:
-	var rand: String
-	pass_by.pick_random()
+	var rand: String = pass_by.pick_random()
+	GStat.inspo_points += 5
 	return type+rand

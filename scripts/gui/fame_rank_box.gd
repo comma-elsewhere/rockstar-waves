@@ -18,14 +18,14 @@ extends Control
 @export var rank_label: Label
 @export var level_bar: ProgressBar
 
-var update_fame: int = 1
+var update_fame: int = 0
 var level_amount: int = 0
 var current_level: int = 0
 var current_rank: Control = null
 var current_subrank: Control = null
 
 func _ready() -> void:
-	level_bar.max_value = level_threshhold
+	_set_label()
 
 func _process(_delta: float) -> void:
 	if update_fame != GStat.fame:
@@ -64,7 +64,9 @@ func _set_label() -> void:
 	else:
 		index = 0
 		toggle_rank(rank_1)
-		
+	
+	level_threshhold = GStat.threshholds[index]
+	level_bar.max_value = level_threshhold
 	rank_label.text = rank_names[index] + "\n" + "Level " + str(level)
 	
 func toggle_subrank(panel: Control) -> void:

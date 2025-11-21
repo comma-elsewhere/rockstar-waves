@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://76qk6tw0efx7" path="res://scripts/gui/song_button_box.gd" id="4_4m3uk"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="5_3wmbm"]
 
-[node name="BuskHUD" type="CanvasLayer" node_paths=PackedStringArray("stage_manager", "song_button_box", "final_panel")]
+[node name="BuskHUD" type="CanvasLayer" node_paths=PackedStringArray("stage_manager", "song_button_box", "final_panel", "stats_box")]
 script = ExtResource("1_gbl7q")
 type = "Busk"
 stage_manager = NodePath("SubViewportContainer/SubViewport/StageManager")
 song_button_box = NodePath("SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/SongButtonBox")
 final_panel = NodePath("SubViewportContainer/SubViewport/FinalPanel")
+stats_box = NodePath("SubViewportContainer/SubViewport/FinalPanel/MarginContainer/StatsBox")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_right = 40.0

@@ -20,14 +20,24 @@ class_name LyricUpgrade extends Resource
 	#melancholy
 
 func upgrade(level: int):
+	GStat.music_style[upgrade_branch] += 1
 	for i in range(grouping[level - 1]):
 		var current_lyric: String = lyrics.pop_front()
 		var lyric_dict: Dictionary
 		match level:
 			1:
-				lyric_dict[current_lyric] = metric_one
+				lyric_dict[current_lyric] = _random_metric(metric_one)
 			2:
-				lyric_dict[current_lyric] = metric_two
+				lyric_dict[current_lyric] = _random_metric(metric_two)
 			3:
-				lyric_dict[current_lyric] = metric_three
+				lyric_dict[current_lyric] = _random_metric(metric_three)
 		GInit.active_lyrics.append(lyric_dict)
+
+func _random_metric(array: Array[int]) -> Array[int]:
+	var randomized_array: Array[int]
+	for i in range(len(array)):
+		if array[i] == 0:
+			randomized_array.append(0)
+		else:
+			randomized_array.append(randi_range(1, i))
+	return randomized_array

@@ -23,7 +23,7 @@ func _on_body_entered(body: Node3D) -> void:
 		
 func _on_body_exited(body: Node3D) -> void:
 	if body == player:
-		linear_velocity = lerp(linear_velocity, Vector3.ZERO, 5* get_physics_process_delta_time())
+		linear_velocity = lerp(linear_velocity, Vector3.ZERO, 1.0)
 		
 
 func _on_talking_timer_timeout() -> void:

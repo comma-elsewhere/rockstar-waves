@@ -37,7 +37,7 @@ func _process_lyrics() -> bool:
 				metrics[i] += value[i]
 	
 	for i in range(len(metrics)):
-		metrics[i] /= 3
+		metrics[i] /= 2
 	
 	print(metrics)
 	

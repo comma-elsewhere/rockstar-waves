@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqjpsirba3vey"]
+[gd_scene load_steps=23 format=3 uid="uid://bqjpsirba3vey"]
 
 [ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_fm80t"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dh0bw0ixcjwqv" path="res://scripts/player/talk.gd" id="11_8ydkj"]
 [ext_resource type="Script" uid="uid://btgjjkixurf4u" path="res://scripts/player/busk.gd" id="13_fcs02"]
 [ext_resource type="Script" uid="uid://cbvacn7ehy53y" path="res://scripts/player/advertise.gd" id="14_myrg7"]
+[ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_kvlxm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -92,7 +93,7 @@ starting_state = NodePath("Movement/Idle")
 
 [node name="Movement" type="Node" parent="StateMachine"]
 
-[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "perform", "busk", "advertise", "talk", "parent")]
+[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "perform", "busk", "advertise", "talk", "inspire", "parent")]
 script = ExtResource("2_je7p5")
 camera = NodePath("../../../CamOrigin")
 walk = NodePath("../Walk")
@@ -105,6 +106,7 @@ perform = NodePath("../../Minigames/Perform")
 busk = NodePath("../../Minigames/Busk")
 advertise = NodePath("../../Minigames/Advertise")
 talk = NodePath("../../Other/Talk")
+inspire = NodePath("../../Other/Inspiration")
 parent = NodePath("../../..")
 
 [node name="Walk" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "run", "jump", "fall", "idle", "parent")]
@@ -197,6 +199,12 @@ parent = NodePath("../../..")
 
 [node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("parent")]
 script = ExtResource("11_8ydkj")
+parent = NodePath("../../..")
+
+[node name="Inspiration" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("camera", "idle", "parent")]
+script = ExtResource("17_kvlxm")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
 [connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]

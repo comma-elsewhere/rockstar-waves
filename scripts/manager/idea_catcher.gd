@@ -8,7 +8,6 @@ signal catch_game_ended(idea_caught: bool)
 @export var timer: Timer
 @export var win_particles: CPUParticles2D
 @export var progress: ProgressBar
-@export var label: Label
 
 const DECAY_WAIT_TIME: float = 1.5
 const SPEED_DECAY_TIME: float = 0.8
@@ -47,6 +46,3 @@ func _speed_decay() -> void:
 	else:
 		path_follower.set_speed(SPEED_DECAY_RATE)
 		timer.start(SPEED_DECAY_TIME)
-	
-func set_label(lyric_name: String) -> void:
-	label.text = lyric_name

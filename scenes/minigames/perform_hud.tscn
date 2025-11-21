@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmwiu48ina32u"]
+[gd_scene load_steps=6 format=3 uid="uid://bmwiu48ina32u"]
 
 [ext_resource type="Script" uid="uid://bpe7jyjdpvcx8" path="res://scripts/manager/perform_hud.gd" id="1_18gut"]
 [ext_resource type="PackedScene" uid="uid://v48n4fq4n1bh" path="res://scenes/minigames/stage_manager.tscn" id="1_r71ss"]
 [ext_resource type="PackedScene" uid="uid://dwu16dxuvpsrq" path="res://scenes/minigames/score_display.tscn" id="1_uibgv"]
 [ext_resource type="Script" uid="uid://76qk6tw0efx7" path="res://scripts/gui/song_button_box.gd" id="3_uibgv"]
+[ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="5_18gut"]
 
-[node name="PerformHUD" type="CanvasLayer" node_paths=PackedStringArray("stage_manager", "song_button_box")]
+[node name="PerformHUD" type="CanvasLayer" node_paths=PackedStringArray("stage_manager", "song_button_box", "final_panel", "stats_box")]
 script = ExtResource("1_18gut")
+type = "Perform"
 stage_manager = NodePath("SubViewportContainer/SubViewport/StageManager")
 song_button_box = NodePath("SubViewportContainer/SubViewport/SongSelect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/SongButtonBox")
+final_panel = NodePath("SubViewportContainer/SubViewport/FinalPanel")
+stats_box = NodePath("SubViewportContainer/SubViewport/FinalPanel/MarginContainer/StatsBox")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_right = 40.0
@@ -75,6 +79,29 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_uibgv")
 parent = NodePath("../../../../../..")
+
+[node name="FinalPanel" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/FinalPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="StatsBox" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer" instance=ExtResource("5_18gut")]
+layout_mode = 2
 
 [connection signal="song_ended" from="SubViewportContainer/SubViewport/StageManager" to="SubViewportContainer/SubViewport/ScoreDisplay" method="_on_stage_manager_song_ended"]
 [connection signal="end_game" from="SubViewportContainer/SubViewport/ScoreDisplay" to="." method="_on_score_display_end_game"]

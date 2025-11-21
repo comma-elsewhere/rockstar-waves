@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=43 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="PackedScene" uid="uid://bqjpsirba3vey" path="res://scenes/player/player.tscn" id="1_48w6d"]
@@ -14,10 +14,12 @@
 [ext_resource type="Material" uid="uid://b4gbdxp3hbhqu" path="res://resources/materials/sand.tres" id="9_xcsir"]
 [ext_resource type="Material" uid="uid://s5xe3kycn7vg" path="res://resources/materials/road.tres" id="10_8pb0k"]
 [ext_resource type="PackedScene" uid="uid://cmt7rmqagfluw" path="res://prefabs/environment/grass_plant.tscn" id="10_83kmd"]
-[ext_resource type="PackedScene" uid="uid://bmj5lxo3nwyae" path="res://prefabs/components/enter_zone.tscn" id="11_cf4nt"]
-[ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="12_c4p66"]
-[ext_resource type="Material" uid="uid://drnwxqe2u07l6" path="res://resources/materials/glowing.tres" id="12_xcsir"]
 [ext_resource type="Script" uid="uid://bsmr8811d7jrd" path="res://scripts/manager/pedestrian_pathing.gd" id="13_c4p66"]
+[ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="14_iqklg"]
+[ext_resource type="PackedScene" uid="uid://cufok5f4b0ur0" path="res://prefabs/characters/neighbor.tscn" id="15_vn873"]
+[ext_resource type="Resource" uid="uid://bk8nif5o53lhl" path="res://resources/dialogue/neighbor_friendly.tres" id="16_qw1xm"]
+[ext_resource type="Resource" uid="uid://5t8pp8yi2adi" path="res://resources/dialogue/neighbor_neutral.tres" id="17_dvdks"]
+[ext_resource type="Resource" uid="uid://cyjiuw6limcna" path="res://resources/dialogue/neighbor_hostile.tres" id="18_75q0o"]
 [ext_resource type="Script" uid="uid://btfqfhkwcc40l" path="res://scripts/manager/world_clock.gd" id="20_yu2dq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_xcsir"]
@@ -82,22 +84,6 @@ size = Vector3(120, 50, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_atwi2"]
 material = ExtResource("6_0ywcd")
 size = Vector3(120, 50, 60)
-
-[sub_resource type="SphereMesh" id="SphereMesh_cf4nt"]
-material = ExtResource("12_xcsir")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_xcsir"]
-radius = 1.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_lv6u8"]
-material = ExtResource("12_xcsir")
-size = Vector3(1, 1, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8pb0k"]
-size = Vector3(1, 1, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iqklg"]
-size = Vector3(0.9, 1, 3)
 
 [sub_resource type="Animation" id="Animation_4x4x5"]
 resource_name = "DayNight"
@@ -348,6 +334,7 @@ normal_bias = 1.0
 
 [node name="GroundNav" type="NavigationRegion3D" parent="Environment"]
 navigation_mesh = SubResource("NavigationMesh_xcsir")
+metadata/_edit_lock_ = true
 
 [node name="Ground" type="MeshInstance3D" parent="Environment/GroundNav"]
 mesh = SubResource("PlaneMesh_c4p66")
@@ -596,6 +583,7 @@ carve_navigation_mesh = true
 
 [node name="RoadNav" type="NavigationRegion3D" parent="Environment"]
 navigation_mesh = SubResource("NavigationMesh_83kmd")
+metadata/_edit_lock_ = true
 
 [node name="MinorBaseRoad" type="Node3D" parent="Environment/RoadNav"]
 transform = Transform3D(-0.8660254, 0, 2.0000002, 0, 1, 0, -0.50000006, 0, -3.4641016, 26, 0, 90)
@@ -858,49 +846,34 @@ shape = SubResource("WorldBoundaryShape3D_lv6u8")
 script = ExtResource("13_c4p66")
 
 [node name="Waypoint1" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 6, -154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, -141)
 
 [node name="Waypoint2" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135, 6, 144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 0, 74)
 
 [node name="Waypoint3" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6, 101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, 139)
 
 [node name="Waypoint4" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 6, 58)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, -112)
 
 [node name="Waypoint5" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133, 6, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 157)
 
 [node name="Waypoint6" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, -11)
 
 [node name="Waypoint7" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 6, 73)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139, 0, 146)
 
 [node name="Waypoint8" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 6, -38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -199)
 
 [node name="Waypoint9" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132, 6, -38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205, 0, -96)
 
 [node name="Waypoint10" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 171)
-
-[node name="Waypoint11" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 6, 170)
-
-[node name="Waypoint12" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133, 6, 172)
-
-[node name="Waypoint13" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(-0.8660254, 0.50000006, 0, -0.50000006, -0.8660254, 0, 0, 0, 1, 3, 6, -37)
-
-[node name="Waypoint14" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(-0.8660254, 0.50000006, 0, -0.50000006, -0.8660254, 0, 0, 0, 1, -161, 6, -102)
-
-[node name="Waypoint15" type="Node3D" parent="Environment/PedestrianPoints"]
-transform = Transform3D(-0.8660254, 0.50000006, 0, -0.50000006, -0.8660254, 0, 0, 0, 1, -73, 6, -104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, 107)
 
 [node name="Houses" type="Node" parent="Environment"]
 
@@ -1948,92 +1921,112 @@ shape = SubResource("BoxShape3D_cf4nt")
 
 [node name="Zones" type="Node" parent="."]
 
-[node name="Busk1" parent="Zones" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 2, -196)
-game_name = "Busk"
-metadata/_edit_group_ = true
+[node name="InspirationZone" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 0, 161)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busk1"]
-mesh = SubResource("SphereMesh_cf4nt")
-skeleton = NodePath("../../..")
+[node name="InspirationZone2" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -62)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busk1"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="InspirationZone3" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 63)
 
-[node name="Busk2" parent="Zones" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -40)
-game_name = "Busk"
-metadata/_edit_group_ = true
+[node name="InspirationZone4" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126, 0, 220)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busk2"]
-mesh = SubResource("SphereMesh_cf4nt")
-skeleton = NodePath("../../..")
+[node name="InspirationZone5" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, -11)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busk2"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="InspirationZone6" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -216)
 
-[node name="Busk3" parent="Zones" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 2, -178)
-game_name = "Busk"
-metadata/_edit_group_ = true
+[node name="InspirationZone7" parent="Zones" instance=ExtResource("14_iqklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -56)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busk3"]
-mesh = SubResource("SphereMesh_cf4nt")
-skeleton = NodePath("../../..")
+[node name="NPC_Neighbors" type="Node" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busk3"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="FriendlyNeighbor" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 212)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="Busk4" parent="Zones" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147, 2, 120)
-game_name = "Busk"
-metadata/_edit_group_ = true
+[node name="FriendlyNeighbor2" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 195)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busk4"]
-mesh = SubResource("SphereMesh_cf4nt")
-skeleton = NodePath("../../..")
+[node name="FriendlyNeighbor3" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 125)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busk4"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="FriendlyNeighbor4" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169, 0, 170)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="Busk5" parent="Zones" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144, 2, 108)
-game_name = "Busk"
-metadata/_edit_group_ = true
+[node name="FriendlyNeighbor5" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, 0, 199)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busk5"]
-mesh = SubResource("SphereMesh_cf4nt")
-skeleton = NodePath("../../..")
+[node name="FriendlyNeighbor6" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 166)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busk5"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="FriendlyNeighbor7" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 97)
+dialogue = ExtResource("16_qw1xm")
 
-[node name="Keyboard" type="MeshInstance3D" parent="Zones"]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 104, 0.7, 210)
-mesh = SubResource("BoxMesh_lv6u8")
-metadata/_edit_group_ = true
+[node name="NeutralNeighbor" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 87)
+dialogue = ExtResource("17_dvdks")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Zones/Keyboard"]
+[node name="NeutralNeighbor2" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 73)
+dialogue = ExtResource("17_dvdks")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Keyboard/StaticBody3D"]
-shape = SubResource("BoxShape3D_8pb0k")
+[node name="NeutralNeighbor3" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135, 0, 49)
+dialogue = ExtResource("17_dvdks")
 
-[node name="Workspace" parent="Zones/Keyboard" instance=ExtResource("11_cf4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
-game_name = "Workspace"
-metadata/_edit_group_ = true
+[node name="NeutralNeighbor4" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187, 0, 47)
+dialogue = ExtResource("17_dvdks")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Keyboard/Workspace"]
-shape = SubResource("SphereShape3D_xcsir")
+[node name="NeutralNeighbor5" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197, 0, 14)
+dialogue = ExtResource("17_dvdks")
 
-[node name="DAW" parent="Zones/Keyboard" instance=ExtResource("12_c4p66")]
-game_name = "DAW"
+[node name="NeutralNeighbor6" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -72)
+dialogue = ExtResource("17_dvdks")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Keyboard/DAW"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038024902, 0.10629177, 0)
-shape = SubResource("BoxShape3D_iqklg")
+[node name="NeutralNeighbor7" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -57)
+dialogue = ExtResource("17_dvdks")
 
-[node name="NPCs" type="Node" parent="."]
+[node name="HostileNeighbor" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 7)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor2" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -6)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor3" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85, 0, -71)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor4" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157, 0, -70)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor5" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149, 0, -122)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor7" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163, 0, -185)
+dialogue = ExtResource("18_75q0o")
+
+[node name="HostileNeighbor6" parent="NPC_Neighbors" instance=ExtResource("15_vn873")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 0, -198)
+dialogue = ExtResource("18_75q0o")
 
 [node name="TimeAndLight" type="Node" parent="."]
 

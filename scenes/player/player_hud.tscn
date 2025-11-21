@@ -1,7 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
-[ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="2_0cgte"]
 [ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
 [ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
 [ext_resource type="Resource" uid="uid://b54k6xbfd71wh" path="res://resources/lyrics/emo.tres" id="3_h6f0n"]
@@ -27,6 +26,7 @@
 [ext_resource type="Resource" uid="uid://dvvcm1rcouv58" path="res://resources/lyrics/burn.tres" id="23_je2au"]
 [ext_resource type="Resource" uid="uid://dtsgmumyivuo" path="res://resources/lyrics/decay.tres" id="24_nxgj4"]
 [ext_resource type="Script" uid="uid://dycoac2s4xttm" path="res://scripts/gui/dialogue_container.gd" id="26_tdeaa"]
+[ext_resource type="PackedScene" uid="uid://bitw6rrtsa70y" path="res://prefabs/components/gui/player_stats_box.tscn" id="27_n5etk"]
 [ext_resource type="PackedScene" uid="uid://2urcsdcgaktl" path="res://prefabs/components/gui/fame_rank_box.tscn" id="28_n5etk"]
 
 [sub_resource type="GDScript" id="GDScript_h6f0n"]
@@ -375,9 +375,9 @@ text = "QUIT"
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="StatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("2_0cgte")]
+[node name="PlayerStatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("27_n5etk")]
 layout_mode = 2
-size_flags_vertical = 4
+type = 1
 
 [node name="Spacer2" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)

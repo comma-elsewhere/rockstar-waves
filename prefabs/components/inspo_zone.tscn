@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfhks83tk6kj7"]
+
+[ext_resource type="Script" uid="uid://7njq7l4p4j2e" path="res://scripts/utility/inspo_zone.gd" id="1_taptn"]
+[ext_resource type="Material" uid="uid://frqg6jajbadr" path="res://resources/inspo_particle_process.tres" id="1_uty6t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcpje"]
+transparency = 1
+shading_mode = 2
+albedo_color = Color(1, 0.84705883, 0, 0.039215688)
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0.8235294, 0, 1)
+emission_energy_multiplier = 8.0
+emission_on_uv2 = true
+disable_receive_shadows = true
+proximity_fade_distance = 2.0
+distance_fade_mode = 1
+distance_fade_min_distance = 10.0
+distance_fade_max_distance = 30.0
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uty6t"]
+material = SubResource("StandardMaterial3D_qcpje")
+radius = 0.05
+height = 0.1
+radial_segments = 24
+rings = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcpje"]
+size = Vector3(10, 2, 10)
+
+[node name="InspirationZone" type="Node3D"]
+script = ExtResource("1_taptn")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+amount = 10
+lifetime = 2.0
+randomness = 1.0
+process_material = ExtResource("1_uty6t")
+draw_pass_1 = SubResource("SphereMesh_uty6t")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_qcpje")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

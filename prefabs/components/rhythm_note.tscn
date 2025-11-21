@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csp7gridharec" path="res://assets/icons/arrow_button_3.png" id="2_fklmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fklmq"]
-radius = 4.527693
+radius = 3.5
 
 [sub_resource type="Animation" id="Animation_wa1xj"]
 length = 0.001

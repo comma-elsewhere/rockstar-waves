@@ -19,10 +19,9 @@ func _process(delta: float) -> void:
 	time += delta * INGAME_TO_REAL_MINUTE_DURATION * INGAME_SPEED
 	var delta_mod = delta * INGAME_SPEED * 2.4 / INGAME_TO_REAL_MINUTE_DURATION
 	advance(delta_mod)
-	print(delta_mod)
 	#var value: float = (sin(time - PI / 2.0) + 1.0) / 2.0
 	
-	_recalculate_time()	
+	_recalculate_time()
 
 
 func _recalculate_time() -> void:

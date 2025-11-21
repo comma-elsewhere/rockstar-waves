@@ -39,7 +39,7 @@ func set_speed(new_speed: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8cum"]
 size = Vector2(23, 97)
 
-[node name="IdeaCatcher" type="Node2D" node_paths=PackedStringArray("target", "goal", "path_follower", "timer", "win_particles", "progress", "label")]
+[node name="IdeaCatcher" type="Node2D" node_paths=PackedStringArray("target", "goal", "path_follower", "timer", "win_particles", "progress")]
 script = ExtResource("1_ln5rk")
 target = NodePath("TargetPath/PathFollow2D/TargetArea")
 goal = NodePath("GoalArea")
@@ -47,7 +47,6 @@ path_follower = NodePath("TargetPath/PathFollow2D")
 timer = NodePath("Timer")
 win_particles = NodePath("GoalArea/SuccessStars")
 progress = NodePath("FillBarAnchor/ProgressBar")
-label = NodePath("TargetPath/PathFollow2D/TargetArea/Node2D/Label")
 
 [node name="TargetPath" type="Path2D" parent="."]
 z_index = -1
@@ -63,29 +62,8 @@ script = SubResource("GDScript_l8cum")
 shape = SubResource("RectangleShape2D_krji7")
 
 [node name="Polygon2D" type="Polygon2D" parent="TargetPath/PathFollow2D/TargetArea"]
-color = Color(0, 1, 0.6901961, 1)
+color = Color(1, 0.91764706, 0, 1)
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
-
-[node name="Node2D" type="Node2D" parent="TargetPath/PathFollow2D/TargetArea"]
-position = Vector2(0, -25)
-
-[node name="Label" type="Label" parent="TargetPath/PathFollow2D/TargetArea/Node2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.8627451, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 18
-text = "LYRICWORD"
 
 [node name="GoalArea" type="Area2D" parent="."]
 position = Vector2(640, 360)
