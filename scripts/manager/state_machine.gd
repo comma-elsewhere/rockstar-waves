@@ -1,5 +1,6 @@
 extends Node
 
+@export var player: Character
 @export var starting_state: State
 
 var current_state: State
@@ -9,6 +10,11 @@ var current_state: State
 func init() -> void:
 	# Initialize to the default state
 	change_state(starting_state)
+	
+func _ready() -> void:
+	for child in get_children(true):
+		if child.has_signal("talking"):
+			child.talking.connect(player.receive_talking)
 
 # Change to the new state by first calling any exit logic on the current state.
 func change_state(new_state: State) -> void:

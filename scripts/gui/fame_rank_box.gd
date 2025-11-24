@@ -69,6 +69,9 @@ func _set_label() -> void:
 	level_bar.max_value = level_threshhold
 	rank_label.text = rank_names[index] + "\n" + "Level " + str(level)
 	
+	GStat.current_rank = index + 1
+	GStat.current_level = current_level
+	
 func toggle_subrank(panel: Control) -> void:
 	if current_subrank:
 		current_subrank.visible = false

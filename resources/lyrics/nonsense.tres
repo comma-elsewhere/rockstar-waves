@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://brxivhmkt17w7"]
 
 [ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_ei801"]
-[ext_resource type="Texture2D" uid="uid://btkcm5yyro816" path="res://assets/icons/skill-icons/skill_icons2/13/Skillicon13_06.png" id="2_cyq8i"]
+[ext_resource type="Texture2D" uid="uid://ddby4o4rqgjdm" path="res://assets/icons/import-icons/skill_stuff/EmoIcon (2).png" id="2_cyq8i"]
 
 [resource]
 script = ExtResource("1_ei801")
+inspo_cost = 20
 upgrade_name = "NaNaNonsense"
 upgrade_branch = 0
 upgrade_texture = ExtResource("2_cyq8i")

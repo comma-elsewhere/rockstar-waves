@@ -10,9 +10,9 @@ func _ready() -> void:
 	visible = false
 	characters = get_tree().get_nodes_in_group("Character")
 	for node in characters:
-		node.talking.connect(_on_talking)
+		node.talking.connect(on_talking)
 		
-func _on_talking(words: String) -> void:
+func on_talking(words: String) -> void:
 	if !visible:
 		dialogue_label.text = words
 		visible = true

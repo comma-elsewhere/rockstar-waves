@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm4ehcu2bot4f"]
+
+[ext_resource type="Script" uid="uid://bvag2tykhsnqm" path="res://scripts/gui/gig_box.gd" id="1_1jlhf"]
+
+[node name="GigBox" type="VBoxContainer"]
+script = ExtResource("1_1jlhf")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "This is a Gig Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Where" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Where: Location"
+
+[node name="When" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "When: Weekday"
+
+[node name="Time" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Doors Open: 00:00PM"

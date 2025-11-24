@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://cfljx5msglg5g"]
 
 [ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_y6iic"]
-[ext_resource type="Texture2D" uid="uid://8gv8kyrp31td" path="res://assets/icons/skill-icons/skill_icons2/12/Skillicon12_37.png" id="2_3cklb"]
+[ext_resource type="Texture2D" uid="uid://c7kxphvcdle4a" path="res://assets/icons/import-icons/skill_stuff/PunkIcon (4).png" id="2_3cklb"]
 
 [resource]
 script = ExtResource("1_y6iic")

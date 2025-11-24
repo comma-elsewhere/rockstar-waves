@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://hhpn7xtsx0cs"]
 
 [ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_6qpjd"]
-[ext_resource type="Texture2D" uid="uid://b24874lad6tg8" path="res://assets/icons/skill-icons/skill_icons1/13/Skill-icons_12.png" id="2_g8nbw"]
+[ext_resource type="Texture2D" uid="uid://d0b1mvtv7e6nt" path="res://assets/icons/import-icons/skill_stuff/EmoIcon (5).png" id="2_g8nbw"]
 
 [resource]
 script = ExtResource("1_6qpjd")
+inspo_cost = 15
 upgrade_name = "DaddyIssues"
 upgrade_branch = 0
 upgrade_texture = ExtResource("2_g8nbw")

@@ -1,6 +1,6 @@
 class_name LyricUpgrade extends Resource
 
-@export var inspo_cost: int = 5
+@export var inspo_cost: int = 10
 @export_range(1,3) var upgrade_max: int = 3
 @export var upgrade_name: String
 @export_enum("EMO", "PUNK") var upgrade_branch: int = 1

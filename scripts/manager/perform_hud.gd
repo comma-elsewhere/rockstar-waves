@@ -13,7 +13,7 @@ const PANEL_WAIT := 5.0
 var level
 
 func startup() -> void:
-	level = norm_fame() + (GStat.music_style[0] + GStat.music_style[1])/2
+	level = GFunc.norm_fame() + (GStat.music_style[0] + GStat.music_style[1])/2
 	GInit.mouse_free = true
 	song_button_box.startup()
 
@@ -43,23 +43,6 @@ func _calculate_performance(score_info: Array) -> bool:
 	
 	await final_calc(floored_money, gained_fame)
 	return true
-	
-func norm_fame() -> int:
-	var index: int
-	if GStat.fame > 4 * (GStat.threshholds[0] + GStat.threshholds[1] + GStat.threshholds[2] + GStat.threshholds[3]):
-		index = 4
-	elif GStat.fame > 4 * (GStat.threshholds[0] + GStat.threshholds[1] + GStat.threshholds[2]):
-		index = 3
-	elif GStat.fame > 4 * (GStat.threshholds[0] + GStat.threshholds[1]):
-		index = 2
-	elif GStat.fame > 4 * GStat.threshholds[0]:
-		index = 1
-	else:
-		index = 0
-		
-	var normalized_fame: int = GStat.fame / GStat.threshholds[index]
-	print(normalized_fame)
-	return normalized_fame
 	
 func final_calc(floored_money:float, gained_fame:int) -> void:
 	floored_money = snappedf(floored_money, 0.01)

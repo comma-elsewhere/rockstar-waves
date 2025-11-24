@@ -1,11 +1,15 @@
 extends Control
 
+signal game_end
+
 @export var lyrics_done_button: Button
 @export var lyric_list: VBoxContainer
 @export var song_title_label: Label
 @export var song_player: AudioStreamPlayer
 
 @export var lyric_recipes: Array[SongRecipe] = []
+
+const WAIT_END := 6.0
 
 var current_title: String
 var current_lyrics: Array[Dictionary] = []
@@ -83,3 +87,8 @@ func _on_song_title_text_changed(new_text: String) -> void:
 
 func _on_tuning_container_puzzle_is_solved() -> void:
 	_add_to_songbook(current_title)
+
+
+func _on_play_button_pressed() -> void:
+	await get_tree().create_timer(WAIT_END).timeout
+	game_end.emit()

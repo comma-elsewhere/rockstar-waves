@@ -1,28 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://faqqdll2isvo"]
+[gd_scene load_steps=6 format=3 uid="uid://faqqdll2isvo"]
 
 [ext_resource type="Script" uid="uid://d01kitwbsj10w" path="res://scripts/gui/upgrade_node.gd" id="1_503on"]
-[ext_resource type="Texture2D" uid="uid://gellu4dx4mei" path="res://assets/icons/skill-icons/skill_frames/Frame_05.png" id="2_ht3cu"]
-[ext_resource type="Texture2D" uid="uid://bqv5hfp38r1ag" path="res://assets/icons/skill-icons/skill_frames/Frame_02.png" id="3_2b3ar"]
-[ext_resource type="Texture2D" uid="uid://dbdc6y8qxca4s" path="res://assets/icons/skill-icons/skill_frames/Frame_01.png" id="4_0hpcb"]
+[ext_resource type="Texture2D" uid="uid://bkv41pwp3w0k7" path="res://assets/icons/import-icons/skill_stuff/NodeFrames.png" id="2_503on"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0br8r"]
-texture = ExtResource("2_ht3cu")
+texture = ExtResource("2_503on")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(1, 1, 30, 30)
+region_rect = Rect2(129, 1, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xc4tq"]
-texture = ExtResource("3_2b3ar")
+texture = ExtResource("2_503on")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(1, 1, 30, 30)
+region_rect = Rect2(33, 1, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oyur"]
-texture = ExtResource("4_0hpcb")
+texture = ExtResource("2_503on")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0

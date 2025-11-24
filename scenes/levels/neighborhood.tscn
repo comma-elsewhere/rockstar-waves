@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=50 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="PackedScene" uid="uid://bqjpsirba3vey" path="res://scenes/player/player.tscn" id="1_48w6d"]
@@ -17,8 +17,11 @@
 [ext_resource type="Script" uid="uid://bsmr8811d7jrd" path="res://scripts/manager/pedestrian_pathing.gd" id="13_c4p66"]
 [ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="14_iqklg"]
 [ext_resource type="PackedScene" uid="uid://cufok5f4b0ur0" path="res://prefabs/characters/neighbor.tscn" id="15_vn873"]
+[ext_resource type="PackedScene" uid="uid://bmj5lxo3nwyae" path="res://prefabs/components/enter_zone.tscn" id="16_dvdks"]
 [ext_resource type="Resource" uid="uid://bk8nif5o53lhl" path="res://resources/dialogue/neighbor_friendly.tres" id="16_qw1xm"]
+[ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="17_75q0o"]
 [ext_resource type="Resource" uid="uid://5t8pp8yi2adi" path="res://resources/dialogue/neighbor_neutral.tres" id="17_dvdks"]
+[ext_resource type="Material" uid="uid://drnwxqe2u07l6" path="res://resources/materials/glowing.tres" id="17_y3vhx"]
 [ext_resource type="Resource" uid="uid://cyjiuw6limcna" path="res://resources/dialogue/neighbor_hostile.tres" id="18_75q0o"]
 [ext_resource type="Script" uid="uid://btfqfhkwcc40l" path="res://scripts/manager/world_clock.gd" id="20_yu2dq"]
 
@@ -84,6 +87,18 @@ size = Vector3(120, 50, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_atwi2"]
 material = ExtResource("6_0ywcd")
 size = Vector3(120, 50, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvdks"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxae6"]
+material = ExtResource("17_y3vhx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3vhx"]
+size = Vector3(5.4, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxae6"]
+size = Vector3(4.6, 4.3, 1)
 
 [sub_resource type="Animation" id="Animation_4x4x5"]
 resource_name = "DayNight"
@@ -879,234 +894,311 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, 107)
 
 [node name="House_Red" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111, 0, -210)
+metadata/_edit_lock_ = true
 
 [node name="House_Red2" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186, 0, -210)
+metadata/_edit_lock_ = true
 
 [node name="House_Red11" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -172)
+metadata/_edit_lock_ = true
 
 [node name="House_Red13" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -36, 0, -136)
+metadata/_edit_lock_ = true
 
 [node name="House_Red12" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -172)
+metadata/_edit_lock_ = true
 
 [node name="House_Red7" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -146)
+metadata/_edit_lock_ = true
 
 [node name="House_Red14" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133, 0, -82)
+metadata/_edit_lock_ = true
 
 [node name="House_Red8" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183, 0, -146)
+metadata/_edit_lock_ = true
 
 [node name="House_Red4" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -182, 0, -174)
+metadata/_edit_lock_ = true
 
 [node name="House_Red5" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -132, 0, -174)
+metadata/_edit_lock_ = true
 
 [node name="House_Red10" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -182, 0, -110)
+metadata/_edit_lock_ = true
 
 [node name="House_Red6" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -82, 0, -174)
+metadata/_edit_lock_ = true
 
 [node name="House_Red9" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -132, 0, -110)
+metadata/_edit_lock_ = true
 
 [node name="House_Red15" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -157, 0, -46)
+metadata/_edit_lock_ = true
 
 [node name="House_Red16" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -182, 0, -46)
+metadata/_edit_lock_ = true
 
 [node name="House_Red3" parent="Environment/Houses" instance=ExtResource("4_c4p66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161, 0, -210)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 204, 0, 158)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue2" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 178, 0, 203)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue4" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 111, 0, 130)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue10" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 44, 0, 95)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue7" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 72, 0, 197)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue8" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 58, 0, 221)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue9" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 25, 0, 205)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue3" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 170, 0, 143)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue12" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(-0.86602545, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, -0.86602545, 107, 0, 218)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue5" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 63, 0, 139)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue6" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 76, 0, 116)
+metadata/_edit_lock_ = true
 
 [node name="House_Blue11" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 23, 0, 58)
+metadata/_edit_lock_ = true
 
 [node name="House_Green" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 191, 0, 180)
+metadata/_edit_lock_ = true
 
 [node name="House_Green5" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 97, 0, 153)
+metadata/_edit_lock_ = true
 
 [node name="House_Green9" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 31, 0, 118)
+metadata/_edit_lock_ = true
 
 [node name="House_Green10" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 57, 0, 73)
+metadata/_edit_lock_ = true
 
 [node name="House_Green6" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 1, 0, 172)
+metadata/_edit_lock_ = true
 
 [node name="House_Green7" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -31, 0, 154)
+metadata/_edit_lock_ = true
 
 [node name="House_Green11" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 10, 0, 81)
+metadata/_edit_lock_ = true
 
 [node name="House_Green17" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -18)
+metadata/_edit_lock_ = true
 
 [node name="House_Green18" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -38, 0, 18)
+metadata/_edit_lock_ = true
 
 [node name="House_Green12" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -3, 0, 103)
+metadata/_edit_lock_ = true
 
 [node name="House_Green8" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 39, 0, 182)
+metadata/_edit_lock_ = true
 
 [node name="House_Green3" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 144, 0, 188)
+metadata/_edit_lock_ = true
 
 [node name="House_Green4" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 158, 0, 165)
+metadata/_edit_lock_ = true
 
 [node name="House_Green2" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -110, 0, 13)
+metadata/_edit_lock_ = true
 
 [node name="House_Green15" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -174, 0, 68)
+metadata/_edit_lock_ = true
 
 [node name="House_Green13" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -146, 0, 16)
+metadata/_edit_lock_ = true
 
 [node name="House_Green16" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -210, 0, 16)
+metadata/_edit_lock_ = true
 
 [node name="House_Green14" parent="Environment/Houses" instance=ExtResource("6_lv6u8")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -146, 0, 72)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -210)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange2" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136, 0, -210)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange5" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109, 0, -146)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange11" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -96)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange16" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, -18)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange12" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -82)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange17" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -18)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange13" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183, 0, -82)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange6" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134, 0, -146)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange3" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -157, 0, -174)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange8" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -157, 0, -110)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange15" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -132, 0, -46)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange4" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -107, 0, -174)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange9" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -136)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange10" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26, 0, -60)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange18" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0, 18)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange7" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -82, 0, -110)
+metadata/_edit_lock_ = true
 
 [node name="House_Orange14" parent="Environment/Houses" instance=ExtResource("7_8pb0k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -107, 0, -46)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159, 0, -146)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow10" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109, 0, -82)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow11" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 0, -82)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow9" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -107, 0, -110)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow12" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -82, 0, -46)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow13" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16, 0, 18)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow2" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -110, 0, 69)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow3" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -110, 0, 41)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow7" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -174, 0, 40)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow8" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -174, 0, 13)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow4" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -146, 0, 44)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow5" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -210, 0, 71)
+metadata/_edit_lock_ = true
 
 [node name="House_Yellow6" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -210, 0, 44)
+metadata/_edit_lock_ = true
 
 [node name="Ferns" type="Node" parent="Environment"]
 
@@ -1921,26 +2013,112 @@ shape = SubResource("BoxShape3D_cf4nt")
 
 [node name="Zones" type="Node" parent="."]
 
-[node name="InspirationZone" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="Inspiration" type="Node" parent="Zones"]
+
+[node name="InspirationZone" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 0, 161)
 
-[node name="InspirationZone2" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone2" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -62)
 
-[node name="InspirationZone3" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone3" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 63)
 
-[node name="InspirationZone4" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone4" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126, 0, 220)
 
-[node name="InspirationZone5" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone5" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, -11)
 
-[node name="InspirationZone6" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone6" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -216)
 
-[node name="InspirationZone7" parent="Zones" instance=ExtResource("14_iqklg")]
+[node name="InspirationZone7" parent="Zones/Inspiration" instance=ExtResource("14_iqklg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -56)
+
+[node name="Busking" type="Node" parent="Zones"]
+
+[node name="BuskZone" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 0, 65)
+game_name = "Busk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+shape = SubResource("BoxShape3D_dvdks")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busking/BuskZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+mesh = SubResource("BoxMesh_cxae6")
+
+[node name="BuskZone2" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 111)
+game_name = "Busk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+shape = SubResource("BoxShape3D_dvdks")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Zones/Busking/BuskZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+mesh = SubResource("BoxMesh_cxae6")
+skeleton = NodePath("../../BuskZone")
+
+[node name="BuskZone3" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -42)
+game_name = "Busk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+shape = SubResource("BoxShape3D_dvdks")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Zones/Busking/BuskZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+mesh = SubResource("BoxMesh_cxae6")
+skeleton = NodePath("../../BuskZone")
+
+[node name="BuskZone4" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 0, -179)
+game_name = "Busk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+shape = SubResource("BoxShape3D_dvdks")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Zones/Busking/BuskZone4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+mesh = SubResource("BoxMesh_cxae6")
+skeleton = NodePath("../../BuskZone")
+
+[node name="BuskZone5" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, -197)
+game_name = "Busk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+shape = SubResource("BoxShape3D_dvdks")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Zones/Busking/BuskZone5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+mesh = SubResource("BoxMesh_cxae6")
+skeleton = NodePath("../../BuskZone")
+
+[node name="PlayerStuff" type="Node" parent="Zones"]
+
+[node name="Workspace" parent="Zones/PlayerStuff" instance=ExtResource("16_dvdks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.3, 0, 206.1)
+game_name = "Workspace"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/PlayerStuff/Workspace"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -2.0767975, 1, 3.53302)
+shape = SubResource("BoxShape3D_y3vhx")
+
+[node name="DAW" parent="Zones/PlayerStuff" instance=ExtResource("17_75q0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.3, 2, 206.1)
+game_name = "DAW"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/PlayerStuff/DAW"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -1.6928253, 0.3499999, 4.600006)
+shape = SubResource("BoxShape3D_cxae6")
 
 [node name="NPC_Neighbors" type="Node" parent="."]
 
@@ -2038,7 +2216,6 @@ libraries = {
 }
 autoplay = "DayNight"
 script = ExtResource("20_yu2dq")
-INITIAL_HOUR = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="TimeAndLight"]
 environment = SubResource("Environment_qlkh5")

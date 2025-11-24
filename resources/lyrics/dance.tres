@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://divsf7eminjvy"]
 
 [ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_cqe47"]
-[ext_resource type="Texture2D" uid="uid://da7j1qn12wmjo" path="res://assets/icons/skill-icons/skill_icons2/13/Skillicon13_38.png" id="2_j4cxq"]
+[ext_resource type="Texture2D" uid="uid://codnh8x73ehso" path="res://assets/icons/import-icons/skill_stuff/EmoIcon (9).png" id="2_j4cxq"]
 
 [resource]
 script = ExtResource("1_cqe47")
+inspo_cost = 20
 upgrade_max = 2
 upgrade_name = "DanceDance"
 upgrade_branch = 0

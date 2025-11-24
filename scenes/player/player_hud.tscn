@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=35 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
 [ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
 [ext_resource type="Resource" uid="uid://b54k6xbfd71wh" path="res://resources/lyrics/emo.tres" id="3_h6f0n"]
+[ext_resource type="Script" uid="uid://bi8d7tt48a6ru" path="res://scripts/gui/journal_manager.gd" id="4_sbd4t"]
 [ext_resource type="Resource" uid="uid://cfljx5msglg5g" path="res://resources/lyrics/punk.tres" id="4_tdeaa"]
+[ext_resource type="PackedScene" uid="uid://bm4ehcu2bot4f" path="res://prefabs/components/gui/gig_box.tscn" id="5_bqesq"]
 [ext_resource type="Resource" uid="uid://d0erjo5548ulm" path="res://resources/lyrics/dark_edgy.tres" id="5_h6xkt"]
 [ext_resource type="Resource" uid="uid://ba6ivtk3cb1wq" path="res://resources/lyrics/angst.tres" id="6_n5etk"]
 [ext_resource type="Resource" uid="uid://cbs8s0hl2opy6" path="res://resources/lyrics/heartthrob.tres" id="7_5fjqn"]
@@ -28,6 +30,10 @@
 [ext_resource type="Script" uid="uid://dycoac2s4xttm" path="res://scripts/gui/dialogue_container.gd" id="26_tdeaa"]
 [ext_resource type="PackedScene" uid="uid://bitw6rrtsa70y" path="res://prefabs/components/gui/player_stats_box.tscn" id="27_n5etk"]
 [ext_resource type="PackedScene" uid="uid://2urcsdcgaktl" path="res://prefabs/components/gui/fame_rank_box.tscn" id="28_n5etk"]
+[ext_resource type="Script" uid="uid://cbiv8vivnqq04" path="res://scripts/gui/quit_menu.gd" id="29_5fjqn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqesq"]
+bg_color = Color(0.8217887, 0.8217887, 0.8217885, 1)
 
 [sub_resource type="GDScript" id="GDScript_h6f0n"]
 resource_name = "SkillTreeStartup"
@@ -44,6 +50,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if child.has_method(\"startup\"):
 				child.startup()
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubmuv"]
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -73,6 +81,7 @@ mouse_filter = 2
 color = Color(1, 0, 0, 0.80784315)
 
 [node name="HUD" type="MarginContainer" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,6 +105,7 @@ theme_override_font_sizes/font_size = 30
 text = "DayName"
 
 [node name="Time" type="Label" parent="HUD/DateTime"]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "00:00PM"
@@ -103,7 +113,6 @@ horizontal_alignment = 1
 
 [node name="DialogueContainer" type="MarginContainer" parent="."]
 process_mode = 1
-visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -129,14 +138,27 @@ This is sample dialogue."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="JournalBG" type="Panel" parent="."]
+[node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
 visible = false
+custom_minimum_size = Vector2(1100, 750)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqesq")
+script = ExtResource("4_sbd4t")
+calendar_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GigCalendar")
+upgrades_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/Upgrades")
+gear_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GearLoadout")
+options_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/OptionsMenu")
+calendar_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenCalendar")
+upgrades_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenUpgrades")
+gear_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenGear")
+options_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenOptions")
 
 [node name="Journal" type="PanelContainer" parent="JournalBG"]
 custom_minimum_size = Vector2(1000, 675)
@@ -160,12 +182,43 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Calendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+[node name="GigCalendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/GigCalendar"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/GigCalendar/ScrollContainer"]
+custom_minimum_size = Vector2(0, 630)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="GigBox1" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/GigCalendar/ScrollContainer/VBoxContainer" instance=ExtResource("5_bqesq")]
+layout_mode = 2
+gig_name = "Open Mic Night"
+location = "Coffee Cafe"
+weekday = "Weekdays"
+door_time = "6:00PM"
+
+[node name="GigBox2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/GigCalendar/ScrollContainer/VBoxContainer" instance=ExtResource("5_bqesq")]
+layout_mode = 2
+gig_name = "Junkyard Bash"
+location = "Old Warehouse"
+weekday = "Sat-Sun"
+door_time = "7:00PM"
 
 [node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -197,8 +250,6 @@ layout_mode = 2
 layout_mode = 2
 res = ExtResource("4_tdeaa")
 children = [NodePath("../ProProtest"), NodePath("../TheOutsider")]
-
-[node name="Marker2D" type="Marker2D" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer/Punk"]
 
 [node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -326,11 +377,13 @@ parent_upgrade = NodePath("../BurnItDown")
 
 [node name="GearLoadout" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="OptionsMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -346,27 +399,31 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ToggleCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+[node name="OpenCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "CALENDAR"
+text = "GIGS"
 
-[node name="ToggleUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+[node name="OpenGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Available in full game"
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "GEAR"
+
+[node name="OpenUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "LYRICS"
 
-[node name="ToggleGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+[node name="OpenOptions" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Available in full game"
 theme_override_font_sizes/font_size = 20
-text = "GEAR"
-
-[node name="ToggleOptions" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
+disabled = true
 text = "OPTIONS"
 
-[node name="ToggleQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+[node name="OpenQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "QUIT"
@@ -386,7 +443,7 @@ layout_mode = 2
 [node name="FameRankBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("28_n5etk")]
 layout_mode = 2
 
-[node name="QuitMenu" type="MarginContainer" parent="JournalBG"]
+[node name="QuitMenu" type="MarginContainer" parent="JournalBG" node_paths=PackedStringArray("parent", "quit_button", "open_menu", "close_menu")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -394,12 +451,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("29_5fjqn")
+parent = NodePath("..")
+quit_button = NodePath("QuitPanel/MarginContainer/VBoxContainer/HBoxContainer/QuitGame")
+open_menu = NodePath("../Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenQuit")
+close_menu = NodePath("QuitPanel/MarginContainer/VBoxContainer/HBoxContainer/CloseQuit")
 
 [node name="QuitPanel" type="PanelContainer" parent="JournalBG/QuitMenu"]
 z_index = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubmuv")
 
 [node name="MarginContainer" type="MarginContainer" parent="JournalBG/QuitMenu/QuitPanel"]
 layout_mode = 2
@@ -425,7 +488,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Yes"
 
-[node name="ToggleQuit" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CloseQuit" type="Button" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "No"

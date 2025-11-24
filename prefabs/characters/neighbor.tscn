@@ -9,7 +9,7 @@ radius = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oj6rm"]
 
-[node name="Neighbor" type="RigidBody3D" node_paths=PackedStringArray("area") groups=["Character"]]
+[node name="Neighbor" type="RigidBody3D" node_paths=PackedStringArray("area") groups=["Character", "InspoSource"]]
 collision_mask = 3
 input_ray_pickable = false
 axis_lock_linear_y = true
@@ -34,5 +34,8 @@ mesh = SubResource("CapsuleMesh_oj6rm")
 [node name="TalkingTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="InspoCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]

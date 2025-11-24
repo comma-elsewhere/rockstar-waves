@@ -1,20 +1,33 @@
 extends NPC_Class
 
 signal talking(words: String)
+signal inspiration(amount: int)
 
 const MOVE_AWAY := 5.0
 const SPEECH_DIST := 7.0
+const TALK_INSPO := 2
+const SHOVE_INSPO := 1
+const INSPO_COOLDOWN := 5.0
 
 @onready var talking_timer: Timer = $TalkingTimer
+@onready var inspo_cooldown: Timer = $InspoCooldown
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and global_position.distance_to(player.global_position) <= SPEECH_DIST / 1.5:
 		if !GInit.minigame_open:
 			talking.emit(dialogue.hello())
+			_get_inspired(TALK_INSPO)
 
 func _move_away(direction: Vector3) -> void:
 	talking.emit(dialogue.bump())
+	_get_inspired(SHOVE_INSPO)
 	apply_impulse(direction * MOVE_AWAY)
+	
+func _get_inspired(amount: int):
+	if inspo_cooldown.is_stopped():
+		inspiration.emit(amount)
+		GStat.inspo_points += amount
+	inspo_cooldown.start(INSPO_COOLDOWN)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == player:

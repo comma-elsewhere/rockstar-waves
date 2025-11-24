@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LyricUpgrade" load_steps=3 format=3 uid="uid://c1i8xkh8x6qu2"]
 
 [ext_resource type="Script" uid="uid://dxqvffm3vhsxk" path="res://scripts/class/resource/inspo_upgrade.gd" id="1_uxyhg"]
-[ext_resource type="Texture2D" uid="uid://bx1s761awvwlc" path="res://assets/icons/skill-icons/skill_icons3/12/Skill-icons_33.png" id="2_0pk8j"]
+[ext_resource type="Texture2D" uid="uid://degxre0vbespa" path="res://assets/icons/import-icons/skill_stuff/PunkIcon (10).png" id="2_0pk8j"]
 
 [resource]
 script = ExtResource("1_uxyhg")
+inspo_cost = 15
 upgrade_name = "RageEtc"
 upgrade_texture = ExtResource("2_0pk8j")
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

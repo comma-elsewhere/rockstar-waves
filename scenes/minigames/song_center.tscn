@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bypupma4pmxrq"]
+[gd_scene load_steps=22 format=3 uid="uid://bypupma4pmxrq"]
 
 [ext_resource type="Script" uid="uid://sodkxsjctmsi" path="res://scripts/manager/song_writing.gd" id="1_wcmpc"]
 [ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="2_x6ivm"]
@@ -14,6 +14,15 @@
 [ext_resource type="Script" uid="uid://dbnyrgvg0qk2w" path="res://scripts/gui/lyric_button_box.gd" id="12_vkbvp"]
 [ext_resource type="Script" uid="uid://ybtcbdfka5nq" path="res://scripts/gui/tuning.gd" id="13_qykej"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcmpc"]
+bg_color = Color(0.85882354, 0.16078432, 0.2509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ivm"]
+bg_color = Color(0.93937624, 0.20935088, 0.29164776, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7yf5"]
+bg_color = Color(0.2520276, 0.25202766, 0.25202754, 1)
+
 [sub_resource type="GDScript" id="GDScript_28a42"]
 resource_name = "PlayMusicButton"
 script/source = "extends Button
@@ -26,6 +35,14 @@ func _on_pressed() -> void:
 	else:
 		current_song.play()
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpsmh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv3og"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttjvd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rewcc"]
 
 [node name="SongWritingCenter" type="Control" node_paths=PackedStringArray("lyrics_done_button", "lyric_list", "song_title_label", "song_player")]
 layout_mode = 3
@@ -164,6 +181,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "This is a Song Title"
 
+[node name="Label" type="Label" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Match the soundwaves!"
+
 [node name="VisualContainer" type="HBoxContainer" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -191,7 +213,9 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "play"
+theme_override_styles/normal = SubResource("StyleBoxFlat_wcmpc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x6ivm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o7yf5")
 script = SubResource("GDScript_28a42")
 
 [node name="CurrentSong" type="AudioStreamPlayer" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton"]
@@ -271,21 +295,25 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpsmh")
 
 [node name="Button2" type="Button" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_lv3og")
 
 [node name="Button3" type="Button" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ttjvd")
 
 [node name="Button4" type="Button" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rewcc")
 
 [node name="LyricsPanel" type="PanelContainer" parent="HBoxContainer"]
 visible = false
@@ -306,4 +334,5 @@ layout_mode = 2
 [connection signal="new_lyric_from_button" from="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer/Buttons/VBoxContainer/ButtonBox4" to="." method="_on_new_lyric_from_button"]
 [connection signal="new_lyric_from_button" from="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer/Buttons/VBoxContainer/ButtonBox5" to="." method="_on_new_lyric_from_button"]
 [connection signal="puzzle_is_solved" from="HBoxContainer/WorkPanel/TuningContainer" to="." method="_on_tuning_container_puzzle_is_solved"]
+[connection signal="pressed" from="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton" to="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton" method="_on_pressed"]
