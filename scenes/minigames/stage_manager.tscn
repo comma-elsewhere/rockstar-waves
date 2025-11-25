@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2eccamwlt6yo" path="res://prefabs/components/rhythm_arrow.tscn" id="3_q8k2m"]
 
 [node name="StageManager" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_muvpd")
 
 [node name="Lanes" type="Sprite2D" parent="."]

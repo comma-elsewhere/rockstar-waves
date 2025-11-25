@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://boy8c3ig71ixx"]
+
+[ext_resource type="FontFile" uid="uid://clbowsehf28f0" path="res://assets/gui/fonts/CrimsonText-Bold.ttf" id="1_8sfnf"]
+
+[resource]
+font = ExtResource("1_8sfnf")
+font_size = 40

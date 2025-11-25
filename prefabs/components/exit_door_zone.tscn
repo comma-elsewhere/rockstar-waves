@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://biotqx0omn276"]
+
+[ext_resource type="Script" uid="uid://b4jvlyyv2pr58" path="res://scripts/utility/exit_door_zone.gd" id="1_qfmq6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvfix"]
+size = Vector3(1.7, 2.8, 1.6)
+
+[node name="ExitDoorZone" type="Area3D"]
+script = ExtResource("1_qfmq6")
+scene_path = "Outside"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75000024, 0.5000001, 2.3841858e-07)
+shape = SubResource("BoxShape3D_fvfix")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

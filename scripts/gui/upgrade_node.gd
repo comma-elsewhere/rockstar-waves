@@ -27,20 +27,28 @@ func _ready() -> void:
 	button.button_up.connect(_on_button_pressed)
 	
 	_update_label()
-	call_deferred("_set_line")
+	unlocked_panel.visible = false
+	_set_line()
+	
+	if GStat.upgrades.get(res.upgrade_name) != null:
+		var value: int = GStat.upgrades.get(res.upgrade_name)
+		call_deferred("_already_enabled", value)
 	
 func _on_button_pressed():
 	if GStat.inspo_points >= current_cost and current_level < res.upgrade_max:
 		GStat.inspo_points -= current_cost
 		if current_level < 1:
-			unlocked_panel.visible = true
-			if !children.is_empty():
-				for node in children:
-					node.enable_self()
+			_unlock()
 		current_level += 1
 		current_cost *= COST_MULTIPLIER
 		_update_label()
 		res.upgrade(current_level)
+
+func _unlock():
+	unlocked_panel.visible = true
+	if !children.is_empty():
+		for node in children:
+			node.enable_self()
 
 func _update_label() -> void:
 	upgrade_label.text = res.upgrade_name + " " + str(current_level) + "/" + str(res.upgrade_max)
@@ -70,8 +78,6 @@ func _set_line() -> void:
 		cost_label.visible = false
 	else:
 		locked_panel.visible = true
-		
-	unlocked_panel.visible = false
 
 func get_local_position(child_position: Vector2) -> Vector2:
 	var omega = global_position.angle_to_point(child_position)
@@ -81,3 +87,13 @@ func get_local_position(child_position: Vector2) -> Vector2:
 	var my_position: Vector2 = Vector2(adj, opp)
 	
 	return my_position
+
+func _already_enabled(level: int) -> void:
+	if parent_upgrade:
+		enable_self()
+	current_level = level
+	for i in level:
+		if i != 0:
+			current_cost *= COST_MULTIPLIER
+	_unlock()
+	_update_label()

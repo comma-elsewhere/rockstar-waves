@@ -1,0 +1,220 @@
+[gd_scene load_steps=23 format=3 uid="uid://oi2n4xssuyld"]
+
+[ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_5hi7k"]
+[ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_4iq04"]
+[ext_resource type="PackedScene" uid="uid://b2b2afy1a5c6c" path="res://scenes/player/player_hud.tscn" id="3_4t6s5"]
+[ext_resource type="Script" uid="uid://co1pr2wk2tmrf" path="res://scripts/manager/state_machine.gd" id="4_2eje1"]
+[ext_resource type="Script" uid="uid://d0x5g8fgttdd6" path="res://scripts/player/idle.gd" id="5_lxuaf"]
+[ext_resource type="Script" uid="uid://cvi54vwevo6fq" path="res://scripts/player/walk.gd" id="6_tct2w"]
+[ext_resource type="Script" uid="uid://da84qt7sqbupn" path="res://scripts/player/jump.gd" id="7_gyox3"]
+[ext_resource type="Script" uid="uid://bbp7gjo6lut1r" path="res://scripts/player/run.gd" id="8_c4hmi"]
+[ext_resource type="Script" uid="uid://e4dfpbwccrdy" path="res://scripts/player/fall.gd" id="9_lauax"]
+[ext_resource type="Script" uid="uid://dj40jj8f88lg7" path="res://scripts/player/write_song.gd" id="10_uc333"]
+[ext_resource type="Script" uid="uid://b8s0yx3n4j70b" path="res://scripts/player/make_merch.gd" id="11_5c1cy"]
+[ext_resource type="Script" uid="uid://bbkgrulgv7bxs" path="res://scripts/player/sell_merch.gd" id="12_jwoi4"]
+[ext_resource type="Script" uid="uid://7wqaxa4syfvt" path="res://scripts/player/perform_music.gd" id="13_bonbo"]
+[ext_resource type="Script" uid="uid://btgjjkixurf4u" path="res://scripts/player/busk.gd" id="14_iamcp"]
+[ext_resource type="Script" uid="uid://cbvacn7ehy53y" path="res://scripts/player/advertise.gd" id="15_08b0e"]
+[ext_resource type="Script" uid="uid://dh0bw0ixcjwqv" path="res://scripts/player/talk.gd" id="16_4m68f"]
+[ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_8qsi8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gx1jg"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
+height = 2.3808594
+radius = 1.5
+
+[node name="IndoorPlayer" type="CharacterBody3D" node_paths=PackedStringArray("animation") groups=["Player"]]
+collision_mask = 3
+script = ExtResource("1_5hi7k")
+walk_speed = 10
+run_speed = 12
+jump_height = 3
+animation = NodePath("AnimationPlayer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_x7p2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_x7p2l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CamOrigin" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("2_4iq04")
+parent = NodePath("..")
+ARM_NORMAL = 2.0
+OFFSET_NONE = Vector3(0.2, 2, 0)
+OFFSET_SHOULDER = Vector3(-1, 1.8, 0)
+
+[node name="CamArm" type="SpringArm3D" parent="CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.4901161e-08, 0, 1.4901161e-08, 1, 0, 0, 0)
+spring_length = 3.0
+margin = 0.5
+
+[node name="Camera" type="Camera3D" parent="CamOrigin/CamArm"]
+
+[node name="RayCast3D" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
+target_position = Vector3(0, 0, -5)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CamOrigin/CamArm/Camera"]
+process_mode = 3
+
+[node name="PlayerHUD" parent="CamOrigin/CamArm/Camera/CanvasLayer" instance=ExtResource("3_4t6s5")]
+process_mode = 3
+
+[node name="Hand" type="Node3D" parent="CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42292333, -0.14188695, -1.1337702)
+metadata/_edit_group_ = true
+
+[node name="HandMesh" type="MeshInstance3D" parent="CamOrigin/Hand"]
+visible = false
+mesh = SubResource("SphereMesh_gx1jg")
+
+[node name="CanJumpCheck" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_fm80t")
+collision_mask = 2
+
+[node name="DetectionZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19042969, 0)
+shape = SubResource("CylinderShape3D_gx1jg")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "starting_state")]
+script = ExtResource("4_2eje1")
+player = NodePath("..")
+starting_state = NodePath("Movement/Idle")
+
+[node name="Movement" type="Node" parent="StateMachine"]
+
+[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "perform", "busk", "advertise", "talk", "inspire", "parent")]
+script = ExtResource("5_lxuaf")
+camera = NodePath("../../../CamOrigin")
+walk = NodePath("../Walk")
+run = NodePath("../Run")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+workspace = NodePath("../../Minigames/Workspace")
+sell_merch = NodePath("../../Minigames/SellMerch")
+perform = NodePath("../../Minigames/Perform")
+busk = NodePath("../../Minigames/Busk")
+advertise = NodePath("../../Minigames/Advertise")
+talk = NodePath("../../Other/Talk")
+inspire = NodePath("../../Other/Inspiration")
+parent = NodePath("../../..")
+
+[node name="Walk" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "run", "jump", "fall", "idle", "parent")]
+script = ExtResource("6_tct2w")
+camera = NodePath("../../../CamOrigin")
+run = NodePath("../Run")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "walk"
+
+[node name="Jump" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("can_jump_check", "camera", "fall", "idle", "walk", "parent")]
+script = ExtResource("7_gyox3")
+can_jump_check = NodePath("../../../CanJumpCheck")
+camera = NodePath("../../../CamOrigin")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+walk = NodePath("../Walk")
+parent = NodePath("../../..")
+animation_name = "jump"
+
+[node name="Run" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "fall", "idle", "parent")]
+script = ExtResource("8_c4hmi")
+camera = NodePath("../../../CamOrigin")
+walk = NodePath("../Walk")
+fall = NodePath("../Fall")
+idle = NodePath("../Idle")
+parent = NodePath("../../..")
+animation_name = "run"
+
+[node name="Fall" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "idle", "walk", "parent")]
+script = ExtResource("9_lauax")
+camera = NodePath("../../../CamOrigin")
+idle = NodePath("../Idle")
+walk = NodePath("../Walk")
+parent = NodePath("../../..")
+animation_name = "fall"
+
+[node name="Minigames" type="Node" parent="StateMachine"]
+
+[node name="Workspace" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "player_hud", "idle", "daw_hud", "parent")]
+script = ExtResource("10_uc333")
+camera_control = NodePath("../../../CamOrigin")
+player_hud = NodePath("../../../CamOrigin/CamArm/Camera/CanvasLayer/PlayerHUD")
+idle = NodePath("../../Movement/Idle")
+daw_hud = NodePath("../DAW")
+parent = NodePath("../../..")
+
+[node name="DAW" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
+script = ExtResource("11_5c1cy")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "player_hud", "idle", "parent")]
+script = ExtResource("12_jwoi4")
+camera_control = NodePath("../../../CamOrigin")
+player_hud = NodePath("../../../CamOrigin/CamArm/Camera/CanvasLayer/PlayerHUD")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Perform" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
+script = ExtResource("13_bonbo")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Busk" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "idle", "parent")]
+script = ExtResource("14_iamcp")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Advertise" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "player_hud", "idle", "parent")]
+script = ExtResource("15_08b0e")
+camera_control = NodePath("../../../CamOrigin")
+player_hud = NodePath("../../../CamOrigin/CamArm/Camera/CanvasLayer/PlayerHUD")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Other" type="Node" parent="StateMachine"]
+
+[node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("parent")]
+script = ExtResource("16_4m68f")
+parent = NodePath("../../..")
+
+[node name="Inspiration" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("camera", "idle", "parent")]
+script = ExtResource("17_8qsi8")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]

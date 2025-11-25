@@ -4,9 +4,9 @@ extends Area2D
 @export var label: Label
 @export var animation: AnimationPlayer
 
-const LEFT_SPAWN := Vector2(560, -30)
-const RIGHT_SPAWN := Vector2(720, -30)
-const UP_SPAWN := Vector2(640, -30)
+const LEFT_SPAWN := Vector2(722, -10)
+const RIGHT_SPAWN := Vector2(565, -10)
+const UP_SPAWN := Vector2(641, -10)
 
 const OKAY = "OK"
 const GOOD = "GOOD"

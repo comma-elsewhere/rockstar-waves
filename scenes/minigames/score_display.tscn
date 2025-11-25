@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwu16dxuvpsrq"]
+[gd_scene load_steps=3 format=3 uid="uid://dwu16dxuvpsrq"]
 
 [ext_resource type="Script" uid="uid://dmxyfxpn64i2o" path="res://scripts/manager/perform_score_hud.gd" id="1_a0rcr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0rcr"]
 
 [node name="ScoreDisplay" type="Control" node_paths=PackedStringArray("active_score_box", "final_score_box", "done_button", "active_score", "active_combo", "final_score", "final_combo", "final_perfect", "final_good", "final_okay", "final_missed")]
 layout_mode = 3
@@ -65,6 +67,7 @@ offset_top = -192.0
 offset_bottom = 192.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a0rcr")
 
 [node name="MarginContainer" type="MarginContainer" parent="FinalScorePanel"]
 layout_mode = 2

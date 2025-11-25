@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ig236l2n8k0j"]
+
+[ext_resource type="FontFile" uid="uid://cop45hnxdhhp6" path="res://assets/gui/fonts/Handwriting_font (3).TTF" id="1_5cocn"]
+
+[resource]
+font = ExtResource("1_5cocn")
+font_size = 38
+outline_size = 8
+outline_color = Color(0.18359044, 0.18359044, 0.18359044, 1)

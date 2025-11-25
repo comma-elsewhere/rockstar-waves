@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://mqk7oicdxtv8"]
+
+[ext_resource type="FontFile" uid="uid://d1bipye1upgbw" path="res://assets/gui/fonts/CrimsonText-Semibold.ttf" id="1_1f366"]
+
+[resource]
+font = ExtResource("1_1f366")
+font_size = 32

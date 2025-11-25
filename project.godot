@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Soundwaves Star"
-run/main_scene="uid://cjir6f1okn7f5"
+run/main_scene="uid://btdpl6fgiaq70"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/fullsize=false
@@ -44,6 +44,10 @@ LookInteract=""
 Player=""
 Pedestrians=""
 InspoSource=""
+
+[gui]
+
+theme/custom="uid://cy7cc6dik67nv"
 
 [input]
 

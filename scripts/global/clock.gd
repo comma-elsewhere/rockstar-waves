@@ -1,10 +1,12 @@
 extends Node
 
+signal minute_changed
+
 const MINUTES_PER_DAY: float = 1440
 const MINUTES_PER_HOUR: float = 60
 const INGAME_TO_REAL_MINUTE_DURATION: float = MINUTES_PER_DAY
 const INGAME_SPEED := 1.0
-const INITIAL_HOUR := 1.0
+const INITIAL_HOUR := 6.0
 
 var time:float= 0.0
 var past_minute:int= -1
@@ -34,3 +36,4 @@ func _recalculate_time() -> void:
 	if past_minute != minute:
 		past_minute = minute
 		GInit.world_time = [day, hour, minute]
+		minute_changed.emit()

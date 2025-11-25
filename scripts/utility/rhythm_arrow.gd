@@ -7,9 +7,9 @@ extends Node2D
 @export var good_zone: Area2D
 @export var perfect_zone: Area2D
 
-const RIGHT_POS := Vector2(720,650)
-const LEFT_POS := Vector2(560,650)
-const UP_POS := Vector2(640, 650)
+const RIGHT_POS := Vector2(565,683)
+const LEFT_POS := Vector2(722,863)
+const UP_POS := Vector2(641, 863)
 
 enum Score {NONE = 0, OKAY = 1, GOOD = 2, PERFECT = 3}
 

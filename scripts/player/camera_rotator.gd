@@ -3,12 +3,13 @@ class_name CamControl extends Node3D
 signal look_trigger(game_name: String)
 signal look_untrigger
 
-const ARM_NORMAL := 3.5
 const ARM_CLOSE := 0.5
-const OFFSET_NONE := Vector3(0.0, 1.5, 0.0)
-const OFFSET_SHOULDER := Vector3(1.0, 2.0, 0.0)
+
 
 @export var parent: Character
+@export var ARM_NORMAL := 3.5
+@export var OFFSET_NONE := Vector3(0.0, 1.5, 0.0)
+@export var OFFSET_SHOULDER := Vector3(1.0, 2.0, 0.0)
 @onready var camera_arm: SpringArm3D = $CamArm
 @onready var camera: Camera3D = $CamArm/Camera
 @onready var hand: Node3D = $Hand

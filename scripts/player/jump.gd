@@ -1,7 +1,6 @@
 extends State
 
-@onready var can_jump_check: ShapeCast3D = $CanJumpCheck
-
+@export var can_jump_check: ShapeCast3D
 @export var camera: CamControl
 @export_subgroup("States")
 @export var fall: State

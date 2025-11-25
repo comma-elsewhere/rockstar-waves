@@ -21,6 +21,7 @@ class_name LyricUpgrade extends Resource
 
 func upgrade(level: int):
 	GStat.music_style[upgrade_branch] += 1
+	GStat.upgrades[upgrade_name] = level
 	for i in range(grouping[level - 1]):
 		var current_lyric: String = lyrics.pop_front()
 		var lyric_dict: Dictionary

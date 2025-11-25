@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bypupma4pmxrq"]
+[gd_scene load_steps=26 format=3 uid="uid://bypupma4pmxrq"]
 
 [ext_resource type="Script" uid="uid://sodkxsjctmsi" path="res://scripts/manager/song_writing.gd" id="1_wcmpc"]
 [ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="2_x6ivm"]
@@ -12,7 +12,13 @@
 [ext_resource type="Resource" uid="uid://b7sscufge56aa" path="res://resources/song_recipes/testrec_misa.tres" id="10_ixjig"]
 [ext_resource type="Resource" uid="uid://cqokno5x318u8" path="res://resources/song_recipes/testrec_weather.tres" id="11_2k4hg"]
 [ext_resource type="Script" uid="uid://dbnyrgvg0qk2w" path="res://scripts/gui/lyric_button_box.gd" id="12_vkbvp"]
+[ext_resource type="FontFile" uid="uid://clbowsehf28f0" path="res://assets/gui/fonts/CrimsonText-Bold.ttf" id="12_x6ivm"]
+[ext_resource type="LabelSettings" uid="uid://mqk7oicdxtv8" path="res://resources/font_settings/computer_settings.tres" id="13_o7yf5"]
 [ext_resource type="Script" uid="uid://ybtcbdfka5nq" path="res://scripts/gui/tuning.gd" id="13_qykej"]
+[ext_resource type="LabelSettings" uid="uid://boy8c3ig71ixx" path="res://resources/font_settings/computer_title_settings.tres" id="16_vpsmh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mmsp"]
+bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcmpc"]
 bg_color = Color(0.85882354, 0.16078432, 0.2509804, 1)
@@ -76,6 +82,7 @@ theme_override_constants/separation = 50
 [node name="WorkPanel" type="PanelContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8mmsp")
 
 [node name="LyricContainer" type="MarginContainer" parent="HBoxContainer/WorkPanel"]
 visible = false
@@ -91,6 +98,7 @@ layout_mode = 2
 [node name="SongTitle" type="LineEdit" parent="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer"]
 custom_minimum_size = Vector2(710, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("12_x6ivm")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "Song Title"
 max_length = 140
@@ -103,6 +111,7 @@ caret_blink = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Choose three lyrics..."
+label_settings = ExtResource("13_o7yf5")
 
 [node name="Buttons" type="MarginContainer" parent="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer"]
 layout_mode = 2
@@ -180,11 +189,13 @@ vertical_scroll_mode = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "This is a Song Title"
+label_settings = ExtResource("16_vpsmh")
 
 [node name="Label" type="Label" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Match the soundwaves!"
+label_settings = ExtResource("13_o7yf5")
 
 [node name="VisualContainer" type="HBoxContainer" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,11 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=37 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
 [ext_resource type="PackedScene" uid="uid://faqqdll2isvo" path="res://prefabs/components/gui/upgrade_node.tscn" id="2_muj54"]
+[ext_resource type="LabelSettings" uid="uid://ig236l2n8k0j" path="res://resources/font_settings/ui_settings.tres" id="3_0wxmx"]
 [ext_resource type="Resource" uid="uid://b54k6xbfd71wh" path="res://resources/lyrics/emo.tres" id="3_h6f0n"]
 [ext_resource type="Script" uid="uid://bi8d7tt48a6ru" path="res://scripts/gui/journal_manager.gd" id="4_sbd4t"]
 [ext_resource type="Resource" uid="uid://cfljx5msglg5g" path="res://resources/lyrics/punk.tres" id="4_tdeaa"]
+[ext_resource type="LabelSettings" uid="uid://bc1175kktdxmv" path="res://resources/font_settings/dialogue_settings.tres" id="5_5v5fv"]
 [ext_resource type="PackedScene" uid="uid://bm4ehcu2bot4f" path="res://prefabs/components/gui/gig_box.tscn" id="5_bqesq"]
 [ext_resource type="Resource" uid="uid://d0erjo5548ulm" path="res://resources/lyrics/dark_edgy.tres" id="5_h6xkt"]
 [ext_resource type="Resource" uid="uid://ba6ivtk3cb1wq" path="res://resources/lyrics/angst.tres" id="6_n5etk"]
@@ -103,12 +105,14 @@ script = ExtResource("2_h6xkt")
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "DayName"
+label_settings = ExtResource("3_0wxmx")
 
 [node name="Time" type="Label" parent="HUD/DateTime"]
 process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "00:00PM"
+label_settings = ExtResource("3_0wxmx")
 horizontal_alignment = 1
 
 [node name="DialogueContainer" type="MarginContainer" parent="."]
@@ -132,14 +136,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 20
 text = "PERSON:
 This is sample dialogue."
+label_settings = ExtResource("5_5v5fv")
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
-visible = false
 custom_minimum_size = Vector2(1100, 750)
 layout_mode = 1
 anchors_preset = 8
@@ -401,35 +404,30 @@ theme_override_constants/separation = 12
 
 [node name="OpenCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "GIGS"
 
 [node name="OpenGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Available in full game"
-theme_override_font_sizes/font_size = 20
 disabled = true
 text = "GEAR"
 
 [node name="OpenUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "LYRICS"
 
 [node name="OpenOptions" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Available in full game"
-theme_override_font_sizes/font_size = 20
 disabled = true
 text = "OPTIONS"
 
 [node name="OpenQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "QUIT"
 
 [node name="Spacer" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="PlayerStatsBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("27_n5etk")]
@@ -437,7 +435,6 @@ layout_mode = 2
 type = 1
 
 [node name="Spacer2" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="FameRankBox" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer" instance=ExtResource("28_n5etk")]
@@ -478,6 +475,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Do you want to quit?
 All progress since previous save will be lost."
+label_settings = ExtResource("3_0wxmx")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/QuitMenu/QuitPanel/MarginContainer/VBoxContainer"]

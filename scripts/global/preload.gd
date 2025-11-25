@@ -10,3 +10,8 @@ const HUD: Dictionary = {
 const COMP: Dictionary = {
 	Note = preload("res://prefabs/components/rhythm_note.tscn")
 }
+
+const SCENES: Dictionary = {
+	Outside = "res://scenes/levels/neighborhood.tscn",
+	House = "res://scenes/levels/house_interior.tscn"
+}
