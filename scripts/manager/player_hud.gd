@@ -6,6 +6,7 @@ extends Control
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("journal") and !GInit.minigame_open:
+		GFunc.play_sound(journal, "PaperSound")
 		journal.visible = !journal.visible
 		get_tree().paused = journal.visible
 		GInit.mouse_free = journal.visible

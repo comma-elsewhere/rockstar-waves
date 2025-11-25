@@ -47,8 +47,11 @@ func _calculate_performance(score_info: Array) -> bool:
 func final_calc(floored_money:float, gained_fame:int) -> void:
 	floored_money = snappedf(floored_money, 0.01)
 	
+	if floored_money > 0:
+		GFunc.play_sound(self, "GainMoney")
+	
 	GStat.money += floored_money
-	GStat.fame += gained_fame
+	GFunc.add_fame(gained_fame)
 	
 	stats_box.update_labels(floored_money, gained_fame)
 	final_panel.visible = true

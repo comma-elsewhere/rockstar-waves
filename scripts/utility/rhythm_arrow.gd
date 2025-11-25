@@ -33,14 +33,11 @@ func _ready() -> void:
 	if arrow_direction == "Left":
 		expected_input = "music_left"
 		sprite.rotation_degrees = 180.0
-		global_position = LEFT_POS
 	elif arrow_direction == "Up":
 		expected_input = "music_up"
 		sprite.rotation_degrees = -90.0
-		global_position = UP_POS
 	else:
 		expected_input = "music_right"
-		global_position = RIGHT_POS
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(expected_input):

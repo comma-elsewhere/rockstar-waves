@@ -2100,7 +2100,7 @@ skeleton = NodePath("../../BuskZone")
 
 [node name="ExitDoorZone" parent="Zones/Navigation" instance=ExtResource("17_75q0o")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 106.82693, 1, 214.31352)
-scene_path = "res://scenes/levels/house_interior.tscn"
+scene_name = "House"
 
 [node name="NPC_Neighbors" type="Node" parent="."]
 

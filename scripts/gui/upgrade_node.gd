@@ -36,6 +36,7 @@ func _ready() -> void:
 	
 func _on_button_pressed():
 	if GStat.inspo_points >= current_cost and current_level < res.upgrade_max:
+		GFunc.play_sound(self, "InspoNodeUnlock")
 		GStat.inspo_points -= current_cost
 		if current_level < 1:
 			_unlock()

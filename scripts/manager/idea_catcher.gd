@@ -29,6 +29,10 @@ func _input(event: InputEvent) -> void:
 		win_particles.emitting = true
 		
 func _end_minigame(caught: bool) -> void:
+	if caught:
+		GFunc.play_sound(self, "GainInspo")
+	else:
+		GFunc.play_sound(self, "Fail")
 	target.call_deferred("queue_free")
 	timer.stop()
 	if !win_particles.emitting:

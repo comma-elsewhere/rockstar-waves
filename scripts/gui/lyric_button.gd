@@ -19,3 +19,4 @@ func set_lyric() -> void:
 
 func _on_toggled(toggled_on: bool) -> void:
 	select_new_lyric.emit(lyric_dict, toggled_on)
+	GFunc.play_sound(self, "PencilSound")

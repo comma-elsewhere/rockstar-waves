@@ -7,7 +7,6 @@ size = Vector3(1.7, 2.8, 1.6)
 
 [node name="ExitDoorZone" type="Area3D"]
 script = ExtResource("1_qfmq6")
-scene_path = "Outside"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75000024, 0.5000001, 2.3841858e-07)

@@ -14,12 +14,12 @@ texture = ExtResource("3_4jj5u")
 offset = Vector2(320, 90)
 
 [node name="Arrow" parent="." instance=ExtResource("3_q8k2m")]
-position = Vector2(565, 683)
-
-[node name="Arrow2" parent="." instance=ExtResource("3_q8k2m")]
-position = Vector2(722, 683)
+position = Vector2(560, 660)
 arrow_direction = "Left"
 
+[node name="Arrow2" parent="." instance=ExtResource("3_q8k2m")]
+position = Vector2(720, 660)
+
 [node name="Arrow3" parent="." instance=ExtResource("3_q8k2m")]
-position = Vector2(641, 681)
+position = Vector2(640, 660)
 arrow_direction = "Up"

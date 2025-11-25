@@ -1,11 +1,12 @@
 extends Area3D
 
-@export var scene_path: String
+@export var scene_name: String
 
 var can_exit: bool = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_exit:
+		var scene_path = Preload.SCENES[scene_name]
 		get_tree().change_scene_to_file(scene_path)
 
 func _on_body_entered(body: Node3D) -> void:

@@ -27,6 +27,7 @@ func _get_inspired(amount: int):
 	if inspo_cooldown.is_stopped():
 		inspiration.emit(amount)
 		GStat.inspo_points += amount
+		GFunc.play_sound(self.get_parent(), "GainInspo")
 	inspo_cooldown.start(INSPO_COOLDOWN)
 
 func _on_body_entered(body: Node3D) -> void:

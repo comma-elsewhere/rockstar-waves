@@ -34,6 +34,7 @@ var beat_spawner: Array[int] = [1,0,0,0,1,0,0,0]
 var lane: int = 0
 var rand: int = 0
 var note := Preload.COMP.Note
+var emit_song_end: bool = true
 
 
 func _ready():
@@ -54,7 +55,8 @@ func _on_Conductor_measure(music_position):
 		for i in range(current_song.time_sig):
 			if i + 1 == music_position:
 				_spawn_notes(beat_spawner[i])
-	else:
+	elif emit_song_end:
+		emit_song_end = false
 		await get_tree().create_timer(current_song.song_end).timeout
 		song_ended.emit(current_score, max_combo, great_count, good_count, okay_count, missed_count)
 

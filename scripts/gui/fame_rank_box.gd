@@ -26,51 +26,41 @@ var current_subrank: Control = null
 
 func _ready() -> void:
 	_set_label()
-
-func _process(_delta: float) -> void:
-	if update_fame != GStat.fame:
-		update_fame = GStat.fame
-		_process_level(update_fame)
-		_set_label()
 		
 func _set_label() -> void:
-	var level: int
-	if current_level % 4 == 1:
-		level = 1
+	if GStat.current_level % 4 == 1:
+		GStat.current_rank = 1
 		toggle_subrank(subrank_1)
-	elif current_level % 4 == 2:
-		level = 2
+	elif GStat.current_level % 4 == 2:
+		GStat.current_rank = 2
 		toggle_subrank(subrank_2)
-	elif current_level % 4 == 3:
-		level = 3
+	elif GStat.current_level % 4 == 3:
+		GStat.current_rank = 3
 		toggle_subrank(subrank_3)
 	else:
-		level = 4
+		GStat.current_rank = 4
 		toggle_subrank(subrank_4)
 		
 	var index: int
-	if current_level > 16:
+	if GStat.current_level > 16:
 		index = 4
 		toggle_rank(rank_5)
-	elif current_level > 12:
+	elif GStat.current_level > 12:
 		index = 3
 		toggle_rank(rank_4)
-	elif current_level > 8:
+	elif GStat.current_level > 8:
 		index = 2
 		toggle_rank(rank_3)
-	elif current_level > 4:
+	elif GStat.current_level > 4:
 		index = 1
 		toggle_rank(rank_2)
 	else:
 		index = 0
 		toggle_rank(rank_1)
 	
-	level_threshhold = GStat.threshholds[index]
-	level_bar.max_value = level_threshhold
-	rank_label.text = rank_names[index] + "\n" + "Level " + str(level)
-	
-	GStat.current_rank = index + 1
-	GStat.current_level = current_level
+	level_bar.max_value = GStat.threshholds[index]
+	level_bar.value = GStat.fame % GStat.threshholds[index]
+	rank_label.text = rank_names[index] + "\n" + "Level " + str(GStat.current_rank)
 	
 func toggle_subrank(panel: Control) -> void:
 	if current_subrank:
@@ -86,15 +76,6 @@ func toggle_rank(panel: Control) -> void:
 	
 func _show_panel(panel: Control):
 	panel.visible = true
-		
-func _process_level(fame_count: int) -> void:
-	level_bar.value = fame_count % level_threshhold
-	if fame_count - level_amount >= level_threshhold:
-		level_amount += level_threshhold
-		if fame_count - level_amount >= level_threshhold:
-			_process_level(fame_count)
-		else:
-			current_level = int(level_amount / level_threshhold)
-			current_level = clampi(current_level, 1, 20)
-	
-	
+	await get_tree().create_timer(2.5).timeout
+	if GStat.current_level > 1:
+		GFunc.play_sound(self, "GainFame")

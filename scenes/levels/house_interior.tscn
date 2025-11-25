@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://btdpl6fgiaq70"]
+[gd_scene load_steps=50 format=3 uid="uid://btdpl6fgiaq70"]
 
 [ext_resource type="LightmapGIData" uid="uid://djibl78m6j2fd" path="res://resources/shaders/house_interior.lmbake" id="1_uc80v"]
 [ext_resource type="PackedScene" uid="uid://pgaksj6ekwbx" path="res://assets/models/interior/no_roof_interior.glb" id="1_yiikn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://oi2n4xssuyld" path="res://scenes/player/player_indoor.tscn" id="5_qv1b4"]
 [ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="6_l1jo6"]
 [ext_resource type="PackedScene" uid="uid://biotqx0omn276" path="res://prefabs/components/exit_door_zone.tscn" id="7_l1jo6"]
+[ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="8_twqpu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qv1b4"]
 sky_top_color = Color(0.28627452, 0.64705884, 1, 1)
@@ -437,7 +438,11 @@ shape = SubResource("BoxShape3D_rb4ph")
 
 [node name="ExitDoorZone" parent="Zones" instance=ExtResource("7_l1jo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1000001, 1, 2.1000001)
-scene_path = "res://scenes/levels/neighborhood.tscn"
+scene_name = "Outside"
+
+[node name="InspirationZone" parent="Zones" instance=ExtResource("8_twqpu")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6.1, 0.4, 6.3999996)
+inspiration_amount = 10
 
 [node name="Player" parent="." instance=ExtResource("5_qv1b4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2, 0, 2.1)

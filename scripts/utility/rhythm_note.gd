@@ -4,14 +4,14 @@ extends Area2D
 @export var label: Label
 @export var animation: AnimationPlayer
 
-const LEFT_SPAWN := Vector2(722, -10)
-const RIGHT_SPAWN := Vector2(565, -10)
-const UP_SPAWN := Vector2(641, -10)
+const LEFT_SPAWN := Vector2(560, -10)
+const RIGHT_SPAWN := Vector2(720, -10)
+const UP_SPAWN := Vector2(640, -10)
 
 const OKAY = "OK"
 const GOOD = "GOOD"
 const PERFECT = "PERFECT!"
-const MISS = "OOF"
+const MISS = "MISS"
 
 var speed: int = 100
 
