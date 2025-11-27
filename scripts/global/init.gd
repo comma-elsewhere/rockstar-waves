@@ -4,6 +4,10 @@ extends Node
 var mouse_free: bool = false
 var minigame_open: bool = false
 
+#on if the tutorial is incomplete
+var tutorial: bool = true
+var tutorial_tasks: Array[int] = [0, 0, 0, 0, 0, 0] #mom, dad, unlock node in journal, make first song, busk, get coffee
+
 #array for world time: day, hour, minute
 var world_time: Array[int] = [0,0,0]
 var week_days: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]

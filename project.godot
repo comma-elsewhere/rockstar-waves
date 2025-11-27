@@ -20,7 +20,7 @@ config/icon="uid://daaa3hbrujo6f"
 
 [autoload]
 
-GDialog="*res://scripts/global/dialog.gd"
+Paper="*res://scripts/global/print.gd"
 GFunc="*res://scripts/global/functions.gd"
 GInit="*res://scripts/global/init.gd"
 Clock="*res://scripts/global/clock.gd"

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dfomayq8v714i"]
+
+[ext_resource type="FontFile" uid="uid://b313tkn27b8mt" path="res://assets/gui/fonts/Headline_font.ttf" id="1_0j4be"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_0j4be")
+font_size = 72
+font_color = Color(0.12591085, 0.12591085, 0.12591082, 1)

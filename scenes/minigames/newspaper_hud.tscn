@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci6rvgv2e80fi"]
+
+[ext_resource type="FontFile" uid="uid://b58cb4bg8ytlh" path="res://assets/gui/fonts/CrimsonText-SemiboldItalic.ttf" id="1_cx1m7"]
+[ext_resource type="Script" uid="uid://cy3xtgjeygub2" path="res://scripts/manager/newspaper_hud.gd" id="1_vwt55"]
+[ext_resource type="LabelSettings" uid="uid://dfomayq8v714i" path="res://resources/font_settings/headline_settings.tres" id="1_y6jnl"]
+[ext_resource type="LabelSettings" uid="uid://cl0oig6rsbl6g" path="res://resources/font_settings/newspaper_settings.tres" id="3_vwt55"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxiv3"]
+bg_color = Color(0.9347745, 0.93646497, 0.9152817, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6uoi"]
+paragraph_spacing = 30.0
+font = ExtResource("1_cx1m7")
+font_size = 68
+font_color = Color(0, 0, 0, 1)
+
+[node name="NewspaperHUD" type="CanvasLayer" node_paths=PackedStringArray("news_title", "body_1", "body_2")]
+script = ExtResource("1_vwt55")
+news_title = NodePath("SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/NewsTitle")
+body_1 = NodePath("SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/BodyContainer/HBoxContainer/Body1")
+body_2 = NodePath("SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/BodyContainer/HBoxContainer/Body2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Newspaper" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport/Newspaper"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wxiv3")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="NewspaperTitle" type="Label" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "Headline News"
+label_settings = SubResource("LabelSettings_a6uoi")
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="NewsTitle" type="Label" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "the headline news continues!"
+label_settings = ExtResource("1_y6jnl")
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="BodyContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/BodyContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Body1" type="Label" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/BodyContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Experts say that birds are a national threat."
+label_settings = ExtResource("3_vwt55")
+autowrap_mode = 3
+
+[node name="Body2" type="Label" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer/BodyContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Experts say that birds are a national threat."
+label_settings = ExtResource("3_vwt55")
+autowrap_mode = 3

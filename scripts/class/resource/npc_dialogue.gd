@@ -1,6 +1,6 @@
 class_name BasicDialogue extends Resource
 
-@export_enum("PATRON: \n", "NEIGHBOR: \n", "PEDESTRIAN: \n") var type: String
+@export var type_name: String
 @export_enum("Friendly", "Neutral", "Hostile") var personality
 
 @export_subgroup("General")
@@ -14,12 +14,12 @@ func _init() -> void:
 
 func hello() -> String:
 	var rand: String = greeting.pick_random()
-	return type+rand
+	return type_name + ": \n" + rand
 	
 func bump() -> String:
 	var rand: String = bump_into.pick_random()
-	return type+rand
+	return type_name + ": \n" + rand
 	
 func passing() -> String:
 	var rand: String = pass_by.pick_random()
-	return type+rand
+	return type_name + ": \n" + rand

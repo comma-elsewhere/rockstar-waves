@@ -1,7 +1,6 @@
 extends Control
 
 @export var rank_names: Array[String] = ["Daydreamer","Soundcloud Singer","Opening Act","Rising Star","Rockstar"]
-@export var level_threshhold: int = 100
 @export_group("Rank Panels")
 @export_subgroup("Main Ranks")
 @export var rank_1: PanelContainer
@@ -18,14 +17,11 @@ extends Control
 @export var rank_label: Label
 @export var level_bar: ProgressBar
 
-var update_fame: int = 0
-var level_amount: int = 0
-var current_level: int = 0
 var current_rank: Control = null
 var current_subrank: Control = null
 
 func _ready() -> void:
-	_set_label()
+	GFunc.level_up.connect(_set_label)
 		
 func _set_label() -> void:
 	if GStat.current_level % 4 == 1:

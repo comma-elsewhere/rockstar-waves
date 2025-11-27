@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://clhrc7jn5vvkn"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_08d8v"]
+
+[resource]
+script = ExtResource("1_08d8v")
+type_name = "Dad"
+personality = 1
+greeting = Array[String](["You're still here?", "You pay rent yet?", "Have yuo gotten a real job yet?", "What?", "Huh?", "I don't appreciate your tone."])
+bump_into = Array[String](["You break it, you buy it.", "Stop running around like a loon.", "And where are YOU in a hurry to be?", "Rushing to pick up your unemployment check, huh?", "You're still old enough to ground.", "*Sigh*"])
+pass_by = Array[String](["Do you own real clothes?", "Got that job yet?", "How's rent coming?", "Are you looking for your own place yet?", "Have you thought about moving out?", "Aren't you too old for this by now?"])
+metadata/_custom_type_script = "uid://ovrp7erx3wye"

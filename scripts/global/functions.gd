@@ -1,5 +1,14 @@
 extends Node
 
+signal level_up
+
+#run this every time a tutorial ask is complete
+func finish_tutorial() -> bool:
+	for i in len(GInit.tutorial_tasks):
+		if i == 0:
+			return false
+	return true
+
 func add_fame(amount: int) -> void:
 	var index: int
 	if GStat.current_level > 16:
@@ -15,6 +24,7 @@ func add_fame(amount: int) -> void:
 		
 	if (GStat.fame % GStat.threshholds[index]) + amount >= GStat.threshholds[index]:
 		GStat.current_level += 1
+	level_up.emit()
 	GStat.fame += amount
 
 func norm_fame() -> int:

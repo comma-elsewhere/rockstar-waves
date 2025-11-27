@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://w56hy3mrgvlm"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_2gj6f"]
+
+[resource]
+script = ExtResource("1_2gj6f")
+type_name = "Mom"
+personality = 0
+greeting = Array[String](["Not working too hard, I hope?", "Don't worry about your old band sweetie, your solo music sounds much sicker! (Did I use that word right?)", "I believe in you!", "You can do it! (And remember to pick up your underwear at some point too)", "Remember to sleep!", "Are you eating enough?"])
+bump_into = Array[String](["Careful, dear.", "Not a lot of room for running in here.", "I'm not as young as I used to be!", "I might topple!", "Oh, watch for the lamps...", "Oh dear...."])
+pass_by = Array[String](["I should do the laundry soon...", "Do you want me to fix your pants, or are they 'cooler' that way?", "Did I leave the stove on?", "Oh dear, I shoulc vacuum...", "Hm, this won't do.", "Bring a jacket when you go out!"])
+metadata/_custom_type_script = "uid://ovrp7erx3wye"
