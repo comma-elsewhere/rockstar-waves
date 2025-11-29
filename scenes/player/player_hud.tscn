@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=39 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
@@ -10,6 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://bc1175kktdxmv" path="res://resources/font_settings/dialogue_settings.tres" id="5_5v5fv"]
 [ext_resource type="PackedScene" uid="uid://bm4ehcu2bot4f" path="res://prefabs/components/gui/gig_box.tscn" id="5_bqesq"]
 [ext_resource type="Resource" uid="uid://d0erjo5548ulm" path="res://resources/lyrics/dark_edgy.tres" id="5_h6xkt"]
+[ext_resource type="Script" uid="uid://d0xllbd58i5ji" path="res://scripts/gui/tutorial_popup.gd" id="6_5v5fv"]
 [ext_resource type="Resource" uid="uid://ba6ivtk3cb1wq" path="res://resources/lyrics/angst.tres" id="6_n5etk"]
 [ext_resource type="Resource" uid="uid://cbs8s0hl2opy6" path="res://resources/lyrics/heartthrob.tres" id="7_5fjqn"]
 [ext_resource type="Resource" uid="uid://ct4w37qhl3e4s" path="res://resources/lyrics/protest.tres" id="8_sbd4t"]
@@ -33,6 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://bitw6rrtsa70y" path="res://prefabs/components/gui/player_stats_box.tscn" id="27_n5etk"]
 [ext_resource type="PackedScene" uid="uid://2urcsdcgaktl" path="res://prefabs/components/gui/fame_rank_box.tscn" id="28_n5etk"]
 [ext_resource type="Script" uid="uid://cbiv8vivnqq04" path="res://scripts/gui/quit_menu.gd" id="29_5fjqn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wxmx"]
+bg_color = Color(0.47397572, 0.47397578, 0.4739756, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqesq"]
 bg_color = Color(0.8217887, 0.8217887, 0.8217885, 1)
@@ -160,6 +164,61 @@ layout_mode = 2
 text = "Press [E] to Interact"
 label_settings = ExtResource("3_0wxmx")
 
+[node name="TutorialPopup" type="PanelContainer" parent="HUD"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wxmx")
+script = ExtResource("6_5v5fv")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TutorialPopup"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TutorialPopup/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TutorialTask1" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
+[node name="TutorialTask2" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
+[node name="TutorialTask3" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
+[node name="TutorialTask4" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
+[node name="TutorialTask5" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
+[node name="TutorialTask6" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Tutorial task"
+
 [node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
 custom_minimum_size = Vector2(1100, 750)
 layout_mode = 1
@@ -204,9 +263,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="TaskMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="ScrollContainer" type="ScrollContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu"]
 layout_mode = 2
@@ -216,6 +280,23 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="Task1" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Find a gig for tonight"
+
+[node name="Task2" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "pay rent on saturday: 100"
+
+[node name="Task3" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "get inspiration"
+
+[node name="Task4" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Write new lyrics"
 
 [node name="GigCalendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
@@ -431,7 +512,7 @@ theme_override_constants/separation = 12
 [node name="OpenTasks" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Available in full game"
-text = "TASKS
+text = "TO-DO
 "
 
 [node name="OpenCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]

@@ -19,7 +19,7 @@ func _ready() -> void:
 	gear_button.button_up.connect(_toggle_panel.bind(gear_panel))
 	options_button.button_up.connect(_toggle_panel.bind(options_panel))
 	
-	current_panel = upgrades_panel
+	current_panel = options_button
 	_show_panel(current_panel)
 	visible = false
 	

@@ -63,13 +63,13 @@ func _process_lyrics() -> bool:
 				return false
 	return true
 
-func _add_to_songbook(song_name: String) -> bool:
+func _add_to_songbook(song_name: String) -> void:
 	var song_dict: Dictionary = {song_name: current_song}
-	if GInit.songbook.has(song_dict):
-		return false
-	else:
+	if !GInit.songbook.has(song_dict):
 		GInit.songbook.append(song_dict)
-		return true
+		if GInit.tutorial:
+			GFunc.finish_tutorial_task(3)
+	
 	
 func _measure_distance(metrics: Array) -> SongResource:
 	var metric_distance = 0

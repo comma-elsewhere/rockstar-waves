@@ -18,15 +18,18 @@ const ANSWER := "answer_steps_"
 var answer_array := [answer_steps_0, answer_steps_1, answer_steps_2]
 
 func fame_check() -> bool:
-	if gig_name == "Open Mic Night":
-		return true
-	elif GInit.world_time[0] % 7 == gig_day:
-		if GStat.current_level >= fame_steps.back() and GInit.world_time[1] >= gig_time:
+	if GInit.world_time[1] < gig_time:
+		return false
+	else:
+		if gig_name == "Open Mic Night":
 			return true
+		elif GInit.world_time[0] % 7 == gig_day:
+			if GStat.current_level >= fame_steps.back():
+				return true
+			else:
+				return false
 		else:
 			return false
-	else:
-		return false
 
 func give_greeting() -> String:
 	var select_dialogue: String = greeting_steps.back()

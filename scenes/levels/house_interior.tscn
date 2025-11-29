@@ -632,13 +632,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2
 
 [node name="Mom" parent="." instance=ExtResource("10_2a7q5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8020353, 0.1, -2.0605047)
-tutorial_text = Array[String](["Oh honey, it's so nice that you've moved back in with us.", "I set up your room just how you like it, it even has your old computer you used to make music on!"])
+tutorial_text = Array[String](["Oh honey, it's so nice that you've moved back in with us.", "I set up your room just how you like it!", "It even has your old computer you used to make music on!"])
 dialogue = ExtResource("11_dusbx")
 
 [node name="Dad" parent="." instance=ExtResource("10_2a7q5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.953547, 0.1, 8.323749)
 parent = 1
-tutorial_text = Array[String](["So music didn't work out, huh? Figured.", "Rent's due on Saturday."])
+tutorial_text = Array[String](["So music didn't work out, huh? Figured.", "Rent's due on Saturday. One hundred bucks."])
 dialogue = ExtResource("12_ahd0i")
 
 [editable path="Environment/no_roof_interior"]

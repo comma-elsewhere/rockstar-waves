@@ -32,14 +32,17 @@ func _on_score_display_end_game(score_array: Array) -> void:
 func _calculate_busking(score_info: Array) -> bool:
 	level = clampi(level, 1, 10)
 	var floored_money: float = float(level) * randf_range(0.1, 5) * score_info[0]
-	var gained_fame: int = ((score_info[2] + score_info[3]) / 4) * score_info[0]
+	var gained_fame: int = ((score_info[2] + score_info[3]) / 4) * score_info[0] / 20
+	
+	if GInit.tutorial:
+		GFunc.finish_tutorial_task(4)
 	
 	await final_calc(floored_money, gained_fame)
 	return true
 
 func _calculate_performance(score_info: Array) -> bool:
 	var floored_money: float = float(level) * randf_range(1,10) * score_info[0] 
-	var gained_fame: int = level * ((score_info[2] + score_info[3]) / 4) * score_info[0]
+	var gained_fame: int = level * ((score_info[2] + score_info[3]) / 4) * score_info[0] / 5
 	
 	await final_calc(floored_money, gained_fame)
 	return true

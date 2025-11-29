@@ -18,6 +18,10 @@ boot_splash/fullsize=false
 boot_splash/image="uid://dx471g12btj6v"
 config/icon="uid://daaa3hbrujo6f"
 
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
 [autoload]
 
 Paper="*res://scripts/global/print.gd"

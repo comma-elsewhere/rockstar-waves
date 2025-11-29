@@ -2,9 +2,14 @@ extends Node
 
 signal level_up
 
+
 #run this every time a tutorial ask is complete
-func finish_tutorial() -> bool:
-	for i in len(GInit.tutorial_tasks):
+func finish_tutorial_task(index: int) -> void:
+	GInit.tutorial_tasks[index] += 1
+	GInit.tutorial = _finish_tutorial()
+
+func _finish_tutorial() -> bool:
+	for i in GInit.tutorial_tasks:
 		if i == 0:
 			return false
 	return true

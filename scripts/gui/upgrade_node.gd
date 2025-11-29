@@ -50,6 +50,8 @@ func _unlock():
 	if !children.is_empty():
 		for node in children:
 			node.enable_self()
+	if GInit.tutorial:
+		GFunc.finish_tutorial_task(2)
 
 func _update_label() -> void:
 	upgrade_label.text = res.upgrade_name + " " + str(current_level) + "/" + str(res.upgrade_max)

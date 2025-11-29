@@ -19,7 +19,7 @@ var tutorial: int = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and global_position.distance_to(player.global_position) <= SPEECH_DIST:
-		if !GInit.minigame_open and GInit.tutorial_tasks[parent] == 0:
+		if !GInit.minigame_open and GInit.tutorial_tasks[parent] == 0 and GInit.tutorial:
 			_tutorial_emit()
 		elif !GInit.minigame_open:
 			talking.emit(dialogue.hello())
@@ -35,8 +35,7 @@ func _tutorial_emit() -> void:
 	tutorial += 1
 	
 	if tutorial >= tutorial_text.size():
-		GInit.tutorial_tasks[parent] += 1
-		GInit.tutorial = GFunc.finish_tutorial()
+		GFunc.finish_tutorial_task(parent)
 
 func _move_away(direction: Vector3) -> void:
 	talking.emit(dialogue.bump())
