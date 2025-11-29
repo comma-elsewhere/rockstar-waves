@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRes" load_steps=4 format=3 uid="uid://bhgenjujbil4v"]
+
+[ext_resource type="Script" uid="uid://cj3rc4v3xhs3m" path="res://scripts/class/resource/drink.gd" id="1_8as2a"]
+[ext_resource type="Texture2D" uid="uid://dnl5onsb3xyl1" path="res://assets/icons/import-icons/FoodSet.png" id="2_13yyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl7mq"]
+atlas = ExtResource("2_13yyq")
+region = Rect2(96, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_8as2a")
+texture = SubResource("AtlasTexture_cl7mq")
+drink_name = "Red Eye Coffee"
+price = 5.25
+inspo_amount = 15
+metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

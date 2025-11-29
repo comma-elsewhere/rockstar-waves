@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://g14sfpmqnvus"]
+
+[ext_resource type="Script" uid="uid://dfbx8rgnkdnhc" path="res://scripts/manager/talk_hud.gd" id="1_7vqag"]
+[ext_resource type="LabelSettings" uid="uid://bc1175kktdxmv" path="res://resources/font_settings/dialogue_settings.tres" id="1_65cdf"]
+[ext_resource type="Shader" uid="uid://cxnkv2ssgviyd" path="res://resources/shaders/ideas.gdshader" id="1_mh7fo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65cdf"]
+shader = ExtResource("1_mh7fo")
+shader_parameter/radius = 0.26000001235
+shader_parameter/softness = 1.0
+shader_parameter/intensity = 1.0070000478325
+shader_parameter/contrast = 3.54400014459
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="TalkHUD" type="CanvasLayer" node_paths=PackedStringArray("npc_dialogue", "option_0", "option_1", "option_2", "option_3")]
+script = ExtResource("1_7vqag")
+npc_dialogue = NodePath("SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Dialogue")
+option_0 = NodePath("SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer/Option1")
+option_1 = NodePath("SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer/Option2")
+option_2 = NodePath("SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer/Option3")
+option_3 = NodePath("SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer/Option4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Shader" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+top_level = true
+material = SubResource("ShaderMaterial_65cdf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TalkingCenter" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/TalkingCenter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Dialogue" type="Label" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(550, 250)
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = ExtResource("1_65cdf")
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Option1" type="Button" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Option2" type="Button" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+
+[node name="Option3" type="Button" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+
+[node name="Option4" type="Button" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2

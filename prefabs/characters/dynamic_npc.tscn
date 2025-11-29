@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://wmtu5wgt666q"]
+
+[ext_resource type="Script" uid="uid://c0t5y1j2ycw1u" path="res://scripts/class/npc/dynamic_npc.gd" id="1_71ibl"]
+[ext_resource type="Material" uid="uid://drnwxqe2u07l6" path="res://resources/materials/glowing.tres" id="2_rstsc"]
+[ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="2_s8888"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omo82"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sbba8"]
+material = ExtResource("2_rstsc")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s8888"]
+height = 1.6420898
+
+[node name="DynamicNPC" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("1_71ibl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_omo82")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_sbba8")
+
+[node name="LookZone" parent="." instance=ExtResource("2_s8888")]
+game_name = "Talk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LookZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1619974, -0.11410713)
+shape = SubResource("CapsuleShape3D_s8888")

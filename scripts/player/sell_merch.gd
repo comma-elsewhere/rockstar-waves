@@ -16,7 +16,8 @@ func enter() -> void:
 	
 func exit() -> void:
 	GInit.minigame_open = false
-	camera.get_child(2).queue_free()
+	camera.get_child(3).queue_free()
+	parent.exited_game.emit()
 	camera_control.reset_camera()
 	#player_hud.show_reticle(false)
 

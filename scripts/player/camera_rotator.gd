@@ -13,7 +13,8 @@ const ARM_CLOSE := 0.5
 @onready var camera_arm: SpringArm3D = $CamArm
 @onready var camera: Camera3D = $CamArm/Camera
 @onready var hand: Node3D = $Hand
-@onready var raycast: RayCast3D = $CamArm/Camera/RayCast3D
+@onready var raycast: RayCast3D = $CamArm/Camera/AreaRayCast
+
 
 var shoulder_view: bool = false
 

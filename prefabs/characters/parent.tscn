@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://f0n0j43ipyfm"]
+[gd_scene load_steps=5 format=3 uid="uid://f0n0j43ipyfm"]
 
 [ext_resource type="Script" uid="uid://b46om38mkdw1d" path="res://scripts/class/npc/parent.gd" id="1_8djaf"]
 
@@ -7,13 +7,7 @@ radius = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w687d"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8djaf"]
-albedo_color = Color(0.61960787, 0.5921569, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oj6rm"]
-lightmap_size_hint = Vector2i(17, 14)
-material = SubResource("StandardMaterial3D_8djaf")
-add_uv2 = true
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8djaf"]
 
 [node name="Parent" type="RigidBody3D" node_paths=PackedStringArray("area") groups=["Character", "InspoSource"]]
 collision_mask = 3
@@ -35,8 +29,7 @@ shape = SubResource("CapsuleShape3D_w687d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9999999, 0)
-gi_mode = 2
-mesh = SubResource("CapsuleMesh_oj6rm")
+mesh = SubResource("CapsuleMesh_8djaf")
 
 [node name="TalkingTimer" type="Timer" parent="."]
 wait_time = 10.0

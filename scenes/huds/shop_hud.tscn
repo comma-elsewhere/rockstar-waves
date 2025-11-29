@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://7rjx1lfxbuak"]
+
+[ext_resource type="FontFile" uid="uid://b313tkn27b8mt" path="res://assets/gui/fonts/Headline_font.ttf" id="1_ndftf"]
+[ext_resource type="Shader" uid="uid://cxnkv2ssgviyd" path="res://resources/shaders/ideas.gdshader" id="1_qi0sn"]
+[ext_resource type="LabelSettings" uid="uid://cpma5pk46pitv" path="res://resources/font_settings/cafe_settings.tres" id="2_tm0ny"]
+[ext_resource type="PackedScene" uid="uid://c5f2u5sw4pqgh" path="res://prefabs/components/gui/cafe_drink.tscn" id="3_ts1fn"]
+[ext_resource type="Resource" uid="uid://crdo1du62dfqa" path="res://resources/items/soda.tres" id="4_ht6j4"]
+[ext_resource type="Resource" uid="uid://bhgenjujbil4v" path="res://resources/items/coffee.tres" id="5_y8fhv"]
+[ext_resource type="Resource" uid="uid://bk8t3bokpwhja" path="res://resources/items/energy.tres" id="6_2i12f"]
+[ext_resource type="Resource" uid="uid://cl5j36lnved68" path="res://resources/items/graveyard.tres" id="7_w7uij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tm0ny"]
+bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ts1fn"]
+line_spacing = 0.0
+font = ExtResource("1_ndftf")
+font_size = 72
+font_color = Color(0.9626245, 0.9521542, 0.96418995, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndftf"]
+shader = ExtResource("1_qi0sn")
+shader_parameter/radius = 0.26000001235
+shader_parameter/softness = 1.0
+shader_parameter/intensity = 1.0070000478325
+shader_parameter/contrast = 3.54400014459
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="ShopHUD" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Shop" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport/Shop"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tm0ny")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Shop/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CafeTitle" type="Label" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Coffee Cafe"
+label_settings = SubResource("LabelSettings_ts1fn")
+horizontal_alignment = 1
+
+[node name="OpeningText" type="Label" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "What can I get for you?"
+label_settings = ExtResource("2_tm0ny")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="DrinkContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CafeDrink1" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/DrinkContainer" instance=ExtResource("3_ts1fn")]
+layout_mode = 2
+res = ExtResource("4_ht6j4")
+
+[node name="CafeDrink2" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/DrinkContainer" instance=ExtResource("3_ts1fn")]
+layout_mode = 2
+res = ExtResource("5_y8fhv")
+
+[node name="CafeDrink3" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/DrinkContainer" instance=ExtResource("3_ts1fn")]
+layout_mode = 2
+res = ExtResource("6_2i12f")
+
+[node name="CafeDrink4" parent="SubViewportContainer/SubViewport/Shop/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/DrinkContainer" instance=ExtResource("3_ts1fn")]
+layout_mode = 2
+res = ExtResource("7_w7uij")
+
+[node name="Shader" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+top_level = true
+material = SubResource("ShaderMaterial_ndftf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

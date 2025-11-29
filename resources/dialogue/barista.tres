@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ComplexDialogue" load_steps=2 format=3 uid="uid://desku344jwa3d"]
+
+[ext_resource type="Script" uid="uid://ce7xrfame1h75" path="res://scripts/class/resource/complex_dialogue.gd" id="1_mp8v6"]
+
+[resource]
+script = ExtResource("1_mp8v6")
+npc_role = "Barista"
+dialogue_options = Array[String](["Hey, how's it going?", "Could I get a bev?", "Can I play here tonight?", "I gotta go, catch you later."])
+fame_steps = Array[int]([8, 4])
+greeting_steps = Array[String](["Oh my Gosh! It's you!", "Hey! So when's the new drop?", "Welcome to Coffee Cafe! Can I get you anything?"])
+answer_steps_0 = Array[String](["It's so great! I get to tell people 'I remember when you were just starting...'", "I'm good! I heard your latest drop, it was great!", "It's good! Things have been going well lately, you?"])
+answer_steps_1 = Array[String](["Of course! It's my pleasure!", "Anything you want!", "Sure, how do you like it?"])
+answer_steps_2 = Array[String](["*Gasp* Really?! That would be incredible!", "I would love that!", "Of course, anyone can play!"])
+gig_name = "Open Mic Night"
+gig_time = 18
+metadata/_custom_type_script = "uid://ce7xrfame1h75"

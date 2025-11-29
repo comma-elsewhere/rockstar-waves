@@ -4,7 +4,7 @@ extends State
 @export var camera: Camera3D
 @export var idle: State
 
-var perform_hud := Preload.HUD.Busk
+var perform_hud = Preload.HUD.Busk
 
 var minigame_over: bool = false
 
@@ -21,7 +21,7 @@ func exit() -> void:
 	GInit.minigame_open = false
 	GInit.mouse_free = false
 	camera_control.reset_camera()
-	camera.get_child(2).queue_free()
+	camera.get_child(3).queue_free()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("backout"):

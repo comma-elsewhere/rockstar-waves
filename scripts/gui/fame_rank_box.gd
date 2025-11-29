@@ -22,6 +22,8 @@ var current_subrank: Control = null
 
 func _ready() -> void:
 	GFunc.level_up.connect(_set_label)
+	if GStat.current_level <= 1:
+		_set_label()
 		
 func _set_label() -> void:
 	if GStat.current_level % 4 == 1:

@@ -32,6 +32,7 @@ func update_score(score: int, combo: int) -> void:
 		active_combo.text = ""
 	
 func _finish_minigame():
+	done_button.disabled = true
 	end_game.emit(score_array)
 
 func _on_stage_manager_song_ended(score: int, combo: int, perfect: int, good: int, okay: int, missed: int) -> void:

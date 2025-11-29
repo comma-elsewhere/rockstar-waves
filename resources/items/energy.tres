@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRes" load_steps=4 format=3 uid="uid://bk8t3bokpwhja"]
+
+[ext_resource type="Script" uid="uid://cj3rc4v3xhs3m" path="res://scripts/class/resource/drink.gd" id="1_g3btv"]
+[ext_resource type="Texture2D" uid="uid://dnl5onsb3xyl1" path="res://assets/icons/import-icons/FoodSet.png" id="2_8gahq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w450h"]
+atlas = ExtResource("2_8gahq")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_g3btv")
+texture = SubResource("AtlasTexture_w450h")
+drink_name = "Ka-Boom Energy"
+price = 8.35
+inspo_amount = 25
+metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

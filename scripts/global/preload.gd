@@ -5,7 +5,9 @@ const HUD: Dictionary = {
 	Song = preload("res://scenes/minigames/song_hud.tscn"),
 	Busk = preload("res://scenes/minigames/busk_hud.tscn"), 
 	Inspire = preload("res://scenes/minigames/idea_hud.tscn"),
-	News = preload("res://scenes/minigames/newspaper_hud.tscn")
+	News = preload("res://scenes/huds/newspaper_hud.tscn"),
+	Shop = preload("res://scenes/huds/shop_hud.tscn"),
+	Talk = preload("res://scenes/huds/talk_hud.tscn")
 }
 
 const COMP: Dictionary = {

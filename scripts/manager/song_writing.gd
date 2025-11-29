@@ -6,6 +6,7 @@ signal game_end
 @export var lyric_list: VBoxContainer
 @export var song_title_label: Label
 @export var song_player: AudioStreamPlayer
+@export var fail_message: PanelContainer
 
 @export var lyric_recipes: Array[SongRecipe] = []
 
@@ -31,6 +32,12 @@ func _proceed_to_tuning() -> void:
 			$HBoxContainer/WorkPanel/LyricContainer.visible = false
 			$HBoxContainer/WorkPanel/TuningContainer.visible = true
 			song_player.stream = current_song.audio_stream
+		else:
+			GFunc.play_sound(self, "Fail")
+			if !fail_message.visible:
+				fail_message.visible = true
+				await get_tree().create_timer(2.0).timeout
+				fail_message.visible = false
 		
 func _process_lyrics() -> bool:
 	var metrics: Array = [0,0,0,0,0]
@@ -47,10 +54,14 @@ func _process_lyrics() -> bool:
 	
 	current_song = _measure_distance(metrics)
 	
-	if current_song:
-		return true
-	else:
-		return false
+	for i in GInit.songbook:
+		for value in i.values():
+			if value == current_song:
+				return false
+		for key in i.keys():
+			if key == current_title:
+				return false
+	return true
 
 func _add_to_songbook(song_name: String) -> bool:
 	var song_dict: Dictionary = {song_name: current_song}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://oi2n4xssuyld"]
+[gd_scene load_steps=24 format=3 uid="uid://oi2n4xssuyld"]
 
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_5hi7k"]
 [ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_4iq04"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cbvacn7ehy53y" path="res://scripts/player/advertise.gd" id="15_08b0e"]
 [ext_resource type="Script" uid="uid://dh0bw0ixcjwqv" path="res://scripts/player/talk.gd" id="16_4m68f"]
 [ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_8qsi8"]
+[ext_resource type="Script" uid="uid://do0yrohjpv1mr" path="res://scripts/player/shop.gd" id="18_4iq04"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -52,30 +53,34 @@ shape = SubResource("CapsuleShape3D_x7p2l")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CamOrigin" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("2_4iq04")
 parent = NodePath("..")
 ARM_NORMAL = 2.0
-OFFSET_NONE = Vector3(0.2, 2, 0)
 OFFSET_SHOULDER = Vector3(-1, 1.8, 0)
 
 [node name="CamArm" type="SpringArm3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.4901161e-08, 0, 1.4901161e-08, 1, 0, 0, 0)
-spring_length = 3.0
+spring_length = 2.0
 margin = 0.5
 
 [node name="Camera" type="Camera3D" parent="CamOrigin/CamArm"]
 
-[node name="RayCast3D" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
+[node name="AreaRayCast" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
 target_position = Vector3(0, 0, -5)
 collision_mask = 4
 collide_with_areas = true
 
+[node name="BodyRayCast" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
+target_position = Vector3(0, 0, -5)
+collision_mask = 4
+
 [node name="CanvasLayer" type="CanvasLayer" parent="CamOrigin/CamArm/Camera"]
 process_mode = 3
 
-[node name="PlayerHUD" parent="CamOrigin/CamArm/Camera/CanvasLayer" instance=ExtResource("3_4t6s5")]
+[node name="PlayerHUD" parent="CamOrigin/CamArm/Camera/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("3_4t6s5")]
 process_mode = 3
+player = NodePath("../../../../..")
 
 [node name="Hand" type="Node3D" parent="CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42292333, -0.14188695, -1.1337702)
@@ -106,7 +111,7 @@ starting_state = NodePath("Movement/Idle")
 
 [node name="Movement" type="Node" parent="StateMachine"]
 
-[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "perform", "busk", "advertise", "talk", "inspire", "parent")]
+[node name="Idle" type="Node" parent="StateMachine/Movement" node_paths=PackedStringArray("camera", "walk", "run", "jump", "fall", "workspace", "sell_merch", "busk", "advertise", "talk", "inspire", "parent")]
 script = ExtResource("5_lxuaf")
 camera = NodePath("../../../CamOrigin")
 walk = NodePath("../Walk")
@@ -114,8 +119,7 @@ run = NodePath("../Run")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
 workspace = NodePath("../../Minigames/Workspace")
-sell_merch = NodePath("../../Minigames/SellMerch")
-perform = NodePath("../../Minigames/Perform")
+sell_merch = NodePath("../../Minigames/NewsPaper")
 busk = NodePath("../../Minigames/Busk")
 advertise = NodePath("../../Minigames/Advertise")
 talk = NodePath("../../Other/Talk")
@@ -176,7 +180,7 @@ camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "player_hud", "idle", "parent")]
+[node name="NewsPaper" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "player_hud", "idle", "parent")]
 script = ExtResource("12_jwoi4")
 camera_control = NodePath("../../../CamOrigin")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
@@ -207,12 +211,25 @@ parent = NodePath("../../..")
 
 [node name="Other" type="Node" parent="StateMachine"]
 
-[node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("parent")]
+[node name="Talk" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("camera_control", "camera", "player_hud", "raycast", "idle", "perform", "shop", "parent")]
 script = ExtResource("16_4m68f")
+camera_control = NodePath("../../../CamOrigin")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+player_hud = NodePath("../../../CamOrigin/CamArm/Camera/CanvasLayer/PlayerHUD")
+raycast = NodePath("../../../CamOrigin/CamArm/Camera/BodyRayCast")
+idle = NodePath("../../Movement/Idle")
+perform = NodePath("../../Minigames/Perform")
+shop = NodePath("../Shop")
 parent = NodePath("../../..")
 
 [node name="Inspiration" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("camera", "idle", "parent")]
 script = ExtResource("17_8qsi8")
+camera = NodePath("../../../CamOrigin/CamArm/Camera")
+idle = NodePath("../../Movement/Idle")
+parent = NodePath("../../..")
+
+[node name="Shop" type="Node" parent="StateMachine/Other" node_paths=PackedStringArray("camera", "idle", "parent")]
+script = ExtResource("18_4iq04")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")

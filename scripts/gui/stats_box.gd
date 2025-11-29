@@ -11,6 +11,6 @@ func _process(_delta: float) -> void:
 		money.text = "$" + str(GStat.money)
 		inspiration.text = str(GStat.inspo_points)
 
-func update_labels(new_money: int, new_fame: int) -> void:
+func update_labels(new_money: float, new_fame: int) -> void:
 	money.text = "$" + str(new_money)
 	fame.text = str(new_fame)

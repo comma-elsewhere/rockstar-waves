@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5f2u5sw4pqgh"]
+
+[ext_resource type="LabelSettings" uid="uid://cpma5pk46pitv" path="res://resources/font_settings/cafe_settings.tres" id="1_3to8s"]
+[ext_resource type="Script" uid="uid://cb8suigixbugo" path="res://scripts/gui/cafe_drink.gd" id="1_kyb0k"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ts1fn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyb0k"]
+bg_color = Color(0.62370443, 0.5877425, 0.6178896, 1)
+
+[node name="CafeDrink" type="VBoxContainer"]
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_kyb0k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="IconRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_ts1fn")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "DrinkNameHere"
+label_settings = ExtResource("1_3to8s")
+vertical_alignment = 1
+
+[node name="BuyButon" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyb0k")
+text = "purchase"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="InspoLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Inspiration: Amnt"
+label_settings = ExtResource("1_3to8s")
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Price:: $9:99"
+label_settings = ExtResource("1_3to8s")
+
+[connection signal="button_up" from="HBoxContainer/BuyButon" to="." method="_on_buy_buton_button_up"]

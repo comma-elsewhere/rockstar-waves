@@ -82,6 +82,33 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 0.80784315)
 
+[node name="DialogueContainer" type="MarginContainer" parent="."]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 30
+script = ExtResource("26_tdeaa")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueContainer/PanelContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PERSON:
+This is sample dialogue."
+label_settings = ExtResource("5_5v5fv")
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="HUD" type="MarginContainer" parent="."]
 process_mode = 3
 layout_mode = 1
@@ -115,32 +142,23 @@ text = "00:00PM"
 label_settings = ExtResource("3_0wxmx")
 horizontal_alignment = 1
 
-[node name="DialogueContainer" type="MarginContainer" parent="."]
-process_mode = 1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -89.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 30
-script = ExtResource("26_tdeaa")
-
-[node name="PanelContainer" type="PanelContainer" parent="DialogueContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="DialogueLabel" type="Label" parent="DialogueContainer/PanelContainer"]
-custom_minimum_size = Vector2(900, 0)
+[node name="InteractDisplay" type="PanelContainer" parent="HUD"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
-text = "PERSON:
-This is sample dialogue."
-label_settings = ExtResource("5_5v5fv")
-horizontal_alignment = 1
-autowrap_mode = 3
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/InteractDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="HUD/InteractDisplay/MarginContainer"]
+layout_mode = 2
+text = "Press [E] to Interact"
+label_settings = ExtResource("3_0wxmx")
 
 [node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
 custom_minimum_size = Vector2(1100, 750)
@@ -209,14 +227,14 @@ theme_override_constants/separation = 50
 layout_mode = 2
 gig_name = "Open Mic Night"
 location = "Coffee Cafe"
-weekday = "Weekdays"
+weekday = "Every Night"
 door_time = "6:00PM"
 
 [node name="GigBox2" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/GigCalendar/ScrollContainer/VBoxContainer" instance=ExtResource("5_bqesq")]
 layout_mode = 2
 gig_name = "Junkyard Bash"
 location = "Old Warehouse"
-weekday = "Sat-Sun"
+weekday = "Sunday"
 door_time = "7:00PM"
 
 [node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]

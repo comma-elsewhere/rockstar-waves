@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cpma5pk46pitv"]
+
+[ext_resource type="FontFile" uid="uid://wbwcouffjs08" path="res://assets/gui/fonts/Handwriting_font (1).TTF" id="1_f6l35"]
+
+[resource]
+font = ExtResource("1_f6l35")
+font_size = 48
+font_color = Color(0.95773596, 0.9205058, 0.9618222, 1)

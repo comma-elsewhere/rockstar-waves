@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRes" load_steps=4 format=3 uid="uid://cl5j36lnved68"]
+
+[ext_resource type="Script" uid="uid://cj3rc4v3xhs3m" path="res://scripts/class/resource/drink.gd" id="1_p2wnc"]
+[ext_resource type="Texture2D" uid="uid://dnl5onsb3xyl1" path="res://assets/icons/import-icons/FoodSet.png" id="2_s31mt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjjo3"]
+atlas = ExtResource("2_s31mt")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_p2wnc")
+texture = SubResource("AtlasTexture_hjjo3")
+drink_name = "Caffeine X"
+price = 10.99
+inspo_amount = 30
+metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

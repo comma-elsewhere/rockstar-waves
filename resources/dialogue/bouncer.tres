@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ComplexDialogue" load_steps=2 format=3 uid="uid://dtd1f608n6rku"]
+
+[ext_resource type="Script" uid="uid://ce7xrfame1h75" path="res://scripts/class/resource/complex_dialogue.gd" id="1_joo10"]
+
+[resource]
+script = ExtResource("1_joo10")
+npc_role = "Bouncer"
+dialogue_options = Array[String](["Hey! What's up?", "What's the biggest band that plays here?", "Can I perform here?", "Well, later!"])
+fame_steps = Array[int]([12, 6])
+greeting_steps = Array[String](["Hey hey, good to see you!", "Oh, it's you again.", "Can I help you?"])
+answer_steps_0 = Array[String](["Well, I'm talking to a rising star right now...", "Not much, but we've had some good bands lately.", "Business, mostly."])
+answer_steps_1 = Array[String](["Definitely you.", "Hm, probably the Rivals.", "Oh it's for sure the Rivals."])
+answer_steps_2 = Array[String](["You know it!", "Sorry, man. The Rivals are playing here tonight.", "Sorry, who are you? You know the Rivals are playing, right?"])
+gig_name = "Warehouse Bash"
+gig_time = 19
+metadata/_custom_type_script = "uid://ce7xrfame1h75"

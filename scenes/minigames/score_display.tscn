@@ -44,14 +44,18 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
 text = "CURRENTSCORE"
 
 [node name="Combo" type="Label" parent="ActiveScoreBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 40
 text = "X MAX COMBO"
 
 [node name="FinalScorePanel" type="PanelContainer" parent="."]
@@ -82,7 +86,6 @@ theme_override_constants/separation = 15
 
 [node name="FinalScoreLabel" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
 text = "Final Score!"
 
 [node name="ScoreContainer" type="MarginContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer"]
@@ -103,13 +106,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/FinalScore"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "Final Score:"
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/FinalScore"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="MaxCombo" type="HBoxContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
@@ -117,13 +118,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/MaxCombo"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "Max Combo: "
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/MaxCombo"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="Perfect" type="HBoxContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
@@ -131,13 +130,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Perfect"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "Perfect:"
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Perfect"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="Good" type="HBoxContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
@@ -145,13 +142,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Good"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "Good:"
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Good"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="Okay" type="HBoxContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
@@ -159,13 +154,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Okay"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "OK:"
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Okay"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="Missed" type="HBoxContainer" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
@@ -173,13 +166,11 @@ layout_mode = 2
 [node name="Static" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Missed"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "Missed:"
 
 [node name="Dyanmic" type="Label" parent="FinalScorePanel/MarginContainer/VBoxContainer/ScoreContainer/VBoxContainer/Missed"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
 
 [node name="DoneButton" type="Button" parent="FinalScorePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2

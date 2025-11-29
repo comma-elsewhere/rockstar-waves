@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bypupma4pmxrq"]
+[gd_scene load_steps=27 format=3 uid="uid://bypupma4pmxrq"]
 
 [ext_resource type="Script" uid="uid://sodkxsjctmsi" path="res://scripts/manager/song_writing.gd" id="1_wcmpc"]
 [ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="2_x6ivm"]
@@ -50,7 +50,10 @@ func _on_pressed() -> void:
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rewcc"]
 
-[node name="SongWritingCenter" type="Control" node_paths=PackedStringArray("lyrics_done_button", "lyric_list", "song_title_label", "song_player")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urnl3"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="SongWritingCenter" type="Control" node_paths=PackedStringArray("lyrics_done_button", "lyric_list", "song_title_label", "song_player", "fail_message")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,6 +65,7 @@ lyrics_done_button = NodePath("HBoxContainer/WorkPanel/LyricContainer/VBoxContai
 lyric_list = NodePath("HBoxContainer/LyricsPanel/MarginContainer/LyricBox")
 song_title_label = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/TitleContainer/SongTitleLabel")
 song_player = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton/CurrentSong")
+fail_message = NodePath("FailMessage")
 lyric_recipes = Array[ExtResource("2_x6ivm")]([ExtResource("3_o7yf5"), ExtResource("4_vpsmh"), ExtResource("5_lv3og"), ExtResource("6_ttjvd"), ExtResource("7_rewcc"), ExtResource("8_8mmsp"), ExtResource("9_urnl3"), ExtResource("10_ixjig"), ExtResource("11_2k4hg")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -337,6 +341,32 @@ layout_mode = 2
 
 [node name="LyricBox" type="VBoxContainer" parent="HBoxContainer/LyricsPanel/MarginContainer"]
 layout_mode = 2
+
+[node name="FailMessage" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_urnl3")
+
+[node name="MarginContainer" type="MarginContainer" parent="FailMessage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="FailMessage/MarginContainer"]
+layout_mode = 2
+text = "I've already written this...."
 
 [connection signal="text_changed" from="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer/SongTitle" to="." method="_on_song_title_text_changed"]
 [connection signal="new_lyric_from_button" from="HBoxContainer/WorkPanel/LyricContainer/VBoxContainer/Buttons/VBoxContainer/ButtonBox1" to="." method="_on_new_lyric_from_button"]

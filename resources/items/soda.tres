@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRes" load_steps=4 format=3 uid="uid://crdo1du62dfqa"]
+
+[ext_resource type="Script" uid="uid://cj3rc4v3xhs3m" path="res://scripts/class/resource/drink.gd" id="1_exulc"]
+[ext_resource type="Texture2D" uid="uid://dnl5onsb3xyl1" path="res://assets/icons/import-icons/FoodSet.png" id="2_pwr5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuqs7"]
+atlas = ExtResource("2_pwr5e")
+region = Rect2(192, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_exulc")
+texture = SubResource("AtlasTexture_yuqs7")
+drink_name = "Crack Soda"
+price = 4.19
+inspo_amount = 10
+metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

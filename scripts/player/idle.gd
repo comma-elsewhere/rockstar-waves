@@ -11,7 +11,6 @@ extends State
 @export_subgroup("Minigames")
 @export var workspace: State
 @export var sell_merch: State
-@export var perform: State
 @export var busk: State
 @export var advertise: State
 
@@ -19,7 +18,7 @@ extends State
 @export var talk: State
 @export var inspire: State
 
-enum Minigames {NONE, WORK, SELL, PERFORM, BUSK, ADVERTISE, INSPIRE}
+enum Minigames {NONE, WORK, SELL, BUSK, ADVERTISE, INSPIRE, TALK}
 var current_minigame
 
 func _ready() -> void:
@@ -38,8 +37,8 @@ func _change_minigame(game_name: String) -> void:
 			current_minigame = Minigames.WORK
 		"SellMerch":
 			current_minigame = Minigames.SELL
-		"Perform":
-			current_minigame = Minigames.PERFORM
+		"Talk":
+			current_minigame = Minigames.TALK
 		"Busk":
 			current_minigame = Minigames.BUSK
 		"Advertise":
@@ -61,8 +60,8 @@ func process_input(event: InputEvent) -> State:
 		return workspace
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.SELL:
 		return sell_merch
-	elif event.is_action_pressed("interact") and current_minigame == Minigames.PERFORM:
-		return perform
+	elif event.is_action_pressed("interact") and current_minigame == Minigames.TALK:
+		return talk
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.BUSK:
 		return busk 
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.ADVERTISE:
