@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfhks83tk6kj7"]
+[gd_scene load_steps=8 format=3 uid="uid://cfhks83tk6kj7"]
 
 [ext_resource type="Script" uid="uid://7njq7l4p4j2e" path="res://scripts/utility/inspo_zone.gd" id="1_taptn"]
 [ext_resource type="Material" uid="uid://frqg6jajbadr" path="res://resources/inspo_particle_process.tres" id="1_uty6t"]
+[ext_resource type="PackedScene" uid="uid://cromtei4eduhl" path="res://prefabs/components/time_based_local_audio.tscn" id="3_i6dmn"]
+[ext_resource type="AudioStream" uid="uid://cp8wacxienj4u" path="res://assets/sfx/loops/BEES.mp3" id="4_g20x4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcpje"]
 transparency = 1
@@ -45,6 +47,12 @@ draw_pass_1 = SubResource("SphereMesh_uty6t")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_qcpje")
+
+[node name="TimeBasedLocalAudio" parent="." instance=ExtResource("3_i6dmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+stream = ExtResource("4_g20x4")
+active_time = 4
+inactive_time = 16
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

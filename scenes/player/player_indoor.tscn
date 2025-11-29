@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://oi2n4xssuyld"]
+[gd_scene load_steps=25 format=3 uid="uid://oi2n4xssuyld"]
 
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_5hi7k"]
 [ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_4iq04"]
@@ -19,7 +19,10 @@
 [ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_8qsi8"]
 [ext_resource type="Script" uid="uid://do0yrohjpv1mr" path="res://scripts/player/shop.gd" id="18_4iq04"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4iq04"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
+material = SubResource("StandardMaterial3D_4iq04")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
@@ -30,14 +33,13 @@ height = 0.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
-height = 2.3808594
-radius = 1.5
+radius = 1.0
 
 [node name="IndoorPlayer" type="CharacterBody3D" node_paths=PackedStringArray("animation") groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_5hi7k")
-walk_speed = 10
-run_speed = 12
+walk_speed = 8
+run_speed = 10
 jump_height = 3
 animation = NodePath("AnimationPlayer")
 
@@ -70,6 +72,7 @@ margin = 0.5
 target_position = Vector3(0, 0, -5)
 collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="BodyRayCast" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
 target_position = Vector3(0, 0, -5)
@@ -101,7 +104,6 @@ collision_mask = 2
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19042969, 0)
 shape = SubResource("CylinderShape3D_gx1jg")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "starting_state")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkfhpyejkssxo"
+path="res://.godot/imported/Quiet Breeze.mp3-8b3349abb2533a1908d1868e63b819b5.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Quiet Breeze.mp3"
+dest_files=["res://.godot/imported/Quiet Breeze.mp3-8b3349abb2533a1908d1868e63b819b5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

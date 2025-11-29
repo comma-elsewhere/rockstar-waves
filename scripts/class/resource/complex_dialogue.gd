@@ -18,8 +18,10 @@ const ANSWER := "answer_steps_"
 var answer_array := [answer_steps_0, answer_steps_1, answer_steps_2]
 
 func fame_check() -> bool:
-	if GStat.current_level >= fame_steps.back() and gig_time <= GInit.world_time[1]:
-		if GInit.world_time[0] % 7 == gig_day or gig_name == "Open Mic Night":
+	if gig_name == "Open Mic Night":
+		return true
+	elif GInit.world_time[0] % 7 == gig_day:
+		if GStat.current_level >= fame_steps.back() and GInit.world_time[1] >= gig_time:
 			return true
 		else:
 			return false
@@ -35,8 +37,17 @@ func give_greeting() -> String:
 	return npc_role + ": \n" + select_dialogue
 
 func give_answer(index: int) -> String:
-	var array_path: String = ANSWER + str(index)
-	var array_actual: Array = answer_array[answer_array.find(array_path)]
+	var select_dialogue: String
+	match index:
+		0:
+			select_dialogue = _get_answer(answer_steps_0)
+		1: 
+			select_dialogue = _get_answer(answer_steps_1)
+		2:
+			select_dialogue = _get_answer(answer_steps_2)
+	return select_dialogue
+	
+func _get_answer(array_actual: Array[String]) -> String:
 	var select_dialogue: String = array_actual.back()
 	for i in len(fame_steps):
 		if GStat.current_level >= fame_steps[i]:

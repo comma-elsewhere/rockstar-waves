@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs8udsekhw264"
+path="res://.godot/imported/Single Cricket.mp3-e80208d4b95c34ac850bb95e4b7ba702.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Single Cricket.mp3"
+dest_files=["res://.godot/imported/Single Cricket.mp3-e80208d4b95c34ac850bb95e4b7ba702.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u1k040tb003o"
+path="res://.godot/imported/Single Grasshopper.mp3-e418f6d369b0335a05f4856da08d90dd.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Single Grasshopper.mp3"
+dest_files=["res://.godot/imported/Single Grasshopper.mp3-e418f6d369b0335a05f4856da08d90dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

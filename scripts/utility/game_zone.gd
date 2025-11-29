@@ -4,7 +4,7 @@ const DISABLED := 180.0
 
 @onready var collision: CollisionShape3D = $CollisionShape3D
 
-@export_enum("Perform", "Busk", "Workspace", "Bedtime") var game_name: String
+@export_enum("SellMerch", "Busk", "Workspace", "Bedtime") var game_name: String
 @export_range(0,5) var zone_quality: int = 0
 
 

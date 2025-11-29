@@ -175,11 +175,11 @@ script = ExtResource("4_sbd4t")
 calendar_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GigCalendar")
 upgrades_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/Upgrades")
 gear_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GearLoadout")
-options_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/OptionsMenu")
+options_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/TaskMenu")
 calendar_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenCalendar")
 upgrades_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenUpgrades")
 gear_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenGear")
-options_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenOptions")
+options_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenTasks")
 
 [node name="Journal" type="PanelContainer" parent="JournalBG"]
 custom_minimum_size = Vector2(1000, 675)
@@ -202,6 +202,20 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="JournalBG/Journal/UpgradeCenter"]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="TaskMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="GigCalendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
@@ -402,12 +416,6 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionsMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Stats" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -420,25 +428,25 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 12
 
+[node name="OpenTasks" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Available in full game"
+text = "TASKS
+"
+
 [node name="OpenCalendar" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 text = "GIGS"
+
+[node name="OpenUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+text = "LYRICS"
 
 [node name="OpenGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Available in full game"
 disabled = true
 text = "GEAR"
-
-[node name="OpenUpgrades" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
-layout_mode = 2
-text = "LYRICS"
-
-[node name="OpenOptions" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
-layout_mode = 2
-tooltip_text = "Available in full game"
-disabled = true
-text = "OPTIONS"
 
 [node name="OpenQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2

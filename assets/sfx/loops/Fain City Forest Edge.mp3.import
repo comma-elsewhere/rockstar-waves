@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmrknva0kbp1i"
+path="res://.godot/imported/Fain City Forest Edge.mp3-d82c3a86ba034a97c8d382911c25424d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Fain City Forest Edge.mp3"
+dest_files=["res://.godot/imported/Fain City Forest Edge.mp3-d82c3a86ba034a97c8d382911c25424d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

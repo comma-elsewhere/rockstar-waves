@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6e4q8orpp4xl"
+path="res://.godot/imported/Leaves Rustling.mp3-123d816f9fa6c655544ca80ed5d444ca.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Leaves Rustling.mp3"
+dest_files=["res://.godot/imported/Leaves Rustling.mp3-123d816f9fa6c655544ca80ed5d444ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

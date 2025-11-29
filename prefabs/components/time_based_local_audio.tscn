@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cromtei4eduhl"]
+
+[ext_resource type="Script" uid="uid://cxe84qerul6qg" path="res://scripts/utility/time_based_local_audio.gd" id="1_0i4dk"]
+
+[node name="TimeBasedLocalAudio" type="AudioStreamPlayer3D"]
+attenuation_model = 2
+bus = &"Background"
+script = ExtResource("1_0i4dk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

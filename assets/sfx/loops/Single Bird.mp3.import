@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btdu07c3gdf7v"
+path="res://.godot/imported/Single Bird.mp3-0d82939ff870f007bc6fdbf12b7dd7b9.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/loops/Single Bird.mp3"
+dest_files=["res://.godot/imported/Single Bird.mp3-0d82939ff870f007bc6fdbf12b7dd7b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
