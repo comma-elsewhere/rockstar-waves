@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pgaksj6ekwbx"
-path="res://.godot/imported/no_roof_interior.glb-f3bcb94318e5066f761f1b93a32c88b8.scn"
+uid="uid://8kapl4fn1gif"
+path="res://.godot/imported/player_house.glb-d96b76a85df6c5bcbdf513b18e8f1ccc.scn"
 
 [deps]
 
-source_file="res://assets/models/interior/no_roof_interior.glb"
-dest_files=["res://.godot/imported/no_roof_interior.glb-f3bcb94318e5066f761f1b93a32c88b8.scn"]
+source_file="res://assets/models/houses/player_house.glb"
+dest_files=["res://.godot/imported/player_house.glb-d96b76a85df6c5bcbdf513b18e8f1ccc.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Material.051": {
+"Material.049": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://resources/materials/glowing.tres",
 "use_external/path": "uid://drnwxqe2u07l6"

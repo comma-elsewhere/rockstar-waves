@@ -10,7 +10,7 @@ var day_to_str: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	day_to_str = str(GInit.world_time[0])
+	day_to_str = str(GInit.world_time[0] % 10)
 	news_title.text = Paper.NEWS[day_to_str]["title"]
 	body_1.text = Paper.NEWS[day_to_str]["body1"]
 	body_2.text = Paper.NEWS[day_to_str]["body2"]

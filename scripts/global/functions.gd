@@ -1,12 +1,13 @@
 extends Node
 
 signal level_up
-
+signal task_finished
 
 #run this every time a tutorial ask is complete
 func finish_tutorial_task(index: int) -> void:
 	GInit.tutorial_tasks[index] += 1
 	GInit.tutorial = _finish_tutorial()
+	task_finished.emit()
 
 func _finish_tutorial() -> bool:
 	for i in GInit.tutorial_tasks:

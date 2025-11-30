@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SongRecipe" load_steps=3 format=3 uid="uid://cgbaq8y0glfts"]
+
+[ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="1_oddja"]
+[ext_resource type="Resource" uid="uid://dknwn1eusjk2j" path="res://resources/songs/song_track_5.tres" id="2_tdrdt"]
+
+[resource]
+script = ExtResource("1_oddja")
+song = ExtResource("2_tdrdt")
+anxious = 5
+metadata/_custom_type_script = "uid://4bff03urv7gp"

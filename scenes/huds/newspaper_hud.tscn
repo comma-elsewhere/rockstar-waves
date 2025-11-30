@@ -87,7 +87,8 @@ uppercase = true
 [node name="NewsTitle" type="Label" parent="SubViewportContainer/SubViewport/Newspaper/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-text = "the headline news continues!"
+text = "no news is 
+good news!"
 label_settings = ExtResource("1_y6jnl")
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -110,7 +111,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Experts say that birds are a national threat."
+text = "Reporters declare they've officially run out of news!"
 label_settings = ExtResource("3_vwt55")
 autowrap_mode = 3
 
@@ -119,7 +120,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Experts say that birds are a national threat."
+text = "From now on, we will be running repeats, editor declares."
 label_settings = ExtResource("3_vwt55")
 autowrap_mode = 3
 

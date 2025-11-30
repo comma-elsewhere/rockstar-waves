@@ -8,7 +8,7 @@ signal state_changed(new_state: String)
 @export var option_2: Button
 @export var option_3: Button
 
-const WAIT := 5.0
+const WAIT := 3.0
 
 var res: ComplexDialogue
 var option_array: Array[Button]
@@ -37,5 +37,6 @@ func get_dialogue(index: int) -> void:
 	npc_dialogue.text = res.give_answer(index)
 
 func change_state(state_name: String):
-	await get_tree().create_timer(WAIT).timeout
+	if state_name != "Idle":
+		await get_tree().create_timer(WAIT).timeout
 	state_changed.emit(state_name)

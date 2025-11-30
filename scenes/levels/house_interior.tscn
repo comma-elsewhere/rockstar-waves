@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://btdpl6fgiaq70"]
+[gd_scene load_steps=54 format=3 uid="uid://btdpl6fgiaq70"]
 
 [ext_resource type="LightmapGIData" uid="uid://djibl78m6j2fd" path="res://resources/shaders/house_interior.lmbake" id="1_uc80v"]
 [ext_resource type="PackedScene" uid="uid://pgaksj6ekwbx" path="res://assets/models/interior/no_roof_interior.glb" id="1_yiikn"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://oi2n4xssuyld" path="res://scenes/player/player_indoor.tscn" id="5_qv1b4"]
 [ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="6_l1jo6"]
 [ext_resource type="PackedScene" uid="uid://biotqx0omn276" path="res://prefabs/components/exit_door_zone.tscn" id="7_l1jo6"]
-[ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="8_twqpu"]
 [ext_resource type="AudioStream" uid="uid://dkfhpyejkssxo" path="res://assets/sfx/loops/Quiet Breeze.mp3" id="9_ae58o"]
 [ext_resource type="PackedScene" uid="uid://f0n0j43ipyfm" path="res://prefabs/characters/parent.tscn" id="10_2a7q5"]
 [ext_resource type="Resource" uid="uid://w56hy3mrgvlm" path="res://resources/dialogue/mom.tres" id="11_dusbx"]
@@ -160,145 +159,15 @@ environment = SubResource("Environment_0xmub")
 [node name="Environment" type="Node" parent="."]
 
 [node name="no_roof_interior" parent="Environment" instance=ExtResource("1_yiikn")]
-metadata/_edit_lock_ = true
-
-[node name="Sphere_001" parent="Environment/no_roof_interior" index="0"]
-metadata/_edit_lock_ = true
-
-[node name="Sphere" parent="Environment/no_roof_interior" index="1"]
-metadata/_edit_lock_ = true
-
-[node name="Plane" parent="Environment/no_roof_interior" index="2"]
-metadata/_edit_lock_ = true
 
 [node name="Cylinder_005" parent="Environment/no_roof_interior" index="3"]
 visible = false
-metadata/_edit_lock_ = true
 
 [node name="Cylinder_004" parent="Environment/no_roof_interior" index="4"]
 visible = false
-metadata/_edit_lock_ = true
-
-[node name="Cylinder_003" parent="Environment/no_roof_interior" index="5"]
-metadata/_edit_lock_ = true
 
 [node name="Cylinder_002" parent="Environment/no_roof_interior" index="6"]
 visible = false
-metadata/_edit_lock_ = true
-
-[node name="Cylinder_001" parent="Environment/no_roof_interior" index="7"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_050" parent="Environment/no_roof_interior" index="8"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_048" parent="Environment/no_roof_interior" index="9"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_042" parent="Environment/no_roof_interior" index="10"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_041" parent="Environment/no_roof_interior" index="11"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_040" parent="Environment/no_roof_interior" index="12"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_039" parent="Environment/no_roof_interior" index="13"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_038" parent="Environment/no_roof_interior" index="14"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_037" parent="Environment/no_roof_interior" index="15"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_036" parent="Environment/no_roof_interior" index="16"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_035" parent="Environment/no_roof_interior" index="17"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_034" parent="Environment/no_roof_interior" index="18"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_033" parent="Environment/no_roof_interior" index="19"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_032" parent="Environment/no_roof_interior" index="20"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_030" parent="Environment/no_roof_interior" index="21"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_029" parent="Environment/no_roof_interior" index="22"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_028" parent="Environment/no_roof_interior" index="23"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_027" parent="Environment/no_roof_interior" index="24"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_026" parent="Environment/no_roof_interior" index="25"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_024" parent="Environment/no_roof_interior" index="26"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_023" parent="Environment/no_roof_interior" index="27"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_022" parent="Environment/no_roof_interior" index="28"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_021" parent="Environment/no_roof_interior" index="29"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_020" parent="Environment/no_roof_interior" index="30"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_019" parent="Environment/no_roof_interior" index="31"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_018" parent="Environment/no_roof_interior" index="32"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_017" parent="Environment/no_roof_interior" index="33"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_016" parent="Environment/no_roof_interior" index="34"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_015" parent="Environment/no_roof_interior" index="35"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_014" parent="Environment/no_roof_interior" index="36"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_012" parent="Environment/no_roof_interior" index="37"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_011" parent="Environment/no_roof_interior" index="38"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_010" parent="Environment/no_roof_interior" index="39"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_009" parent="Environment/no_roof_interior" index="40"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_008" parent="Environment/no_roof_interior" index="41"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_007" parent="Environment/no_roof_interior" index="42"]
-metadata/_edit_lock_ = true
-
-[node name="Cube_006" parent="Environment/no_roof_interior" index="43"]
-metadata/_edit_lock_ = true
-
-[node name="Cube" parent="Environment/no_roof_interior" index="44"]
-metadata/_edit_lock_ = true
 
 [node name="Collision" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -580,10 +449,6 @@ shape = SubResource("BoxShape3D_rb4ph")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1000001, 1, 2.1000001)
 scene_name = "Outside"
 
-[node name="InspirationZone" parent="Zones" instance=ExtResource("8_twqpu")]
-transform = Transform3D(0.15, 0, 0, 0, 0.2, 0, 0, 0, 0.3, 7.7723637, 0.4, 6.171102)
-inspiration_amount = 10
-
 [node name="NewsEnterZone" parent="Zones" instance=ExtResource("5_0xmub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.456367, 0, 6.5527573)
 game_name = "SellMerch"
@@ -598,9 +463,7 @@ shape = SubResource("BoxShape3D_fvfix")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.311125, 2.0642014, -3.6625733)
 stream = ExtResource("9_ae58o")
 attenuation_model = 2
-volume_db = 30.0
 unit_size = 1.2
-max_db = 6.0
 autoplay = true
 bus = &"Background"
 parameters/looping = true
@@ -609,9 +472,7 @@ parameters/looping = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332565, 2.4045525, -3.1741135)
 stream = ExtResource("9_ae58o")
 attenuation_model = 2
-volume_db = 30.0
 unit_size = 1.0
-max_db = 6.0
 autoplay = true
 bus = &"Background"
 parameters/looping = true
@@ -620,9 +481,7 @@ parameters/looping = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.118519, 2.4313655, 9.397248)
 stream = ExtResource("9_ae58o")
 attenuation_model = 2
-volume_db = 30.0
 unit_size = 1.5
-max_db = 6.0
 autoplay = true
 bus = &"Background"
 parameters/looping = true

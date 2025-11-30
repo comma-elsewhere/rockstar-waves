@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const WAIT_TIME = 1.4
+const WAIT_TIME = 2.5
 
 @onready var dialogue_label: Label = $PanelContainer/DialogueLabel
 

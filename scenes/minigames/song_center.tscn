@@ -1,16 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://bypupma4pmxrq"]
+[gd_scene load_steps=23 format=3 uid="uid://bypupma4pmxrq"]
 
 [ext_resource type="Script" uid="uid://sodkxsjctmsi" path="res://scripts/manager/song_writing.gd" id="1_wcmpc"]
 [ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="2_x6ivm"]
-[ext_resource type="Resource" uid="uid://by1q1a4hoa72y" path="res://resources/song_recipes/testrec_autumn.tres" id="3_o7yf5"]
-[ext_resource type="Resource" uid="uid://bu1nimdi6nayf" path="res://resources/song_recipes/testrec_code.tres" id="4_vpsmh"]
-[ext_resource type="Resource" uid="uid://bmbfvpybqukpv" path="res://resources/song_recipes/testrec_demon.tres" id="5_lv3og"]
-[ext_resource type="Resource" uid="uid://bio57fxh2cl2f" path="res://resources/song_recipes/testrec_disdain.tres" id="6_ttjvd"]
-[ext_resource type="Resource" uid="uid://ca2yyl4xmy1yv" path="res://resources/song_recipes/testrec_egirls.tres" id="7_rewcc"]
-[ext_resource type="Resource" uid="uid://bgs5ec0mixpt0" path="res://resources/song_recipes/testrec_geist.tres" id="8_8mmsp"]
-[ext_resource type="Resource" uid="uid://bra283pj813cf" path="res://resources/song_recipes/testrec_lol.tres" id="9_urnl3"]
-[ext_resource type="Resource" uid="uid://b7sscufge56aa" path="res://resources/song_recipes/testrec_misa.tres" id="10_ixjig"]
-[ext_resource type="Resource" uid="uid://cqokno5x318u8" path="res://resources/song_recipes/testrec_weather.tres" id="11_2k4hg"]
+[ext_resource type="Resource" uid="uid://bl4u1dpbx0e3n" path="res://resources/song_recipes/recipe_track_1.tres" id="3_ar1p5"]
+[ext_resource type="Resource" uid="uid://bvpdmlee8g2yp" path="res://resources/song_recipes/recipe_track_2.tres" id="4_wcmpc"]
+[ext_resource type="Resource" uid="uid://3os4w1vfh3vd" path="res://resources/song_recipes/recipe_track_3.tres" id="5_x6ivm"]
+[ext_resource type="Resource" uid="uid://dds5n7jrlajng" path="res://resources/song_recipes/recipe_track_4.tres" id="6_o7yf5"]
+[ext_resource type="Resource" uid="uid://cgbaq8y0glfts" path="res://resources/song_recipes/recipe_track_5.tres" id="7_vpsmh"]
 [ext_resource type="Script" uid="uid://dbnyrgvg0qk2w" path="res://scripts/gui/lyric_button_box.gd" id="12_vkbvp"]
 [ext_resource type="FontFile" uid="uid://clbowsehf28f0" path="res://assets/gui/fonts/CrimsonText-Bold.ttf" id="12_x6ivm"]
 [ext_resource type="LabelSettings" uid="uid://mqk7oicdxtv8" path="res://resources/font_settings/computer_settings.tres" id="13_o7yf5"]
@@ -66,7 +62,7 @@ lyric_list = NodePath("HBoxContainer/LyricsPanel/MarginContainer/LyricBox")
 song_title_label = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/TitleContainer/SongTitleLabel")
 song_player = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton/CurrentSong")
 fail_message = NodePath("FailMessage")
-lyric_recipes = Array[ExtResource("2_x6ivm")]([ExtResource("3_o7yf5"), ExtResource("4_vpsmh"), ExtResource("5_lv3og"), ExtResource("6_ttjvd"), ExtResource("7_rewcc"), ExtResource("8_8mmsp"), ExtResource("9_urnl3"), ExtResource("10_ixjig"), ExtResource("11_2k4hg")])
+lyric_recipes = Array[ExtResource("2_x6ivm")]([ExtResource("3_ar1p5"), ExtResource("4_wcmpc"), ExtResource("5_x6ivm"), ExtResource("6_o7yf5"), ExtResource("7_vpsmh")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -176,10 +172,10 @@ button_one = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContai
 button_two = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button2")
 button_three = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button3")
 button_four = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button4")
-button_color_one = Color(1, 0.9764706, 0.14509805, 1)
-button_color_two = Color(0, 0.80784315, 0, 1)
-button_color_three = Color(0, 0.60784316, 0.89411765, 1)
-button_color_four = Color(0.89411765, 0, 0.9372549, 1)
+button_color_one = Color(1, 0, 0.21960784, 1)
+button_color_two = Color(0, 0.65882355, 0, 1)
+button_color_three = Color(0.033508245, 0.41669688, 0.99999994, 1)
+button_color_four = Color(0.83137256, 0, 0.90588236, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/WorkPanel/TuningContainer"]
 layout_mode = 2

@@ -14,8 +14,6 @@ func _input(event: InputEvent) -> void:
 	if parent.visible:
 		if event.is_action_pressed("escape") and visible:
 			_toggle_menu(false)
-		elif event.is_action_pressed("escape") and !visible:
-			_toggle_menu(true)
 
 func _quit_game() -> void:
 	get_tree().quit()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SongResource" load_steps=3 format=3 uid="uid://4ie3wg7g3l1e"]
+
+[ext_resource type="AudioStream" uid="uid://clqdgyi7cxxxi" path="res://assets/music/songs/track_1.mp3" id="1_a4v0d"]
+[ext_resource type="Script" uid="uid://bo0ar7ttuumu" path="res://scripts/class/resource/song.gd" id="1_awrqr"]
+
+[resource]
+script = ExtResource("1_awrqr")
+audio_stream = ExtResource("1_a4v0d")
+actual_bpm = 170
+intro = 6.0
+first_half = 25.0
+second_half = 73.0
+metadata/_custom_type_script = "uid://bo0ar7ttuumu"

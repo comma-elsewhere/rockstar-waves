@@ -15,6 +15,12 @@ func _ready() -> void:
 	sound_times = [night, evening, morning]
 	_change_sound()
 
+func _process(_delta: float) -> void:
+	if GInit.minigame_open:
+		stream_paused = true
+	else:
+		stream_paused = false
+
 func _change_sound() -> void:
 	for i in len(sound_times):
 		if GInit.world_time[1] >= sound_times[i]:
@@ -25,7 +31,6 @@ func _change_sound() -> void:
 		else:
 			stream = night_sound
 	play()
-
 
 func _on_finished() -> void:
 	_change_sound()

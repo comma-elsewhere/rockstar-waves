@@ -263,7 +263,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="TaskMenu" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -282,14 +281,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="Task1" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Find a gig for tonight"
-
-[node name="Task2" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "pay rent on saturday: 100"
-
 [node name="Task3" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "get inspiration"
@@ -297,6 +288,14 @@ text = "get inspiration"
 [node name="Task4" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Write new lyrics"
+
+[node name="Task1" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Find a gig for tonight"
+
+[node name="Task2" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "pay rent on saturday: 100"
 
 [node name="GigCalendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=66 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="ArrayMesh" uid="uid://bw2khhaeo6d1k" path="res://resources/mountain_mesh.res" id="2_b0xmf"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://b4gbdxp3hbhqu" path="res://resources/materials/sand.tres" id="9_xcsir"]
 [ext_resource type="Material" uid="uid://s5xe3kycn7vg" path="res://resources/materials/road.tres" id="10_8pb0k"]
 [ext_resource type="PackedScene" uid="uid://cmt7rmqagfluw" path="res://prefabs/environment/grass_plant.tscn" id="10_83kmd"]
+[ext_resource type="PackedScene" uid="uid://bqiddp2o3jcjn" path="res://prefabs/environment/house_player.tscn" id="11_fdkxl"]
 [ext_resource type="Script" uid="uid://bsmr8811d7jrd" path="res://scripts/manager/pedestrian_pathing.gd" id="13_c4p66"]
 [ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="14_iqklg"]
 [ext_resource type="PackedScene" uid="uid://cufok5f4b0ur0" path="res://prefabs/characters/neighbor.tscn" id="15_vn873"]
@@ -104,10 +105,13 @@ size = Vector3(120, 50, 60)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lv6u8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0xmf"]
-size = Vector3(1, 50, 934)
+size = Vector3(1, 50, 362)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdkxl"]
-size = Vector3(1, 80, 934)
+size = Vector3(1, 80, 349)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdayo"]
+size = Vector3(1, 80, 355)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvdks"]
 size = Vector3(4, 1, 4)
@@ -346,13 +350,13 @@ volumetric_fog_ambient_inject = 1.0
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_4x4x5"]
 _data = {
-"bounds": AABB(-358, -28.5, -416.5, 716, 57, 833),
+"bounds": AABB(-367, -28.5, -370, 734, 57, 740),
 "level_counts": PackedInt32Array(1, 0, 0, 0, 0, 0, 0, 0),
 "octree_cells": PackedByteArray("//////////////////////////////////////////8="),
 "octree_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAA=="),
 "octree_df_png": PackedByteArray("iVBORw0KGgoAAAANSUhEUgAACAAAAACACAAAAAC6k9ZTAAAAAXNSR0IArs4c6QAAAixJREFUeJzt1jEBACAMwDDAv+fhAo4mCnp2zwIAas7vAADgPQMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIMgAAECQAQCAIAMAAEEGAACCDAAABBkAAAgyAAAQZAAAIOgCGRAB/0vnTIwAAAAASUVORK5CYII="),
 "octree_size": Vector3(128, 16, 128),
-"to_cell_xform": Transform3D(0.15366147, 0, 0, 0, 0.15366147, 0, 0, 0, 0.15366147, 55.010807, 4.379352, 64.00001)
+"to_cell_xform": Transform3D(0.17297298, 0, 0, 0, 0.17297298, 0, 0, 0, 0.17297298, 63.481083, 4.92973, 64)
 }
 dynamic_range = 1.0
 bias = 0.0
@@ -645,6 +649,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.7794228, 0, 0.45, 0, 0.9, 0, -0.45, 0, 0.7794228, -12, -15, -14)
 mesh = ExtResource("2_b0xmf")
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/GroundNav/MountainMesh"]
 
@@ -1016,10 +1021,6 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 170, 0, 143)
 metadata/_edit_lock_ = true
 
-[node name="House_Blue12" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
-transform = Transform3D(-0.86602545, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, -0.86602545, 107, 0, 218)
-metadata/_edit_lock_ = true
-
 [node name="House_Blue5" parent="Environment/Houses" instance=ExtResource("8_cf4nt")]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, 63, 0, 139)
 metadata/_edit_lock_ = true
@@ -1222,6 +1223,10 @@ metadata/_edit_lock_ = true
 
 [node name="House_Yellow6" parent="Environment/Houses" instance=ExtResource("8_iqklg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -210, 0, 44)
+metadata/_edit_lock_ = true
+
+[node name="House_Player" parent="Environment/Houses" instance=ExtResource("11_fdkxl")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 107, 0, 218)
 metadata/_edit_lock_ = true
 
 [node name="Ferns" type="Node" parent="Environment"]
@@ -2043,7 +2048,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary2"]
-transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, -323.25, 65.5, 148.90674)
+transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, -284.25, 65.5, 213.90674)
 shape = SubResource("BoxShape3D_b0xmf")
 
 [node name="WorldBoundary3" type="StaticBody3D" parent="Environment/Boundaries"]
@@ -2052,7 +2057,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary3"]
-transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, -416, 62, 167)
+transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, -379.5, 62, 230.21985)
 shape = SubResource("BoxShape3D_b0xmf")
 
 [node name="WorldBoundary4" type="StaticBody3D" parent="Environment/Boundaries"]
@@ -2070,8 +2075,44 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary5"]
-transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, 0, 0, 0)
+transform = Transform3D(0.8660255, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660255, 11, 0, 19.052551)
 shape = SubResource("BoxShape3D_fdkxl")
+
+[node name="WorldBoundary6" type="StaticBody3D" parent="Environment/Boundaries"]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -322, 48, -70)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary6"]
+transform = Transform3D(0.86602557, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602557, -2.7500916, 12, -4.763153)
+shape = SubResource("BoxShape3D_hdayo")
+
+[node name="WorldBoundary7" type="StaticBody3D" parent="Environment/Boundaries"]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 358, 55, 127)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary7"]
+transform = Transform3D(0.86602557, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602557, -2.7500916, 12, -4.763153)
+shape = SubResource("BoxShape3D_hdayo")
+
+[node name="WorldBoundary8" type="StaticBody3D" parent="Environment/Boundaries"]
+transform = Transform3D(0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071068, -71, 49, 370)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary8"]
+transform = Transform3D(0.86602557, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602557, -2.7500916, 12, -4.763153)
+shape = SubResource("BoxShape3D_hdayo")
+
+[node name="WorldBoundary9" type="StaticBody3D" parent="Environment/Boundaries"]
+transform = Transform3D(0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071068, 115, 45, -300)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Boundaries/WorldBoundary9"]
+transform = Transform3D(0.86602557, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602557, -2.7500916, 12, -4.763153)
+shape = SubResource("BoxShape3D_hdayo")
 
 [node name="Zones" type="Node" parent="."]
 
@@ -2105,11 +2146,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 0, 65)
 game_name = "Busk"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/Busking/BuskZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 28.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 1, 31.5)
 shape = SubResource("BoxShape3D_dvdks")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/Busking/BuskZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 29.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 1, 32.5)
 mesh = SubResource("BoxMesh_cxae6")
 
 [node name="BuskZone2" parent="Zones/Busking" instance=ExtResource("16_dvdks")]
@@ -2277,8 +2318,8 @@ directional_shadow_mode = 1
 directional_shadow_blend_splits = true
 
 [node name="VoxelGI" type="VoxelGI" parent="TimeAndLight"]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -10.776283, 28.5, 3.3349342)
-size = Vector3(716, 57, 799)
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 18.767944, 28.5, 36.507042)
+size = Vector3(734, 57, 740)
 data = SubResource("VoxelGIData_4x4x5")
 
 [node name="Audio" type="Node" parent="."]

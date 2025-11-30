@@ -21,7 +21,7 @@ func _ready() -> void:
 	if GInit.tutorial:
 		_setup()
 		visible = true
-		Clock.minute_changed.connect(update_visible)
+		GFunc.task_finished.connect(update_visible)
 		
 		
 func _setup() -> void:
@@ -35,16 +35,14 @@ func _setup() -> void:
 	task_list = [tutorial_task_1, tutorial_task_2, tutorial_task_3, tutorial_task_4, tutorial_task_5, tutorial_task_6]
 	update_visible()
 	
-func update_visible():
-	var task_counter: int = 0
-	for i in len(task_list):
-		if GInit.tutorial_tasks[i] == 0:
-			task_list[i].visible = true
-		else:
-			task_list[i].visible = false
-			task_counter += 1
+func update_visible() -> void:
+	if GInit.tutorial == false:
+		_finish_tutorial()
+	else:
+		for i in len(task_list):
+			if GInit.tutorial_tasks[i] != 0:
+				task_list[i].visible = false
 
-	if task_counter >= task_list.size():
-		visible = false
-		Clock.minute_changed.disconnect(update_visible)
-		GInit.tutorial = false
+func _finish_tutorial() -> void:
+	visible = false
+	Clock.minute_changed.disconnect(update_visible)

@@ -21,4 +21,4 @@ var gear: Dictionary = {
 
 func _ready() -> void:
 	current_level = 1
-	GFunc.add_fame(threshholds[0])
+	GFunc.add_fame(0)
