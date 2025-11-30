@@ -19,11 +19,6 @@
 [ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_8qsi8"]
 [ext_resource type="Script" uid="uid://do0yrohjpv1mr" path="res://scripts/player/shop.gd" id="18_4iq04"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4iq04"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
-material = SubResource("StandardMaterial3D_4iq04")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gx1jg"]
@@ -35,24 +30,21 @@ height = 0.2
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
 radius = 1.0
 
-[node name="IndoorPlayer" type="CharacterBody3D" node_paths=PackedStringArray("animation") groups=["Player"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4iq04"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4iq04"]
+material = SubResource("StandardMaterial3D_4iq04")
+
+[node name="IndoorPlayer" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_5hi7k")
 walk_speed = 8
 run_speed = 10
 jump_height = 3
-animation = NodePath("AnimationPlayer")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-gi_mode = 2
-mesh = SubResource("CapsuleMesh_x7p2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CamOrigin" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -120,7 +112,7 @@ walk = NodePath("../Walk")
 run = NodePath("../Run")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
-workspace = NodePath("../../Minigames/Workspace")
+workspace = NodePath("../../Minigames/DAW")
 sell_merch = NodePath("../../Minigames/NewsPaper")
 busk = NodePath("../../Minigames/Busk")
 advertise = NodePath("../../Minigames/Advertise")
@@ -235,6 +227,11 @@ script = ExtResource("18_4iq04")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_4iq04")
 
 [connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
 [connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]

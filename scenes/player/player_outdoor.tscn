@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b6ldfbn3fgxbo"]
+[gd_scene load_steps=25 format=3 uid="uid://b6ldfbn3fgxbo"]
 
 [ext_resource type="Script" uid="uid://b2544o0f8ki2f" path="res://scripts/player/player.gd" id="1_a4ii7"]
 [ext_resource type="Script" uid="uid://1d0x50byedws" path="res://scripts/player/camera_rotator.gd" id="2_7g1vw"]
@@ -19,8 +19,6 @@
 [ext_resource type="Script" uid="uid://byn2y4s2t8maq" path="res://scripts/player/misc_state.gd" id="17_pgr4k"]
 [ext_resource type="Script" uid="uid://do0yrohjpv1mr" path="res://scripts/player/shop.gd" id="18_4bsto"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gx1jg"]
@@ -30,25 +28,21 @@ height = 0.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gx1jg"]
-height = 2.3808594
-radius = 1.5
+radius = 1.0
 
-[node name="OutdoorPlayer" type="CharacterBody3D" node_paths=PackedStringArray("animation") groups=["Player"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4iq04"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a4ii7"]
+material = SubResource("StandardMaterial3D_4iq04")
+
+[node name="OutdoorPlayer" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_a4ii7")
 jump_height = 5
-animation = NodePath("AnimationPlayer")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-gi_mode = 2
-mesh = SubResource("CapsuleMesh_x7p2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CamOrigin" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -69,9 +63,8 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="BodyRayCast" type="RayCast3D" parent="CamOrigin/CamArm/Camera"]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -5)
 collision_mask = 4
-hit_from_inside = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CamOrigin/CamArm/Camera"]
 process_mode = 3
@@ -99,7 +92,6 @@ collision_mask = 2
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19042969, 0)
 shape = SubResource("CylinderShape3D_gx1jg")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "starting_state")]
@@ -116,8 +108,8 @@ walk = NodePath("../Walk")
 run = NodePath("../Run")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
-workspace = NodePath("../../Minigames/Workspace")
-sell_merch = NodePath("../../Minigames/SellMerch")
+workspace = NodePath("../../Minigames/DAW")
+sell_merch = NodePath("../../Minigames/NewsPaper")
 busk = NodePath("../../Minigames/Busk")
 advertise = NodePath("../../Minigames/Advertise")
 talk = NodePath("../../Other/Talk")
@@ -178,7 +170,7 @@ camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
 
-[node name="SellMerch" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "player_hud", "idle", "parent")]
+[node name="NewsPaper" type="Node" parent="StateMachine/Minigames" node_paths=PackedStringArray("camera_control", "camera", "player_hud", "idle", "parent")]
 script = ExtResource("12_6ddh4")
 camera_control = NodePath("../../../CamOrigin")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
@@ -231,6 +223,11 @@ script = ExtResource("18_4bsto")
 camera = NodePath("../../../CamOrigin/CamArm/Camera")
 idle = NodePath("../../Movement/Idle")
 parent = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_a4ii7")
 
 [connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
 [connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]

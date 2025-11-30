@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://cufok5f4b0ur0"]
+
+[ext_resource type="Script" uid="uid://bxy7fwywk3gi7" path="res://scripts/class/npc/neighbor.gd" id="1_6m8wt"]
+[ext_resource type="Resource" uid="uid://5rsfptnhsbyb" path="res://resources/dialogue/npc_5.tres" id="2_cidnc"]
+[ext_resource type="PackedScene" uid="uid://bry8orq07bqs3" path="res://assets/models/characters/npc_5.glb" id="3_up2lo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cv7g3"]
+radius = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w687d"]
+radius = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0e7gp"]
+fadein_time = 0.5
+fadeout_time = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w687d"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oj6rm"]
+animation = &"Stumble"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mgoyt"]
+nodes/output/position = Vector2(1120, 160)
+nodes/idle/node = SubResource("AnimationNodeAnimation_w687d")
+nodes/idle/position = Vector2(140, 80)
+nodes/stumble/node = SubResource("AnimationNodeAnimation_oj6rm")
+nodes/stumble/position = Vector2(340, 240)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_0e7gp")
+nodes/OneShot/position = Vector2(820, 100)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"idle", &"OneShot", 1, &"stumble"]
+
+[node name="NPC_5" type="RigidBody3D" node_paths=PackedStringArray("animation", "area") groups=["Character", "InspoSource"]]
+collision_mask = 3
+input_ray_pickable = false
+axis_lock_linear_y = true
+lock_rotation = true
+script = ExtResource("1_6m8wt")
+animation = NodePath("AnimationTree")
+dialogue = ExtResource("2_cidnc")
+area = NodePath("BumpArea")
+
+[node name="BumpArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumpArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_cv7g3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w687d")
+
+[node name="TalkingTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="InspoCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../npc_5")
+tree_root = SubResource("AnimationNodeBlendTree_mgoyt")
+anim_player = NodePath("../npc_5/AnimationPlayer")
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+
+[node name="npc_5" parent="." instance=ExtResource("3_up2lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01396513, 0, -0.052343965)
+
+[node name="Skeleton3D" parent="npc_5/Main" index="0"]
+bones/0/position = Vector3(0.08403146, 0.004472673, -1.0947918)
+bones/0/rotation = Quaternion(-0.51187074, -0.51362854, 0.50066847, 0.47276342)
+bones/1/rotation = Quaternion(0.003845524, -0.0045933994, 0.04991862, 0.9987353)
+bones/2/rotation = Quaternion(0.00093403517, -0.009564554, 0.0047941185, 0.99994236)
+bones/3/rotation = Quaternion(0.0010857811, -0.009546833, 0.0046464843, 0.999943)
+bones/4/rotation = Quaternion(-0.0019645568, 0.00016499891, -0.0916966, 0.99578506)
+bones/5/rotation = Quaternion(0.0024293242, -0.0026791948, 0.11447679, 0.99341935)
+bones/7/rotation = Quaternion(-0.035653945, -0.53007185, 0.84707946, -0.014458082)
+bones/8/rotation = Quaternion(0.43722656, 0.034061853, -0.051860053, 0.8972087)
+bones/9/rotation = Quaternion(0.01955274, -0.000921963, 0.18007651, 0.98345786)
+bones/11/rotation = Quaternion(0.8548024, 0.00024470506, -0.02164921, 0.5185018)
+bones/12/rotation = Quaternion(0.4168606, -0.10810226, 0.01968245, 0.9023047)
+bones/13/rotation = Quaternion(0.030247245, 0.0004992341, -0.24211773, 0.96977514)
+bones/15/rotation = Quaternion(0.040975686, -0.008075702, 0.9916024, -0.12239544)
+bones/16/rotation = Quaternion(-0.056040168, -0.03197202, -0.27085268, 0.96045625)
+bones/17/rotation = Quaternion(0.4006777, -0.59121114, 0.41834968, 0.5611688)
+bones/18/rotation = Quaternion(0.3294999, -0.29163724, 0.10774996, 0.8914974)
+bones/20/rotation = Quaternion(-0.067143165, -0.020334437, 0.99517924, -0.06853307)
+bones/21/rotation = Quaternion(0.06792504, 0.065238565, -0.21927483, 0.971107)
+bones/22/rotation = Quaternion(0.38063684, -0.57847106, 0.43013138, 0.5792011)
+bones/23/rotation = Quaternion(0.33264863, 0.28677696, -0.10617879, 0.8920931)
+
+[connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
+
+[editable path="npc_5"]

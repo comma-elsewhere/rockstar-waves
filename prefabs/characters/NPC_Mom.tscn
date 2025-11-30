@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://duqpi4gmhxvyi"]
+
+[ext_resource type="Script" uid="uid://b46om38mkdw1d" path="res://scripts/class/npc/parent.gd" id="1_v1y6b"]
+[ext_resource type="Resource" uid="uid://w56hy3mrgvlm" path="res://resources/dialogue/mom.tres" id="2_trjh3"]
+[ext_resource type="PackedScene" uid="uid://qqj6n6m6730d" path="res://assets/models/characters/npc_mom.glb" id="3_odj4m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cv7g3"]
+radius = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w687d"]
+radius = 0.3
+
+[node name="Mom" type="RigidBody3D" node_paths=PackedStringArray("area") groups=["Character", "InspoSource"]]
+collision_mask = 3
+input_ray_pickable = false
+axis_lock_linear_y = true
+lock_rotation = true
+script = ExtResource("1_v1y6b")
+tutorial_text = Array[String](["Oh honey, I'm so sorry your band kicked you out...", "It was in the news and everything! Just dreadful.", "I've fixed up your room, computer and all. I know you'll figure it out."])
+dialogue = ExtResource("2_trjh3")
+area = NodePath("BumpArea")
+
+[node name="BumpArea" type="Area3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumpArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_cv7g3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.4, 0)
+shape = SubResource("CapsuleShape3D_w687d")
+
+[node name="TalkingTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="npc_mom" parent="." instance=ExtResource("3_odj4m")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -0.05, -0.15, -0.1)
+
+[node name="Skeleton3D" parent="npc_mom/Armature" index="0"]
+bones/0/position = Vector3(0.011101019, 0.064377785, -1.1320183)
+bones/0/rotation = Quaternion(-0.5609253, -0.4933298, 0.5114227, 0.424777)
+bones/1/rotation = Quaternion(0.07967649, -0.012525076, 0.076050594, 0.99383664)
+bones/2/rotation = Quaternion(0.006197397, -0.009097568, -0.07927116, 0.9967923)
+bones/3/rotation = Quaternion(0.0063430285, -0.0083773965, -0.079547584, 0.9967757)
+bones/4/rotation = Quaternion(-0.043654535, 0.004058419, -0.11955094, 0.99185956)
+bones/5/rotation = Quaternion(0.007893443, -0.006021204, 0.19867224, 0.9800157)
+bones/7/rotation = Quaternion(-0.03224045, -0.4909562, 0.8705806, -0.0034582503)
+bones/8/rotation = Quaternion(0.42497474, -0.023666875, 0.017204652, 0.9047322)
+bones/9/rotation = Quaternion(0.035370514, -0.0008197023, 0.17242607, 0.98438686)
+bones/11/rotation = Quaternion(0.88516176, 0.006901973, -0.044228036, 0.4631253)
+bones/12/rotation = Quaternion(0.32712892, -0.055751804, -0.047856644, 0.942119)
+bones/13/rotation = Quaternion(0.044994663, 0.0010577008, -0.2207568, 0.97428995)
+bones/15/rotation = Quaternion(0.06336159, -0.09731901, 0.9883351, -0.09853071)
+bones/16/rotation = Quaternion(-0.013657399, -0.005221406, -0.38576666, 0.9224805)
+bones/17/rotation = Quaternion(0.48261097, -0.4970857, 0.42174768, 0.5849115)
+bones/18/rotation = Quaternion(0.36129916, -0.29277453, 0.1119315, 0.87818986)
+bones/20/rotation = Quaternion(-0.07455453, -0.08670183, 0.9924871, -0.04351799)
+bones/21/rotation = Quaternion(0.029766405, 0.048220098, -0.32373726, 0.94444853)
+bones/22/rotation = Quaternion(0.4354109, -0.61388624, 0.4477538, 0.48278126)
+bones/23/rotation = Quaternion(0.3553168, 0.2923488, -0.115240455, 0.8803419)
+
+[node name="AnimationPlayer" parent="npc_mom" index="1"]
+autoplay = "Idle"
+
+[connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
+
+[editable path="npc_mom"]

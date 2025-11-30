@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BasicDialogue" load_steps=2 format=3 uid="uid://dvuv33pve3lx"]
+
+[ext_resource type="Script" uid="uid://ovrp7erx3wye" path="res://scripts/class/resource/npc_dialogue.gd" id="1_cmnqk"]
+
+[resource]
+script = ExtResource("1_cmnqk")
+personality = null
+metadata/_custom_type_script = "uid://ovrp7erx3wye"

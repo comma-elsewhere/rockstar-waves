@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bypupma4pmxrq"]
+[gd_scene load_steps=24 format=3 uid="uid://bypupma4pmxrq"]
 
 [ext_resource type="Script" uid="uid://sodkxsjctmsi" path="res://scripts/manager/song_writing.gd" id="1_wcmpc"]
 [ext_resource type="Script" uid="uid://4bff03urv7gp" path="res://scripts/class/resource/song_recipe.gd" id="2_x6ivm"]
@@ -49,7 +49,34 @@ func _on_pressed() -> void:
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urnl3"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="SongWritingCenter" type="Control" node_paths=PackedStringArray("lyrics_done_button", "lyric_list", "song_title_label", "song_player", "fail_message")]
+[sub_resource type="GDScript" id="GDScript_ar1p5"]
+resource_name = "FailMessage"
+script/source = "extends PanelContainer
+
+@export var parent: Control
+@export var label: Label
+
+const NO_LYRICS := \"I need some lyrics first, \\n I should check my Journal.\"
+const NEED_TITLE := \"Hm... Still needs a title.\"
+
+var has_lyrics: bool
+
+func _ready() -> void:
+	if GStat.music_style[0] == 0 and GStat.music_style[1] == 0:
+		label.text = NO_LYRICS
+		has_lyrics = false
+	else:
+		label.text = NEED_TITLE
+		has_lyrics = true
+		
+func _process(_delta: float) -> void:
+	if has_lyrics and parent.current_title:
+		visible = false
+	else:
+		visible = true
+"
+
+[node name="SongWritingCenter" type="Control" node_paths=PackedStringArray("lyrics_done_button", "lyric_list", "song_title_label", "song_player", "fail_message_1", "fail_message_2")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +88,8 @@ lyrics_done_button = NodePath("HBoxContainer/WorkPanel/LyricContainer/VBoxContai
 lyric_list = NodePath("HBoxContainer/LyricsPanel/MarginContainer/LyricBox")
 song_title_label = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/TitleContainer/SongTitleLabel")
 song_player = NodePath("HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/VisualContainer/PlayButton/CurrentSong")
-fail_message = NodePath("FailMessage")
+fail_message_1 = NodePath("FailMessage1")
+fail_message_2 = NodePath("FailMessage2")
 lyric_recipes = Array[ExtResource("2_x6ivm")]([ExtResource("3_ar1p5"), ExtResource("4_wcmpc"), ExtResource("5_x6ivm"), ExtResource("6_o7yf5"), ExtResource("7_vpsmh")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -338,7 +366,35 @@ layout_mode = 2
 [node name="LyricBox" type="VBoxContainer" parent="HBoxContainer/LyricsPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="FailMessage" type="PanelContainer" parent="."]
+[node name="FailMessage1" type="PanelContainer" parent="." node_paths=PackedStringArray("parent", "label")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -140.0
+offset_bottom = -82.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_urnl3")
+script = SubResource("GDScript_ar1p5")
+parent = NodePath("..")
+label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="FailMessage1"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="FailMessage1/MarginContainer"]
+layout_mode = 2
+text = "Filler Label Text"
+
+[node name="FailMessage2" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 6
@@ -346,21 +402,21 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
+offset_left = -349.0
+offset_top = -40.0
+offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_urnl3")
 
-[node name="MarginContainer" type="MarginContainer" parent="FailMessage"]
+[node name="MarginContainer" type="MarginContainer" parent="FailMessage2"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="FailMessage/MarginContainer"]
+[node name="Label" type="Label" parent="FailMessage2/MarginContainer"]
 layout_mode = 2
 text = "I've already written this...."
 

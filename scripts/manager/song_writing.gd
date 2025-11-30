@@ -6,7 +6,8 @@ signal game_end
 @export var lyric_list: VBoxContainer
 @export var song_title_label: Label
 @export var song_player: AudioStreamPlayer
-@export var fail_message: PanelContainer
+@export var fail_message_1: PanelContainer
+@export var fail_message_2: PanelContainer
 
 @export var lyric_recipes: Array[SongRecipe] = []
 
@@ -34,10 +35,10 @@ func _proceed_to_tuning() -> void:
 			song_player.stream = current_song.audio_stream
 		else:
 			GFunc.play_sound(self, "Fail")
-			if !fail_message.visible:
-				fail_message.visible = true
+			if !fail_message_1.visible or !fail_message_2.visible:
+				fail_message_2.visible = true
 				await get_tree().create_timer(2.0).timeout
-				fail_message.visible = false
+				fail_message_2.visible = false
 		
 func _process_lyrics() -> bool:
 	var metrics: Array = [0,0,0,0,0]

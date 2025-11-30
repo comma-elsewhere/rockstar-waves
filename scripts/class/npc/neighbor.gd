@@ -12,6 +12,8 @@ const INSPO_COOLDOWN := 5.0
 @onready var talking_timer: Timer = $TalkingTimer
 @onready var inspo_cooldown: Timer = $InspoCooldown
 
+@export var animation: AnimationTree
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and global_position.distance_to(player.global_position) <= SPEECH_DIST / 1.5:
 		if !GInit.minigame_open:
@@ -21,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _move_away(direction: Vector3) -> void:
 	talking.emit(dialogue.bump())
 	_get_inspired(SHOVE_INSPO)
+	animation.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	apply_impulse(direction * MOVE_AWAY)
 	
 func _get_inspired(amount: int):

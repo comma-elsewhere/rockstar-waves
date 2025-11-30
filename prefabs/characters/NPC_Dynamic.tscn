@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://wmtu5wgt666q"]
+
+[ext_resource type="Script" uid="uid://c0t5y1j2ycw1u" path="res://scripts/class/npc/dynamic_npc.gd" id="1_71ibl"]
+[ext_resource type="PackedScene" uid="uid://di5nfgk6by77c" path="res://prefabs/components/look_zone.tscn" id="2_s8888"]
+[ext_resource type="PackedScene" uid="uid://bry8orq07bqs3" path="res://assets/models/characters/npc_5.glb" id="3_s8888"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omo82"]
+radius = 0.4350586
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s8888"]
+radius = 0.42681885
+height = 0.8536377
+
+[node name="DynamicNPC" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("1_71ibl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.1, 1.4, 0)
+shape = SubResource("CapsuleShape3D_omo82")
+
+[node name="LookZone" parent="." instance=ExtResource("2_s8888")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.1, 0, 0)
+game_name = "Talk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LookZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5840336, 0.2)
+shape = SubResource("CapsuleShape3D_s8888")
+
+[node name="npc_5" parent="." instance=ExtResource("3_s8888")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="Skeleton3D" parent="npc_5/Main" index="0"]
+bones/0/position = Vector3(0.18869635, 0.015622348, -1.0706781)
+bones/0/rotation = Quaternion(-0.40634406, -0.54607445, 0.5982056, 0.42289156)
+bones/1/rotation = Quaternion(-0.05616389, 0.00094123604, 0.07343495, 0.9957169)
+bones/2/rotation = Quaternion(-0.019034497, -0.0054636328, 0.0118636135, 0.9997335)
+bones/3/rotation = Quaternion(-0.01886104, -0.0059943423, 0.011958767, 0.99973273)
+bones/4/rotation = Quaternion(0.02569649, 0.00074941234, -0.11671283, 0.992833)
+bones/5/rotation = Quaternion(0.012513859, 0.009634392, 0.08546891, 0.9962157)
+bones/7/rotation = Quaternion(-0.031775158, -0.51885265, 0.8542051, -0.0107681835)
+bones/8/rotation = Quaternion(0.41360378, 0.04615219, -0.13995203, 0.8984517)
+bones/9/rotation = Quaternion(0.020673865, -0.00092018745, 0.19040255, 0.98148805)
+bones/11/rotation = Quaternion(0.8422509, -0.0043914947, -0.010503558, 0.5389656)
+bones/12/rotation = Quaternion(0.46409792, -0.10623419, 0.09400988, 0.87435097)
+bones/13/rotation = Quaternion(0.030598309, 0.00049888814, -0.24492821, 0.96905816)
+bones/15/rotation = Quaternion(0.029412689, 0.10847602, 0.98502195, -0.13076615)
+bones/16/rotation = Quaternion(-0.0652094, -0.081151, -0.2928098, 0.95048654)
+bones/17/rotation = Quaternion(0.35561708, -0.64487064, 0.47683, 0.47990796)
+bones/18/rotation = Quaternion(0.33500034, -0.292373, 0.1063969, 0.8893664)
+bones/20/rotation = Quaternion(-0.08812001, 0.088422015, 0.97915876, -0.1602018)
+bones/21/rotation = Quaternion(0.06315553, -0.031861644, -0.31678227, 0.94585687)
+bones/22/rotation = Quaternion(0.37182254, -0.5676316, 0.46123436, 0.57166886)
+bones/23/rotation = Quaternion(0.33460137, 0.28703618, -0.105710134, 0.8913347)
+
+[node name="AnimationPlayer" parent="npc_5" index="1"]
+autoplay = "Idle"
+
+[editable path="npc_5"]

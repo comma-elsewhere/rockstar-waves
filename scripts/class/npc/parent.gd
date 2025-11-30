@@ -33,8 +33,8 @@ func _tutorial_emit() -> void:
 	if tutorial >= tutorial_text.size():
 		GFunc.finish_tutorial_task(parent)
 
-func _move_away(direction: Vector3) -> void:
-	apply_impulse(direction * MOVE_AWAY)
+func _move_away(_direction: Vector3) -> void:
+	#apply_impulse(direction * MOVE_AWAY)
 	if !GInit.tutorial:
 		talking.emit(dialogue.bump())
 
