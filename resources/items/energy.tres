@@ -11,6 +11,6 @@ region = Rect2(64, 0, 32, 32)
 script = ExtResource("1_g3btv")
 texture = SubResource("AtlasTexture_w450h")
 drink_name = "Ka-Boom Energy"
-price = 8.35
+price = 6.35
 inspo_amount = 25
 metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

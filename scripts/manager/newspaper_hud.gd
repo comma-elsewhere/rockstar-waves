@@ -4,7 +4,7 @@ extends CanvasLayer
 @export var body_1: Label
 @export var body_2: Label
 
-const INSPO := 5
+const INSPO := 10
 
 var day_to_str: String
 

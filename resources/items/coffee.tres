@@ -11,6 +11,6 @@ region = Rect2(96, 32, 32, 32)
 script = ExtResource("1_8as2a")
 texture = SubResource("AtlasTexture_cl7mq")
 drink_name = "Red Eye Coffee"
-price = 5.25
+price = 3.25
 inspo_amount = 15
 metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

@@ -11,6 +11,6 @@ region = Rect2(192, 32, 32, 32)
 script = ExtResource("1_exulc")
 texture = SubResource("AtlasTexture_yuqs7")
 drink_name = "Crack Soda"
-price = 4.19
+price = 2.19
 inspo_amount = 10
 metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"
