@@ -10,10 +10,15 @@ func finish_tutorial_task(index: int) -> void:
 	task_finished.emit()
 
 func _finish_tutorial() -> bool:
-	for i in GInit.tutorial_tasks:
-		if i == 0:
-			return false
-	return true
+	var remaining_tasks: int = 0
+	for i in len(GInit.tutorial_tasks):
+		if GInit.tutorial_tasks[i] == 0:
+			remaining_tasks +=1
+			
+	if remaining_tasks != 0:
+		return true
+	else:
+		return false
 
 func add_fame(amount: int) -> void:
 	var index: int

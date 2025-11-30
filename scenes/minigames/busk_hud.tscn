@@ -36,10 +36,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1920, 1080)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
@@ -53,6 +56,7 @@ grow_vertical = 2
 [node name="StageManager" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("HUD") instance=ExtResource("2_3wmbm")]
 visible = false
 position = Vector2(80, 0)
+scale = Vector2(1, 1)
 HUD = NodePath("../ScoreDisplay")
 
 [node name="ScoreDisplay" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_w75rc")]

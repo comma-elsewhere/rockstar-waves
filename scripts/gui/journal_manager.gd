@@ -11,7 +11,7 @@ extends Panel
 @export var gear_button: Button
 @export var options_button: Button
 
-var current_panel: Control
+var current_panel: MarginContainer
 
 func _ready() -> void:
 	calendar_button.button_up.connect(_toggle_panel.bind(calendar_panel))
@@ -19,15 +19,15 @@ func _ready() -> void:
 	gear_button.button_up.connect(_toggle_panel.bind(gear_panel))
 	options_button.button_up.connect(_toggle_panel.bind(options_panel))
 	
-	current_panel = options_button
+	current_panel = options_panel
 	_show_panel(current_panel)
 	visible = false
 	
-func _toggle_panel(panel: Control) -> void:
+func _toggle_panel(panel: MarginContainer) -> void:
 	if current_panel:
 		current_panel.visible = false
 	current_panel = panel
 	_show_panel(current_panel)
 	
-func _show_panel(panel: Control):
+func _show_panel(panel: MarginContainer):
 	panel.visible = true
