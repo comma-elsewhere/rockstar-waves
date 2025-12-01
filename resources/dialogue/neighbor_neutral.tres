@@ -4,8 +4,7 @@
 
 [resource]
 script = ExtResource("1_4cq7f")
-type = "NEIGHBOR: 
-"
+type_name = "Neighbor"
 personality = 1
 greeting = Array[String](["Hey.", "*Yawn* Morning.", "Haven't had coffee yet, sorry.", "What's up, kid?", "I'm kinda busy right now..."])
 bump_into = Array[String](["Careful, kid.", "Oh, sorry.", "Watch where you're going, okay?", "In a hurry, huh?"])

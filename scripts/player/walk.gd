@@ -11,6 +11,9 @@ func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
 
 #State Machine
+	if event.is_action_pressed("interact"):
+		pass
+
 	if event.is_action_pressed("jump"):
 		return jump
 	elif event.is_action_pressed("sprint"):

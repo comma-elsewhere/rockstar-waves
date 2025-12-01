@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://g14sfpmqnvus"]
+[gd_scene load_steps=6 format=3 uid="uid://g14sfpmqnvus"]
 
 [ext_resource type="Script" uid="uid://dfbx8rgnkdnhc" path="res://scripts/manager/talk_hud.gd" id="1_7vqag"]
 [ext_resource type="LabelSettings" uid="uid://bc1175kktdxmv" path="res://resources/font_settings/dialogue_settings.tres" id="1_65cdf"]
 [ext_resource type="Shader" uid="uid://cxnkv2ssgviyd" path="res://resources/shaders/ideas.gdshader" id="1_mh7fo"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="4_yi4lr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65cdf"]
 shader = ExtResource("1_mh7fo")
@@ -104,3 +105,6 @@ layout_mode = 2
 [node name="Option4" type="Button" parent="SubViewportContainer/SubViewport/TalkingCenter/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
+
+[node name="ExitPanel" parent="SubViewportContainer/SubViewport/TalkingCenter" instance=ExtResource("4_yi4lr")]
+layout_mode = 0

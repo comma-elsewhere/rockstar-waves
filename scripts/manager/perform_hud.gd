@@ -12,8 +12,8 @@ const PANEL_WAIT := 5.0
 
 var level
 
-func startup() -> void:
-	level = GFunc.norm_fame() + (GStat.music_style[0] + GStat.music_style[1])/2
+func startup(zone_quality: float) -> void:
+	level = float(GFunc.norm_fame() + (GStat.music_style[0] + GStat.music_style[1])/2) * zone_quality
 	GInit.mouse_free = true
 	song_button_box.startup()
 
@@ -31,8 +31,8 @@ func _on_score_display_end_game(score_array: Array) -> void:
 
 func _calculate_busking(score_info: Array) -> bool:
 	level = clampi(level, 1, 10)
-	var floored_money: float = float(level) * randf_range(0.1, 5) * score_info[0]
-	var gained_fame: int = ((score_info[2] + score_info[3]) / 4) * score_info[0] / 20
+	var floored_money: float = level * randf_range(0.1, 2) * score_info[0]
+	var gained_fame: int = level * ((score_info[2] + score_info[3]) / 4) * score_info[0] / 10
 	
 	if GInit.tutorial:
 		GFunc.finish_tutorial_task(4)
@@ -41,7 +41,7 @@ func _calculate_busking(score_info: Array) -> bool:
 	return true
 
 func _calculate_performance(score_info: Array) -> bool:
-	var floored_money: float = float(level) * randf_range(1,10) * score_info[0] 
+	var floored_money: float = level * randf_range(5,10) * score_info[0] 
 	var gained_fame: int = level * ((score_info[2] + score_info[3]) / 4) * score_info[0] / 5
 	
 	await final_calc(floored_money, gained_fame)

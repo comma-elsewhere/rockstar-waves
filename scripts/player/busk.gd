@@ -13,7 +13,7 @@ func enter() -> void:
 	GInit.minigame_open = true
 	camera_control.over_shoulder()
 	var new_hud = perform_hud.instantiate()
-	new_hud.startup()
+	new_hud.startup(parent.zone_quality)
 	new_hud.game_over.connect(_gameover)
 	camera.add_child(new_hud)
 	

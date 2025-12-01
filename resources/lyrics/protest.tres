@@ -5,6 +5,11 @@
 
 [resource]
 script = ExtResource("1_opsds")
+upgrade_max = 2
 upgrade_name = "ProProtest"
 upgrade_texture = ExtResource("2_od08g")
+lyrics = Array[String](["Band together", "Brotherhood", "Our world", "Harmony", "Bird rights", "Pigeons", "Sparrow", "Emu", "Feather", "Flock"])
+grouping = Array[int]([4, 6, 0])
+metric_one = Array[int]([2, 5, 0, 0, 0])
+metric_two = Array[int]([10, 0, 0, 0, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

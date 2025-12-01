@@ -12,6 +12,8 @@ var time:float= 0.0
 var past_minute:int= -1
 var past_hour:int= -1
 
+var rent_collected: bool = false
+
 
 func _ready() -> void:
 	time = INGAME_TO_REAL_MINUTE_DURATION * MINUTES_PER_HOUR * INITIAL_HOUR
@@ -37,3 +39,14 @@ func _recalculate_time() -> void:
 		past_minute = minute
 		GInit.world_time = [day, hour, minute]
 		minute_changed.emit()
+		_check_rent(day, hour)
+		
+func _check_rent(current_day: int, current_hour: int) -> void:
+	if current_day % 7 == 6 and current_hour == 8:
+		if !rent_collected:
+			GFunc.collect_rent()
+			rent_collected = true
+		else:
+			pass
+	elif current_hour > 8 and rent_collected == true:
+		rent_collected = false

@@ -10,9 +10,9 @@ extends PanelContainer
 
 const TASK1 := "Talk to Mom about life"
 const TASK2 := "Talk to Dad about rent"
-const TASK3 := "Get new lyrics - J to open Journal"
+const TASK3 := "Open Journal to get Lyrics: Press J"
 const TASK4 := "Make a new song on computer"
-const TASK5 := "Find a somwhere to make money"
+const TASK5 := "Find a bench to busk at for money"
 const TASK6 := "Buy something caffeinated"
 
 var task_list: Array[Label]
@@ -39,6 +39,13 @@ func update_visible() -> void:
 	if GInit.tutorial == false:
 		_finish_tutorial()
 	else:
+		if GInit.tutorial_tasks[2] != 0:
+			task_list[3].visible = true
+		if GInit.tutorial_tasks[3] != 0:
+			task_list[4].visible = true
+		if GInit.tutorial_tasks[4] != 0:
+			task_list[5].visible = true
+
 		for i in len(task_list):
 			if GInit.tutorial_tasks[i] != 0:
 				task_list[i].visible = false

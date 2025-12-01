@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=62 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="ArrayMesh" uid="uid://bw2khhaeo6d1k" path="res://resources/mountain_mesh.res" id="2_b0xmf"]
@@ -17,11 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://bqiddp2o3jcjn" path="res://prefabs/environment/house_player.tscn" id="11_fdkxl"]
 [ext_resource type="Script" uid="uid://bsmr8811d7jrd" path="res://scripts/manager/pedestrian_pathing.gd" id="13_c4p66"]
 [ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="14_iqklg"]
+[ext_resource type="PackedScene" uid="uid://c8iv4jetra1ll" path="res://prefabs/environment/coffee_shop.tscn" id="16_em2u4"]
 [ext_resource type="PackedScene" uid="uid://biotqx0omn276" path="res://prefabs/components/exit_door_zone.tscn" id="17_75q0o"]
 [ext_resource type="PackedScene" uid="uid://cwypvooo05xmu" path="res://prefabs/environment/busking_bench.tscn" id="17_jnv5o"]
 [ext_resource type="PackedScene" uid="uid://kaeuqg18ygop" path="res://prefabs/characters/NPC_2.tscn" id="20_b0xmf"]
+[ext_resource type="Resource" uid="uid://cyjiuw6limcna" path="res://resources/dialogue/neighbor_hostile.tres" id="20_fdkxl"]
 [ext_resource type="PackedScene" uid="uid://dj02dcnuk63xb" path="res://prefabs/characters/NPC_1.tscn" id="20_j5lna"]
+[ext_resource type="Resource" uid="uid://bk8nif5o53lhl" path="res://resources/dialogue/neighbor_friendly.tres" id="20_rs17x"]
 [ext_resource type="Script" uid="uid://btfqfhkwcc40l" path="res://scripts/manager/world_clock.gd" id="20_yu2dq"]
+[ext_resource type="Resource" uid="uid://5t8pp8yi2adi" path="res://resources/dialogue/neighbor_neutral.tres" id="21_em2u4"]
 [ext_resource type="PackedScene" uid="uid://c1hoyfvod87c2" path="res://prefabs/characters/NPC_3.tscn" id="21_fdkxl"]
 [ext_resource type="PackedScene" uid="uid://2guhvmfbsiy3" path="res://prefabs/characters/NPC_4.tscn" id="22_hdayo"]
 [ext_resource type="PackedScene" uid="uid://b6ldfbn3fgxbo" path="res://scenes/player/player_outdoor.tscn" id="24_75q0o"]
@@ -32,11 +36,6 @@
 [ext_resource type="Resource" uid="uid://desku344jwa3d" path="res://resources/dialogue/barista.tres" id="26_ef4ho"]
 [ext_resource type="AudioStream" uid="uid://cuhaxpisugcsv" path="res://assets/sfx/loops/Nighttime Katydids.mp3" id="27_gpr8i"]
 [ext_resource type="Resource" uid="uid://dtd1f608n6rku" path="res://resources/dialogue/bouncer.tres" id="27_njomh"]
-[ext_resource type="PackedScene" uid="uid://cromtei4eduhl" path="res://prefabs/components/time_based_local_audio.tscn" id="28_gpr8i"]
-[ext_resource type="AudioStream" uid="uid://bs8udsekhw264" path="res://assets/sfx/loops/Single Cricket.mp3" id="29_jnv5o"]
-[ext_resource type="AudioStream" uid="uid://btdu07c3gdf7v" path="res://assets/sfx/loops/Single Bird.mp3" id="30_jnv5o"]
-[ext_resource type="AudioStream" uid="uid://ba21tpxrgsmyk" path="res://assets/sfx/loops/Single Owl.mp3" id="31_tqxgx"]
-[ext_resource type="AudioStream" uid="uid://b6e4q8orpp4xl" path="res://assets/sfx/loops/Leaves Rustling.mp3" id="32_b0xmf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_xcsir"]
 geometry_parsed_geometry_type = 0
@@ -624,7 +623,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 79.077576, -3, 140.76778)
 radius = 1.0
 height = 20.0
-vertices = PackedVector3Array(57, 0, 54, 54.836334, 0, 25.640566, 47.470856, 0, 24.588358, 47.996964, 0, 11.961857, 57.466858, 0, 16.696793, 70.619446, 0, 18.012054, 70.88251, 0, 2.7550275, 90.611404, 0, 10.909645, 92.9789, 0, 21.694784, 88, 0, 35, 82, 0, 54)
+vertices = PackedVector3Array(56, 0, 78, 56, 0, 60, 61, 0, 55, 67, 0, 53, 68, 0, 43, 67, 0, 35, 73, 0, 28, 85, 0, 35, 92, 0, 40, 95, 0, 57, 89, 0, 64)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 metadata/_edit_lock_ = true
@@ -1350,25 +1349,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 241)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 241)
 
 [node name="FernPlant44" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 94.61926, 0, 90.40587)
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 112.61926, 0, 67.40587)
 
 [node name="FernPlant45" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88.0632, 0, 63.6326)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 120.0632, 0, 54.6326)
 
 [node name="FernPlant46" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85.0632, 0, 68.6326)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 117.0632, 0, 61.6326)
 
 [node name="FernPlant47" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 91.0632, 0, 68.6326)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 119.0632, 0, 69.6326)
 
 [node name="FernPlant48" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 101.38074, 0, 88.59413)
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 137.38074, 0, 72.59413)
 
 [node name="FernPlant49" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 99.0632, 0, 50.6326)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 144.0632, 0, 75.6326)
 
 [node name="FernPlant50" parent="Environment/Ferns" instance=ExtResource("9_iqklg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92.0632, 0, 52.6326)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 137.0632, 0, 77.6326)
 
 [node name="Grass" type="Node" parent="Environment"]
 
@@ -1995,19 +1994,6 @@ skeleton = NodePath("../StaticBody3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop3/StaticBody3D"]
 shape = SubResource("BoxShape3D_cf4nt")
 
-[node name="Shop4" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(-8.742278e-09, 0, 0.6, 0, 0.3, 0, -0.2, 0, -2.6226834e-08, 115, 0, 72)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Shop4"]
-mesh = SubResource("BoxMesh_atwi2")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Shop4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop4/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
 [node name="Shop5" type="Node3D" parent="Environment/OtherBuildings"]
 transform = Transform3D(0.14999998, 0, 0.43301266, 0, 0.29999998, 0, -0.2598076, 0, 0.24999996, 155.06857, 7.5000005, -46.82772)
 metadata/_edit_group_ = true
@@ -2020,6 +2006,9 @@ skeleton = NodePath("../StaticBody3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop5/StaticBody3D"]
 shape = SubResource("BoxShape3D_cf4nt")
+
+[node name="CoffeeShop" parent="Environment/OtherBuildings" instance=ExtResource("16_em2u4")]
+transform = Transform3D(1.4488888, 0, -0.3882286, 0, 1.5, 0, 0.3882286, 0, 1.4488888, 129, 0, 62)
 
 [node name="Roads" type="Node" parent="Environment"]
 
@@ -2138,19 +2127,24 @@ inspiration_amount = 5
 [node name="Busking" type="Node" parent="Zones"]
 
 [node name="BuskingBench" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
-transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 129.5, 0, 85.5)
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 151.5, 0, 87.5)
+zone_quality = 0.30000000000000004
 
 [node name="BuskingBench2" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -138, 0, 106)
+zone_quality = 0.5
 
 [node name="BuskingBench3" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 82, 0, 5)
+zone_quality = 0.7999999999999999
 
 [node name="BuskingBench4" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 25, 0, -110)
+zone_quality = 0.5
 
 [node name="BuskingBench5" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -53, 0, -192)
+zone_quality = 1.0
 
 [node name="Navigation" type="Node" parent="Zones"]
 
@@ -2161,16 +2155,52 @@ scene_name = "House"
 [node name="NPC_Neighbors" type="Node" parent="."]
 
 [node name="NPC_1" parent="NPC_Neighbors" instance=ExtResource("20_j5lna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131, 0, 120)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 119)
+dialogue = ExtResource("20_rs17x")
+
+[node name="NPC_5" parent="NPC_Neighbors" instance=ExtResource("20_j5lna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138, 0, 42)
+dialogue = ExtResource("21_em2u4")
+
+[node name="NPC_6" parent="NPC_Neighbors" instance=ExtResource("20_j5lna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -116)
+dialogue = ExtResource("20_fdkxl")
 
 [node name="NPC_2" parent="NPC_Neighbors" instance=ExtResource("20_b0xmf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133, 0, 121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 0, 197)
+dialogue = ExtResource("20_fdkxl")
+
+[node name="NPC_7" parent="NPC_Neighbors" instance=ExtResource("20_b0xmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 146)
+dialogue = ExtResource("21_em2u4")
+
+[node name="NPC_8" parent="NPC_Neighbors" instance=ExtResource("20_b0xmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 6)
+dialogue = ExtResource("20_rs17x")
 
 [node name="NPC_3" parent="NPC_Neighbors" instance=ExtResource("21_fdkxl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 0, 122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 210)
+dialogue = ExtResource("20_rs17x")
+
+[node name="NPC_9" parent="NPC_Neighbors" instance=ExtResource("21_fdkxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -185, 0, 69)
+dialogue = ExtResource("21_em2u4")
+
+[node name="NPC_10" parent="NPC_Neighbors" instance=ExtResource("21_fdkxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -72)
+dialogue = ExtResource("20_fdkxl")
 
 [node name="NPC_4" parent="NPC_Neighbors" instance=ExtResource("22_hdayo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 0, 121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 62)
+dialogue = ExtResource("20_rs17x")
+
+[node name="NPC_11" parent="NPC_Neighbors" instance=ExtResource("22_hdayo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -57)
+dialogue = ExtResource("21_em2u4")
+
+[node name="NPC_12" parent="NPC_Neighbors" instance=ExtResource("22_hdayo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109, 0, -199)
+dialogue = ExtResource("20_fdkxl")
 
 [node name="TimeAndLight" type="Node" parent="."]
 
@@ -2200,102 +2230,18 @@ data = SubResource("VoxelGIData_4x4x5")
 [node name="Audio" type="Node" parent="."]
 
 [node name="TimeBasedGlobalBackground" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -3.0
 bus = &"Background"
 script = ExtResource("24_njomh")
 morning_sound = ExtResource("25_663h2")
 evening_sound = ExtResource("26_a7mr4")
 night_sound = ExtResource("27_gpr8i")
 
-[node name="TreesRustling" type="AudioStreamPlayer3D" parent="Audio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.248, 12, -33.667)
-stream = ExtResource("32_b0xmf")
-attenuation_model = 2
-volume_db = 60.0
-unit_size = 20.0
-max_db = 6.0
-autoplay = true
-bus = &"Background"
-parameters/looping = true
-
-[node name="TreesRustling2" type="AudioStreamPlayer3D" parent="Audio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.752, 12, 194.33301)
-stream = ExtResource("32_b0xmf")
-attenuation_model = 2
-volume_db = 60.0
-unit_size = 20.0
-max_db = 6.0
-autoplay = true
-bus = &"Background"
-parameters/looping = true
-
-[node name="Cricket" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.004929, 1.9073486e-06, 45.873837)
-stream = ExtResource("29_jnv5o")
-active_time = 17
-inactive_time = 22
-
-[node name="Cricket2" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.86204, 1.9073486e-06, 88.69816)
-stream = ExtResource("29_jnv5o")
-active_time = 17
-inactive_time = 22
-
-[node name="Cricket3" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.36266, 1.9073486e-06, 193.20265)
-stream = ExtResource("29_jnv5o")
-active_time = 17
-inactive_time = 22
-
-[node name="Cricket4" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.91126, 1.9073486e-06, 25.746475)
-stream = ExtResource("29_jnv5o")
-active_time = 17
-inactive_time = 22
-
-[node name="Bird" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.74121, 15.434692, -43.222008)
-stream = ExtResource("30_jnv5o")
-active_time = 6
-inactive_time = 16
-
-[node name="Bird2" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.39603, 15.434692, 153.7068)
-stream = ExtResource("30_jnv5o")
-active_time = 6
-inactive_time = 16
-
-[node name="Bird3" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.085022, 15.434692, -8.002144)
-stream = ExtResource("30_jnv5o")
-active_time = 6
-inactive_time = 16
-
-[node name="Owl" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.97026, 6.5458393, 132.29163)
-stream = ExtResource("31_tqxgx")
-unit_size = 20.0
-active_time = 20
-inactive_time = 24
-
-[node name="Owl2" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.251617, 6.5458393, 21.544357)
-stream = ExtResource("31_tqxgx")
-unit_size = 20.0
-active_time = 20
-inactive_time = 24
-
-[node name="Owl3" parent="Audio" instance=ExtResource("28_gpr8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.48326, 6.5458393, 69.03241)
-stream = ExtResource("31_tqxgx")
-unit_size = 20.0
-active_time = 20
-inactive_time = 24
-
 [node name="OutdoorPlayer" parent="." instance=ExtResource("24_75q0o")]
 transform = Transform3D(0.89464605, 0, -0.44677565, 0, 1, 0, 0.44677565, 0, 0.89464605, 108.01146, 0, 212.41371)
 
 [node name="BaristaNPC" parent="." instance=ExtResource("25_y3vhx")]
-transform = Transform3D(0.670077, 0, -0.7422916, 0, 1, 0, 0.7422916, 0, 0.670077, 92.77139, -7.6293945e-06, 64.54524)
+transform = Transform3D(0.7422916, 0, 0.6700771, 0, 1, 0, -0.6700771, 0, 0.7422916, 127.77139, -7.6293945e-06, 69.54524)
 resource = ExtResource("26_ef4ho")
 
 [node name="BouncerNPC" parent="." instance=ExtResource("25_y3vhx")]

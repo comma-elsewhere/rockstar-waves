@@ -22,7 +22,7 @@ signal puzzle_is_solved
 @export var button_color_three: Color
 @export var button_color_four: Color
 
-const ERROR_MARGIN = 250
+const ERROR_MARGIN = 320
 
 const LINE_LENGTH:float = 560
 const X_SCALE: float = 560

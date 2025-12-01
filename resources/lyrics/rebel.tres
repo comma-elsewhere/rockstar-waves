@@ -6,6 +6,11 @@
 [resource]
 script = ExtResource("1_t4vvl")
 inspo_cost = 15
+upgrade_max = 2
 upgrade_name = "RadioRebel"
 upgrade_texture = ExtResource("2_wwc10")
+lyrics = Array[String](["Our generation", "Our turn", "Heal", "Rebellion", "Broken", "Running wild", "In the streets", "Like no one's watching", "We are free", "We are here"])
+grouping = Array[int]([5, 5, 0])
+metric_one = Array[int]([5, 5, 0, 0, 0])
+metric_two = Array[int]([0, 10, 0, 0, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

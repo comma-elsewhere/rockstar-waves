@@ -1,5 +1,6 @@
 extends Panel
 
+@export var songbook: VBoxContainer
 @export_group("Panels")
 @export var calendar_panel: MarginContainer
 @export var upgrades_panel: MarginContainer
@@ -17,9 +18,14 @@ func _ready() -> void:
 	calendar_button.button_up.connect(_toggle_panel.bind(calendar_panel))
 	upgrades_button.button_up.connect(_toggle_panel.bind(upgrades_panel))
 	gear_button.button_up.connect(_toggle_panel.bind(gear_panel))
+	gear_button.pressed.connect(songbook.startup)
 	options_button.button_up.connect(_toggle_panel.bind(options_panel))
 	
-	current_panel = options_panel
+	if GInit.tutorial:
+		current_panel = upgrades_panel
+	else:
+		current_panel = options_panel
+		
 	_show_panel(current_panel)
 	visible = false
 	

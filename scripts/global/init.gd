@@ -7,6 +7,7 @@ var minigame_open: bool = false
 #true if the tutorial is incomplete
 var tutorial: bool = true
 var tutorial_tasks: Array[int] = [0, 0, 0, 0, 0, 0] #mom, dad, unlock node in journal, make first song, busk, get coffee
+var soft_reset: bool = false
 
 #array for world time: day, hour, minute
 var world_time: Array[int] = [0,0,0]

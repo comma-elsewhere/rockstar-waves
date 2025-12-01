@@ -1,6 +1,6 @@
 extends Node
 
-var mouse_sensitivity: float = 0.3
+var mouse_sensitivity: float = 0.1
 
 var upgrades: Dictionary
 var threshholds: Array[int] = [70, 140, 280, 560, 1120]
@@ -8,6 +8,8 @@ var current_rank: int = 1
 var current_level: int
 
 var music_style: Array[int] = [0,0]
+
+var rent: float = 100.0
 
 var money: float = 0.69
 var fame: int

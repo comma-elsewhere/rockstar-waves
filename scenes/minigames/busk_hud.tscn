@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd33thakc8ula"]
+[gd_scene load_steps=11 format=3 uid="uid://dd33thakc8ula"]
 
 [ext_resource type="Script" uid="uid://bpe7jyjdpvcx8" path="res://scripts/manager/perform_hud.gd" id="1_gbl7q"]
 [ext_resource type="PackedScene" uid="uid://v48n4fq4n1bh" path="res://scenes/minigames/stage_manager.tscn" id="2_3wmbm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://76qk6tw0efx7" path="res://scripts/gui/song_button_box.gd" id="4_4m3uk"]
 [ext_resource type="PackedScene" uid="uid://c7dvroeq1i3ui" path="res://prefabs/components/gui/stats_box.tscn" id="5_3wmbm"]
 [ext_resource type="Shader" uid="uid://dlbisv1agvg1n" path="res://resources/shaders/rainbow_vaporwave.gdshader" id="6_w75rc"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="7_4m3uk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4m3uk"]
 shader = ExtResource("6_w75rc")
@@ -137,6 +138,14 @@ theme_override_constants/margin_bottom = 30
 
 [node name="StatsBox" parent="SubViewportContainer/SubViewport/FinalPanel/MarginContainer" instance=ExtResource("5_3wmbm")]
 layout_mode = 2
+
+[node name="ExitPanel" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_4m3uk")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -99.0
+offset_right = 166.0
+grow_vertical = 0
 
 [connection signal="song_ended" from="SubViewportContainer/SubViewport/StageManager" to="SubViewportContainer/SubViewport/ScoreDisplay" method="_on_stage_manager_song_ended"]
 [connection signal="end_game" from="SubViewportContainer/SubViewport/ScoreDisplay" to="." method="_on_score_display_end_game"]

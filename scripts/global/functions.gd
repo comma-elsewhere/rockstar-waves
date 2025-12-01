@@ -2,6 +2,20 @@ extends Node
 
 signal level_up
 signal task_finished
+signal pay_rent(can_pay: bool)
+
+func collect_rent() -> void:
+	if GStat.money >= GStat.rent:
+		pay_rent.emit(true)
+		GStat.money -= GStat.rent
+	else:
+		pay_rent.emit(false)
+		_soft_reset()
+
+func _soft_reset() -> void:
+	GInit.songbook.clear()
+	GStat.money = 0
+	GStat.inspo_points = 0
 
 #run this every time a tutorial ask is complete
 func finish_tutorial_task(index: int) -> void:
@@ -65,6 +79,8 @@ func play_sound(parent_node: Node, sound_name: String) -> bool:
 func _sound_offset(sound_name: String) -> float:
 	var offset: float = 0.0
 	match sound_name:
+		"DrinkBev":
+			offset = 1.4
 		"Fail":
 			offset = 0.86
 		"GainFame":

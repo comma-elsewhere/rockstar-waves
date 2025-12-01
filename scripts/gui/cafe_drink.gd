@@ -12,6 +12,6 @@ func _ready() -> void:
 
 func _on_buy_buton_button_up() -> void:
 	if res.buy_drink():
-		GFunc.play_sound(self, "GainInspo")
+		GFunc.play_sound(self, "DrinkBev")
 	else:
 		GFunc.play_sound(self, "Fail")

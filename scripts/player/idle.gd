@@ -4,7 +4,6 @@ extends State
 
 @export_subgroup("Movement")
 @export var walk: State
-@export var run: State
 @export var jump: State
 @export var fall: State
 
@@ -45,6 +44,9 @@ func _change_minigame(game_name: String) -> void:
 			current_minigame = Minigames.ADVERTISE
 		"Inspire":
 			current_minigame = Minigames.INSPIRE
+			
+func enter() -> void:
+	parent.animation.set("parameters/MoveState/blend_amount", move_toward(0, -1.0, 1.0))
 
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
@@ -52,9 +54,9 @@ func process_input(event: InputEvent) -> State:
 #State Machine
 	if event.is_action_pressed("jump"):
 		return jump
-	elif event.is_action_pressed("movement") and event.is_action_pressed("sprint", true):
-		return run
 	elif event.is_action_pressed("movement"):
+		parent.animation.set("parameters/Walk/blend_position", -1.0)
+		parent.animation.set("parameters/MoveState/blend_amount", move_toward(-1.0, 0, 1.0))
 		return walk
 	elif event.is_action_pressed("interact") and current_minigame == Minigames.WORK:
 		return workspace

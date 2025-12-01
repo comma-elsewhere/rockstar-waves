@@ -27,6 +27,7 @@ func exit() -> void:
 	GInit.mouse_free = false
 	camera.get_child(3).queue_free()
 	transfer = null
+	parent.zone_quality = 0
 	parent.exited_game.emit()
 
 func process_input(event: InputEvent) -> State:
@@ -54,6 +55,7 @@ func fetch_raycast() -> ComplexDialogue:
 	if raycast.is_colliding():
 		if raycast.get_collider().has_method("return_resource"):
 			var resource = raycast.get_collider().return_resource()
+			parent.zone_quality = resource.venue_quality
 			return resource
 		else:
 			return null

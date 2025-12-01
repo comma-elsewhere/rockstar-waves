@@ -222,7 +222,7 @@ label_settings = ExtResource("16_vpsmh")
 [node name="Label" type="Label" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Match the soundwaves!"
+text = "Match the shape of the black soundwave!"
 label_settings = ExtResource("13_o7yf5")
 
 [node name="VisualContainer" type="HBoxContainer" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer"]

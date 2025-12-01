@@ -7,6 +7,7 @@ extends AudioStreamPlayer3D
 
 func _ready() -> void:
 	_change_sound()
+	timer.start()
 	
 func _process(_delta: float) -> void:
 	if GInit.minigame_open:
@@ -15,17 +16,10 @@ func _process(_delta: float) -> void:
 		stream_paused = false
 
 func _change_sound() -> void:
-	if GInit.world_time[1] >= active_time:
-		if GInit.world_time[1] < inactive_time:
-			play()
-		else:
-			timer.start()
+	if GInit.world_time[1] > inactive_time or GInit.world_time[1] <= active_time:
+		stream_paused = true
 	else:
-		timer.start()
-
-func _on_finished() -> void:
-	_change_sound()
-
+		stream_paused = false
 
 func _on_timer_timeout() -> void:
 	_change_sound()

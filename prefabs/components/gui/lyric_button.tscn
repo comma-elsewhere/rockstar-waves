@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://blj1o658rcq87"]
+[gd_scene load_steps=6 format=3 uid="uid://blj1o658rcq87"]
 
 [ext_resource type="Script" uid="uid://bwd5sid7j43cb" path="res://scripts/gui/lyric_button.gd" id="1_bq8su"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq8su"]
+bg_color = Color(0.6837908, 0.56759405, 0.56953853, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpcp3"]
+bg_color = Color(0.83203244, 0.29671362, 0.33724803, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oq1k"]
+bg_color = Color(0.86135167, 0.64509434, 0.6435475, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv3qn"]
+bg_color = Color(0.32544088, 0.3254409, 0.32544076, 1)
+
 [node name="LyricButton" type="Button"]
 size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_bq8su")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mpcp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4oq1k")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vv3qn")
 toggle_mode = true
 text = "LYRIC"
 script = ExtResource("1_bq8su")

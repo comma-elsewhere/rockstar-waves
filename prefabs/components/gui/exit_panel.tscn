@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2h4dsag8f864"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr1ot"]
+bg_color = Color(1, 0.9019608, 0.44313726, 1)
+
+[node name="ExitPanel" type="PanelContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wr1ot")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PRESS ESCAPE
+TO EXIT"
+horizontal_alignment = 1

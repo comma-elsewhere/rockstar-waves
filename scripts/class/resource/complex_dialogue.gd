@@ -13,6 +13,7 @@ class_name ComplexDialogue extends Resource
 @export_enum("Open Mic Night", "Warehouse Bash") var gig_name: String
 @export_range(0,7) var gig_day: int
 @export_range(0,24) var gig_time: int
+@export_range(0.5, 10.0, 0.1) var venue_quality: float = 1.0
 
 const ANSWER := "answer_steps_"
 var answer_array := [answer_steps_0, answer_steps_1, answer_steps_2]

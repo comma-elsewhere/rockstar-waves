@@ -9,7 +9,7 @@ signal exited_game()
 
 var store_area: Node3D = null
 var hold_inspo: int = 0
-var zone_quality: int = 0
+var zone_quality: float = 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and store_area:

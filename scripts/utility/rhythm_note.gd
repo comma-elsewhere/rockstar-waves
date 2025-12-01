@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	global_position.y += speed * delta
 
 func _start(lane: int, bpm: int):
-	speed = bpm * 4
+	speed = bpm * 2
 	if lane == 1:
 		global_position = LEFT_SPAWN
 		sprite.rotation_degrees = 180.0

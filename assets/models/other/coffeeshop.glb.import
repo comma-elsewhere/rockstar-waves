@@ -1,0 +1,50 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://csahkfm0tndtt"
+path="res://.godot/imported/coffeeshop.glb-ccbcb42029de1f2f6a43ea6e254c56a4.scn"
+
+[deps]
+
+source_file="res://assets/models/other/coffeeshop.glb"
+dest_files=["res://.godot/imported/coffeeshop.glb-ccbcb42029de1f2f6a43ea6e254c56a4.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=3
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Material.008": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://resources/materials/glowing_window.tres",
+"use_external/path": "uid://l5nqhhv5308r"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

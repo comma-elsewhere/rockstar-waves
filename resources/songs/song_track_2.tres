@@ -7,6 +7,7 @@
 script = ExtResource("1_8kkxw")
 audio_stream = ExtResource("1_quvll")
 actual_bpm = 155
+song_end = 0.5
 intro = 7.0
 first_half = 31.0
 bridge = 44.0

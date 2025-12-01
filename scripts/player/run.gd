@@ -6,11 +6,20 @@ extends State
 @export var fall: State
 @export var idle: State
 
+func enter() -> void:
+	parent.animation.set("parameters/Sprint/blend_position", -1.0)
+	parent.animation.set("parameters/MoveState/blend_amount", move_toward(0, 1.0, 1.0))
+
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
 	
+	if event.is_action_pressed("interact"):
+		pass
+	
 #State Machine
 	if event.is_action_pressed("sprint"):
+		parent.animation.set("parameters/Walk/blend_position", -1.0)
+		parent.animation.set("parameters/MoveState/blend_amount", move_toward(1.0, 0, 1.0))
 		return walk
 	return null
 

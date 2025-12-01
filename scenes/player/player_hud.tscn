@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b2b2afy1a5c6c"]
+[gd_scene load_steps=45 format=3 uid="uid://b2b2afy1a5c6c"]
 
 [ext_resource type="Script" uid="uid://b1thyetit3kbp" path="res://scripts/manager/player_hud.gd" id="1_v4fpl"]
 [ext_resource type="Script" uid="uid://b5bpqvot0j0cj" path="res://scripts/gui/date_time.gd" id="2_h6xkt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://d0xllbd58i5ji" path="res://scripts/gui/tutorial_popup.gd" id="6_5v5fv"]
 [ext_resource type="Resource" uid="uid://ba6ivtk3cb1wq" path="res://resources/lyrics/angst.tres" id="6_n5etk"]
 [ext_resource type="Resource" uid="uid://cbs8s0hl2opy6" path="res://resources/lyrics/heartthrob.tres" id="7_5fjqn"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="7_33gb1"]
 [ext_resource type="Resource" uid="uid://ct4w37qhl3e4s" path="res://resources/lyrics/protest.tres" id="8_sbd4t"]
 [ext_resource type="Resource" uid="uid://toh48x7ibrkf" path="res://resources/lyrics/outsider.tres" id="9_bqesq"]
 [ext_resource type="Resource" uid="uid://dv8c6dq3185av" path="res://resources/lyrics/red_flags.tres" id="10_ubmuv"]
@@ -34,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://bitw6rrtsa70y" path="res://prefabs/components/gui/player_stats_box.tscn" id="27_n5etk"]
 [ext_resource type="PackedScene" uid="uid://2urcsdcgaktl" path="res://prefabs/components/gui/fame_rank_box.tscn" id="28_n5etk"]
 [ext_resource type="Script" uid="uid://cbiv8vivnqq04" path="res://scripts/gui/quit_menu.gd" id="29_5fjqn"]
+[ext_resource type="Script" uid="uid://4rtlq3h85cd5" path="res://scripts/gui/songbook.gd" id="32_wr1ot"]
+[ext_resource type="Script" uid="uid://b42cne6rhi4wr" path="res://scripts/gui/rent_panel.gd" id="37_kgntx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wxmx"]
 bg_color = Color(0.47397572, 0.47397578, 0.4739756, 1)
@@ -58,6 +61,15 @@ func _unhandled_input(event: InputEvent) -> void:
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubmuv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33gb1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgntx"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y01uw"]
+bg_color = Color(0.6, 0, 0, 1)
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -165,7 +177,6 @@ text = "Press [E] to Interact"
 label_settings = ExtResource("3_0wxmx")
 
 [node name="TutorialPopup" type="PanelContainer" parent="HUD"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -202,24 +213,27 @@ theme_override_constants/outline_size = 3
 text = "Tutorial task"
 
 [node name="TutorialTask4" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 text = "Tutorial task"
 
 [node name="TutorialTask5" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 text = "Tutorial task"
 
 [node name="TutorialTask6" type="Label" parent="HUD/TutorialPopup/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 text = "Tutorial task"
 
-[node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
+[node name="JournalBG" type="Panel" parent="." node_paths=PackedStringArray("songbook", "calendar_panel", "upgrades_panel", "gear_panel", "options_panel", "calendar_button", "upgrades_button", "gear_button", "options_button")]
 custom_minimum_size = Vector2(1100, 750)
 layout_mode = 1
 anchors_preset = 8
@@ -231,13 +245,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bqesq")
 script = ExtResource("4_sbd4t")
+songbook = NodePath("Journal/UpgradeCenter/HBoxContainer/SongBook/ScrollContainer/Songbook")
 calendar_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GigCalendar")
 upgrades_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/Upgrades")
-gear_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/GearLoadout")
+gear_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/SongBook")
 options_panel = NodePath("Journal/UpgradeCenter/HBoxContainer/TaskMenu")
 calendar_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenCalendar")
 upgrades_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenUpgrades")
-gear_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenGear")
+gear_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenSongs")
 options_button = NodePath("Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer/OpenTasks")
 
 [node name="Journal" type="PanelContainer" parent="JournalBG"]
@@ -296,7 +311,7 @@ text = "Find a gig for tonight"
 
 [node name="Task2" type="Label" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/TaskMenu/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "pay rent on saturday: 100"
+text = "rent is due saturday at 8am: 100 dollars"
 
 [node name="GigCalendar" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
@@ -329,7 +344,7 @@ door_time = "6:00PM"
 layout_mode = 2
 gig_name = "Junkyard Bash"
 location = "Old Warehouse"
-weekday = "Sunday"
+weekday = "Friday"
 door_time = "7:00PM"
 
 [node name="Upgrades" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
@@ -365,7 +380,7 @@ layout_mode = 2
 [node name="Punk" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("4_tdeaa")
-children = [NodePath("../ProProtest"), NodePath("../TheOutsider")]
+children = [NodePath("../ProProtest"), NodePath("../RadioRebel")]
 
 [node name="Spacer3" type="Control" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -395,12 +410,15 @@ children = [NodePath("../DoomedLove"), NodePath("../AlmostPop")]
 layout_mode = 2
 res = ExtResource("8_sbd4t")
 parent_upgrade = NodePath("../Punk")
+parent_pos = Vector2(0, -135)
 children = [NodePath("../FightTheMan")]
 
-[node name="TheOutsider" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="RadioRebel" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("9_bqesq")
+res = ExtResource("14_33gb1")
 parent_upgrade = NodePath("../Punk")
+parent_pos = Vector2(-150, -135)
+children = [NodePath("../TheOutsider")]
 
 [node name="RedFlags" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
@@ -426,12 +444,15 @@ children = [NodePath("../HurtNoComfort")]
 layout_mode = 2
 res = ExtResource("13_wr1ot")
 parent_upgrade = NodePath("../ProProtest")
-children = [NodePath("../RadioRebel"), NodePath("../RageEtc")]
+parent_pos = Vector2(0, -135)
+children = [NodePath("../RageEtc")]
 
-[node name="RadioRebel" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="TheOutsider" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("14_33gb1")
-parent_upgrade = NodePath("../FightTheMan")
+res = ExtResource("9_bqesq")
+parent_upgrade = NodePath("../RadioRebel")
+parent_pos = Vector2(0, -135)
+children = [NodePath("../Decay")]
 
 [node name="DanceDance" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
@@ -452,16 +473,19 @@ res = ExtResource("17_o6bsm")
 parent_upgrade = NodePath("../DoomedLove")
 parent_pos = Vector2(0, -135)
 
-[node name="RageEtc" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+[node name="MoshPit" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("18_bt8ax")
-parent_upgrade = NodePath("../FightTheMan")
-children = [NodePath("../MoshPit"), NodePath("../BurnItDown"), NodePath("../BrainSick")]
+res = ExtResource("22_ym6co")
+parent_upgrade = NodePath("../Decay")
+parent_pos = Vector2(150, 0)
+children = [NodePath("../Headbangers")]
 
-[node name="BrainSick" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+[node name="Decay" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
-res = ExtResource("19_k5ifb")
-parent_upgrade = NodePath("../RageEtc")
+res = ExtResource("24_nxgj4")
+parent_upgrade = NodePath("../TheOutsider")
+parent_pos = Vector2(0, -135)
+children = [NodePath("../MoshPit"), NodePath("../BurnItDown")]
 
 [node name="NaNaNonsense" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
@@ -472,30 +496,47 @@ parent_pos = Vector2(150, -135)
 [node name="Headbangers" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("21_t4a4f")
-parent_upgrade = NodePath("../MoshPit")
-
-[node name="MoshPit" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
-layout_mode = 2
-res = ExtResource("22_ym6co")
 parent_upgrade = NodePath("../RageEtc")
-children = [NodePath("../Headbangers")]
+parent_pos = Vector2(150, 0)
+
+[node name="RageEtc" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("18_bt8ax")
+parent_upgrade = NodePath("../FightTheMan")
+parent_pos = Vector2(150, -270)
+children = [NodePath("../Headbangers"), NodePath("../BrainSick")]
+
+[node name="BrainSick" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
+layout_mode = 2
+res = ExtResource("19_k5ifb")
+parent_upgrade = NodePath("../RageEtc")
+parent_pos = Vector2(-150, 0)
 
 [node name="BurnItDown" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade", "children") instance=ExtResource("2_muj54")]
 layout_mode = 2
 res = ExtResource("23_je2au")
-parent_upgrade = NodePath("../RageEtc")
+parent_upgrade = NodePath("../Decay")
+parent_pos = Vector2(0, -135)
 children = [NodePath("../Decay")]
 
-[node name="Decay" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Upgrades/GridContainer" node_paths=PackedStringArray("parent_upgrade") instance=ExtResource("2_muj54")]
-layout_mode = 2
-res = ExtResource("24_nxgj4")
-parent_upgrade = NodePath("../BurnItDown")
-
-[node name="GearLoadout" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
+[node name="SongBook" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/SongBook"]
+layout_mode = 2
+
+[node name="Songbook" type="VBoxContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/SongBook/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("32_wr1ot")
 
 [node name="Stats" type="MarginContainer" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer"]
 layout_mode = 2
@@ -511,7 +552,6 @@ theme_override_constants/separation = 12
 
 [node name="OpenTasks" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Available in full game"
 text = "TO-DO
 "
 
@@ -523,11 +563,9 @@ text = "GIGS"
 layout_mode = 2
 text = "LYRICS"
 
-[node name="OpenGear" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
+[node name="OpenSongs" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Available in full game"
-disabled = true
-text = "GEAR"
+text = "SONGBOOK"
 
 [node name="OpenQuit" type="Button" parent="JournalBG/Journal/UpgradeCenter/HBoxContainer/Stats/VBoxContainer"]
 layout_mode = 2
@@ -597,3 +635,55 @@ text = "Yes"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "No"
+
+[node name="ExitPanel" parent="JournalBG" instance=ExtResource("7_33gb1")]
+layout_mode = 0
+offset_left = -380.0
+offset_top = -135.0
+offset_right = -214.0
+offset_bottom = -36.0
+
+[node name="RentPanel" type="PanelContainer" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1890.0
+offset_bottom = 1050.0
+script = ExtResource("37_kgntx")
+
+[node name="PanelContainer" type="PanelContainer" parent="RentPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_33gb1")
+
+[node name="MarginContainer" type="MarginContainer" parent="RentPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RentPanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RentPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "It's time to pay rent!"
+horizontal_alignment = 1
+
+[node name="PayButton" type="Button" parent="RentPanel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kgntx")
+text = "Pay rent"
+
+[node name="FailButton" type="Button" parent="RentPanel/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_y01uw")
+text = "I don't have enough money..."

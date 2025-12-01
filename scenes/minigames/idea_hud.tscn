@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2204cwndokac"]
+[gd_scene load_steps=6 format=3 uid="uid://b2204cwndokac"]
 
 [ext_resource type="PackedScene" uid="uid://ciyiq51yb8rg" path="res://scenes/minigames/idea_catcher.tscn" id="1_01xal"]
 [ext_resource type="Script" uid="uid://bf43lawaul5ht" path="res://scripts/manager/idea_hud.gd" id="1_w8k8b"]
 [ext_resource type="Shader" uid="uid://cxnkv2ssgviyd" path="res://resources/shaders/ideas.gdshader" id="3_20rej"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="4_e48am"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e48am"]
 shader = ExtResource("3_20rej")
@@ -42,5 +43,7 @@ grow_vertical = 2
 
 [node name="IdeaCatcher" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_01xal")]
 scale = Vector2(1, 1)
+
+[node name="ExitPanel" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_e48am")]
 
 [connection signal="catch_game_ended" from="SubViewportContainer/SubViewport/IdeaCatcher" to="." method="_on_idea_catcher_catch_game_ended"]

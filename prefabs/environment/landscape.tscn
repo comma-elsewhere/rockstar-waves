@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2ok5n03w2b5r"]
 
-[ext_resource type="PackedScene" uid="uid://dddm8og4drq44" path="res://assets/models/landscape.glb" id="1_o3ssa"]
+[ext_resource type="PackedScene" uid="uid://dddm8og4drq44" path="res://assets/models/other/landscape.glb" id="1_o3ssa"]
 
 [node name="Lanscape" type="Node3D"]
 

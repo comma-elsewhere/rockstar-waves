@@ -20,6 +20,7 @@ const SCENES: Dictionary = {
 }
 
 var SFX: Dictionary = {
+	"DrinkBev" : load("res://assets/sfx/DrinkBev.ogg"),
 	"Fail" : load("res://assets/sfx/Fail.ogg"),
 	"GainFame" : load("res://assets/sfx/GainFame.ogg"),
 	"GainInspo" : load("res://assets/sfx/GainInspo.ogg"),
@@ -28,5 +29,5 @@ var SFX: Dictionary = {
 	"SaveGame" : load("res://assets/sfx/SaveGame.ogg"),
 	"Succes" : load("res://assets/sfx/Success.ogg"),
 	"PaperSound" : load("res://assets/sfx/PaperSound2.ogg"),
-	"PencilSound" : load("res://assets/sfx/PencilSound3.ogg")
+	"PencilSound" : load("res://assets/sfx/PencilSound3.ogg"),
 }

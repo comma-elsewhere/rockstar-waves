@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7rjx1lfxbuak"]
+[gd_scene load_steps=15 format=3 uid="uid://7rjx1lfxbuak"]
 
 [ext_resource type="FontFile" uid="uid://b313tkn27b8mt" path="res://assets/gui/fonts/Headline_font.ttf" id="1_ndftf"]
 [ext_resource type="Shader" uid="uid://cxnkv2ssgviyd" path="res://resources/shaders/ideas.gdshader" id="1_qi0sn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://bhgenjujbil4v" path="res://resources/items/coffee.tres" id="5_y8fhv"]
 [ext_resource type="Resource" uid="uid://bk8t3bokpwhja" path="res://resources/items/energy.tres" id="6_2i12f"]
 [ext_resource type="Resource" uid="uid://cl5j36lnved68" path="res://resources/items/graveyard.tres" id="7_w7uij"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="9_y8fhv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndftf"]
 shader = ExtResource("1_qi0sn")
@@ -161,3 +162,6 @@ text = "my wallet:
 99.99"
 horizontal_alignment = 1
 script = SubResource("GDScript_y8fhv")
+
+[node name="ExitPanel" parent="SubViewportContainer/SubViewport/Shop" instance=ExtResource("9_y8fhv")]
+layout_mode = 0

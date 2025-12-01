@@ -6,6 +6,11 @@
 [resource]
 script = ExtResource("1_v7mti")
 inspo_cost = 15
+upgrade_max = 2
 upgrade_name = "BurnItDown"
 upgrade_texture = ExtResource("2_fha0g")
+lyrics = Array[String](["Anarchy", "Injustice", "Revolution", "Freedom", "Hypocrite", "Patriot", "Master", "Puppet", "King", "Peasant"])
+grouping = Array[int]([6, 4, 0])
+metric_one = Array[int]([7, 0, 0, 0, 0])
+metric_two = Array[int]([5, 0, 0, 4, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

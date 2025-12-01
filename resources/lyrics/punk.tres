@@ -5,8 +5,11 @@
 
 [resource]
 script = ExtResource("1_y6iic")
-inspo_cost = 1000
+inspo_cost = 25
 upgrade_max = 1
 upgrade_name = "Punk"
 upgrade_texture = ExtResource("2_3cklb")
+lyrics = Array[String](["Society", "Greed", "Wake up", "Fight back", "Rise up", "Protest", "My dad", "Need to go", "Bird War III", "Sick"])
+grouping = Array[int]([10, 0, 0])
+metric_one = Array[int]([5, 0, 4, 0, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

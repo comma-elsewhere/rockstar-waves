@@ -12,5 +12,7 @@ answer_steps_0 = Array[String](["Well, I'm talking to a rising star right now...
 answer_steps_1 = Array[String](["Definitely you.", "Hm, probably the Rivals.", "Oh it's for sure the Rivals."])
 answer_steps_2 = Array[String](["You know it!", "Sorry, man. The Rivals are playing here tonight.", "Sorry, who are you? You know the Rivals are playing, right?"])
 gig_name = "Warehouse Bash"
+gig_day = 5
 gig_time = 19
+venue_quality = 7.5
 metadata/_custom_type_script = "uid://ce7xrfame1h75"

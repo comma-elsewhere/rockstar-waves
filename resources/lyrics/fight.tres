@@ -5,6 +5,11 @@
 
 [resource]
 script = ExtResource("1_hdewu")
+upgrade_max = 2
 upgrade_name = "FightTheMan"
 upgrade_texture = ExtResource("2_h14y1")
+lyrics = Array[String](["The People", "Brainwashed", "Downtrodden", "Humanity", "Fight back", "The Man", "Illuminati", "Goverment", "Men in black", "Keeping secrets"])
+grouping = Array[int]([5, 5, 0])
+metric_one = Array[int]([5, 5, 0, 0, 0])
+metric_two = Array[int]([5, 0, 5, 0, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

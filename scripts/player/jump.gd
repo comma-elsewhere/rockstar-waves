@@ -7,6 +7,9 @@ extends State
 @export var idle: State
 @export var walk: State
 
+func enter() -> void:
+	parent.animation.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
 func process_input(event: InputEvent) -> State:
 	camera.rotate_camera(event)
 	return null

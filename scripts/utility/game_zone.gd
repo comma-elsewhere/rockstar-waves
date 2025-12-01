@@ -5,7 +5,7 @@ const DISABLED := 200.0
 @onready var collision: CollisionShape3D = $CollisionShape3D
 
 @export_enum("SellMerch", "Busk", "Workspace", "Bedtime") var game_name: String
-@export_range(0,5) var zone_quality: int = 0
+@export_range(0.1,1,0.1) var zone_quality: float = 0
 
 func disable_minute() -> void:
 	if game_name == "Busk":

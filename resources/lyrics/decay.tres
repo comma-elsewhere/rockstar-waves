@@ -7,4 +7,8 @@
 script = ExtResource("1_4d1qq")
 upgrade_name = "Decay"
 upgrade_texture = ExtResource("2_hbcrt")
+lyrics = Array[String](["Innocence", "Nirvana", "Stop dreaming", "Wake up", "It's over", "Rotting", "Corpse", "Concrete Jungle", "Corporation", "Rat race"])
+grouping = Array[int]([5, 5, 0])
+metric_one = Array[int]([2, 0, 0, 0, 5])
+metric_two = Array[int]([5, 0, 2, 2, 0])
 metadata/_custom_type_script = "uid://dxqvffm3vhsxk"

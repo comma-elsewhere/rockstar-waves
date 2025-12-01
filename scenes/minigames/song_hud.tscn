@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvv2o2i83u1j4"]
+[gd_scene load_steps=9 format=3 uid="uid://dvv2o2i83u1j4"]
 
 [ext_resource type="PackedScene" uid="uid://bypupma4pmxrq" path="res://scenes/minigames/song_center.tscn" id="1_lvcod"]
 [ext_resource type="Script" uid="uid://crctllin2vqyx" path="res://scripts/manager/song_hud.gd" id="1_u0hdw"]
 [ext_resource type="Shader" uid="uid://0o1gywvnfc3s" path="res://resources/shaders/background.gdshader" id="2_fdxv0"]
 [ext_resource type="Shader" uid="uid://c5am56tc663vs" path="res://resources/shaders/computer.gdshader" id="3_7vl1v"]
+[ext_resource type="PackedScene" uid="uid://b2h4dsag8f864" path="res://prefabs/components/gui/exit_panel.tscn" id="4_i22l1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i22l1"]
 shader = ExtResource("2_fdxv0")
@@ -56,6 +57,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SongWritingCenter" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_lvcod")]
+
+[node name="ExitPanel" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_i22l1")]
+offset_right = 166.0
+offset_bottom = 99.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fdxv0")
