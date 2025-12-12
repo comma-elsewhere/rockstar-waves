@@ -1,7 +1,7 @@
 extends Node
 
 #bool for if mouse is captured or visible
-var mouse_free: bool = false
+var mouse_free: bool = true
 var minigame_open: bool = false
 
 #true if the tutorial is incomplete
@@ -19,7 +19,7 @@ var songbook: Array[Dictionary] = []
 var active_lyrics: Array[Dictionary] = []
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 func _process(_delta: float) -> void:
 	if mouse_free:

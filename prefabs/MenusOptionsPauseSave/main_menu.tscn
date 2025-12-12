@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8dcqquuf7srh"]
+
+[ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://prefabs/MenusOptionsPauseSave/main_menu.gd" id="1_nhkf3"]
+[ext_resource type="PackedScene" uid="uid://cuu8oj5rbrit0" path="res://prefabs/MenusOptionsPauseSave/options_menu.tscn" id="2_1xj2m"]
+[ext_resource type="FontFile" uid="uid://k8jakcy1gkpl" path="res://assets/gui/fonts/Handwriting_font (2).ttf" id="2_iuxb8"]
+[ext_resource type="Script" uid="uid://cg3ywlxnjtmto" path="res://prefabs/MenusOptionsPauseSave/menu_contents.gd" id="3_i2x1q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2x1q"]
+font = ExtResource("2_iuxb8")
+font_size = 100
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuxb8"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nhkf3")
+main_panel = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox")
+saved_panel = NodePath("ScreenMargins/MenuContents/MarginContainer/SavedMenu")
+options_panel = NodePath("ScreenMargins/MenuContents/MarginContainer/OptionsMenu")
+saved_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/ContinueButton")
+options_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/OptionsButton")
+
+[node name="ScreenMargins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="ScreenMargins"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 100
+text = "Soundwaves
+Star"
+label_settings = SubResource("LabelSettings_i2x1q")
+horizontal_alignment = 1
+
+[node name="MenuContents" type="PanelContainer" parent="ScreenMargins"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_iuxb8")
+script = ExtResource("3_i2x1q")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenMargins/MenuContents"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="MainVBox" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Continue"
+
+[node name="OptionsButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="SavedMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+layout_mode = 2
+text = "Continue from
+last save?"
+horizontal_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+layout_mode = 2
+text = "Confirm"
+
+[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Back to Main"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+
+[node name="OptionsMenu" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" instance=ExtResource("2_1xj2m")]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Back to Main"
+
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/StartButton" to="ScreenMargins/MenuContents" method="_on_start_button_button_up"]
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/QuitButton" to="ScreenMargins/MenuContents" method="_on_quit_button_button_up"]
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/SavedMenu/ConfirmButton" to="ScreenMargins/MenuContents" method="_on_confirm_button_button_up"]
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/SavedMenu/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/OptionsMenu/BackButton" to="." method="_on_back_button_button_up"]

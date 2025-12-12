@@ -27,7 +27,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(1280, 720)
 size_2d_override = Vector2i(1280, 720)
 size_2d_override_stretch = true
 render_target_update_mode = 4
@@ -45,5 +45,28 @@ grow_vertical = 2
 scale = Vector2(1, 1)
 
 [node name="ExitPanel" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_e48am")]
+
+[node name="InspoPrompt" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/InspoPrompt"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Wow, someone should write a song about this idea!
+
+press e to catch the inspiration
+"
+horizontal_alignment = 1
 
 [connection signal="catch_game_ended" from="SubViewportContainer/SubViewport/IdeaCatcher" to="." method="_on_idea_catcher_catch_game_ended"]

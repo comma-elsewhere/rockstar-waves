@@ -181,7 +181,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "CONTINUE"
 
-[node name="TuningContainer" type="MarginContainer" parent="HBoxContainer/WorkPanel" node_paths=PackedStringArray("current_song", "real_line", "imaginary_line", "play_button", "slider_one", "slider_two", "slider_three", "slider_four", "button_one", "button_two", "button_three", "button_four")]
+[node name="TuningContainer" type="MarginContainer" parent="HBoxContainer/WorkPanel" node_paths=PackedStringArray("current_song", "real_line", "imaginary_line", "play_button", "horizontal_slider", "vertical_slider", "button_one", "button_two", "button_three", "button_four")]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -192,10 +192,8 @@ current_song = NodePath("VBoxContainer/VisualContainer/PlayButton/CurrentSong")
 real_line = NodePath("VBoxContainer/VisualContainer/Visualiser/RealLine")
 imaginary_line = NodePath("VBoxContainer/VisualContainer/Visualiser/FakeLine")
 play_button = NodePath("VBoxContainer/VisualContainer/PlayButton")
-slider_one = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider1")
-slider_two = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider2")
-slider_three = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider3")
-slider_four = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider4")
+horizontal_slider = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/HSlider")
+vertical_slider = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/VSlider")
 button_one = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button1")
 button_two = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button2")
 button_three = NodePath("VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer/GridContainer/Button3")
@@ -281,12 +279,18 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Spacer" type="Control" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="Spacer4" type="Control" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="VSlider1" type="VSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
+size_flags_vertical = 4
+min_value = 2.0
+max_value = 6.0
+step = 0.001
+value = 2.0
 tick_count = 10
 ticks_on_borders = true
 ticks_position = 3
@@ -295,33 +299,16 @@ ticks_position = 3
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="VSlider2" type="VSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VSlider" type="VSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+min_value = 50.0
+max_value = 400.0
+value = 50.0
 tick_count = 10
 ticks_on_borders = true
 ticks_position = 3
 
 [node name="Spacer3" type="Control" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="VSlider3" type="VSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-tick_count = 10
-ticks_on_borders = true
-ticks_position = 3
-
-[node name="Spacer4" type="Control" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="VSlider4" type="VSlider" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-tick_count = 10
-ticks_on_borders = true
-ticks_position = 3
-
-[node name="Spacer5" type="Control" parent="HBoxContainer/WorkPanel/TuningContainer/VBoxContainer/SliderContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 

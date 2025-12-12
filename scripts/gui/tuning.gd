@@ -7,10 +7,8 @@ signal puzzle_is_solved
 @export var imaginary_line: Line2D
 @export var play_button: Button
 @export_subgroup("Slider")
-@export var slider_one: VSlider
-@export var slider_two: VSlider
-@export var slider_three: VSlider
-@export var slider_four: VSlider
+@export var horizontal_slider: HSlider
+@export var vertical_slider: VSlider
 @export_subgroup("Button")
 @export var button_one: Button
 @export var button_two: Button
@@ -22,18 +20,13 @@ signal puzzle_is_solved
 @export var button_color_three: Color
 @export var button_color_four: Color
 
-const ERROR_MARGIN = 320
+const ERROR_MARGIN = 350
 
 const LINE_LENGTH:float = 560
 const X_SCALE: float = 560
 const Y_SCALE: float = 10
 
 enum Waves {SIN, SQAURE, TRIANGLE, SAWTOOTH}
-
-var omega_1: float
-var omega_2: float
-var omega_3: float
-var omega_4: float
 
 var line_segments: int = 50
 var selected_wave
@@ -50,10 +43,8 @@ func _ready() -> void:
 	_adjust_line(0)
 	play_button.disabled = true
 	
-	slider_one.value_changed.connect(_adjust_line)
-	slider_two.value_changed.connect(_adjust_line)
-	slider_three.value_changed.connect(_adjust_line)
-	slider_four.value_changed.connect(_adjust_line)
+	horizontal_slider.value_changed.connect(_adjust_line)
+	vertical_slider.value_changed.connect(_adjust_line)
 	
 	button_one.pressed.connect(_button_changed.bind(1))
 	button_two.pressed.connect(_button_changed.bind(2))
@@ -74,18 +65,10 @@ func _process(_delta: float) -> void:
 		puzzle_is_solved.emit()
 		_disable_enable_buttons()
 		
-	
-	
 func _set_values() -> void:
 	randomize()
-	slider_one.value = randf_range(0, 100)
-	slider_two.value = randf_range(0, 100)
-	slider_three.value = randf_range(0, 100)
-	slider_four.value = randf_range(0, 100)
-	omega_1 = randf_range(2,6)
-	omega_2 = randf_range(2,6)
-	omega_3 = randf_range(2,6)
-	omega_4 = randf_range(2,6)
+	horizontal_slider.value = randf_range(2,6)
+	vertical_slider.value = randf_range(50, 400)
 	
 func _modulate_colors() -> void:
 	button_one.modulate = button_color_one
@@ -116,10 +99,8 @@ func _button_changed(button_num: int) -> void:
 		
 func _set_line() -> void:
 	randomize()
-	var amp_1 := randf_range(0,1)
-	var amp_2 := randf_range(0,1)
-	var amp_3 := randf_range(0,1)
-	var amp_4 := randf_range(0,1)
+	var amp := randf_range(0,1)
+	var omega = randf_range(2,6)
 	
 	for i in line_segments:
 		real_line.add_point(Vector2.ZERO)
@@ -136,20 +117,18 @@ func _set_line() -> void:
 		4:
 			selected_wave = Waves.SAWTOOTH
 			
-	_line_equation(amp_1, amp_2, amp_3, amp_4, false)
+	_line_equation(amp, omega, false)
 
 func _adjust_line(_value: float) -> void:
-	var amp_1 = slider_one.value/100
-	var amp_2 = slider_two.value/100
-	var amp_3 = slider_three.value/100
-	var amp_4 = slider_four.value/100
+	var amp = vertical_slider.value/100
+	var omega = horizontal_slider.value
 	
-	_line_equation(amp_1, amp_2, amp_3, amp_4, true)
+	_line_equation(amp, omega, true)
 
-func _line_equation(amp1: float, amp2: float, amp3: float, amp4: float, is_line_real: bool):
+func _line_equation(amp: float, omega: float, is_line_real: bool):
 	for i:float in range(line_segments):
 		var t = i / line_segments
-		var line_height = (amp1 * call(wave_array[selected_wave], (omega_1 * t))) + (amp2 * call(wave_array[selected_wave], (omega_2 * t))) + (amp3 * call(wave_array[selected_wave], (omega_3 * t))) + (amp4 * call(wave_array[selected_wave], (omega_4 * t)))
+		var line_height = (amp * call(wave_array[selected_wave], (omega * t)))
 		if is_line_real:
 			real_line.points[i].y = line_height * Y_SCALE + 100
 			real_line.points[i].x = t * X_SCALE + 18

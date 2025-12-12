@@ -2008,7 +2008,7 @@ skeleton = NodePath("../StaticBody3D")
 shape = SubResource("BoxShape3D_cf4nt")
 
 [node name="CoffeeShop" parent="Environment/OtherBuildings" instance=ExtResource("16_em2u4")]
-transform = Transform3D(1.4488888, 0, -0.3882286, 0, 1.5, 0, 0.3882286, 0, 1.4488888, 129, 0, 62)
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 129, 0, 62)
 
 [node name="Roads" type="Node" parent="Environment"]
 
