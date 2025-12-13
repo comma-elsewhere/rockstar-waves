@@ -22,6 +22,8 @@ func _ready() -> void:
 		_setup()
 		visible = true
 		GFunc.task_finished.connect(update_visible)
+	else:
+		visible = false
 		
 		
 func _setup() -> void:

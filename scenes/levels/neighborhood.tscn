@@ -1,11 +1,10 @@
-[gd_scene load_steps=62 format=4 uid="uid://cjir6f1okn7f5"]
+[gd_scene load_steps=60 format=4 uid="uid://cjir6f1okn7f5"]
 
 [ext_resource type="Texture2D" uid="uid://osqglaf51nbf" path="res://assets/textures/sky_dome.hdr" id="1_4souq"]
 [ext_resource type="ArrayMesh" uid="uid://bw2khhaeo6d1k" path="res://resources/mountain_mesh.res" id="2_b0xmf"]
 [ext_resource type="PackedScene" uid="uid://dh00kp8n810rw" path="res://prefabs/environment/house_red.tscn" id="4_c4p66"]
 [ext_resource type="PackedScene" uid="uid://be8attcumditj" path="res://prefabs/environment/palm_tree.tscn" id="4_sy2ff"]
 [ext_resource type="Material" uid="uid://blcn6b3uyyvmn" path="res://resources/materials/sidewalk.tres" id="5_qlkh5"]
-[ext_resource type="Material" uid="uid://dw818ldrvmaww" path="res://resources/materials/brick.tres" id="6_0ywcd"]
 [ext_resource type="PackedScene" uid="uid://b5lhmmmqoa787" path="res://prefabs/environment/house_green.tscn" id="6_lv6u8"]
 [ext_resource type="PackedScene" uid="uid://dcu2dm511iwb" path="res://prefabs/environment/house_orange.tscn" id="7_8pb0k"]
 [ext_resource type="PackedScene" uid="uid://bjrijfvxivjjw" path="res://prefabs/environment/house_blue.tscn" id="8_cf4nt"]
@@ -18,8 +17,11 @@
 [ext_resource type="Script" uid="uid://bsmr8811d7jrd" path="res://scripts/manager/pedestrian_pathing.gd" id="13_c4p66"]
 [ext_resource type="PackedScene" uid="uid://cfhks83tk6kj7" path="res://prefabs/components/inspo_zone.tscn" id="14_iqklg"]
 [ext_resource type="PackedScene" uid="uid://c8iv4jetra1ll" path="res://prefabs/environment/coffee_shop.tscn" id="16_em2u4"]
+[ext_resource type="PackedScene" uid="uid://d34bqbf3c5j88" path="res://prefabs/environment/pawn_shop.tscn" id="16_fdkxl"]
 [ext_resource type="PackedScene" uid="uid://biotqx0omn276" path="res://prefabs/components/exit_door_zone.tscn" id="17_75q0o"]
+[ext_resource type="PackedScene" uid="uid://u1e26u7ksnko" path="res://prefabs/environment/library.tscn" id="17_hdayo"]
 [ext_resource type="PackedScene" uid="uid://cwypvooo05xmu" path="res://prefabs/environment/busking_bench.tscn" id="17_jnv5o"]
+[ext_resource type="PackedScene" uid="uid://b3r3m2bda6345" path="res://prefabs/environment/warehouse.tscn" id="18_rs17x"]
 [ext_resource type="PackedScene" uid="uid://kaeuqg18ygop" path="res://prefabs/characters/NPC_2.tscn" id="20_b0xmf"]
 [ext_resource type="Resource" uid="uid://cyjiuw6limcna" path="res://resources/dialogue/neighbor_hostile.tres" id="20_fdkxl"]
 [ext_resource type="PackedScene" uid="uid://dj02dcnuk63xb" path="res://prefabs/characters/NPC_1.tscn" id="20_j5lna"]
@@ -78,23 +80,6 @@ height = 5.5
 [sub_resource type="SphereMesh" id="SphereMesh_83kmd"]
 material = ExtResource("9_xcsir")
 height = 10.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ywcd"]
-albedo_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
-metallic = 1.0
-roughness = 0.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_kowje"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_0ywcd")
-size = Vector3(120, 50, 60)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cf4nt"]
-size = Vector3(120, 50, 60)
-
-[sub_resource type="BoxMesh" id="BoxMesh_atwi2"]
-material = ExtResource("6_0ywcd")
-size = Vector3(120, 50, 60)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lv6u8"]
 
@@ -1942,73 +1927,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 206)
 
 [node name="OtherBuildings" type="Node" parent="Environment"]
 
-[node name="Warehouse" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(-0.2867882, 0, 0.40957606, 0, 0.5, 0, -0.40957606, 0, -0.2867882, 119.11699, 12.5, 291.66028)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Warehouse"]
-mesh = SubResource("BoxMesh_kowje")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Warehouse"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Warehouse/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
-[node name="Shop" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(0.099999994, 0, 0.43301263, 0, 0.29999998, 0, -0.17320509, 0, 0.25, 78.63591, 7.5000005, -144.3899)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Shop"]
-mesh = SubResource("BoxMesh_atwi2")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Shop"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
-[node name="Shop2" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(0.12499999, 0, 0.4330127, 0, 0.30000004, 0, -0.21650635, 0, 0.24999999, 121.401276, 7.5000005, -99.4617)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Shop2"]
-mesh = SubResource("BoxMesh_atwi2")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Shop2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop2/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
-[node name="Shop3" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(0.099999994, 0, 0.47631395, 0, 0.29999998, 0, -0.17320506, 0, 0.27499995, 44.89424, 7.5000005, -109.32068)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Shop3"]
-mesh = SubResource("BoxMesh_atwi2")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Shop3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop3/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
-[node name="Shop5" type="Node3D" parent="Environment/OtherBuildings"]
-transform = Transform3D(0.14999998, 0, 0.43301266, 0, 0.29999998, 0, -0.2598076, 0, 0.24999996, 155.06857, 7.5000005, -46.82772)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/OtherBuildings/Shop5"]
-mesh = SubResource("BoxMesh_atwi2")
-skeleton = NodePath("../StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OtherBuildings/Shop5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OtherBuildings/Shop5/StaticBody3D"]
-shape = SubResource("BoxShape3D_cf4nt")
-
 [node name="CoffeeShop" parent="Environment/OtherBuildings" instance=ExtResource("16_em2u4")]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 129, 0, 62)
+
+[node name="PawnShop" parent="Environment/OtherBuildings" instance=ExtResource("16_fdkxl")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 35, 0, -117)
+
+[node name="Library" parent="Environment/OtherBuildings" instance=ExtResource("17_hdayo")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 78, 0, -144)
+
+[node name="Warehouse" parent="Environment/OtherBuildings" instance=ExtResource("18_rs17x")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 120, 0, 278)
 
 [node name="Roads" type="Node" parent="Environment"]
 
@@ -2139,7 +2068,7 @@ transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 82, 0, 5
 zone_quality = 0.7999999999999999
 
 [node name="BuskingBench4" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
-transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 25, 0, -110)
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 30, 0, -110)
 zone_quality = 0.5
 
 [node name="BuskingBench5" parent="Zones/Busking" instance=ExtResource("17_jnv5o")]
@@ -2245,7 +2174,7 @@ transform = Transform3D(0.7422916, 0, 0.6700771, 0, 1, 0, -0.6700771, 0, 0.74229
 resource = ExtResource("26_ef4ho")
 
 [node name="BouncerNPC" parent="." instance=ExtResource("25_y3vhx")]
-transform = Transform3D(-0.25881898, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881898, 106.944534, -9.536743e-07, 261.25522)
+transform = Transform3D(-0.25881898, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881898, 113.944534, -9.536743e-07, 263.25522)
 resource = ExtResource("27_njomh")
 
 [connection signal="finished" from="Audio/TimeBasedGlobalBackground" to="Audio/TimeBasedGlobalBackground" method="_on_finished"]
