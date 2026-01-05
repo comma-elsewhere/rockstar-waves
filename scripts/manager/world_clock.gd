@@ -1,6 +1,7 @@
 extends AnimationPlayer
 
 func _ready() -> void:
+	current_animation = "day_night"
 	var minutes_passed: float = ((GInit.world_time[1] * 60.0) + GInit.world_time[2])
 	var advance_by: float = minutes_passed / 60.0 / 10.0
 	call_deferred("advance", advance_by)

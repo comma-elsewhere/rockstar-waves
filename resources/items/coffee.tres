@@ -12,5 +12,5 @@ script = ExtResource("1_8as2a")
 texture = SubResource("AtlasTexture_cl7mq")
 drink_name = "Red Eye Coffee"
 price = 3.25
-inspo_amount = 15
+inspo_amount = 25
 metadata/_custom_type_script = "uid://cj3rc4v3xhs3m"

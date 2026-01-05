@@ -8,5 +8,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4522614, 8.8, 15.383621)
 light_color = Color(1, 1, 0.7176471, 1)
 light_energy = 4.0
 light_indirect_energy = 2.0
+light_bake_mode = 1
 omni_range = 20.0
 script = ExtResource("1_rncop")
